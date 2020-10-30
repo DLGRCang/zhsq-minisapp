@@ -30,7 +30,7 @@
 }
 /* 第二部分 */
 .gg_box{width:92%;height:100rpx;line-height:100rpx;background: #fff;
-margin:0 auto;border-radius:15rpx;margin-top:50rpx;padding-lefet:45rpx;
+margin:0 auto;border-radius:15rpx;margin-top:50rpx;padding-left:45rpx;
 }
 .tz,.gg{font-size:32rpx;}
 .tz{color:#188BFF;font-weight: 600;}

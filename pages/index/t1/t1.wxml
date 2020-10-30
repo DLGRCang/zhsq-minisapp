@@ -32,7 +32,7 @@
 <!-- 第二部分 -->
 <view class="gg_box">
    <text class="tz">通知<text class="gg">公告</text>
-   <text class="gg_content">紧急通知！呼和浩特市应对新型冠状病毒...<text class="cuIcon-right lg text-gray"></text></text>
+   <text class="gg_content">紧急通知！呼和浩特市应对新型冠状...<text class="cuIcon-right lg text-gray"></text></text>
 </text>
 </view>
 
