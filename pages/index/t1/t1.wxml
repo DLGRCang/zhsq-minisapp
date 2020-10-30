@@ -9,7 +9,7 @@
       <view class="head_content_box">
         <view class="box_tk">
         <image src="../../../images/tb01.png"></image>
-        <text>访客通行aaa</text>   
+        <text>访客通行</text>   
         </view>
 
         <view class="box_tk">
@@ -124,7 +124,7 @@
 
 
 <!-- 第七部分 社区新闻二-->
-<view class="sqxw_box" style="margin-top:0rpx;margin-bottom:35%">
+<view class="sqxw_box" style="margin-top:0rpx">
   <view class="seven_boxtwo">
     <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！31省区市新增42例确诊,其中境外输入病例20例 战疫情</text>   
     <text>2020-10-28</text>   

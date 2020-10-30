@@ -8,7 +8,7 @@
     </view>
     
   </view>
-  <view class="box-body">
+  <view class="box-body" style="padding-bottom:35%">
     <view class="back-box1"></view>
     <view class="back-box2"></view>
     <view class="back-box3"></view>

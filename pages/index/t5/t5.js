@@ -1,18 +1,25 @@
 // pages/index/t5/t5.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    t5state:[
+      {id:1,img:'../../../images/t5/state1.png',text:'我的订单'},
+      {id:2,img:'../../../images/t5/state2.png',text:'我的预约'},
+      {id:3,img:'../../../images/t5/state3.png',text:'我的投票'},
+      {id:4,img:'../../../images/t5/state4.png',text:'我的活动'}
+    ],
+    rightHui:'../../../images/t5/right-hui.png'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -26,7 +33,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(this.data.t5state)
   },
 
   /**
