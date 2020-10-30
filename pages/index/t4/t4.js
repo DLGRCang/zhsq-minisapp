@@ -1,11 +1,14 @@
 // pages/index/t4/t4.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    ColorList: app.globalData.ColorList,
   },
 
   /**
@@ -15,6 +18,11 @@ Page({
 
   },
 
+  pageBack() {
+    wx.navigateBack({
+      delta: 1
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

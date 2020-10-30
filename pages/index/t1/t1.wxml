@@ -1,10 +1,8 @@
 
 
 <view>
-
-
 <!-- 第一部分 头部 -->
-<view class="bg-blue head_content">
+<view class="head_content">
    <image src="../../../images/index_banner.png" ></image>
       <view class="head_content_box">
         <view class="box_tk">
