@@ -6,7 +6,7 @@
 /* 头部样式 */
 .head_content{
   width:100%;
-  height:400rpx;
+  height:auto;
   text-align: center;
 }
 .head_content>image{
@@ -15,8 +15,8 @@
 .head_content_box{
   width:92%;
   background:white;
-  height:240rpx;margin:0 auto;border-radius:15rpx;
-  margin-top:-110rpx;padding:30rpx;
+  height:auto;margin:0 auto;margin-top:-110rpx;border-radius:15rpx;
+    padding: 30rpx 15rpx 85rpx 15rpx;
   clear: both;overflow: hidden;
 }
 .head_content_box>.box_tk{
@@ -30,7 +30,7 @@
 }
 /* 第二部分 */
 .gg_box{width:92%;height:100rpx;line-height:100rpx;background: #fff;
-margin:0 auto;border-radius:15rpx;margin-top:50rpx;padding-left:45rpx;
+margin:0 auto;border-radius:15rpx;margin-top:30rpx;padding-left:45rpx;
 }
 .tz,.gg{font-size:32rpx;}
 .tz{color:#188BFF;font-weight: 600;}
