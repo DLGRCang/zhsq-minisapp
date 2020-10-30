@@ -13,7 +13,7 @@
   width:96%;height:280rpx;text-align: center;
 }
 .head_content_box{
-  width:92%;
+  width:92%; 
   background:white;
   height:auto;margin:0 auto;margin-top:-110rpx;border-radius:15rpx;
     padding: 30rpx 15rpx 85rpx 15rpx;
