@@ -1,0 +1,113 @@
+
+
+<view>
+
+
+<!-- 第一部分 头部 -->
+<view class="bg-blue head_content">
+   <image src="../../../images/index_banner.png" ></image>
+      <view class="head_content_box">
+        <view class="box_tk">
+        <image src="../../../images/tb01.png"></image>
+        <text>访客通行</text>   
+        </view>
+
+        <view class="box_tk">
+        <image src="../../../images/tb02.png"></image>
+        <text>物业维修</text>   
+        </view>
+
+          <view class="box_tk">
+        <image src="../../../images/tb03.png"></image>
+        <text>物业缴费</text>   
+        </view>
+
+          <view class="box_tk">
+        <image src="../../../images/tb04.png"></image>
+        <text>SOS求助</text>   
+        </view>
+</view>
+</view>
+
+<!-- 第二部分 -->
+<view class="gg_box">
+   <text class="tz">通知<text class="gg">公告</text>
+   <text class="gg_content">紧急通知！呼和浩特市应对新型冠状病毒...<text class="cuIcon-right lg text-gray"></text></text>
+</text>
+</view>
+
+<!-- 第三部分 -->
+<view class="sqhd_box">
+<text class="sqhd_title">社区活动</text>
+<view class="bigBox">
+    <view class="circleBox"></view>    
+    <view class="three_box">
+    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
+    <text>时间：11月12日</text>   
+    <text>地点：左右城左城南门小广场</text>   
+    <text>人数：50组家庭</text>   
+    <button class="bm_btn">报 名</button>
+  </view>   
+</view>
+</view>
+
+<!-- 第四部分 -->
+<view class="xqtp_box">
+<text class="sqhd_title">小区投票</text>
+<view class="bigBox">
+    <view class="circleBox"></view> 
+  <view class="four_box">
+    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
+    <text>2020-10-28</text>   
+    <button class="bm_btn_cur">投 票</button>
+  </view>
+</view>
+</view>
+<!-- 第五部分 -->
+<view class="xqtp_box">
+<text class="sqhd_title">小区公示</text>
+  <view class="bigBox">
+    <view class="circleBox"></view> 
+  <view class="four_box">
+    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
+    <text>2020-10-28</text>   
+    <button class="bm_btn_cur">投 票</button>
+  </view>
+</view>
+</view>
+<!-- 第六部分 -->
+<view class="xqtp_box">
+<text class="sqhd_title">问卷调查</text>
+ <view class="bigBox">
+    <view class="circleBox"></view> 
+  <view class="four_box">
+    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
+    <text>2020-10-28</text>   
+    <button class="bm_btn_cur">投 票</button>
+  </view>
+</view>
+</view>
+<!-- 第七部分 社区新闻-->
+<view class="sqxw_box">
+<text class="sqxw_title">社区新闻</text>
+<text class="font9 right more">查看更多<text class="cuIcon-right lg text-gray"></text></text>
+ <view class="seven_box">
+   <view class="seven_left">
+      <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
+      <text>2020-10-28</text>  
+   </view>
+     <view class="seven_right">
+      <image src="../../../images/componentBg.png"></image>
+     </view>
+  </view>
+</view> 
+
+
+<!-- 第七部分 社区新闻二-->
+<view class="sqxw_box" style="margin-top:0rpx;margin-bottom:35%">
+  <view class="seven_boxtwo">
+    <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！31省区市新增42例确诊,其中境外输入病例20例 战疫情</text>   
+    <text>2020-10-28</text>   
+  </view>
+</view>
+</view>
