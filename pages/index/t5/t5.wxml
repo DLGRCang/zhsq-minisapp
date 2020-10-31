@@ -1,4 +1,4 @@
-<view class="t5">
+<view class="t5" style="padding-bottom:40%">
   <view class="my-top">
     <view class="top-1">
       <view class="top-1-1"></view>
@@ -18,13 +18,31 @@
   <view class="my-b-from">
     <view class="my-p-from">
       <view class="bot-border">
-        <text>出行记录</text>
+        <text>我的预约</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
   <view class="my-p-from">
     <view class="bot-border">
-        <text>出行记录</text>
+        <text>我的投票</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-from">
+        <text>我的活动</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+  </view>
+  </view>
+  <view class="my-b-from">
+    <view class="my-p-from">
+      <view class="bot-border">
+        <text>缴费记录</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>维修记录</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
@@ -36,36 +54,18 @@
   <view class="my-b-from">
     <view class="my-p-from">
       <view class="bot-border">
-        <text>出行记录</text>
+        <text>帮助反馈</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
   <view class="my-p-from">
     <view class="bot-border">
-        <text>出行记录</text>
+        <text>关于我们</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
   <view class="my-from">
-        <text>出行记录</text>
-        <image class="fromImg" src="{{rightHui}}"></image>
-  </view>
-  </view>
-  <view class="my-b-from">
-    <view class="my-p-from">
-      <view class="bot-border">
-        <text>出行记录</text>
-        <image class="fromImg" src="{{rightHui}}"></image>
-      </view>
-  </view>
-  <view class="my-p-from">
-    <view class="bot-border">
-        <text>出行记录</text>
-        <image class="fromImg" src="{{rightHui}}"></image>
-      </view>
-  </view>
-  <view class="my-from">
-        <text>出行记录</text>
+        <text>设置</text>
         <image class="fromImg" src="{{rightHui}}"></image>
   </view>
   </view>

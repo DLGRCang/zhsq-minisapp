@@ -14,5 +14,6 @@
 }
 .text-content{text-align: left;}
 .padding-right>text{padding-right:35rpx;}
-.fabu_btn{font-size:50rpx;right:2%;bottom:10%;position: fixed;border-radius: 50%;
-width:100rpx;height:100rpx;font-weight: bold;}
+.fabu_btn{font-size:30rpx;right:2%;bottom:10%;position: fixed;border-radius: 50%;
+width:70rpx;height:70rpx;font-weight: bold;display: flex;
+align-items: center;justify-content: center;}

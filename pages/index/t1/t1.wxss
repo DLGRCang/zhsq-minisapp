@@ -4,22 +4,45 @@
 .font9{color:#999999;}
 .right{float:right;}
 
-
+.t1{
+  width: 100%;
+  padding: 0 30rpx 40%;
+}
 /* 头部样式 */
 .head_content{
   width:100%;
-  height:auto;
-  text-align: center;
+  margin-bottom: 25rpx;
 }
 .head_content>image{
-  width:96%;height:280rpx;text-align: center;
+  width:100%;height:140rpx;
 }
 .head_content_box{
-  width:92%; 
-  background:white;
-  height:auto;margin:0 auto;margin-top:-110rpx;border-radius:15rpx;
-    padding: 30rpx 15rpx 85rpx 15rpx;
-  clear: both;overflow: hidden;
+  width:100%; 
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 12rpx;
+}
+.content-box-nei{
+  width: 25%;
+  height: 155rpx;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.content-box-nei image{
+  width: 72rpx;
+  height: 72rpx;
+  margin: 0 auto 12rpx;
+}
+.content-box-nei view{
+  width: 100%;
+  
+font-size: 22rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
 }
 .head_content_box>.box_tk{
   width:20%;color: #000;
@@ -31,7 +54,7 @@
   padding-bottom: 10rpx;
 }
 /* 第二部分 */
-.gg_box{width:92%;height:100rpx;line-height:100rpx;background: #fff;
+.gg_box{width:100%;height:100rpx;line-height:100rpx;background: #fff;
 margin:0 auto;border-radius:15rpx;margin-top:30rpx;padding-left:45rpx;
 }
 .tz,.gg{font-size:32rpx;}
@@ -42,8 +65,8 @@ margin:0 auto;border-radius:15rpx;margin-top:30rpx;padding-left:45rpx;
 
 /* 第三部分 */
 .sqhd_box{color: #000;
-  width:96%;margin:0 auto;text-align: left;
-padding:15rpx;
+  width:100%;margin:15rpx auto 0;text-align: left;
+  
 }
 
 .sqhd_box>.bigBox{
@@ -87,8 +110,8 @@ margin-right: 25rpx;
 
 /* 第四部分 */
 .xqtp_box{color: #000;
-  width:96%;margin:0 auto;text-align: left;
-padding:15rpx;
+  width:100%;margin:25rpx auto 0;text-align: left;
+
 }
 .xqtp_box>.bigBox{border-radius: 15rpx;
   width:100%;height: auto;padding:25rpx;
@@ -111,8 +134,7 @@ color: #333333;}
 
 /* 第七部分 社区新闻*/
 .sqxw_box{color: #000;clear: both;overflow: hidden;
-  width:96%;margin:0 auto;text-align: left;
-padding:15rpx;
+  width:100%;margin:30rpx auto;text-align: left;
 }
 .sqxw_title{color:#000;font-size:35rpx;font-weight: 600;
 line-height: 2;}

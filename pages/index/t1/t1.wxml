@@ -1,10 +1,11 @@
 
 
-<view>
+<view class="t1">
 <!-- 第一部分 头部 -->
 <view class="head_content">
-   <image src="../../../images/index_banner.png" ></image>
-      <view class="head_content_box">
+   <image src="../../../images/t1/index_banner.png" ></image>
+      <!-- <view class="head_content_box">
+       
         <view class="box_tk">
         <image src="../../../images/tb01.png"></image>
         <text>访客通行</text>   
@@ -43,15 +44,20 @@
         <view class="box_tk" style="padding-top:35rpx;">
         <image src="../../../images/tb08.png"></image>
         <text>查看全部</text>   
-        </view>
+        </view> 
+</view> -->
 </view>
+<view class="head_content_box">
+    <view class="content-box-nei" wx:for="{{datat1}}">
+      <image src="{{item.image}}"></image>
+      <view>{{item.text}}</view>
+    </view>
 </view>
-
 <!-- 第二部分 -->
 <view class="gg_box">
    <text class="tz">通知<text class="gg">公告</text>
    <text class="gg_content">紧急通知！呼和浩特市应对新型冠状...<text class="cuIcon-right lg text-gray"></text></text>
-</text>
+  </text>
 </view>
 
 <!-- 第三部分 -->
@@ -115,7 +121,7 @@
       <text>2020-10-28</text>  
    </view>
      <view class="seven_right">
-      <image src="../../../images/componentBg.png"></image>
+      <image src="../../../images/t1/componentBg.png"></image>
      </view>
   </view>
 </view> 

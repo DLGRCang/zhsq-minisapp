@@ -8,7 +8,7 @@
     </view>
     
   </view>
-  <view class="box-body" style="padding-bottom:40%">
+  <view class="box-body">
     <view class="back-box1"></view>
     <view class="back-box2"></view>
     <view class="back-box3"></view>
@@ -39,7 +39,7 @@
     </view>
     <view class="action text-gray add-action" bindtap="NavChange" data-cur="t3">
 
-      <image class="cu-btn img3" src="../../images/tabbar/3.png"></image>
+      <image class="img3" src="../../images/tabbar/3.png"></image>
       <view class="{{PageCur=='t3'?'text-ttt':'text-nnn'}}">一键开门</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t4">
