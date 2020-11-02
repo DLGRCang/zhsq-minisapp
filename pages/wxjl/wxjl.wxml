@@ -1,0 +1,73 @@
+<!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+    <view slot="content">维修记录</view>
+  </cu-custom>
+
+  <view class="top-navigation bg-gray">
+    <view>
+      <text class="cuIcon-location"></text>
+      <view style="width:324rpx">左右城左E4 1单元1203</view>
+    </view>
+  </view>
+
+<!--  -->
+<view class="wxjl_content" style="margin-top:115rpx;">
+   <view class="content_box">
+     <view class="content_title">
+      <text>2020-10-30</text>
+      <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
+     </view>
+
+     <view class="box_btn">
+      <button class="bg-blue">完成</button>
+    </view>
+    </view>
+</view>
+
+<view class="wxjl_content">
+   <view class="content_box">
+     <view class="content_title02">
+      <text>2020-10-30</text>
+      <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
+     </view>
+     <view class="box_btn02">
+      <text class="">已解决</text>
+    </view>
+    </view>
+</view>
+
+<view class="wxjl_content">
+   <view class="content_box">
+     <view class="content_title02">
+      <text>2020-10-30</text>
+      <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
+     </view>
+     <view class="box_btn02">
+      <text class="">已解决</text>
+    </view>
+    </view>
+</view>
+
+<view class="wxjl_content">
+   <view class="content_box">
+     <view class="content_title02">
+      <text>2020-10-30</text>
+      <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
+     </view>
+     <view class="box_btn02">
+      <text class="">已解决</text>
+    </view>
+    </view>
+</view>
+
+<view class="wxjl_content">
+   <view class="content_box">
+     <view class="content_title02">
+      <text>2020-10-30</text>
+      <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
+     </view>
+     <view class="box_btn02">
+      <text class="">已解决</text>
+    </view>
+    </view>
+</view>

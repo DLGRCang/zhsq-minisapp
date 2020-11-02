@@ -116,6 +116,7 @@
 <text class="sqxw_title">社区新闻</text>
 <text class="font9 right more">查看更多<text class="cuIcon-right lg text-gray"></text></text>
  <view class="seven_box">
+
    <view class="seven_left">
       <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
       <text>2020-10-28</text>  
@@ -123,7 +124,12 @@
      <view class="seven_right">
       <image src="../../../images/t1/componentBg.png"></image>
      </view>
+    <view class="text-gray text-sm text-left padding-right">
+      <text class="cuIcon-favor margin-lf-xs text-gray" style="padding-right:35rpx;"> 收藏</text> 
+      <text class="cuIcon-share margin-lf-xs text-gray"> 分享</text> 
+    </view>
   </view>
+  
 </view> 
 
 
@@ -132,6 +138,11 @@
   <view class="seven_boxtwo">
     <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！31省区市新增42例确诊,其中境外输入病例20例 战疫情</text>   
     <text>2020-10-28</text>   
+    <view class="text-gray text-sm text-left padding-right">
+      <text class="cuIcon-favor margin-lf-xs text-yellow" style="padding-right:35rpx;"> 已收藏</text> 
+      <text class="cuIcon-share margin-lf-xs text-gray"> 分享</text> 
+    </view>
   </view>
+
 </view>
 </view>

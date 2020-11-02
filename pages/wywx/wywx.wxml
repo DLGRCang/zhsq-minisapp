@@ -1,0 +1,43 @@
+
+<cu-custom bgColor="bg-gradual-gray" isBack="{{true}}">
+    <view slot="content">物业维修</view>
+  </cu-custom>
+
+<!-- 内容 -->
+<view class="wywx_content">
+<view class="wxjl_title">维修记录<text class="cuIcon-right lg text-gray"></text></view>
+
+<form>
+
+<view class="wx_timebox">
+<text class="wx_title"><text class="text-red">*</text>维修时段</text>
+  <view class="wx_time">
+		<input disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请选择维修时段"></input>
+  </view>
+</view>
+	<!-- !!!!! placeholder 在ios表现有偏移 建议使用 第一种样式 -->
+	<view class="wx_timebox">
+    <text class="wx_title"><text class="text-red">*</text>问题描述</text>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请您详细描述您所遇到的问题"></textarea>
+	</view>
+
+  
+	<view class="wx_timebox">
+		<text class="wx_title">添加照片</text>
+  <!-- </view> -->
+  
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
+				<text class="cuIcon-add lg text-gray"></text>
+			</view>
+    </view>
+  </view>
+</form>
+  <button class="tj_btn">提交预约</button>
+</view>

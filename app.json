@@ -1,5 +1,9 @@
 {
   "pages": [
+
+    "pages/wywx/wywx",
+    "pages/wyjf/wyjf",
+    "pages/wxjl/wxjl",
     "pages/index/index",
     "pages/my/my",
     "pages/login/login",

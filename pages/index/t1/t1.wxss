@@ -147,7 +147,7 @@ line-height: 2;}
   position: relative;overflow: hidden;clear:both;
 }
 .sqxw_box>.seven_box>.seven_left{
-color: #999999;width: 70%;float:left;}
+color: #999999;width: 75%;float:left;}
 .sqxw_box>.seven_box>.seven_left>text{display: block;line-height:1.3;}
 .sqxw_box>.seven_box>.seven_right{
   width:25%;height:130rpx;float:right; 
