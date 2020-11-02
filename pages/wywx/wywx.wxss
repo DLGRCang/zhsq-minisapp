@@ -37,3 +37,10 @@ border-radius: 12rpx;
   background: linear-gradient(60deg, #66B7F9, #3A91F7);
   border-radius: 44rpx;
 }
+
+.tui-picker-content{
+  position: absolute;
+z-index: 9;
+  top: 24%;
+  right: 52rpx;
+}

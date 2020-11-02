@@ -1,199 +1,43 @@
-const app = getApp();
+var dateTimePicker = require('../../utils/dateTimePicker.js');
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    index: null,
-    multiArray: [
-      ['2020-02-11','2020-02-11','2020-02-11','2020-02-11','2020-02-11'],
-      ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'],
-      ['猪肉绦虫', '吸血虫']
-    ],
-    objectMultiArray: [
-      [{
-          id: 0,
-          name: '无脊柱动物'
-        },
-        {
-          id: 1,
-          name: '脊柱动物'
-        }
-      ],
-      [{
-          id: 0,
-          name: '扁性动物'
-        },
-        {
-          id: 1,
-          name: '线形动物'
-        },
-        {
-          id: 2,
-          name: '环节动物'
-        },
-        {
-          id: 3,
-          name: '软体动物'
-        },
-        {
-          id: 3,
-          name: '节肢动物'
-        }
-      ],
-      [{
-          id: 0,
-          name: '猪肉绦虫'
-        },
-        {
-          id: 1,
-          name: '吸血虫'
-        }
-      ]
-    ],
-    multiIndex: [0, 0, 0],
-    time: '12:01',
-    date: '2018-12-25',
-    region: ['广东省', '广州市', '海珠区'],
-    imgList: [],
-    modalName: null,
-    textareaAValue: '',
-    textareaBValue: ''
+    date: '2018-10-01',
+    time: '12:00',
+    dateTimeArray: null,
+    dateTime: null,
+    startYear: 2000,
+    endYear: 2050,
+    shows: true
   },
-  PickerChange(e) {
-    console.log(e);
+  onLoad(){
+    // 获取完整的年月日 时分秒，以及默认显示的数组
+    var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
+    // 精确到分的处理，将数组的秒去掉
+    var lastArray = obj1.dateTimeArray.pop();
+    var lastTime = obj1.dateTime.pop();
+    
     this.setData({
-      index: e.detail.value
-    })
-  },
-  MultiChange(e) {
-    this.setData({
-      multiIndex: e.detail.value
-    })
-  },
-  MultiColumnChange(e) {
-    let data = {
-      multiArray: this.data.multiArray,
-      multiIndex: this.data.multiIndex
-    };
-    data.multiIndex[e.detail.column] = e.detail.value;
-    switch (e.detail.column) {
-      case 0:
-        switch (data.multiIndex[0]) {
-          case 0:
-            data.multiArray[1] = ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'];
-            data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
-            break;
-          case 1:
-            data.multiArray[1] = ['鱼', '两栖动物', '爬行动物'];
-            data.multiArray[2] = ['鲫鱼', '带鱼'];
-            break;
-        }
-        data.multiIndex[1] = 0;
-        data.multiIndex[2] = 0;
-        break;
-      case 1:
-        switch (data.multiIndex[0]) {
-          case 0:
-            switch (data.multiIndex[1]) {
-              case 0:
-                data.multiArray[2] = ['猪肉绦虫', '吸血虫'];
-                break;
-              case 1:
-                data.multiArray[2] = ['蛔虫'];
-                break;
-              case 2:
-                data.multiArray[2] = ['蚂蚁', '蚂蟥'];
-                break;
-              case 3:
-                data.multiArray[2] = ['河蚌', '蜗牛', '蛞蝓'];
-                break;
-              case 4:
-                data.multiArray[2] = ['昆虫', '甲壳动物', '蛛形动物', '多足动物'];
-                break;
-            }
-            break;
-          case 1:
-            switch (data.multiIndex[1]) {
-              case 0:
-                data.multiArray[2] = ['鲫鱼', '带鱼'];
-                break;
-              case 1:
-                data.multiArray[2] = ['青蛙', '娃娃鱼'];
-                break;
-              case 2:
-                data.multiArray[2] = ['蜥蜴', '龟', '壁虎'];
-                break;
-            }
-            break;
-        }
-        data.multiIndex[2] = 0;
-        break;
-    }
-    this.setData(data);
-  },
-  TimeChange(e) {
-    this.setData({
-      time: e.detail.value
-    })
-  },
-  DateChange(e) {
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  RegionChange: function(e) {
-    this.setData({
-      region: e.detail.value
-    })
-  },
-  ChooseImage() {
-    wx.chooseImage({
-      count: 9, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
-      success: (res) => {
-        if (this.data.imgList.length != 0) {
-          this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
-          })
-        } else {
-          this.setData({
-            imgList: res.tempFilePaths
-          })
-        }
-      }
+      dateTime: obj.dateTime,
+      dateTimeArray: obj.dateTimeArray,
+      dateTimeArray1: obj1.dateTimeArray,
+      dateTime1: obj1.dateTime
     });
+
   },
-  ViewImage(e) {
-    wx.previewImage({
-      urls: this.data.imgList,
-      current: e.currentTarget.dataset.url
-    });
-  },
-  DelImg(e) {
-    wx.showModal({
-      title: '删除',
-      content: '确定要删除图片吗？',
-      cancelText: '取消',
-      confirmText: '删除',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-          this.setData({
-            imgList: this.data.imgList
-          })
-        }
-      }
-    })
-  },
+
   textareaAInput(e) {
-    this.setData({
-      textareaAValue: e.detail.value
+    console.log("e")
+    var that = this;
+    var sh = that.data.shows;
+    that.setData({
+      shows: !sh
     })
   },
-  textareaBInput(e) {
-    this.setData({
-      textareaBValue: e.detail.value
-    })
-  }
+
+  changeDateTime(e) {
+    this.setData({ dateTime1: e.detail.value });
+  },
+
 })
+
