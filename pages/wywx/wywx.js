@@ -29,7 +29,6 @@ Page({
   },
 
   changeDateTime(e) {
-<<<<<<< HEAD
 
     this.setData({ dateTime1: e.detail.value,times:false });
   },
@@ -73,9 +72,7 @@ DelImg(e) {
       }
     }
   })
-   },
-=======
-    this.setData({ dateTime1: e.detail.value });
+   
   },
   // 照片功能
   ChooseImage() {
@@ -119,6 +116,7 @@ DelImg(e) {
     })
      },
      
->>>>>>> 21d068b12da57cd948d4c443c68cdd966079116c
+
 })
+
 
