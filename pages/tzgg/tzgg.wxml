@@ -1,0 +1,91 @@
+
+<cu-custom bgColor="bg-gray" isBack="{{true}}">
+    <view slot="content">通知公告</view>
+  </cu-custom>
+
+  <!-- 内容 第一栏目 -->
+  <view class="tzgg_content">
+       <view class="cu-list">
+        <view class="text-grey"><view class="wy">物业</view>紧急通知</view>
+          <view class="text-gray text-content text-df">
+            新疆维吾尔自治区卫生健康委最新通报，10月27日0时至24时，新疆维吾尔自治区报告新增新冠肺炎确诊病例...
+          </view>
+
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">2020-10-28</view>
+            <view>
+              <text class="text-blue">详情<text class="cuIcon-right lg text-blue"></text></text>
+            </view>
+          </view>
+        </view>
+  </view>
+  
+  <!-- 内容 第二栏目 复制 -->
+  <view class="tzgg_content">
+       <view class="cu-list">
+        <view class="text-grey"><view class="wy">社区</view>社区活动通知</view>
+          <view class="text-gray text-content text-df">
+            社区定于xx月x日(本周日)上午在中园广场举行"金陵晚报社区行"活动，有表演、抽奖、游戏互动换届，也欢迎...
+          </view>
+
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">2020-10-28</view>
+            <view>
+              <text class="text-blue">详情<text class="cuIcon-right lg text-blue"></text></text>
+            </view>
+          </view>
+        </view>
+  </view>
+
+  
+  <!-- 内容 第三栏目 复制-->
+  <view class="tzgg_content">
+       <view class="cu-list">
+        <view class="text-grey"><view class="wy">物业</view>通知</view>
+          <view class="text-gray text-content text-df">
+            由于供电局停电检修，城发将所有设备停止运行，明天上午暖气再次注水，请家中留人，尤其办理停暖和拆卸暖...
+          </view>
+
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">2020-10-28</view>
+            <view>
+              <text class="text-blue">详情<text class="cuIcon-right lg text-blue"></text></text>
+            </view>
+          </view>
+        </view>
+  </view>
+
+    <!-- 内容 第四栏目 复制 -->
+    <view class="tzgg_content">
+       <view class="cu-list">
+        <view class="text-grey"><view class="wy">社区</view>社区活动通知</view>
+          <view class="text-gray text-content text-df">
+            社区定于xx月x日(本周日)上午在中园广场举行"金陵晚报社区行"活动，有表演、抽奖、游戏互动换届，也欢迎...
+          </view>
+
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">2020-10-28</view>
+            <view>
+              <text class="text-blue">详情<text class="cuIcon-right lg text-blue"></text></text>
+            </view>
+          </view>
+        </view>
+  </view>
+
+  
+  <!-- 内容 第五栏目 复制-->
+  <view class="tzgg_content">
+       <view class="cu-list">
+        <view class="text-grey"><view class="wy">物业</view>通知</view>
+          <view class="text-gray text-content text-df">
+            由于供电局停电检修，城发将所有设备停止运行，明天上午暖气再次注水，请家中留人，尤其办理停暖和拆卸暖...
+          </view>
+
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">2020-10-28</view>
+            <view>
+              <text class="text-blue">详情<text class="cuIcon-right lg text-blue"></text></text>
+            </view>
+          </view>
+        </view>
+  </view>

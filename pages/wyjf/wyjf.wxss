@@ -1,0 +1,69 @@
+/* 公共颜色 */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+.font9{color:#999999;}
+.right{float:right;}
+
+.top-navigation{
+  width: 100%;position: fixed;
+  -moz-box-shadow:2px 2px 5px #DEE6F0; 
+  -webkit-box-shadow:2px 2px 5px #DEE6F0; 
+  box-shadow:2px 2px 5px #DEE6F0;
+  display: flex;
+  /* border-top:none; */
+  align-items: flex-end;
+  padding: 25rpx;
+  box-sizing: border-box;z-index: 9999;
+}
+.top-navigation view{
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color:#333;
+}
+.top-navigation text:first-child{
+  font-size: 30rpx;
+  color:#333;
+  margin-right: 8rpx;
+}
+/* .top-navigation text:last-child{
+  font-size: 11rpx;
+  color: #333;
+  margin-left: 10rpx;
+} */
+
+/* 内容部分样式 */
+.wxjl_content{
+  width:96%;margin:35rpx auto;
+}
+.wxjl_content>.content_box{
+  width:100%;margin:0 auto;height:auto;
+  padding:35rpx;background: #fff;border-radius:15rpx;
+ overflow:hidden; 
+  clear:both;
+}
+.content_title{
+ float: left; border-right:1px solid #DEE6F0;padding-right:35rpx;
+}
+.wxjl_image{
+width:120rpx;height:120rpx;background: none;
+}
+.wxjl_image>image{width:100%;height:100%;}
+
+.box_btn>button{
+  width:125rpx;height:65rpx;line-height:65rpx;font-size: 28rpx;
+  border-radius: 50rpx;float:right;position: relative;
+}
+/* 第二个样式 已解决样式 */
+.content_title02{
+  width:75%;height:auto;float: left; border-right:1px solid #DEE6F0;
+}
+.content_title02>text{line-height: 2;color: #999;font-size: 32rpx;font-weight: 400;}
+.content_title02>view{padding-right:35rpx;color: #999;font-size: 28rpx;}
+
+.box_btn02>text{
+font-size: 28rpx;display: block;color: #999;
+padding-right:25rpx;
+}
+
+.cu-item{width: 100%;border-radius: 15rpx;}
