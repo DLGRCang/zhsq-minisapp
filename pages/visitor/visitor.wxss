@@ -100,3 +100,55 @@ font-family: Microsoft YaHei;
 font-weight: 400;
 color: #333333;
 }
+.mima{
+  width: 100%;
+  padding: 60rpx 80rpx 30rpx;
+  box-sizing: border-box;
+}
+.content{ 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+ } 
+ .iptbox{ 
+  width: 55rpx;
+height: 55rpx;
+background: rgba(51, 51, 51, 0);
+border: 2rpx solid #DDDDDD;
+border-radius: 6rpx;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+ } 
+ .ipt{ 
+  width: 0; 
+  height: 0; 
+ } 
+ .btn-area{ 
+  width: 80%; 
+  background-color: orange; 
+  color:white; 
+ }
+.ckewm{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #188BFF;
+margin-bottom: 50rpx;
+}
+
+.xsewm{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.xsewm view{
+  width: 370rpx;
+  height: 370rpx;
+  border: 1rpx solid #000;
+}

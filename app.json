@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/visitor/visitor",
+    
     "pages/wywx/wywx",
     "pages/tzgg/tzgg",
     "pages/wyjf/wyjf",
@@ -10,8 +12,8 @@
     "pages/login/login",
     "pages/index/category-1/category-1",
     "pages/index/category-2/category-2",
-    "pages/floor/floor",
-    "pages/visitor/visitor"
+    "pages/floor/floor"
+ 
   ],
   "window": {
     "backgroundTextStyle": "light",
