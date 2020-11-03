@@ -1,6 +1,0 @@
-<view class="my">
-  <cu-custom bgColor="bg-gradual-blue">
-    <view slot="content">ColorUI 我的</view>
-  </cu-custom>
-  <view>我的</view>
-</view>

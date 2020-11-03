@@ -2,13 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/visitor/visitor",
-    
     "pages/wywx/wywx",
     "pages/tzgg/tzgg",
     "pages/wyjf/wyjf",
     "pages/wxjl/wxjl",
- 
-    "pages/my/my",
     "pages/login/login",
     "pages/index/category-1/category-1",
     "pages/index/category-2/category-2",
