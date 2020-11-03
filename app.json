@@ -3,15 +3,10 @@
     "pages/index/index",
     "pages/my/my",
     "pages/login/login",
-    "pages/index/t1/t1",
-    "pages/index/t2/t2",
-    "pages/index/t3/t3",
-    "pages/index/t4/t4",
-    "pages/index/t5/t5",
-    "pages/index/t6/t6",
-    "pages/index/t7/t7",
-    "pages/index/t8/t8",
-    "pages/index/t9/t9"
+    "pages/index/category-1/category-1",
+    "pages/index/category-2/category-2",
+    "pages/floor/floor",
+    "pages/visitor/visitor"
   ],
   "window": {
     "backgroundTextStyle": "light",

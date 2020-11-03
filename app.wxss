@@ -2,4 +2,5 @@
 @import "colorui/icon.wxss";
 page{
   height: 100%;
+  background: #f9f9f9;
 }

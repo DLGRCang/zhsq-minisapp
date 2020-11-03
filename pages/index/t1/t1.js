@@ -1,81 +1,150 @@
 // pages/index/t1/t1.js
 import common from '../../../utils/common'
-
-Page({
-
+var app = getApp();
+Component({
   /**
-   * 页面的初始数据
+   * 组件的属性列表
+   */
+  properties: {
+    
+  },
+ 
+  /**
+   * 组件的初始数据
    */
   data: {
-    datat1:[
-      {id:1,image:'../../../images/t1/tb01.png',text:"访客通行"},
-      {id:2,image:'../../../images/t1/tb02.png',text:"物业维修"},
-      {id:3,image:'../../../images/t1/tb03.png',text:"物业缴费"},
-      {id:4,image:'../../../images/t1/tb04.png',text:"生活缴费"},
-      {id:5,image:'../../../images/t1/tb05.png',text:"楼栋布局"},
-      {id:6,image:'../../../images/t1/tb06.png',text:"活动设施"},
-      {id:7,image:'../../../images/t1/tb07.png',text:"SOS求助"},
-      {id:8,image:'../../../images/t1/tb08.png',text:"查看全部"}
-    ]
+    dataItem:[
+      {id:1,image:'../../../images/t1/tb01.png',text:"访客通行",url:'/pages/visitor/visitor'},
+      {id:2,image:'../../../images/t1/tb02.png',text:"物业维修",url:''},
+      {id:3,image:'../../../images/t1/tb03.png',text:"物业缴费",url:''},
+      {id:4,image:'../../../images/t1/tb04.png',text:"生活缴费",url:''},
+      // {id:5,image:'../../../images/t1/tb05.png',text:"楼栋布局",url:'/pages/floor/floor'},
+  
+
+    ],
+    dataItem1:[],
+    dataItem2:[],
+    scrollLeft:'',
+    lefthua:'2'
   },
+ 
+  /**
+   * 组件的方法列表
+   */
+  methods: {
  //点击登录
  loginClick(){
   common.checkLogin()
-
-},
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  contentClick(e){
+    //console.log(e.currentTarget.dataset.url)
+    if(e.currentTarget.dataset.url != ''){
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
+      })
+    }
+    
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getleft(e){
+    //console.log(e)
+    this.setData({
+      scrollLeft:e.detail.scrollLeft
+    })
   }
+
+  },
+ 
+  /*组件生命周期*/ 
+  lifetimes: {
+    //在组件实例刚刚被创建时执行
+    created() {
+      var dataItem = this.data.dataItem
+      
+    },
+    
+    //在组件实例进入页面节点树时执行
+    attached() { 
+      
+    },
+    //在组件在视图层布局完成后执行
+    ready() {
+      var dataItem = this.data.dataItem
+      var dataItem1 = []
+      var dataItem2 = []
+      var times = dataItem.length/2
+      if(dataItem.length%2==0){
+        for(var i=0;i<times;i++){
+          dataItem1.push(dataItem[i])
+        }
+        for(var u=0;u<dataItem.length;u++){
+          if(u > times-1){
+            dataItem2.push(dataItem[u])
+          }
+        }
+      }else{
+
+        for(var i=0;i<times+0.5;i++){
+          dataItem1.push(dataItem[i])
+        }
+        for(var u=0;u<dataItem.length;u++){
+        
+          if(u > times-0.5){
+            dataItem2.push(dataItem[u])
+          }
+        }
+      }
+
+
+      if(dataItem.length == 9||dataItem.length == 10){
+        this.setData({
+          lefthua:2
+        })
+      }else if(dataItem.length == 11||dataItem.length == 12){
+        this.setData({
+          lefthua:4
+        })
+      }else if(dataItem.length == 13||dataItem.length == 14){
+        this.setData({
+          lefthua:6
+        })
+      }
+      
+      this.setData({
+        dataItem1:dataItem1,
+        dataItem2:dataItem2,
+        
+      })
+      
+    },
+ 
+    //在组件实例被移动到节点树另一个位置时执行
+    moved() {
+
+    },
+    //在组件实例被从页面节点树移除时执行
+    detached() {
+  
+    },
+    //每当组件方法抛出错误时执行
+    error() {
+
+    },
+    /*组件所在页面的生命周期 */
+    pageLifetimes: {
+      show: function () {
+        // 页面被展示
+ 
+      },
+      hide: function () {
+        // 页面被隐藏
+
+      },
+      resize: function (size) {
+        // 页面尺寸变化
+   
+      }
+    }
+   
+  }
+ 
 })

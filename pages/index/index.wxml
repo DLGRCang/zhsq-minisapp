@@ -1,12 +1,12 @@
 
 <view class="box" wx:if="{{login == 1}}">
   <view class="top-navigation">
-    <view>
+    <view wx:if="{{PageCur=='t1'}}">
       <text class="cuIcon-location"></text>
       <view style="width:324rpx">左右城左E4 1单元1203</view>
       <text class="cuIcon-right lg" style="font-size:20rpx"></text>
     </view>
-    
+    <view wx:if="{{PageCur=='t5'}}">我的</view>
   </view>
   <view class="box-body">
     <view class="back-box1"></view>

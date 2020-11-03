@@ -1,0 +1,13 @@
+<view class="floor">
+  <view class="top-navigation">
+    <text class="cuIcon-back" bindtap="floorTui"></text>
+    <text>楼栋布局</text>
+    <text></text>
+  </view>
+  <view class="floorImg">
+    <view bindtouchmove="touchmoveCallback" bindtouchstart="touchstartCallback" style="width: {{ touch.scaleWidth }}px;">
+    <image src="../../images/timg.jpg" style="width: {{ touch.scaleWidth }}px;height: {{ touch.scaleHeight }}px" bindload="bindload"></image>
+  </view>
+    
+  </view>
+</view>

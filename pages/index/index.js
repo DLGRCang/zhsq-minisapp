@@ -24,10 +24,11 @@ Page({
     })
   },
   NavChange(e) {
-    console.log(e)
+    //console.log(e)
     this.setData({
       PageCur: e.currentTarget.dataset.cur
     })
+
   },
   onShareAppMessage() {
     return {

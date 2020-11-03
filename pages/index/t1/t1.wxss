@@ -8,28 +8,39 @@
   width: 100%;
   padding: 0 30rpx 40%;
 }
+
 /* 头部样式 */
 .head_content{
   width:100%;
+  height:140rpx;
   margin-bottom: 25rpx;
 }
 .head_content>image{
-  width:100%;height:140rpx;
+  width:100%;height: 100%;
 }
 .head_content_box{
   width:100%; 
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
   background: #fff;
-  border-radius: 12rpx;
+  border-radius: 12rpx 12rpx 0 0;
+}
+.head_content_box1{
+  white-space: nowrap;
 }
 .content-box-nei{
   width: 25%;
   height: 155rpx;
+  text-align: center;
+  display: inline-block;
+  
+}
+.ds-inline{
+  width: 100%;
+  height: 100%;
   display: flex;
   align-content: center;
   flex-wrap: wrap;
-  text-align: center;
 }
 .content-box-nei image{
   width: 72rpx;
@@ -43,6 +54,19 @@ font-size: 22rpx;
 font-family: Microsoft YaHei;
 font-weight: 400;
 color: #333333;
+}
+.hd-head{
+  width: 100%;
+  height: 30rpx;
+  background: #fff;
+  border-radius: 0 0 12rpx 12rpx;
+  display: flex;
+  justify-content: center;
+}
+.head-hua{
+  height: 30%;
+  background: #EEEEEE;
+  border-radius: 12rpx;
 }
 .head_content_box>.box_tk{
   width:20%;color: #000;

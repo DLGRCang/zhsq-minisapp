@@ -1,0 +1,24 @@
+<view class="visitor">
+  <view class="top-navigation">
+    <text class="cuIcon-back" bindtap="floorTui"></text>
+    <text>楼栋布局</text>
+    <text></text>
+  </view>
+  <view class="visitor-box">
+    <view class="box-top">
+      <text>访客预约</text>
+      <view>去预约</view>
+    </view>
+    <view class="box-km">
+      <view class="km-1">请选择开门方式</view>
+      <view class="km-2">
+        <view><text class="cuIcon-infofill" style="font-size:24rpx;color:#188BFF"></text></view>
+        <view>温馨提示：亲爱的用户，您的二维码有效期为：7天，请妥善使用二维码，避免泄露，给您带来不必要的麻烦。</view>
+      </view>
+    </view>
+    <view class="box-ewm">
+      <view class="ewm-1">请输入临时密码获取开门二维码</view>
+    </view>
+  </view>
+  
+</view>
