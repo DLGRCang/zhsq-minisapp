@@ -7,10 +7,7 @@
     "pages/wyjf/wyjf",
     "pages/wxjl/wxjl",
     "pages/login/login",
-    "pages/index/category-1/category-1",
-    "pages/index/category-2/category-2",
     "pages/floor/floor"
- 
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -2,63 +2,21 @@
 
 <view class="t1">
 <!-- 第一部分 头部 -->
-<view class="head_content">
+<view class="head_c">
    <image src="../../../images/t1/index_banner.png" ></image>
-      <!-- <view class="head_content_box">
-       
-        <view class="box_tk">
-        <image src="../../../images/tb01.png"></image>
-        <text>访客通行</text>   
-        </view>
-
-        <view class="box_tk">
-        <image src="../../../images/tb02.png"></image>
-        <text>物业维修</text>   
-        </view>
-
-          <view class="box_tk">
-        <image src="../../../images/tb03.png"></image>
-        <text>物业缴费</text>   
-        </view>
-
-        <view class="box_tk" >
-        <image src="../../../images/tb04.png"></image>
-        <text>生活缴费</text>   
-        </view>
-
-        <view class="box_tk" style="padding-top:35rpx;">
-        <image src="../../../images/tb05.png"></image>
-        <text>楼栋布局</text>   
-        </view>
-
-        <view class="box_tk" style="padding-top:35rpx;">
-        <image src="../../../images/tb06.png"></image>
-        <text>活动设施</text>   
-        </view>
-
-          <view class="box_tk" style="padding-top:35rpx;">
-        <image src="../../../images/tb07.png"></image>
-        <text>SOS求助</text>   
-        </view>
-
-        <view class="box_tk" style="padding-top:35rpx;">
-        <image src="../../../images/tb08.png"></image>
-        <text>查看全部</text>   
-        </view> 
-</view> -->
 </view>
-<view class="head_content_box">
+<view class="h-c-b">
   <scroll-view scroll-x="true" style="width:100%" bindscroll="getleft">
-  <view class="head_content_box1">
-    <view class="content-box-nei" wx:for="{{dataItem1}}" wx:key="index" bindtap="contentClick" data-url="{{item.url}}">
+  <view class="h-c-b1">
+    <view class="c-box-nei" wx:for="{{dataItem1}}" wx:key="index" bindtap="contentClick" data-url="{{item.url}}">
       <view class="ds-inline">
         <image src="{{item.image}}"></image>
         <view>{{item.text}}</view>
       </view>
     </view>
   </view>
-  <view class="head_content_box1">
-    <view class="content-box-nei" wx:for="{{dataItem2}}" wx:key="index" bindtap="contentClick" data-url="{{item.url}}">
+  <view class="h-c-b1">
+    <view class="c-box-nei" wx:for="{{dataItem2}}" wx:key="index" bindtap="contentClick" data-url="{{item.url}}">
       <view class="ds-inline">
         <image src="{{item.image}}"></image>
         <view>{{item.text}}</view>
@@ -76,9 +34,9 @@
 </view>
 
 <!-- 第二部分 -->
-<view class="gg_box">
+<view class="gg_box" bindtap="tzgg">
    <text class="tz">通知<text class="gg">公告</text>
-   <text class="gg_content">紧急通知！呼和浩特市应对新型冠状...<text class="cuIcon-right lg text-gray"></text></text>
+   <text class="gg_c">紧急通知！呼和浩特市应对新型冠状...<text class="cuIcon-right lg text-gray"></text></text>
   </text>
 </view>
 

@@ -15,8 +15,8 @@ Component({
   data: {
     dataItem:[
       {id:1,image:'../../../images/t1/ts1.png',text:"访客通行",url:'/pages/visitor/visitor'},
-      {id:2,image:'../../../images/t1/ts2.png',text:"物业维修",url:''},
-      {id:3,image:'../../../images/t1/ts3.png',text:"物业缴费",url:''},
+      {id:2,image:'../../../images/t1/ts2.png',text:"物业维修",url:'/pages/wywx/wywx'},
+      {id:3,image:'../../../images/t1/ts3.png',text:"物业缴费",url:'/pages/wyjf/wyjf'},
       {id:4,image:'../../../images/t1/ts4.png',text:"生活缴费",url:''},
       {id:5,image:'../../../images/t1/ts5.png',text:"SOS求助",url:''},
       {id:6,image:'../../../images/t1/ts6.png',text:"房屋出租",url:''},
@@ -59,6 +59,12 @@ Component({
     //console.log(e)
     this.setData({
       scrollLeft:e.detail.scrollLeft
+    })
+  },
+
+  tzgg(){
+    wx.navigateTo({
+      url: '/pages/tzgg/tzgg'
     })
   }
 
