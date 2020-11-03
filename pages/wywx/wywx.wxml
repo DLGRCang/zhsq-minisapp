@@ -1,5 +1,5 @@
 
-<cu-custom bgColor="bg-gradual-gray" isBack="{{true}}">
+<cu-custom bgColor="bg-gray" isBack="{{true}}">
     <view slot="content">物业维修</view>
   </cu-custom>
 
