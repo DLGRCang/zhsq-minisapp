@@ -14,12 +14,21 @@ Component({
    */
   data: {
     dataItem:[
-      {id:1,image:'../../../images/t1/tb01.png',text:"访客通行",url:'/pages/visitor/visitor'},
-      {id:2,image:'../../../images/t1/tb02.png',text:"物业维修",url:''},
-      {id:3,image:'../../../images/t1/tb03.png',text:"物业缴费",url:''},
-      {id:4,image:'../../../images/t1/tb04.png',text:"生活缴费",url:''},
-  
-      // {id:5,image:'../../../images/t1/tb05.png',text:"楼栋布局",url:'/pages/floor/floor'},
+      {id:1,image:'../../../images/t1/ts1.png',text:"访客通行",url:'/pages/visitor/visitor'},
+      {id:2,image:'../../../images/t1/ts2.png',text:"物业维修",url:''},
+      {id:3,image:'../../../images/t1/ts3.png',text:"物业缴费",url:''},
+      {id:4,image:'../../../images/t1/ts4.png',text:"生活缴费",url:''},
+      {id:5,image:'../../../images/t1/ts5.png',text:"SOS求助",url:''},
+      {id:6,image:'../../../images/t1/ts6.png',text:"房屋出租",url:''},
+      {id:7,image:'../../../images/t1/ts7.png',text:"空中课堂",url:''},
+      {id:8,image:'../../../images/t1/ts8.png',text:"视频直播",url:''},
+      {id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:''},
+      {id:10,image:'../../../images/t1/ts10.png',text:"社区党建",url:''},
+      {id:11,image:'../../../images/t1/ts11.png',text:"民情直达",url:''},
+      {id:12,image:'../../../images/t1/ts12.png',text:"入驻小区",url:''},
+      {id:13,image:'../../../images/t1/ts13.png',text:"楼栋布局",url:'/pages/floor/floor'},
+      {id:14,image:'../../../images/t1/ts14.png',text:"活动设施",url:''},
+
   
 
     ],
@@ -74,27 +83,45 @@ Component({
       var dataItem2 = []
       var times = dataItem.length/2
       if(dataItem.length > 4){
-        if(dataItem.length%2==0){
-          for(var i=0;i<times;i++){
-            dataItem1.push(dataItem[i])
-          }
+        if(dataItem.length == 5||dataItem.length == 6){
           for(var u=0;u<dataItem.length;u++){
-            if(u > times-1){
+            if(u<4){
+              dataItem1.push(dataItem[u])
+            }else{
               dataItem2.push(dataItem[u])
             }
           }
         }else{
+            if(dataItem.length%2==0){
   
-          for(var i=0;i<times+0.5;i++){
-            dataItem1.push(dataItem[i])
-          }
-          for(var u=0;u<dataItem.length;u++){
-          
-            if(u > times-0.5){
-              dataItem2.push(dataItem[u])
+            for(var i=0;i<times;i++){
+              dataItem1.push(dataItem[i])
             }
+            for(var u=0;u<dataItem.length;u++){
+              if(u > times-1){
+                dataItem2.push(dataItem[u])
+              }
+            }
+            this.setData({
+              lefthua:dataItem.length-8
+            })
+          }else{
+    
+            for(var i=0;i<times+0.5;i++){
+              dataItem1.push(dataItem[i])
+            }
+            for(var u=0;u<dataItem.length;u++){
+            
+              if(u > times-0.5){
+                dataItem2.push(dataItem[u])
+              }
+            }
+            this.setData({
+              lefthua:dataItem.length-7
+            })
           }
         }
+        
         this.setData({
           dataItem1:dataItem1,
           dataItem2:dataItem2,
@@ -106,24 +133,7 @@ Component({
           dataItem1:dataItem
         })
       }
-      
-
-
-      if(dataItem.length == 9||dataItem.length == 10){
-        this.setData({
-          lefthua:2
-        })
-      }else if(dataItem.length == 11||dataItem.length == 12){
-        this.setData({
-          lefthua:4
-        })
-      }else if(dataItem.length == 13||dataItem.length == 14){
-        this.setData({
-          lefthua:6
-        })
-      }
-      
-      
+    
       
     },
  

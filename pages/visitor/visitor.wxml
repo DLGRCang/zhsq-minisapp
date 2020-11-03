@@ -18,6 +18,7 @@
     </view>
     <view class="box-ewm">
       <view class="ewm-1">请输入临时密码获取开门二维码</view>
+      <view class="mima"></view>
     </view>
   </view>
   
