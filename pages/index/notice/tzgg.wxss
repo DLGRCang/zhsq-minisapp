@@ -1,0 +1,13 @@
+/* 公共颜色 */
+
+.font9{color:#999999;}
+.right{float:right;}
+
+.tzgg_content {
+ width:93%;margin:0 auto;height:auto;border-radius: 5rpx;background: #fff;padding:25rpx;
+ margin-top:25rpx;
+}
+.wy{display: inline-block;width:70rpx;height:40rpx;line-height: 40rpx;
+  background: #E5F4FB;margin-right:15rpx;
+  border-radius: 6rpx;font-size: 25rpx;
+  color: #188BFF;text-align: center;}

@@ -1,13 +1,17 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/visitor/visitor",
-    "pages/wywx/wywx",
-    "pages/tzgg/tzgg",
-    "pages/wyjf/wyjf",
-    "pages/wxjl/wxjl",
+    "pages/index/notice-details/notice-details",
+    
+    "pages/index/visitor/visitor",
+    "pages/index/property-maintenance/wywx",
+    "pages/index/notice/notice",
+    "pages/index/property-payment/wyjf",
+    "pages/index/maintenance-records/wxjl",
     "pages/login/login",
-    "pages/floor/floor"
+    "pages/index/floor/floor",
+    "pages/index/neighborhood-details/neighborhood-details"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

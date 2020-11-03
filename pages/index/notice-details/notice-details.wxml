@@ -1,0 +1,20 @@
+
+<view class="details">
+  <view class="top-navigation">
+    <text class="cuIcon-back"  bindtap="navTui"></text>
+    <view>详情</view>
+    <text></text>
+  </view>
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+    <view class="box-de">
+      为丰富社区居民的文化生活需求愉悦身心陶冶情操搭建居民之间相互交流沟通平台增进邻里情增强社区的凝聚力、向心力营造出一种团结奋进、文明和谐、喜庆祥和的浓郁氛围社区举办拔河比赛。
+时间：初定在11月6日下午
+人员：为社区居民由各小区委选送男、女各12支队伍(每支队伍成员不超过12人)。
+比赛地点：社区人口文化广场 
+    </view>
+  </view>
+</view>
+
