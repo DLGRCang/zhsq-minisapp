@@ -68,8 +68,8 @@ Page({
     wx.showModal({
       title: '删除照片',
       content: '确定要删除该照片吗？',
-      cancelText: '删除',
-      confirmText: '取消',
+      cancelText: '取消',
+      confirmText: '删除',
       success: res => {
         if (res.confirm) {
           this.data.imgList.splice(e.currentTarget.dataset.index, 1);
