@@ -5,10 +5,11 @@
 
 <!-- 内容 -->
 <view class="wywx_content">
-<view class="wxjl_title">维修记录<text class="cuIcon-right lg text-gray"></text></view>
+  <navigator url="/pages/wxjl/wxjl" hover-class="navigator-hover">
+  <view class="wxjl_title">维修记录<text class="cuIcon-right lg text-gray"></text></view>
+  </navigator>
 
 <form>
-
 <view class="wx_timebox">
 <text class="wx_title"><text class="text-red">*</text>维修时段</text>
   <view class="wx_time">
