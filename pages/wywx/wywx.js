@@ -4,6 +4,7 @@ Page({
     date: '2018-10-01',
     time: '12:00',
     dateTimeArray: null,
+     imgList: [],
     dateTime: null,
     startYear: 2000,
     endYear: 2050,
