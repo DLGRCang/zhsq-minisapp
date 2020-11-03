@@ -2,12 +2,13 @@ var dateTimePicker = require('../../utils/dateTimePicker.js');
 Page({
   data: {
     date: '2018-10-01',
+    imgList: [],
     time: '12:00',
     dateTimeArray: null,
     dateTime: null,
     startYear: 2000,
     endYear: 2050,
-    shows: true
+    times:true
   },
   onLoad(){
     // 获取完整的年月日 时分秒，以及默认显示的数组
@@ -26,18 +27,50 @@ Page({
 
   },
 
-  textareaAInput(e) {
-    console.log("e")
-    var that = this;
-    var sh = that.data.shows;
-    that.setData({
-      shows: !sh
-    })
-  },
-
   changeDateTime(e) {
-    this.setData({ dateTime1: e.detail.value });
-  },
 
+    this.setData({ dateTime1: e.detail.value,times:false });
+  },
+ // 照片功能
+ ChooseImage() {
+  wx.chooseImage({
+    count: 9, //默认9
+    sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+    sourceType: ['album'], //从相册选择
+    success: (res) => {
+      if (this.data.imgList.length != 0) {
+        this.setData({
+          imgList: this.data.imgList.concat(res.tempFilePaths)
+        })
+      } else {
+        this.setData({
+          imgList: res.tempFilePaths
+        })
+      }
+    }
+  });
+},
+ViewImage(e) {
+  wx.previewImage({
+    urls: this.data.imgList,
+    current: e.currentTarget.dataset.url
+  });
+},
+DelImg(e) {
+  wx.showModal({
+    title: '删除照片',
+    content: '确定要删除该照片吗？',
+    cancelText: '取消',
+    confirmText: '删除',
+    success: res => {
+      if (res.confirm) {
+        this.data.imgList.splice(e.currentTarget.dataset.index, 1);
+        this.setData({
+          imgList: this.data.imgList
+        })
+      }
+    }
+  })
+   },
 })
 

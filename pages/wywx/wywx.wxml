@@ -12,16 +12,16 @@
 <view class="wx_timebox">
 <text class="wx_title"><text class="text-red">*</text>维修时段</text>
   <view class="wx_time">
-    <input disabled="{{modalName!=null}}" bindtap="textareaAInput" placeholder="请选择维修时段">
-    <view class="tui-picker-content" style="position:absolute;background:red;" wx:if="{{shows}}">
-      <picker mode="multiSelector" value="{{dateTime1}}" placeholder="请选择维修时段"
+    <view class="tui-picker-content" >
+      <picker mode="multiSelector" class="pic" value="{{dateTime1}}"
       bindchange="changeDateTime"  range="{{dateTimeArray1}}">
-        <view class="tui-picker-detail">
+        <view class="tui-picker-detail" wx:if="{{!times}}">
       {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
         </view>
+        <view wx:if="{{times}}">请选择维修时段</view>
       </picker>
     </view>
-  </input>
+
 
 
   </view>

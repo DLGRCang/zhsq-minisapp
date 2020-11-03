@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/tzgg/tzgg",
+    "pages/index/index",
     "pages/wywx/wywx",
+    "pages/tzgg/tzgg",
     "pages/wyjf/wyjf",
     "pages/wxjl/wxjl",
-    "pages/index/index",
+ 
     "pages/my/my",
     "pages/login/login",
     "pages/index/category-1/category-1",

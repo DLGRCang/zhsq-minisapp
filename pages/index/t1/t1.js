@@ -18,6 +18,7 @@ Component({
       {id:2,image:'../../../images/t1/tb02.png',text:"物业维修",url:''},
       {id:3,image:'../../../images/t1/tb03.png',text:"物业缴费",url:''},
       {id:4,image:'../../../images/t1/tb04.png',text:"生活缴费",url:''},
+  
       // {id:5,image:'../../../images/t1/tb05.png',text:"楼栋布局",url:'/pages/floor/floor'},
   
 
@@ -72,27 +73,40 @@ Component({
       var dataItem1 = []
       var dataItem2 = []
       var times = dataItem.length/2
-      if(dataItem.length%2==0){
-        for(var i=0;i<times;i++){
-          dataItem1.push(dataItem[i])
-        }
-        for(var u=0;u<dataItem.length;u++){
-          if(u > times-1){
-            dataItem2.push(dataItem[u])
+      if(dataItem.length > 4){
+        if(dataItem.length%2==0){
+          for(var i=0;i<times;i++){
+            dataItem1.push(dataItem[i])
+          }
+          for(var u=0;u<dataItem.length;u++){
+            if(u > times-1){
+              dataItem2.push(dataItem[u])
+            }
+          }
+        }else{
+  
+          for(var i=0;i<times+0.5;i++){
+            dataItem1.push(dataItem[i])
+          }
+          for(var u=0;u<dataItem.length;u++){
+          
+            if(u > times-0.5){
+              dataItem2.push(dataItem[u])
+            }
           }
         }
+        this.setData({
+          dataItem1:dataItem1,
+          dataItem2:dataItem2,
+          
+        })
       }else{
-
-        for(var i=0;i<times+0.5;i++){
-          dataItem1.push(dataItem[i])
-        }
-        for(var u=0;u<dataItem.length;u++){
-        
-          if(u > times-0.5){
-            dataItem2.push(dataItem[u])
-          }
-        }
+    
+        this.setData({
+          dataItem1:dataItem
+        })
       }
+      
 
 
       if(dataItem.length == 9||dataItem.length == 10){
@@ -109,11 +123,7 @@ Component({
         })
       }
       
-      this.setData({
-        dataItem1:dataItem1,
-        dataItem2:dataItem2,
-        
-      })
+      
       
     },
  
