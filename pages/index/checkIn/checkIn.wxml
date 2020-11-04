@@ -1,0 +1,62 @@
+<view class="checkin">
+  <cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+    <view slot="content">入住小区</view>
+  </cu-custom>
+  <view class="lease-box">
+    <view class="box-body">
+      <view class="body-top">发布房源:</view>
+      <view class="danhang">
+        <view class="biaoti">姓名</view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入姓名"/></view>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">身份证号</view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入身份证号"/></view>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">手机号</view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入手机号"/></view>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">人脸照片</view>
+
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+	</view>
+      </view>
+      <view class="body-top">住房信息:</view>
+      <view class="danhang">
+        <view class="biaoti">住房信息</view>
+        <view class="fwhx">
+            <view class="inputCss xuanze4">
+              <text></text>
+              <input type="text" class="fwhxInput"/>
+              <text>号楼</text>
+            </view>
+            <view class="inputCss xuanze4">
+              <text></text>
+              <input type="text" class="fwhxInput"/>
+              <text>单元</text>
+            </view>
+            <view class="inputCss xuanze4">
+              <text></text>
+              <input type="text" class="fwhxInput"/>
+              <text>室</text>
+            </view>
+
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="bot-fb">
+    <button>提交审核</button>
+  </view>
+</view>

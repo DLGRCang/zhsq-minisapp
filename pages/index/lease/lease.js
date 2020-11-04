@@ -16,21 +16,40 @@ Page({
     ynqz:'background: #fff;border: 1rpx solid #ccc;color: #000;',
     zhwd:'background: #fff;border: 1rpx solid #ccc;color: #000;',
     imgList: [],
+    hezufang:false,
+    index:null,
+    picker: ['其他', '主卧', '次卧'],
+    index1:null,
+    picker1: ['东','南','西','北','东南','东北','西南','西北','南北','东西'],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  PickerChange(e) {
+    console.log(e);
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  PickerChange1(e) {
+    console.log(e);
+    this.setData({
+      index1: e.detail.value
+    })
+  },
   zzf(){
     this.setData({
       zhengzu:'background: #1082FF;border: 1rpx solid #1082FF;color: #fff;',
-      hezu:'background: #fff;border: 1rpx solid #ccc;color: #000;'
+      hezu:'background: #fff;border: 1rpx solid #ccc;color: #000;',
+      hezufang:false
     })
   },
   hzf(){
     this.setData({
       hezu:'background: #1082FF;border: 1rpx solid #1082FF;color: #fff;',
-      zhengzu:'background: #fff;border: 1rpx solid #ccc;color: #000;'
+      zhengzu:'background: #fff;border: 1rpx solid #ccc;color: #000;',
+      hezufang:true
     })
   },
   zxns(){

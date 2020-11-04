@@ -24,8 +24,8 @@ Component({
       {id:8,image:'../../../images/t1/ts8.png',text:"视频直播",url:''},
       {id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:''},
       {id:10,image:'../../../images/t1/ts10.png',text:"社区党建",url:''},
-      {id:11,image:'../../../images/t1/ts11.png',text:"民情直达",url:''},
-      {id:12,image:'../../../images/t1/ts12.png',text:"入驻小区",url:''},
+      {id:11,image:'../../../images/t1/ts11.png',text:"民情直达",url:'/pages/index/complaint/complaint'},
+      {id:12,image:'../../../images/t1/ts12.png',text:"入驻小区",url:'/pages/index/checkIn/checkIn'},
       {id:13,image:'../../../images/t1/ts13.png',text:"楼栋布局",url:'/pages/index/floor/floor'},
       {id:14,image:'../../../images/t1/ts14.png',text:"活动设施",url:''},
 

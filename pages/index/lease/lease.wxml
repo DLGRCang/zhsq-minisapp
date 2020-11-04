@@ -1,19 +1,22 @@
 <view class="lease">
+
   <cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
     <view slot="content">房屋出租</view>
   </cu-custom>
   <view class="lease-box">
     <view class="box-body">
-      <view class="body-top">发布房源：</view>
+      <view class="body-top">发布房源</view>
       <view class="fzxz">
+        
         <view bindtap="zzf" style="{{zhengzu}}">整租房</view>
         <view bindtap="hzf" style="{{hezu}}">合租房</view>
         <!-- <button class="cu-btn" style="background: #3A91F7;color:#fff" bindtap="toggle" data-class="fade">整租房</button>
         <button class="cu-btn" style="background: #3A91F7;color:#fff" bindtap="toggle" data-class="fade">单租房</button> -->
       </view>
       <!-- <view wx:if="{{neirong}}" class="neirong animation-{{animation=='fade'?'fade':''}} basis-sm shadow"> -->
+        <view class="twobiao"> <view></view> 基础信息</view>
         <view class="danhang">
-          <view class="biaoti">标题</view>
+          <view class="biaoti"><text style="color:red">*</text>标题</view>
           <view class="inputCss"><input type="text" class="btInput" placeholder="请输入房屋标题"/></view>
         </view>
         <view class="danhang">
@@ -41,19 +44,44 @@
             </view>
           </view>
         </view>
-        <view class="danhang">
-          <view class="biaoti">房屋地址</view>
-          <view class="inputCss"><input type="text" class="btInput" placeholder="请输入房屋标题"/></view>
-        </view>
-        <view class="danhang">
-          <view class="biaoti">租金信息</view>
-          <view class="inputCss zjxx">
-            <input type="text" class="zjxxInput" placeholder="请输入房屋标题"/>
-            <text>元/月</text>
+        <view class="danhang" wx:if="{{hezufang}}">
+          <view class="biaoti"> <text style="color:red">*</text> 出租卧室</view>
+          <view class="fwhx">
+            <view class="inputCss xuanze3">
+              <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+                <view class="picker">
+                  {{index?picker[index]:'请选择'}}
+                </view>
+              </picker>
+            </view>
+            <view class="inputCss xuanze3">
+              <picker bindchange="PickerChange1" value="{{index1}}" range="{{picker1}}">
+                <view class="picker">
+                  {{index1?picker1[index1]:'请选择'}}
+                </view>
+              </picker>
+            </view>
+            <view class="inputCss xuanze3">
+              <text>共</text>
+              <input type="text" class="fwhxInput"/>
+              <text>㎡</text>
+            </view>
           </view>
         </view>
         <view class="danhang">
-          <view class="biaoti">入住时间</view>
+          <view class="biaoti"><text style="color:red">*</text>房屋地址</view>
+          <view class="inputCss"><input type="text" class="btInput" placeholder="请输入房源地址"/></view>
+        </view>
+        <view class="danhang">
+          <view class="biaoti"><text style="color:red">*</text>租金信息</view>
+          <view class="inputCss zjxx">
+            <input type="text" class="zjxxInput" placeholder="请输入租金"/>
+            <text>元/月</text>
+          </view>
+        </view>
+        <view class="twobiao"> <view></view> 详细介绍</view>
+        <view class="danhang">
+          <view class="biaoti"><text style="color:red">*</text>入住时间</view>
           <view class="inputCss">
             <picker class="picCss" mode="date" value="{{date}}" start="{{date}}" bindchange="DateChange">
               <view class="picker">
@@ -64,14 +92,14 @@
           </view>
         </view>
         <view class="danhang">
-          <view class="biaoti">租期</view>
+          <view class="biaoti"><text style="color:red">*</text>租期</view>
           <view class="inputCss zjxx">
             <input type="text" class="zjxxInput" placeholder="请输入租房时期"/>
             <text>月</text>
           </view>
         </view>
         <view class="danhang">
-          <view class="biaoti">要求</view>
+          <view class="biaoti"><text style="color:red">*</text>要求</view>
           <view class="duoxuan">
             <view class="duoxuanNei" style="{{zxns}}" bindtap="zxns">只限女生</view>
             <view class="duoxuanNei" style="{{bnqz}}" bindtap="bnqz">半年起租</view>
@@ -86,7 +114,7 @@
           </view>
         </view>
         <view class="danhang">
-          <view class="biaoti">房源照片</view>
+          <view class="biaoti"><text style="color:red">*</text>房源照片</view>
             <view class="grid col-4 grid-square flex-sub">
               <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
                 <image src='{{imgList[index]}}' mode='aspectFill'></image>
@@ -100,7 +128,7 @@
             </view>
         </view>
         <view class="danhang">
-          <view class="biaoti">联系方式</view>
+          <view class="biaoti"><text style="color:red">*</text>联系方式</view>
           <view class="inputCss" style="margin-bottom:10rpx"><input type="text" class="btInput" placeholder="请输入姓名"/></view>
           <view class="inputCss"><input type="text" class="btInput" placeholder="请输入手机号"/></view>
         </view>

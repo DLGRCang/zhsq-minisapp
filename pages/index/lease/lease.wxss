@@ -20,15 +20,29 @@
 }
 .body-top{
   width: 100%;
-  
-font-size: 28rpx;
+  text-align: center;
+font-size: 34rpx;
 font-family: Microsoft YaHei;
 font-weight: bold;
 color: #333333;
 }
+.twobiao{
+  width: 100%;
+  height: 30rpx;
+  margin: 30rpx 0 20rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.twobiao view{
+  width: 5rpx;
+  height: 100%;
+  background: blue;
+  margin-right: 10rpx;
+}
 .fzxz{
   width: 100%;
-  padding: 30rpx 0;
+  padding: 30rpx 0 0;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -59,7 +73,6 @@ height: 90rpx;
 background: #F7F8FA;
 border: 2rpx solid #E8EEF4;
 border-radius: 12rpx;
-
 }
 .btInput{
   width: 100%;
@@ -80,7 +93,13 @@ border-radius: 12rpx;
   justify-content: space-around;
   width: 23%;
 }
-.xuanze4 text{
+.xuanze3{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 31%;
+}
+.xuanze3 text{
   font-size: 24rpx;
   color: #333;
 }
@@ -89,6 +108,7 @@ border-radius: 12rpx;
   height: 100%;
   text-align: center;
 }
+
 .zjxx{
   display: flex;
   align-items: center;
@@ -159,4 +179,5 @@ display: flex;
 align-items: center;
 justify-content: center;
 color: #fff;
+font-size: 24rpx;
 }

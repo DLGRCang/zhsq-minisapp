@@ -1,11 +1,15 @@
 {
   "pages": [
+    "pages/index/complaint/complaint",
     "pages/index/index",
+    "pages/index/checkIn/checkIn",
+    "pages/index/notice-details/notice-details",
+    "pages/index/lease/lease",
+    
     "pages/index/houseRental-details/czxq",
     "pages/index/houseRental/fwcz",
     "pages/index/subscribe/subscribe",
-    "pages/index/lease/lease",
-    "pages/index/notice-details/notice-details",
+    
     "pages/index/visitor/visitor",
     "pages/index/property-maintenance/wywx",
     "pages/index/notice/notice",
