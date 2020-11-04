@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/complaint/complaint",
     "pages/index/index",
+    "pages/index/complaint/complaint",
+    
     "pages/index/checkIn/checkIn",
     "pages/index/notice-details/notice-details",
     "pages/index/lease/lease",

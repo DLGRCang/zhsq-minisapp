@@ -35,9 +35,14 @@
 
 <!-- 第二部分 -->
 <view class="gg_box" bindtap="tzgg">
-   <text class="tz">通知<text class="gg">公告</text>
-   <text class="gg_c">紧急通知！呼和浩特市应对新型冠状冠状冠状</text>  <text class="cuIcon-right lg text-gray"></text>
-  </text>
+  <view class="box-1"><text>通知</text><text>公告</text></view>
+  <view class="box-2">紧急通知！呼和浩特市应对新型冠状冠状冠状</view>
+  <text class="cuIcon-right lg text-gray"></text>
+   <!-- <view class="tz">通知<text class="gg">公告</text>
+   <view>ascasc</view>
+   <view class="gg_c">紧急通知！呼和浩特市应对新型冠状冠状冠状</view>
+   <text class="cuIcon-right lg text-gray"></text>
+  </view> -->
 
 </view>
 
