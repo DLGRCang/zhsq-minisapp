@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/houseRental-details/czxq",
     "pages/index/houseRental/fwcz",
     "pages/index/subscribe/subscribe",
     "pages/index/lease/lease",

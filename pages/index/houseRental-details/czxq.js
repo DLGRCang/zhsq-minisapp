@@ -1,4 +1,4 @@
-// pages/fwcz/fwcz.js
+// pages/czxq/czxq.js
 Page({
 
   /**
@@ -11,29 +11,18 @@ Page({
       curBdIndex: 0
     }, 
   },
-  // tab切换
-  tab: function (e) {
-    //var dataId = e.currentTarget.dataset.id;
-    var dataId = e.currentTarget.id;
-    var obj = {};
-    obj.curHdIndex = dataId;
-    obj.curBdIndex = dataId;
-    this.setData({
-      tabArr: obj
-    })
-    //console.log(e);
-  },  
-
-  fbfy(){
-    wx.navigateTo({
-      url: '/pages/index/lease/lease'
-    })
-  },
-  xiangqing(){
-    wx.navigateTo({
-      url: '/pages/index/houseRental-details/czxq'
-    })
-  },
+ // tab切换
+ tab: function (e) {
+  //var dataId = e.currentTarget.dataset.id;
+  var dataId = e.currentTarget.id;
+  var obj = {};
+  obj.curHdIndex = dataId;
+  obj.curBdIndex = dataId;
+  this.setData({
+    tabArr: obj
+  })
+  //console.log(e);
+},  
   /**
    * 生命周期函数--监听页面加载
    */

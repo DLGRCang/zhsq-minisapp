@@ -1,0 +1,50 @@
+/* pages/czxq/czxq.wxss */
+/* 公共颜色 */
+
+.font9{color:#999999;}
+.right{float:right;}
+
+/* 顶部房租信息样式 */
+.bg{width: 100%; background: #F9F9F9;   height: 13%;}
+.head_content{height:175rpx;}
+.cu-card{padding-top:6%;}
+.xtb{    z-index: 999; position: absolute;}
+.tab_box{padding:35rpx;overflow: hidden;clear: both;width:93%;margin:0rpx auto; 
+   background: #FFFFFF;border-radius: 20rpx;margin-top:5rpx;
+  }
+.box_left{float:left;width: 35%;}
+.box_left>image{width:100%;height: 150rpx;}
+.box_right{float:right;width: 62%;}
+.box_right>text{width:100%;overflow: hidden;text-overflow: ellipsis;display: block;color: #A9B3BD;line-height:1.8;}
+.box_right>text:first-child{color: #333333;}
+.text-bold{font-size: 32rpx;}
+.yy_title{color:#A9B3BD;font-size:28rpx !important;font-weight: normal;}
+/* 导航tab样式 */
+.tab_bar .active{color: #188BFF;border-bottom: 1px solid #188BFF;font-weight: bold;}
+.box_content .right-item{display: none}
+.box_content .right-item.active{display: block}
+.box_content{font-size: 28rpx;color: #666;padding-bottom: 35rpx;}
+.view_tab{width: 100%;height:120rpx;
+  border-bottom:2px solid #DEE6F0; 
+}
+.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
+.view_tab>.tab_bar>view{width:125rpx;height:65rpx;line-height: 65rpx;float: left;margin-right: 45rpx;text-align: center;}
+
+/* 内容样式 */
+.fyxx_box{width:93%;margin:0 auto;}
+.fyxx_box>.box_one>.title{font-weight: bold;font-size: 32rpx;line-height: 1.8;padding-top: 15rpx;color: #333;}
+.fyxx_box>.box_one>text{display: block;line-height: 1.8;padding-left:35rpx;}
+.textarea{
+  width:300rpx;
+}
+.box_two{overflow: hidden;clear: both;width: 100%;}
+.box_two>text:first-child{width:20%;padding-left: 35rpx;}
+.box_two>text:last-child{width:75%;}
+.box_one>image{
+  width: 100%;padding:35rpx;
+  height: 370rpx;margin:0 auto;
+  border-radius: 15rpx;text-align: center;
+}
+
+
+

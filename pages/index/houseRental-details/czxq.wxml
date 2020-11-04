@@ -1,0 +1,74 @@
+<!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+    <view slot="content">详情</view>
+</cu-custom>
+
+<view style="background:#f9f9f9;height:100%;">
+<!-- <view class="bg"></view> -->
+<!-- 第一部分 头部 -->
+<view class="bg-blue head_content">
+<view class="cu-card">
+  <view class="tab_box">
+      <view class="box_left">
+        <view class="cu-tag bg-cyan light xtb">已租</view>
+        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        </view>
+      <view class="box_right">
+        <text><text>整租</text> | 首租汇商广场师大农大东瓦窑 牧机所家具家电齐全</text> 
+        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+      </view>
+    </view>
+    
+    
+<view class="view_tab">
+<view class="tab_bar" > 
+  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">房源信息</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">联系房东</view> 
+</view> 
+</view>
+<!-- 栏目结束 -->
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+      <view class="fyxx_box">
+        <view class="box_one">
+          <view class="title">房源信息</view>
+          <text>租赁方式：<text>合租-主卧</text></text>
+          <text>房屋类型：<text>2室2厅1卫   20㎡</text></text>
+          <text>详细地址：<text>左右城左城 E4 1-1203</text></text>
+        </view>
+        <view class="box_one">
+          <view class="title">房源详情</view>
+          <text>入住时间：<text>11月2日</text></text>
+          <text>房屋租期：<text>1年</text></text>
+          <text>房屋要求：<text>只限女生、半年起租、租户稳定</text></text>
+          <view class="box_two">
+          <text style="float:left;">房源描述：</text>
+          <text class="textarea right">合租屋装修精美拎包入住，前方视野开阔无遮挡采光特别好阳光充足，格局较周正私密性强步行地铁站200米，家具家电齐全设施安全保洁阿</text>
+          </view>
+        
+          <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        </view>
+      
+      </view>
+  </view> 
+  <!-- 第二栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+       <view class="fyxx_box">
+          <view class="box_one">
+            <view class="title">房东信息</view>
+            <text>房东姓名：<text>张三</text></text>
+            <text>联系方式：<text>176********</text></text>
+          </view>
+        </view>
+  </view> 
+
+</view>
+<!-- view tab整体栏目结束 -->
+</view>
+
+</view>
+
+
+
+</view>

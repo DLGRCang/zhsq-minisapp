@@ -15,7 +15,7 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="tab_box">
+    <view class="tab_box" bindtap="xiangqing">
       <view class="box_left">
         <view class="cu-tag bg-cyan light xtb">已租</view>
         <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
