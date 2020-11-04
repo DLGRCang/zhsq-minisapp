@@ -1,7 +1,6 @@
 /* pages/fwcz/fwcz.wxss */
 /* 公共颜色 */
-@import "../../colorui/main.wxss";
-@import "../../colorui/icon.wxss";
+
 .font9{color:#999999;}
 .right{float:right;}
 

@@ -23,6 +23,12 @@ Page({
     })
     //console.log(e);
   },  
+
+  fbfy(){
+    wx.navigateTo({
+      url: '/pages/index/lease/lease'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

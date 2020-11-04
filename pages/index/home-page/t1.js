@@ -19,7 +19,7 @@ Component({
       {id:3,image:'../../../images/t1/ts3.png',text:"物业缴费",url:'/pages/index/property-payment/wyjf'},
       {id:4,image:'../../../images/t1/ts4.png',text:"生活缴费",url:''},
       {id:5,image:'../../../images/t1/ts5.png',text:"SOS求助",url:''},
-      {id:6,image:'../../../images/t1/ts6.png',text:"房屋出租",url:'/pages/index/lease/lease'},
+      {id:6,image:'../../../images/t1/ts6.png',text:"房屋出租",url:'/pages/index/houseRental/fwcz'},
       {id:7,image:'../../../images/t1/ts7.png',text:"空中课堂",url:''},
       {id:8,image:'../../../images/t1/ts8.png',text:"视频直播",url:''},
       {id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:''},

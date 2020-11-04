@@ -114,7 +114,7 @@
 
 <!-- 发布房屋 -->
 <view class="fabu_btn">
-  <button class="cuIcon-add bg-blue fabu_btn" role="button" aria-disabled="false">发布房源</button>
+  <button class="cuIcon-add bg-blue fabu_btn" role="button" aria-disabled="false" bindtap="fbfy">发布房源</button>
 </view>
 
 
