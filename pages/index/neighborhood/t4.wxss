@@ -17,3 +17,11 @@
 .fabu_btn{font-size:30rpx;right:2%;bottom:10%;position: fixed;border-radius: 50%;
 width:70rpx;height:70rpx;font-weight: bold;display: flex;
 align-items: center;justify-content: center;}
+
+.star_img,.share_img,.message_img,.good_img{    width: 20rpx;
+  height: 20rpx;}
+  .good_img{    right: 12%;
+    position: absolute;}
+ .download{
+   display:inline-block;margin-left:25rpx;
+ }   

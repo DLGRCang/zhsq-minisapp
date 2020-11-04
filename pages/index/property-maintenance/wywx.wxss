@@ -5,7 +5,7 @@
 
 
 .wywx_content{
-  height:auto;width: 96%;margin:0 auto;background: #fff;margin-top:65rpx;padding:25rpx;border-radius: 25rpx;
+  height:auto;width: 93%;margin:0 auto;background: #fff;margin-top:65rpx;padding:25rpx;border-radius: 25rpx;
 }
 .wxjl_title{float:right;color:#188BFF;line-height: 3;display: block;}
 

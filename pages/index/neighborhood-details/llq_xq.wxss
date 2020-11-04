@@ -58,3 +58,7 @@ background: #F7F8FA;
 border-radius: 28px;
 padding-left: 3%;
 }
+
+.good_lg_img{
+  width: 41rpx;height: 41rpx;
+}

@@ -28,6 +28,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
@@ -37,8 +38,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.4.2",
-  "appid": "wxab288f962df834dd",
-  "projectname": "ColorUI-template",
+  "appid": "wxccf2298510b36988",
+  "projectname": "zhsq-minisapp",
   "debugOptions": {
     "hidedInDevtools": []
   },

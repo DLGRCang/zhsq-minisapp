@@ -5,8 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isCollect: true, // 默认有点赞
+    isStar: false, // 默认没有收藏
   },
+
+  // 点击收藏
+toStar () {
+  var bol = this.data.isStar; // 获取状态
+  this.setData({
+    isStar:!bol // 改变状态
+  })
+  },
+// 点赞/取消点赞
+toCollect () {
+  var bol = this.data.isCollect; // 获取状态
+  this.setData({
+  isCollect:!bol // 改变状态
+  })
+  },
+
+
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -63,4 +82,6 @@ Page({
   onShareAppMessage: function () {
 
   }
+
+  
 })

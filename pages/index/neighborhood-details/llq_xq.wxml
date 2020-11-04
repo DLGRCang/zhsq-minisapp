@@ -32,7 +32,7 @@
     <view class="text-gray text-sm text-left padding padding-right" style="margin-bottom:15rpx;">
       <text class="text-gray"> 收藏</text> 
       <text class="text-gray"> 分享148</text> 
-       <text class="margin-lr-xs text-yellow right" style="padding-right:0"> 赞15</text>  
+      <text class="margin-lr-xs text-yellow right" style="padding-right:0"> 赞15</text>  
     </view>
 
 <!-- 第二部分 评论内容-->
@@ -104,8 +104,25 @@
 <view class="cu-bar input">
     <input class="solid-bottom" focus="{{false}}" maxlength="300" cursor-spacing="10" placeholder="请发表您的评论"></input>
     <view class="action">
-      <text class="cuIcon-favor margin-lf-xs text-gray"></text>
-      <text class="cuIcon-appreciatefill margin-lr-xs text-yellow"></text>
+      <!-- 收藏，取消收藏 -->
+      <view bindtap="toStar">
+      <block wx:if="{{isStar == false}}">
+        <image src="../../../images/images/star_lg.png " class="good_lg_img"></image>
+      </block>
+      <block wx:elif="{{isStar == true}}" >
+        <image src="../../../images/images/star_active_lg.png " class="good_lg_img"></image>
+      </block>
+      </view>
+      <!-- 点赞  取消点赞 -->
+      <view bindtap="toCollect" style="margin-left: 15rpx;">
+      <block wx:if="{{isCollect == false}}">
+      <image src="../../../images/images/good_lg.png " class="good_lg_img"></image>
+      </block>
+      <block wx:elif="{{isCollect == true}}" >
+      <image src="../../../images/images/good_active_lg.png " class="good_lg_img"></image>
+      </block>
+      </view>
+
     </view>
     <button class="cu-btn bg-blue shadow-blur">评论</button>
   </view>

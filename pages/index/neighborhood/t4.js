@@ -9,7 +9,32 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     ColorList: app.globalData.ColorList,
+    isStar: false, // 默认没有收藏
+    isShare: true, // 默认有分享
+    isShare: false, // 默认没有赞
   },
+  // 点击收藏
+  toStar () {
+    var bol = this.data.isStar; // 获取状态
+    this.setData({
+      isStar:!bol // 改变状态
+    })
+    },
+  // 点击分享
+  toShare () {
+    var bol = this.data.isShare; // 获取状态
+    this.setData({
+      isShare:!bol // 改变状态
+    })
+    },
+  // 点赞/取消点赞
+  toZan () {
+    var bol = this.data.isZan; // 获取状态
+    this.setData({
+      isZan:!bol // 改变状态
+    })
+    },
+
 
   /**
    * 生命周期函数--监听页面加载
