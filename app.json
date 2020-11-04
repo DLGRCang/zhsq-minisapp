@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/fwcz/fwcz",
     "pages/index/index",
     "pages/index/notice-details/notice-details",
     

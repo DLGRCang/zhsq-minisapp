@@ -1,0 +1,122 @@
+<!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+    <view slot="content">房屋出租</view>
+</cu-custom>
+
+<view class="bg">
+
+<view class="view_tab">
+<view class="tab_bar" > 
+  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">整租</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">合租</view> 
+</view> 
+ 
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="tab_box">
+      <view class="box_left">
+        <view class="cu-tag bg-cyan light xtb">已租</view>
+        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+      </view>
+      <view class="box_right">
+        <text>整租|精装合租单间 押一付一 可短...</text>   
+        <text>2室2厅1卫   100㎡</text>  
+        <text>左右城左城E4 1-1-1203</text>  
+        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+      </view>
+    </view>
+<!-- 第一栏目 复制2 -->
+    <view class="tab_box">
+      <view class="box_left">
+        <view class="cu-tag bg-blue light xtb">待租</view>
+        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        </view>
+      <view class="box_right">
+        <text>整租|精装合租单间 押一付一 可短...</text>   
+        <text>2室2厅1卫   100㎡</text>  
+        <text>左右城左城E4 1-1-1203</text>  
+        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+      </view>
+    </view>
+
+<!-- 第一栏目 复制3 -->
+<view class="tab_box">
+      <view class="box_left">
+        <view class="cu-tag bg-grey light xtb">关闭</view>
+        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        </view>
+      <view class="box_right">
+        <text>整租|精装合租单间 押一付一 可短...</text>   
+        <text>2室2厅1卫   100㎡</text>  
+        <text>左右城左城E4 1-1-1203</text>  
+        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+      </view>
+    </view>
+
+    <!-- 第一栏目 复制4 -->
+    <view class="tab_box">
+      <view class="box_left">
+        <view class="cu-tag bg-blue light xtb">待租</view>
+        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        </view>
+      <view class="box_right">
+        <text>整租|精装合租单间 押一付一 可短...</text>   
+        <text>2室2厅1卫   100㎡</text>  
+        <text>左右城左城E4 1-1-1203</text>  
+        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+      </view>
+    </view>
+
+  </view> 
+
+  
+
+  <!-- 第二栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+    <view class="tab_box">
+      <view class="box_left">
+        <view class="cu-tag bg-blue light xtb">待租</view>
+        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        </view>
+      <view class="box_right">
+        <text>整租|精装合租单间 押一付一 可短...</text>   
+        <text>2室2厅1卫   100㎡</text>  
+        <text>左右城左城E4 1-1-1203</text>  
+        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+      </view>
+    </view>
+
+
+  </view> 
+  <!-- 第三栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+
+    <view class="tab_box">
+      <view class="box_left">
+        <view class="cu-tag bg-blue light xtb">待租</view>
+        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        </view>
+      <view class="box_right">
+        <text>整租|精装合租单间 押一付一 可短...</text>   
+        <text>2室2厅1卫   100㎡</text>  
+        <text>左右城左城E4 1-1-1203</text>  
+        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+      </view>
+    </view>
+    
+  </view> 
+</view>
+<!-- 栏目结束 -->
+</view>
+<!-- view tab整体栏目结束 -->
+
+<!-- 发布房屋 -->
+<view class="fabu_btn">
+  <button class="cuIcon-add bg-blue fabu_btn" role="button" aria-disabled="false">发布房源</button>
+</view>
+
+
+
+</view>

@@ -36,8 +36,9 @@
 <!-- 第二部分 -->
 <view class="gg_box" bindtap="tzgg">
    <text class="tz">通知<text class="gg">公告</text>
-   <text class="gg_c">紧急通知！呼和浩特市应对新型冠状...<text class="cuIcon-right lg text-gray"></text></text>
+   <text class="gg_c">紧急通知！呼和浩特市应对新型冠状冠状冠状</text>  <text class="cuIcon-right lg text-gray"></text>
   </text>
+
 </view>
 
 <!-- 第三部分 -->
