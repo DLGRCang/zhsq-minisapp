@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/lease/lease",
+    
     "pages/index/notice-details/notice-details",
     
     "pages/index/visitor/visitor",

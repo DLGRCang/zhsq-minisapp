@@ -3499,6 +3499,11 @@ scroll-view.cu-steps .cu-item {
 	color: var(--black);
 }
 
+.bg-gray-bc{
+	background-color: #f9f9f9;
+	color: var(--black);
+}
+
 .bg-black {
 	background-color: var(--black);
 	color: var(--white);

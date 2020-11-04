@@ -19,12 +19,18 @@ Page({
     var lastArray = obj1.dateTimeArray.pop();
     var lastTime = obj1.dateTime.pop();
     
+    console.log(obj.dateTime)
+    console.log(obj.dateTimeArray)
+    console.log(obj.dateTimeArray)
+    console.log(obj.dateTime)
+
     this.setData({
       dateTime: obj.dateTime,
       dateTimeArray: obj.dateTimeArray,
       dateTimeArray1: obj1.dateTimeArray,
       dateTime1: obj1.dateTime
     });
+    
 
   },
 

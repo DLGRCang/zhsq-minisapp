@@ -1,0 +1,118 @@
+/* pages/index/lease/lease.wxss */
+@import "../../../colorui/animation.wxss";
+.lease{
+  width: 100%;
+  height: 100%;
+}
+.lease-box{
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.box-body{
+  width: 100%;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 50rpx;
+  box-sizing: border-box;
+}
+.body-top{
+  width: 100%;
+  
+font-size: 28rpx;
+font-family: Microsoft YaHei;
+font-weight: bold;
+color: #333333;
+}
+.fzxz{
+  width: 100%;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.neirong{
+  width: 100%;
+}
+.danhang{
+  width: 100%;
+  padding: 15rpx 0;
+}
+.biaoti{
+  
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+color: #333333;
+margin-bottom: 20rpx;
+}
+.inputCss{
+height: 90rpx;
+background: #F7F8FA;
+border: 2rpx solid #E8EEF4;
+border-radius: 12rpx;
+
+}
+.btInput{
+  width: 100%;
+  height: 100%;
+  font-size: 30rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+}
+.fwhx{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.xuanze4{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 23%;
+}
+.xuanze4 text{
+  font-size: 24rpx;
+  color: #333;
+}
+.fwhxInput{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+}
+.zjxx{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.zjxxInput{
+  width: 70%;
+  height: 100%;
+  font-size: 30rpx;
+  color: #333;
+}
+.picCss{
+  width: 100%;
+  height: 100%;
+  
+  line-height: 90rpx;
+}
+.picker{
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.duoxuan{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.duoxuanNei{
+  padding: 5rpx 15rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 6rpx;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+}
