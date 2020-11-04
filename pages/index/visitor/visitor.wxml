@@ -7,7 +7,7 @@
   <view class="visitor-box">
     <view class="box-top">
       <text>访客预约</text>
-      <view>去预约</view>
+      <view bindtap="yuyue">去预约</view>
     </view>
     <view class="box-km">
       <view class="km-1">请选择开门方式</view>

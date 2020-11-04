@@ -51,6 +51,12 @@ Page({
      isFocus:true, 
     }) 
    }, 
+
+   yuyue(){
+    wx.navigateTo({
+      url: '/pages/index/subscribe/subscribe'
+    })
+   },
   /**
    * 生命周期函数--监听页面隐藏
    */

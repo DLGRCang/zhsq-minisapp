@@ -1,11 +1,10 @@
 {
   "pages": [
-    "pages/fwcz/fwcz",
-    "pages/index/index",
+    "pages/index/subscribe/subscribe",
     "pages/index/lease/lease",
-    
+    "pages/index/index",
+    "pages/fwcz/fwcz",
     "pages/index/notice-details/notice-details",
-    
     "pages/index/visitor/visitor",
     "pages/index/property-maintenance/wywx",
     "pages/index/notice/notice",

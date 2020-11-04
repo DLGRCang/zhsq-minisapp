@@ -1,0 +1,62 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">访客预约</view>
+</cu-custom>
+
+<view class="page">
+  <view class="content">
+    <view class="text_1">访客预约信息</view>
+    <view class="text_2">请确保您添加的访客信息为真实信息。并且征得其本人同意</view>
+    <!-- 输入框 -->
+    <input name="userName" placeholder="真实姓名" class="inputBox" value="{{name}}" bindinput="enterName"></input>
+    <input name="id" placeholder="身份证号" class="inputBox" bindinput='enterId'></input>
+    <input name="userPhone" placeholder="手机号码" class="inputBox" bindinput="enterPhone"></input>
+    <view class="cu-form-group inputBox">
+		  <view class="title">来访期限</view>
+		  <picker mode="date" value="{{date}}" start="2015-09-01" end="2030-01-01" bindchange="DateChange">
+		  	<view class="picker">
+		  		{{date}}
+		  	</view>
+		  </picker>
+	  </view>
+  </view>
+  <!-- 人像照片 -->
+	<view class="cu-form-group pic">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-add"></text>
+				<text class="text_3">人像照片</text>
+			</view>
+		</view>
+	</view>
+
+
+	<view class="but">
+		<button class="cu-btn bg-blue shadow-blur round" form-type="submit" bindtap="conData" style="height:100%; width:100%;">提交预约</button>
+		<view class="Province" wx:if="{{showAreaList}}">
+    	<van-area area-list="{{ areaList }}" bind:cancel="cancel" bind:confirm="confirm" />
+		</view>
+	</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>
