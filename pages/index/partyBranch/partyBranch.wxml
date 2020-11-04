@@ -1,0 +1,36 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="partyBranch">
+  <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
+    <view slot="content">党支部</view>
+  </cu-custom>
+  <view class="box">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+    <view class="top-text">
+      <view>中共内蒙古自治区XXXX支部委员会</view>
+      <view>欢迎您来到中共内蒙古自治区XXXX支部委员会，中共内蒙古自治区XXXX支部委员会成立于年，共有</view>
+    </view>
+    <view class="top-tab">
+      <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          {{item.content}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="bot-box">
+    <view class="dang" wx:if="{{panduan}}">
+      <view class="neirong" wx:for="{{10}}">
+        <view class="nrimg"></view>
+        <view class="nrText">
+          <view>党员姓名</view>
+          <view>支部委员会委员</view>
+        </view>
+      </view>
+    </view>
+    <view class="xinwen" wx:if="{{!panduan}}">
+      <template is="wxParse" data="{{wxParseData:dataHtml.nodes}}" />
+    </view>
+  </view>
+</view>

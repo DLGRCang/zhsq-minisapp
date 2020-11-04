@@ -1,16 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index/complaint/complaint",
+    "pages/index/partyBranch/partyBranch",
     
+    "pages/index/complaint/complaint",
     "pages/index/checkIn/checkIn",
     "pages/index/notice-details/notice-details",
     "pages/index/lease/lease",
-    
     "pages/index/houseRental-details/czxq",
     "pages/index/houseRental/fwcz",
     "pages/index/subscribe/subscribe",
-    
     "pages/index/visitor/visitor",
     "pages/index/property-maintenance/wywx",
     "pages/index/notice/notice",
@@ -19,7 +18,6 @@
     "pages/login/login",
     "pages/index/floor/floor",
     "pages/index/neighborhood-details/neighborhood-details"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

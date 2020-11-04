@@ -26,6 +26,11 @@
   border-radius: 50rpx;
   margin-right: 13rpx;
 }
+.top-1-1 image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50rpx;
+}
 .top-1-2{
   padding: 5rpx;
 }
