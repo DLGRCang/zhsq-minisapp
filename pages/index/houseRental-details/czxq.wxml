@@ -3,10 +3,14 @@
     <view slot="content">详情</view>
 </cu-custom>
 
-<view style="background:#f9f9f9;height:100%;">
+<view style="height:100%;">
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
 <!-- <view class="bg"></view> -->
 <!-- 第一部分 头部 -->
-<view class="bg-blue head_content">
+<!-- <view class="bg-blue head_content"> -->
 <view class="cu-card">
   <view class="tab_box">
       <view class="box_left">
@@ -67,8 +71,8 @@
 <!-- view tab整体栏目结束 -->
 </view>
 
+<!-- </view> -->
+
+
 </view>
-
-
-
 </view>

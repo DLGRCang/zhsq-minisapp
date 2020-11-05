@@ -2,11 +2,14 @@
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
     <view slot="content">详情</view>
   </cu-custom>
-
-
-<view class="llq_content">
+<!-- <view class="llq_content"> -->
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+  <!-- </view> -->
 <!-- 第一部分 头部 -->
-<view class="bg-blue head_content">
+<!-- <view class="bg-blue head_content"> -->
 <view class="cu-card dynamic {{isCard?'no-card':''}}">
 <!-- 第一部分 内容 -->
   <view class="cu-item shadow">
@@ -96,7 +99,7 @@
 </view>
 
 </view>
-</view>
+<!-- </view> -->
 </view> 
 
 <!-- 评论条框 -->
@@ -127,7 +130,5 @@
     <button class="cu-btn bg-blue shadow-blur">评论</button>
   </view>
 </view>
-
-
 
 </view>

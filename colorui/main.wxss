@@ -2235,7 +2235,7 @@ button.icon.lg {
 	display: block;
 	background-color: var(--white);
 	overflow: hidden;
-	border-radius: 10rpx;
+	border-radius: 15rpx;
 	margin: 30rpx;
 }
 
