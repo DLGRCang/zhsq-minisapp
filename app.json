@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/index/partyBranch/partyBranch",
-    
     "pages/index/complaint/complaint",
     "pages/index/checkIn/checkIn",
     "pages/index/notice-details/notice-details",
