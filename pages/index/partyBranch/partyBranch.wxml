@@ -30,7 +30,17 @@
       </view>
     </view>
     <view class="xinwen" wx:if="{{!panduan}}">
-      <template is="wxParse" data="{{wxParseData:dataHtml.nodes}}" />
-    </view>
+      <view class="seven_box" wx:for="{{10}}">
+
+        <view class="seven_left">
+          <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
+          <text>2020-10-28</text>  
+        </view>
+          <view class="seven_right">
+          <image src="../../../images/t1/componentBg.png"></image>
+          </view>
+        </view>
+    
+      </view>
   </view>
 </view>
