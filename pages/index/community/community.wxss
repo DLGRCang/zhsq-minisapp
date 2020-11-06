@@ -1,0 +1,70 @@
+/* pages/fwcz/fwcz.wxss */
+/* 公共颜色 */
+
+.font9{color:#999999;}
+.right{float:right;}
+
+/* 内容样式 */
+.xtb{    z-index: 999; position: absolute;}
+.tab_bar .active{color: #F55E5A;border-bottom: 1px solid #F55E5A;}
+.box_content .right-item{display: none}
+.box_content .right-item.active{display: block}
+
+.bg{width: 100%;padding-top:85rpx;background: #F35854;}
+.box_content{font-size: 28rpx;}
+.view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
+.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
+.view_tab>.tab_bar>view{width:65rpx;height:45rpx;line-height: 45rpx;float: left;margin-right: 45rpx;text-align: center;}
+
+.tab_box{padding:35rpx;overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;border-radius: 20rpx;}
+.box_left{float:left;width: 35%;}
+.box_left>image{width:100%;height: 200rpx;}
+.box_right{float:right;width: 62%;
+display: flex;
+flex-wrap: wrap;
+align-content: space-between;}
+
+.right1{
+  width: 100%;
+  
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 15rpx;
+}
+.right1 text{
+  padding: 5rpx 10rpx;
+  
+font-size: 20rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #F55E5A;
+background: #FFE5E4;
+border-radius: 15rpx;
+}
+.right2{
+  width: 100%;
+}
+.right2 view{
+  width: 100%;
+  margin-top: 20rpx;
+font-size: 20rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #666666;
+overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+}
+.box_right>text{width:100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: block;color: #A9B3BD;line-height:1.8;}
+.box_right>text:first-child{color: #333333;}
+
+.text-bold{font-size: 32rpx;}
+    .yy_title{color:#A9B3BD;font-size:28rpx !important;font-weight: normal;}
+

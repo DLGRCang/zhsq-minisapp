@@ -19,8 +19,42 @@
     <view class="back-box3"></view>
     
     <view class="top-text">
-      <view>中共内蒙古自治区XXXX支部委员会</view>
-      <view>欢迎您来到中共内蒙古自治区XXXX支部委员会，中共内蒙古自治区XXXX支部委员会成立于年，共有</view>
+      <view class="text-shang">
+        <view class="s-left"></view>
+        <view class="s-right">
+          <view>XXXX群活动服务中心</view>
+          <view>
+            XXXX群活动服务中心秉承“以人民为中心”的服务理念，综合区位特点、人群特征、服务半径等因素，有限整合了全市基层党建、行政服务、社会服务
+            XXXX群活动服务中心秉承“以人民为中心”的服务理念，综合区位特点、人群特征、服务半径等因素，有限整合了全市基层党建、行政服务、社会服务
+          </view>
+        </view>
+      </view>
+      <view class="text-xia">
+        <view class="x-top">
+          <view><text class="cuIcon-dianhua" style="color:#F35854"></text><text>电话:0470-1230000</text></view>
+          <view><text class="cuIcon-homefill" style="color:#F35854"></text><text>面积:200㎡</text></view>
+          <view><text class="cuIcon-timefill" style="color:#F35854"></text><text>开放时间:9:00-7:00</text></view>
+        </view>
+        <view class="x-top">
+          <view><text class="cuIcon-locationfill" style="color:#F35854"></text><text>地址:内蒙古自治区XXXX市XXXX区刺勒川大街6号
+            
+          </text></view>
+        </view>
+      </view>
+    </view>
+    <view class="fuwu">
+      <view class="fuwunei">
+        <image src="../../../images/partyBuilding/1.png"></image>
+        <view style="width:100%">党群服务</view>
+      </view>
+      <view class="fuwunei">
+        <image src="../../../images/partyBuilding/2.png"></image>
+        <view style="width:100%">场地服务</view>
+      </view>
+      <view class="fuwunei" bindtap="shequhd">
+        <image src="../../../images/partyBuilding/3.png"></image>
+        <view style="width:100%">社区活动</view>
+      </view>
     </view>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">

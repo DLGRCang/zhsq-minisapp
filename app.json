@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/community/community",
+  
+    "pages/index/partyBuilding/partyBuilding",
     "pages/index/partyBranch/partyBranch",
     "pages/index/complaint/complaint",
     "pages/index/checkIn/checkIn",

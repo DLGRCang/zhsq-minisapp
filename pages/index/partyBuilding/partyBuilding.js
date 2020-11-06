@@ -1,5 +1,4 @@
-// pages/index/partyBranch/partyBranch.js
-let wxParse = require('../../../wxParse/wxParse')
+// pages/index/partyBuilding/partyBuilding.js
 Page({
 
   /**
@@ -16,7 +15,6 @@ Page({
     TabCur: 0,
     scrollLeft:0,
   panduan:true,
-  topPos:false
   },
 
   /**
@@ -40,6 +38,7 @@ Page({
 
   },
 
+
   tabSelect(e) {
     console.log(e)
     this.setData({
@@ -58,7 +57,7 @@ Page({
   },
   scry(e){
     console.log(e)
-    if(e.detail.scrollTop > "150"){
+    if(e.detail.scrollTop > "320"){
       this.setData({
         topPos:true
       })
@@ -67,6 +66,12 @@ Page({
         topPos:false
       })
     }
+  },
+  shequhd(){
+    wx.navigateTo({
+      url: '/pages/index/community/community'
+    })
+    
   },
   /**
    * 生命周期函数--监听页面隐藏

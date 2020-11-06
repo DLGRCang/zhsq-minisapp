@@ -21,6 +21,11 @@ Page({
       name: value
     })
   },
+  DateChange(e) {
+    this.setData({
+      date: e.detail.value
+    })
+  },
   //监听输入手机号码
   enterPhone(e) {
     let {

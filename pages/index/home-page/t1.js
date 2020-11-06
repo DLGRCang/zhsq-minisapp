@@ -23,7 +23,7 @@ Component({
       {id:7,image:'../../../images/t1/ts7.png',text:"空中课堂",url:''},
       {id:8,image:'../../../images/t1/ts8.png',text:"视频直播",url:''},
       {id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:'/pages/index/partyBranch/partyBranch'},
-      {id:10,image:'../../../images/t1/ts10.png',text:"社区党建",url:''},
+      {id:10,image:'../../../images/t1/ts10.png',text:"社区党建",url:'/pages/index/partyBuilding/partyBuilding'},
       {id:11,image:'../../../images/t1/ts11.png',text:"民情直达",url:'/pages/index/complaint/complaint'},
       {id:12,image:'../../../images/t1/ts12.png',text:"入驻小区",url:'/pages/index/checkIn/checkIn'},
       {id:13,image:'../../../images/t1/ts13.png',text:"楼栋布局",url:'/pages/index/floor/floor'},
