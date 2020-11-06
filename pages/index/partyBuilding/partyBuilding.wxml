@@ -35,10 +35,10 @@
           <view><text class="cuIcon-homefill" style="color:#F35854"></text><text>面积:200㎡</text></view>
           <view><text class="cuIcon-timefill" style="color:#F35854"></text><text>开放时间:9:00-7:00</text></view>
         </view>
-        <view class="x-top">
-          <view><text class="cuIcon-locationfill" style="color:#F35854"></text><text>地址:内蒙古自治区XXXX市XXXX区刺勒川大街6号
+        <view class="x-bot">
+          <text class="cuIcon-locationfill" style="color:#F35854"></text><text>地址:内蒙古自治区XXXX市XXXX区刺勒川大街6号
             
-          </text></view>
+          </text>
         </view>
       </view>
     </view>

@@ -55,10 +55,9 @@ height: 479rpx;
 }
 .top-text{
   width: 100%;
-  height: 370rpx;
   background: #fff;
   border-radius: 12rpx;
-  padding: 30rpx;
+  padding: 30rpx 30rpx 0;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -66,10 +65,11 @@ height: 479rpx;
 }
 .text-shang{
   width: 100%;
-  height: 70%;
+  height: 190rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20rpx;
 }
 .s-left{
   width: 43%;
@@ -94,7 +94,7 @@ height: 20%;
 .s-right view:last-child{
   padding-top: 10rpx;
 width: 100%;
-font-size: 20rpx;
+font-size: 22rpx;
 font-family: Microsoft YaHei;
 font-weight: 400;
 color: #999999;
@@ -102,28 +102,32 @@ text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 .text-xia{
   width: 100%;
-  height: 20%;
-
 }
 .x-top{
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 22rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #666666;
+margin-bottom: 10rpx;
 }
-.x-top text:last-child{
-  
-font-size: 20rpx;
+.x-bot{
+  width: 100%;
+  font-size: 22rpx;
 font-family: Microsoft YaHei;
 font-weight: 400;
 color: #666666;
 }
+
 .fuwu{
   width: 100%;
   height: 180rpx;

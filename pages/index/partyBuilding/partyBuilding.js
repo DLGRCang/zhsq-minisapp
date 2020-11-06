@@ -57,7 +57,7 @@ Page({
   },
   scry(e){
     console.log(e)
-    if(e.detail.scrollTop > "320"){
+    if(e.detail.scrollTop > "305"){
       this.setData({
         topPos:true
       })
