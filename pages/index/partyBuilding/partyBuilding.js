@@ -56,7 +56,7 @@ Page({
     }
   },
   scry(e){
-    console.log(e)
+    //console.log(e)
     if(e.detail.scrollTop > "305"){
       this.setData({
         topPos:true
@@ -72,6 +72,16 @@ Page({
       url: '/pages/index/community/community'
     })
     
+  },
+  changdifw(){
+    wx.navigateTo({
+      url: '/pages/index/field/cdfw'
+    })
+  },
+  dangqunfw(){
+    wx.navigateTo({
+      url: '/pages/index/partyMasses/dqfw'
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏

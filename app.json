@@ -19,7 +19,12 @@
     "pages/index/maintenance-records/wxjl",
     "pages/login/login",
     "pages/index/floor/floor",
-    "pages/index/neighborhood-details/neighborhood-details"
+    "pages/index/neighborhood-details/neighborhood-details",
+    "pages/index/communityDetails/sq_hdxq",
+    "pages/index/field/cdfw",
+    "pages/index/partyMasses/dqfw",
+    "pages/index/partyServiceDetails/dq_hdxq",
+    "pages/index/service/cd_fwxq"
   ],
   "window": {
     "backgroundTextStyle": "light",

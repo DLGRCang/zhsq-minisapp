@@ -1,6 +1,6 @@
 <!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
 <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
-    <view slot="content">社区活动</view>
+    <view slot="content">党群服务</view>
 </cu-custom>
 
 <view class="bg">
@@ -30,8 +30,10 @@
           内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill" style="color:#F35854"></text>内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</view>
-          <view><text class="cuIcon-timefill" style="color:#F35854"></text>2020-11-15  9:00-7:00</view>
+          <view><text class="cuIcon-dianhua" style="color:#F35854"></text><text class="padd_lf">0471-00000</text></view>
+          <view><text class="cuIcon-timefill" style="color:#F35854"></text><text class="padd_lf">2020-11-15  9:00-7:00</text></view>
+
+         
         </view>
       </view>
     </view>
@@ -47,8 +49,8 @@
           内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill"></text>内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</view>
-          <view><text class="cuIcon-timefill"></text>2020-11-15  9:00-7:00</view>
+          <view><text class="cuIcon-dianhua"></text><text class="padd_lf">0471-00000</text></view>
+          <view><text class="cuIcon-timefill"></text><text class="padd_lf">2020-11-15  9:00-7:00</text></view>
         </view>
       </view>
     </view>
@@ -70,8 +72,8 @@
           内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill"></text>内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</view>
-          <view><text class="cuIcon-timefill"></text>2020-11-15  9:00-7:00</view>
+          <view><text class="cuIcon-dianhua"></text><text class="padd_lf">0471-00000</text></view>
+          <view><text class="cuIcon-timefill"></text><text class="padd_lf">2020-11-15  9:00-7:00</text></view>
         </view>
       </view>
     </view>
@@ -92,8 +94,8 @@
           内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill"></text>内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</view>
-          <view><text class="cuIcon-timefill"></text>2020-11-15  9:00-7:00</view>
+          <view><text class="cuIcon-dianhua"></text><text class="padd_lf">0471-00000</text></view>
+          <view><text class="cuIcon-timefill"></text><text class="padd_lf">2020-11-15  9:00-7:00</text></view>
         </view>
       </view>
     </view>

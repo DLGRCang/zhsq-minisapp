@@ -23,14 +23,10 @@ tab: function (e) {
   //console.log(e);
 },  
 
-fbfy(){
-  wx.navigateTo({
-    url: '/pages/index/lease/lease'
-  })
-},
+
 xiangqing(){
   wx.navigateTo({
-    url: '/pages/index/communityDetails/sq_hdxq'
+    url: '/pages/index/partyServiceDetails/dq_hdxq'
   })
 },
   /**
