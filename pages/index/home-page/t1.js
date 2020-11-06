@@ -41,6 +41,12 @@ Component({
   /**
    * 组件的方法列表
    */
+
+  sqhd_xq(){
+    wx.navigateTo({
+      url: '../community/community'
+    })
+  },
   methods: {
  //点击登录
  loginClick(){

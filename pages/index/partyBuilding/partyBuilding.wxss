@@ -1,5 +1,6 @@
 /* pages/index/partyBranch/partyBranch.wxss */
 @import "../../../wxParse/wxParse.wxss";
+.padd_lf{padding-left: 10rpx;}
 .partyBranch{
   width: 100%;
   height: 100%;

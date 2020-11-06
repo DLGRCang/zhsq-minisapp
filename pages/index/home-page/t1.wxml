@@ -49,7 +49,7 @@
 <!-- 第三部分 -->
 <view class="sqhd_box">
 <text class="sqhd_title">社区活动</text>
-<view class="bigBox">
+<!-- <view class="bigBox">
     <view class="circleBox"></view>    
     <view class="three_box">
     <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
@@ -58,7 +58,23 @@
     <text>人数：50组家庭</text>   
     <button class="bm_btn">报 名</button>
   </view>   
-</view>
+</view> -->
+<view class="tab_box" bindtap="sqhd_xq">
+      <view class="box_left">
+        <view class="cu-tag bg-lvse light xtb">进行中</view>
+        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+      </view>
+      <view class="box_right">
+        <view class="right1">
+          <text>职业技能培训</text>
+          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
+        </view>
+        <view class="right2">
+          <view><text class="cuIcon-locationfill" style="color:#F35854"></text>内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</view>
+          <view><text class="cuIcon-timefill" style="color:#F35854"></text>2020-11-15  9:00-7:00</view>
+        </view>
+      </view>
+    </view>
 </view>
 
 <!-- 第四部分 -->
