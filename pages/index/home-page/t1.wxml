@@ -82,8 +82,9 @@
 <text class="sqhd_title">小区投票</text>
 <view class="bigBox">
     <view class="circleBox"></view> 
+   
   <view class="four_box">
-    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
+    <view class="cu-tag bg-grey light xtb">已结束</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
     <text>2020-10-28</text>   
     <button class="bm_btn_cur">投 票</button>
   </view>
@@ -95,7 +96,7 @@
   <view class="bigBox">
     <view class="circleBox"></view> 
   <view class="four_box">
-    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
+    <view class="cu-tag bg-blue light xtb">进行中</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
     <text>2020-10-28</text>   
     <button class="bm_btn_cur">投 票</button>
   </view>
@@ -107,7 +108,7 @@
  <view class="bigBox">
     <view class="circleBox"></view> 
   <view class="four_box">
-    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
+    <text class="text01" style="margin-left:0;">汇通社区居委会举办家庭亲子活动</text>   
     <text>2020-10-28</text>   
     <button class="bm_btn_cur">投 票</button>
   </view>
