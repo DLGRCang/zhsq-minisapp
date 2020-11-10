@@ -137,7 +137,7 @@ line-height: 2;}
 color: #333333;}
 .text01{
   font-weight: 600;line-height: 2;font-size: 30rpx;color:#000;
-  padding-bottom: 10rpx;
+  padding-bottom: 10rpx;margin-left:15%;
 }
 .bm_btn{width:150rpx;height:50rpx;line-height:50rpx;color:#fff;
 background: linear-gradient(60deg, #66B7F9, #3A91F7);border-radius:50rpx;
@@ -149,8 +149,8 @@ margin-right: 25rpx;
   width:150rpx;height:50rpx;line-height:50rpx;color:#fff;
 background: linear-gradient(60deg, #BCCBFF, #A7B7FF);border-radius:50rpx;
 float:right;font-size: 28rpx;
-margin-top: -70rpx;
-margin-right: 25rpx;
+margin-top: -50rpx;
+/* margin-right: 15rpx; */
 }
 
 /* 第四部分 */
