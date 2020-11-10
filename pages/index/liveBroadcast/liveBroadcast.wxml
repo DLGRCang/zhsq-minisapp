@@ -1,0 +1,45 @@
+<view class="home">
+  <cu-custom bgColor="bg-gray-bl" isBack="{{true}}">
+    <view slot="content">直播</view>
+  </cu-custom>
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+    <view class="home-con">
+      <view class="box-home" wx:for="{{10}}">
+        <view class="con">
+          <view class="con-img">
+            
+          </view>
+          <view class="con-text">
+            <view class="text-img"></view>
+            <text>XXX的直播间</text>
+          </view>
+        </view>
+      </view>
+    </view> 
+  </view>
+  <view class="cjbtn">
+    <view class="btn" bindtap="showModal" data-target="ChooseModal">创建直播间</view>
+  </view>
+  <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" style="border-radius: 12rpx 12rpx 0 0;" catchtap>
+    <view class="col-3 padding-sm">
+      <view class="chuanjain">创建直播间</view>
+      <input type="text" class="btInput" placeholder="请输入直播间标题"/>
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                  <text class="cuIcon-close"></text>
+                </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+                <text class="cuIcon-add"></text>请选择封面图
+      </view>
+      <view class="btn">创建</view>
+
+    </view>
+  </view>
+</view>
+</view>

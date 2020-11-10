@@ -21,7 +21,7 @@ Component({
       {id:5,image:'../../../images/t1/ts5.png',text:"SOS求助",url:''},
       {id:6,image:'../../../images/t1/ts6.png',text:"房屋出租",url:'/pages/index/houseRental/fwcz'},
       {id:7,image:'../../../images/t1/ts7.png',text:"空中课堂",url:''},
-      {id:8,image:'../../../images/t1/ts8.png',text:"视频直播",url:''},
+      {id:8,image:'../../../images/t1/ts8.png',text:"视频直播",url:'/pages/index/liveBroadcast/liveBroadcast'},
       {id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:'/pages/index/partyBranch/partyBranch'},
       {id:10,image:'../../../images/t1/ts10.png',text:"社区党建",url:'/pages/index/partyBuilding/partyBuilding'},
       {id:11,image:'../../../images/t1/ts11.png',text:"民情直达",url:'/pages/index/complaint/complaint'},
@@ -53,13 +53,24 @@ Component({
   common.checkLogin()
   },
   contentClick(e){
-    //console.log(e.currentTarget.dataset.url)
+    console.log(e.currentTarget.dataset.id)
     if(e.currentTarget.dataset.url != ''){
       wx.navigateTo({
         url: e.currentTarget.dataset.url
       })
     }
+
+    if(e.currentTarget.dataset.id == '5'){
+      wx.makePhoneCall({
+        phoneNumber: '110',
+      })
+    }
     
+  },
+  xqvode(){
+    wx.navigateTo({
+      url:'/pages/index/vote/kaishi_tp' 
+    })
   },
   getleft(e){
     //console.log(e)

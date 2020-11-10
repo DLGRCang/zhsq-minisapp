@@ -1,7 +1,7 @@
 
 <view class="box" wx:if="{{login == 1}}">
   <view class="top-navigation">
-    <view wx:if="{{PageCur=='t1'||PageCur=='t4'}}">
+    <view wx:if="{{PageCur=='t1'||PageCur=='t2'||PageCur=='t3'||PageCur=='t4'}}">
       <text class="cuIcon-location"></text>
       <view style="width:324rpx">左右城左E4 1单元1203</view>
       <text class="cuIcon-right lg" style="font-size:20rpx"></text>

@@ -1,0 +1,74 @@
+.onekey{
+  width: 100%;
+  height: 85%;
+  background: #f9f9f9;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-radius: 30rpx 30rpx 0 0;
+  padding: 50rpx 30rpx;
+  box-sizing: border-box;
+}
+.keyimg{
+  width: 100%;
+  height: 140rpx;
+  
+}
+.biaoshi{
+  width: 100%;
+  margin: 50rpx 0;
+}
+.bsnei{
+  float: right;
+  display: flex;
+  align-items: center;
+  
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #A9B3BD;
+margin-left: 20rpx;
+}
+.bsnei view{
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  margin-right: 7rpx;
+}
+.men{
+  width: 100%;
+  padding:15rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+.mennei{
+  width: 50%;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.zhuangtai{
+  width: 100%;
+  height: 180rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.zhuangtai view:first-child{
+  width: 100%;
+font-size: 28rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+text-align: center;
+margin-bottom: 30rpx;
+}
+.zhuangtai view:last-child{
+  width: 36rpx;
+  height: 36rpx;
+  border:5rpx solid #22B31E;
+  border-radius: 50%;
+  margin: 0 auto;
+}

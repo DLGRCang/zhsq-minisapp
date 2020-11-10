@@ -1,1 +1,46 @@
-<view style="width:100;text-align: center;font-size: 2rem;">页面2</view>
+<view class="life">
+  <view class="life-top">
+    <view class="sousuo">
+      <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
+      <input type="text" placeholder="请输入搜索内容"/>
+      <view>搜索</view>
+    </view>
+    <view class="tab">
+      <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item {{index==TabCur?'text-bai cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+          {{item.content}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="life-bot">
+    <view class="bot-over">
+      <view class="bot-neirong" wx:for="{{10}}">
+        <view class="nr-left">
+          <image></image>
+        </view>
+        <view class="nr-right">
+          <view class="r-n1">立刻（左右商店）</view>
+          <view class="r-n2">
+            <view class="n2-1">
+              <text class="cuIcon-favorfill" style="font-size:24rpx;color:#F55E5A;margin-right:10rpx">4.9</text>
+              <text>月销300</text>
+            </view>
+            <view class="n2-1">距离您1.5km</view>
+          </view>
+          <view class="r-n3">
+            <view class="n3-nr" wx:for="{{5}}">
+              <view></view>
+              <view>青岛 听装醇厚ascoaisn </view>
+              <view>
+                <text style="font-size:22rpx">￥</text>
+                <text style="font-size:26rpx">5.5</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>

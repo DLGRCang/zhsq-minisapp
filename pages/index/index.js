@@ -1,8 +1,8 @@
 //index.js
 //获取应用实例
-import https from '../../utils/api'
-import apidata from '../../utils/dataApi'
-import common from '../../utils/common'
+// import https from '../../utils/api'
+// import apidata from '../../utils/dataApi'
+// import common from '../../utils/common'
 const app = getApp()
 
 Page({

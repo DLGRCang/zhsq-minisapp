@@ -37,6 +37,7 @@ page {
 	--nnn: #999999;
 	--ttt: #333333;
 	--huang:#F55E5A;
+	--bai:#ffffff;
 	/* 浅色 */
 	--redLight: #fadbd9;
 	--orangeLight: #fde6d2;
@@ -3509,6 +3510,11 @@ scroll-view.cu-steps .cu-item {
 	color: var(--black);
 }
 
+.bg-gray-bl{
+	background-color: #0688F8;
+	color: var(--white);
+}
+
 .bg-gray-re{
 	background-color: #F35854;
 	color: var(--white);
@@ -3909,6 +3915,10 @@ scroll-view.cu-steps .cu-item {
 
 .text-huang{
 	color: var(--huang);
+}
+
+.text-bai{
+	color: var(--bai);
 }
 
 .text-ttt,

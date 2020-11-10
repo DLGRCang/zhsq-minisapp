@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/liveBroadcast/liveBroadcast",
     "pages/index/community/community",
-  
+    "pages/index/vote/kaishi_tp",
+    "pages/index/voteOver/tp",
     "pages/index/partyBuilding/partyBuilding",
     "pages/index/partyBranch/partyBranch",
     "pages/index/complaint/complaint",

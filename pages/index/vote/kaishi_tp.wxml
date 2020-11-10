@@ -1,0 +1,47 @@
+<!--pages/tp/tp.wxml-->
+<view class="details">
+  <view class="top-navigation">
+    <text class="cuIcon-back"  bindtap="navTui"></text>
+    <view>详情</view>
+    <text></text>
+  </view>
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+     <view class="tp_box">
+        <view class="text-center padding text-blue">关于小区XXX 修建投票表决</view>
+        <!-- 第一条事项 -->
+        <view class="tp_xx" style="margin-top:0;">
+          <text>1.关于小区XXXX修建投票时表决。</text>
+          <view>
+            <radio-group class="radio-group" bindchange="radioChange">
+               <label class="radio" wx:for="{{items}}">
+                   <view class="tui-menu-list"><radio class="blue" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+
+        <!-- 复制  第一条事项 -->
+        <view class="tp_xx" >
+          <text>2.关于小区XXXX修建投票时表决。</text>
+          <checkbox-group bindchange="checkboxChange">
+          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+            <view class="weui-cell__hd">
+              <checkbox value="{{item.value}}" checked="{{item.checked}}" class="blue"/>
+              {{item.name}}</view>
+          </label>
+        </checkbox-group>
+        </view>
+
+
+        <button bindtap="tp_click">投票</button>
+     </view>
+
+
+  </view>
+
+
+
+</view>
