@@ -17,7 +17,7 @@
           <view class="flex_tp margin-top">
             <view>同意</view>
             <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'80%':''}};"></view>
+              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
             </view>
             <text class="margin-left">8票</text>
           </view>
@@ -25,7 +25,7 @@
           <view class="flex_tp margin-top">
             <view>不同意</view>
             <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'80%':''}};"></view>
+              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
             </view>
             <text class="margin-left">8票</text>
           </view>
@@ -39,13 +39,13 @@
             <view class="cu-progress round">
               <view class="bg-blue" style="width:{{loading?'80%':''}};"></view>
             </view>
-            <text class="margin-left">8票</text>
+            <text class="margin-left">80票</text>
           </view>
 
           <view class="flex_tp margin-top">
             <view>不同意</view>
             <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'80%':''}};"></view>
+              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
             </view>
             <text class="margin-left">8票</text>
           </view>
@@ -60,7 +60,7 @@
             <view class="cu-progress round">
               <view class="bg-blue" style="width:{{loading?'40%':''}};"></view>
             </view>
-            <text class="margin-left">4票</text>
+            <text class="margin-left">40票</text>
           </view>
 
           <view class="flex_tp margin-top">
@@ -68,7 +68,7 @@
             <view class="cu-progress round">
               <view class="bg-blue" style="width:{{loading?'30%':''}};"></view>
             </view>
-            <text class="margin-left">3票</text>
+            <text class="margin-left">30票</text>
           </view>
         </view>
 
@@ -80,7 +80,7 @@
           <view class="flex_tp margin-top">
             <view>同意</view>
             <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'80%':''}};"></view>
+              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
             </view>
             <text class="margin-left">8票</text>
           </view>
@@ -88,7 +88,7 @@
           <view class="flex_tp margin-top">
             <view>不同意</view>
             <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'80%':''}};"></view>
+              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
             </view>
             <text class="margin-left">8票</text>
           </view>
