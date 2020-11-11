@@ -1,0 +1,98 @@
+/* pages/index/life_details/life_details.wxss */
+/* 公共颜色 */
+.font9{color:#999999;}
+.right{float:right;}
+
+/* 頭部背景樣式 */
+.box-body{ width: 100%;height: 100%;position: relative;overflow-x: hidden;
+  /* padding: 0 30rpx; */color:#000;
+}
+.back-box1{width: 200%;height: 360rpx;background: #0688F8;opacity: 0.3;
+border-radius: 50%;position: absolute;top: -7%;left: -50%;z-index: -3;}
+.back-box2{position: absolute;top: -9%;left: -55%;z-index: -2;width: 200%;
+height: 350rpx;background: #1BB1FD;border-radius: 50%;}
+.back-box3{position: absolute;top: -12%;left: -50%;z-index: -1;
+  width: 200%;height: 340rpx; background: #1082FF; border-radius: 50%;
+}
+/* 搜索样式 */
+.sousuo{width: 100%;height: 70rpx;background: #fff;
+  border-radius: 35rpx; margin-bottom: 20rpx;display: flex;align-items: center;
+  justify-content: space-between;padding: 0 10rpx 0 20rpx; box-sizing: border-box;
+}
+.sousuo input:nth-child(2){ width: 70%;height: 100%;}
+.sousuo view:last-child{ width: 120rpx;height: 55rpx;background: linear-gradient(60deg, #66B7F9, #3A91F7);
+border-radius: 28rpx;display: flex;align-items: center;justify-content: center;
+font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
+
+/* 内容样式 */
+.ditails_box{width:100%;margin:0 auto;padding:35rpx;}
+.box_one{width: 100%;padding:15rpx 35rpx 35rpx 35rpx;background: #fff;overflow: hidden;clear: both;
+             border-radius: 15rpx;}
+.box_one>.fl{width: 75%;float: left;}
+.box_one>.fr{width: 25%;float: right;}
+.box_one>.fl>.one_title{line-height: 2;}
+.box_one>.fl>.one_img{display: inline-block;height: 45rpx;line-height: 45rpx;padding-right: 25rpx;}
+.box_one>.fl>.one_img>image{width:30rpx;height: 28rpx;padding-right: 5rpx;}
+.box_one>.fl>.one_tabimg{float: left;padding-right: 35rpx;padding-top: 15rpx;}
+.box_one>.fr>image{width: 100%;height:120rpx;}
+/* 第二块 tab导航样式 */
+.tab_bar .active{ color: #188BFF;border-bottom: 1px solid #188BFF;font-weight: bold;}
+.box_content .right-item{display: none}
+.box_content .right-item.active{display: block}
+
+.box_content{font-size: 28rpx;}
+.view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
+.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;display: inline-flex;}
+.view_tab>.tab_bar>view{height:50rpx;line-height: 50rpx;float: left;margin-right: 45rpx;text-align: center;}
+
+.tab_box{overflow: hidden;clear: both;width:100%;margin:25rpx auto; 
+  border-radius: 20rpx;}
+  .VerticalNav.nav {
+    width: 265rpx;
+    white-space: initial;
+  }
+  
+  .VerticalNav.nav .cu-item {
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    margin: 0;
+    border: none;
+    height: 50px;
+    position: relative;
+  }
+  
+  .VerticalNav.nav .cu-item.cur {
+    background-color: #f1f1f1;
+  }
+  .VerticalNav.nav .cu-item.cur::after {
+    content: "";
+    width: 8rpx;
+    height: 30rpx;
+    border-radius: 10rpx 0 0 10rpx;
+    position: absolute;
+    /* background-color: currentColor; */
+    top: 0;
+    right: 0rpx;
+    bottom: 0;
+    margin: auto;
+  }
+  .VerticalBox{
+    display: flex;
+  }
+  .VerticalMain{
+    background-color: #f1f1f1;
+  }
+  .padding-lr {
+    padding-left: 60;
+  }
+  .nav .cu-item {
+    padding: 0 25rpx;
+  }
+  .cu-bar {
+    justify-content: left;
+  }
+  .cu-list.menu-avatar>.cu-item .content {
+    width: calc(100% - 96rpx - 0rpx - 30rpx - 20rpx);
+}
+.two_title{padding-right: 15rpx;}

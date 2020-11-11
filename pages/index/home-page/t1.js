@@ -17,7 +17,7 @@ Component({
       {id:1,image:'../../../images/t1/ts1.png',text:"访客通行",url:'/pages/index/visitor/visitor'},
       {id:2,image:'../../../images/t1/ts2.png',text:"物业维修",url:'/pages/index/property-maintenance/wywx'},
       {id:3,image:'../../../images/t1/ts3.png',text:"物业缴费",url:'/pages/index/property-payment/wyjf'},
-      {id:4,image:'../../../images/t1/ts4.png',text:"生活缴费",url:''},
+      {id:4,image:'../../../images/t1/ts4.png',text:"生活缴费",url:'/pages/index/living_payment/shjf'},
       {id:5,image:'../../../images/t1/ts5.png',text:"SOS求助",url:''},
       {id:6,image:'../../../images/t1/ts6.png',text:"房屋出租",url:'/pages/index/houseRental/fwcz'},
       {id:7,image:'../../../images/t1/ts7.png',text:"空中课堂",url:''},

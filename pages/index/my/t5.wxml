@@ -25,6 +25,7 @@
       <view>{{item.text}}</view>
     </view>
   </view>
+  <!-- 第一栏 -->
   <view class="my-b-from">
     <view class="my-p-from">
       <view class="bot-border">
@@ -38,11 +39,33 @@
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
-  <view class="my-from">
+  <!-- <view class="my-from">
         <text>我的活动</text>
         <image class="fromImg" src="{{rightHui}}"></image>
+  </view> -->
+  </view>
+  <!-- 第二栏 -->
+  <view class="my-b-from">
+    <view class="my-p-from">
+      <view class="bot-border">
+        <text>我的点赞</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>我的收藏</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>我的评论</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
   </view>
   </view>
+
   <view class="my-b-from">
     <view class="my-p-from">
       <view class="bot-border">
@@ -56,10 +79,10 @@
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
-  <view class="my-from">
+  <!-- <view class="my-from">
         <text>出行记录</text>
         <image class="fromImg" src="{{rightHui}}"></image>
-  </view>
+  </view> -->
   </view>
   <view class="my-b-from">
     <view class="my-p-from">
@@ -75,7 +98,7 @@
       </view>
   </view>
   <view class="my-from">
-        <text>设置</text>
+        <text>清除缓存</text>
         <image class="fromImg" src="{{rightHui}}"></image>
   </view>
   </view>

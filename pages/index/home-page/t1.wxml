@@ -38,12 +38,6 @@
   <view class="box-1"><text>通知</text><text>公告</text></view>
   <view class="box-2">紧急通知！呼和浩特市应对新型冠状冠状冠状</view>
   <text class="cuIcon-right lg text-gray"></text>
-   <!-- <view class="tz">通知<text class="gg">公告</text>
-   <view>ascasc</view>
-   <view class="gg_c">紧急通知！呼和浩特市应对新型冠状冠状冠状</view>
-   <text class="cuIcon-right lg text-gray"></text>
-  </view> -->
-
 </view>
 
 <!-- 第三部分 -->
@@ -108,7 +102,7 @@
  <view class="bigBox">
     <view class="circleBox"></view> 
   <view class="four_box">
-    <text class="text01" style="margin-left:0;">汇通社区居委会举办家庭亲子活动</text>   
+    <view class="cu-tag bg-grey light xtb">已结束</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
     <text>2020-10-28</text>   
     <button class="bm_btn_cur">投 票</button>
   </view>

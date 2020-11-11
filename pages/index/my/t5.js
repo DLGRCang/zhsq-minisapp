@@ -14,10 +14,10 @@ Component({
    */
   data: {
     t5state:[
-      {id:1,img:'../../../images/t5/state1.png',text:'我的发布'},
-      {id:2,img:'../../../images/t5/state2.png',text:'我的收藏'},
-      {id:3,img:'../../../images/t5/state3.png',text:'我的点赞'},
-      {id:4,img:'../../../images/t5/state4.png',text:'我的评论'}
+      {id:1,img:'../../../images/t5/state1.png',text:'我的订单'},
+      {id:2,img:'../../../images/t5/state2.png',text:'我的发布'},
+      {id:3,img:'../../../images/t5/state3.png',text:'我的活动'},
+      {id:4,img:'../../../images/t5/state4.png',text:'我的申请'}
     ],
     rightHui:'../../../images/t5/right-hui.png',
     loginJs:true,

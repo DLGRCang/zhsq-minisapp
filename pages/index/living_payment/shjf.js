@@ -1,27 +1,13 @@
-// pages/index/t2/t2.js
+// pages/shjf/shjf.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dataTab:[
-      {id:0,content:"全部"},
-      {id:1,content:"商城超市"},
-      {id:2,content:"家政保洁"},
-      {id:3,content:"美容美发"},
-      {id:4,content:"家电维修"},
-      {id:4,content:"宠物医院"}
-    ],
-    TabCur:0,
-    scrollLeft:0
+
   },
-  // 生活跳转详情页面
-  life_details:function(){
-    wx.navigateTo({
-      url: '/pages/index/life_details/life_details'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -41,13 +27,6 @@ Page({
    */
   onShow: function () {
 
-  },
-
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
-    })
   },
 
   /**

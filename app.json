@@ -1,5 +1,6 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/index/liveBroadcast/liveBroadcast",
     "pages/index/community/community",
@@ -26,7 +27,9 @@
     "pages/index/field/cdfw",
     "pages/index/partyMasses/dqfw",
     "pages/index/partyServiceDetails/dq_hdxq",
-    "pages/index/service/cd_fwxq"
+    "pages/index/service/cd_fwxq",
+    "pages/index/living_payment/shjf",
+    "pages/index/life_details/life_details"
   ],
   "window": {
     "backgroundTextStyle": "light",

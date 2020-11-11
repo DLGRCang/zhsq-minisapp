@@ -1,0 +1,158 @@
+<!--pages/index/life_details/life_details.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+    <view slot="content">详情</view>
+</cu-custom>
+
+<view style="height:100%;">
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+  <!-- 内容开始 -->
+    <view class="ditails_box">
+        <!-- 搜索 -->
+      <view class="sousuo">
+      <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
+      <input type="text" placeholder="搜索店内商品"/>
+      <view>搜索</view>
+      </view>
+ 
+       <!-- 第一块 -->
+       <view class="box_one">
+          <view class="fl">
+            <view class="one_title">利客(左右城店)</view>
+            <view class="one_img"><image src="../../../images/images/sh_star.png"></image><text>4.9分</text></view>
+            <view class="one_img"><image src="../../../images/images/sh_ysl.png"></image><text>月售348</text></view>
+            <view class="one_tabimg">
+              <view class="cu-tag bg-blue light">满30减5</view>
+              <view class="cu-tag bg-blue light">满30减5</view>
+              <view class="cu-tag bg-blue light">满30减5</view>
+            </view>
+          </view>
+          <view class="fr">
+            <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3236757554,2055665845&fm=26&gp=0.jpg"></image>
+          </view>
+       </view>
+
+    </view>
+       <!-- 第二块导航 -->
+       <view class="view_tab">
+<view class="tab_bar" > 
+  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部商品</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">评价</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">商家</view> 
+</view> 
+ 
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="tab_box">
+      <view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      精品水果-{{item.name}}
+    
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{index}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <!-- <view class='action'>
+          <text class='cuIcon-title text-green'></text> Tab-{{item.name}} </view>
+      </view> -->
+        <view class="padding">销量</view>
+        <view bindtap="jiage" bindtap="toCollect">价格 
+            <!-- 箭头下拉  上拉 -->
+      <block wx:if="{{isCollect == false}}">
+        <text class='cuIcon-unfold lg text-gray'></text>
+      </block>
+      <block wx:elif="{{isCollect == true}}" >
+        <text class='cuIcon-fold lg text-gray'></text>
+      </block>
+        </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item ">
+          <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+          <view class="content">
+            <view class="text-black">
+              <text class="two_title">澳大利亚脐橙 橙子 澳橙一级中果 180g/个</text>
+            </view>
+            <view class="text-gray text-sm flex">
+              <text>月售 20</text>
+            </view>
+          </view>
+          <!-- <view class="action">
+            <view class="text-grey text-xs">22:20</view>
+            <view class="cu-tag round bg-red sm">5</view>
+          </view> -->
+        </view>
+        <view class="cu-item grayscale">
+          <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81007.jpg);"></view>
+          <view class="content">
+            <view>
+              <text class="text-cut">伊泽瑞尔</text>
+              <view class="cu-tag round bg-orange sm">断开连接...</view>
+            </view>
+            <view class="text-gray text-sm flex">
+              <text class="text-cut"> 等我回来一个打十个</text>
+            </view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">22:20</view>
+            <view class="cu-tag round bg-red sm">5</view>
+          </view>
+        </view>
+        <view class="cu-item cur">
+          <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big81020.jpg);">
+            <view class="cu-tag badge"></view>
+          </view>
+          <view class="content">
+            <view>
+              <text class="text-cut">瓦罗兰大陆-睡衣守护者-新手保护营</text>
+              <view class="cu-tag round bg-orange sm">6人</view>
+            </view>
+            <view class="text-gray text-sm flex">
+              <text class="text-cut"> 伊泽瑞尔：<text class="cuIcon-locationfill text-orange margin-right-xs"></text> 传送中...</text>
+            </view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">22:20</view>
+            <view class="cuIcon-notice_forbid_fill text-gray"></view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>
+    </view>
+
+  </view> 
+
+  
+
+  <!-- 第二栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+    <view class="tab_box">
+    222222222222222
+    </view>
+
+
+  </view> 
+  <!-- 第三栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+
+    <view class="tab_box">
+    333333333333333
+    </view>
+    
+  </view> 
+</view>
+<!-- 栏目结束 -->
+</view>
+
+
+    
+    </view>
+</view>

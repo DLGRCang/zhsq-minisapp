@@ -15,7 +15,7 @@
   </view>
   <view class="life-bot">
     <view class="bot-over">
-      <view class="bot-neirong" wx:for="{{10}}">
+      <view class="bot-neirong" wx:for="{{10}}" bindtap="life_details">
         <view class="nr-left">
           <view></view>
         </view>
