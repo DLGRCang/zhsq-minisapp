@@ -48,7 +48,7 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
 .tab_box{overflow: hidden;clear: both;width:100%;margin:25rpx auto; 
   border-radius: 20rpx;}
   .VerticalNav.nav {
-    width: 265rpx;
+    width: 235rpx;
     white-space: initial;
   }
   
@@ -93,6 +93,26 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
     justify-content: left;
   }
   .cu-list.menu-avatar>.cu-item .content {
-    width: calc(100% - 96rpx - 0rpx - 30rpx - 20rpx);
+    width: calc(100% - 96rpx - 80rpx - 30rpx - 20rpx);
+    left:220rpx;
 }
 .two_title{padding-right: 15rpx;}
+.two_imgtab{  color: #F55E5A;font-weight: bold;}
+.two_imgtab>image{width: 25rpx;height: 20rpx;padding-right: 5rpx;}
+.cu-list.menu-avatar>.cu-item {
+	height: 240rpx;
+}
+.dz_bold{font-size: 36rpx;font-weight: bold; color: #F55E5A;}
+.qc_dz{padding-left: 25rpx;text-decoration:line-through;}
+.cu-avatar.lg {
+	width: 170rpx;
+	height: 200rpx;
+	font-size: 2em;
+}
+.two_jjh{width:135rpx;height: 65rpx;line-height:65rpx;position: absolute;bottom:15rpx;
+  display: inline-flex;}
+.two_jjh>image{width: 35rpx;height: 35rpx;}
+.two_jjh>text{padding:15rpx;    line-height: 0;
+  font-weight: 400;
+  font-size: 32rpx;
+  color: #333333;}

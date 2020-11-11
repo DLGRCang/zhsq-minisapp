@@ -9,16 +9,19 @@
     </view>
     <image src="../../../images/t5/icon-right.png"></image>
   </view>
-  <view class="my-top" wx:if="{{!loginJs}}" bindtap="loginClick">
-    <view class="top-1">
+  <view class="my-top" >
+    <view class="top-1" wx:if="{{!loginJs}}" bindtap="loginClick">
       <view class="top-1-1"></view>
       <view class="top-1-2">
         <view>请登录</view>
         <view>----</view>
       </view>
     </view>
-    <image src="../../../images/t5/icon-right.png"></image>
+    <view class="top_fr">
+      <image class="seeting_img" src="../../../images/t5/seeting.png"></image>
+    </view>
   </view>
+
   <view class="my-state">
     <view wx:for="{{t5state}}" wx:key="index" class="state-for">
       <image src="{{item.img}}"></image>
