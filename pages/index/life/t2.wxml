@@ -6,7 +6,7 @@
       <view>搜索</view>
     </view>
     <view class="tab">
-      <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+      <scroll-view scroll-x class="nav" style="color:#eee" scroll-with-animation scroll-left="{{scrollLeft}}">
         <view class="cu-item {{index==TabCur?'text-bai cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
           {{item.content}}
         </view>
@@ -17,7 +17,7 @@
     <view class="bot-over">
       <view class="bot-neirong" wx:for="{{10}}">
         <view class="nr-left">
-          <image></image>
+          <view></view>
         </view>
         <view class="nr-right">
           <view class="r-n1">立刻（左右商店）</view>

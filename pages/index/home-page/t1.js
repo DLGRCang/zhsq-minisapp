@@ -53,7 +53,7 @@ Component({
   common.checkLogin()
   },
   contentClick(e){
-    console.log(e.currentTarget.dataset.id)
+    //console.log(e.currentTarget.dataset.id)
     if(e.currentTarget.dataset.url != ''){
       wx.navigateTo({
         url: e.currentTarget.dataset.url

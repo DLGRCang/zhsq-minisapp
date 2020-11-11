@@ -6,7 +6,7 @@ Page({
    */
   data: {
     touch: {
-      distance: 0,
+      distance: 50,
       scale: 1,
       baseWidth: null,
       baseHeight: null,

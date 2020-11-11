@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-// import https from '../../utils/api'
+import https from '../../utils/api'
 // import apidata from '../../utils/dataApi'
 // import common from '../../utils/common'
 const app = getApp()
@@ -83,16 +83,16 @@ Page({
       })
     }
     //console.log(this.data.login)
-    // https.baiduImgApi({
-    //   data:{
-    //   },
-    //   success:res=>{
-    //     console.log(res)
-    //   },
-    //   fail:err=>{
-    //     console.log(err)
-    //   }
-    // })
+    https.xinwenApi({
+      data:{
+      },
+      success:res=>{
+        console.log(res)
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
   },
   getUserInfo: function(e) {
     //console.log(e)
