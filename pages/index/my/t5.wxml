@@ -17,7 +17,7 @@
         <view>----</view>
       </view>
     </view>
-    <view class="top_fr">
+    <view class="top_fr" bindtap="settingClick" >
       <image class="seeting_img" src="../../../images/t5/seeting.png"></image>
     </view>
   </view>

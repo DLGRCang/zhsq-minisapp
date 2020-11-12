@@ -1,0 +1,48 @@
+<!--pages/index/setting_address/setting_address.wxml-->
+<!--pages/index/setting/setting.wxml-->
+<cu-custom bgColor="bg-gray" isBack="{{true}}">
+    <view slot="content">收货地址</view>
+  </cu-custom>
+
+  <!-- 内容 -->
+  <view class="setting_box">
+    <!-- 第一栏 -->
+  <view class="my-b-from">
+    <view class="my-p-from">
+      <view class="bot-border" bindtap="Add_address">
+        <text class="text-blue">新增地址</text>
+        <text class="cuIcon-right lg text-gray"></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 第二栏 -->
+  <view class="cu_address_box">
+      <view class="box01">
+        <view class="text-black">
+          <text class="text_01">XXX小区几单元   5层505</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text_02">李三(女士)   18247140000</text>
+        </view>
+      </view>
+      <view class="box_btn">
+        <image src="../../../images/t5/address_bj.png"></image>
+      </view>
+    </view>
+  <!-- 第二栏 复制-->
+  <view class="cu_address_box">
+      <view class="box01">
+        <view class="text-black">
+          <text class="text_01">XXX小区几单元   5层505</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text_02">李三(女士)   18247140000</text>
+        </view>
+      </view>
+      <view class="box_btn">
+        <image src="../../../images/t5/address_bj.png"></image>
+      </view>
+    </view>
+
+</view>

@@ -1,0 +1,36 @@
+<!--pages/index/news_address/news_address.wxml-->
+
+<cu-custom bgColor="bg-gray" isBack="{{true}}">
+    <view slot="content">新增地址</view>
+</cu-custom>
+
+
+<!-- 内容 -->
+<view class="newadd_content">
+<form>
+<view class="add_list">
+<text>联系人</text>
+  <input class="news_input" placeholder="姓名"></input>
+  <view class="padding cu-tag line-grey" style="margin-left:0;">先生</view>
+  <view class="padding cu-tag line-grey">女士</view>
+</view>
+
+<view class="add_list">
+<text>电话</text>
+  <input class="news_input" placeholder="电话"></input>
+</view>
+
+<view class="add_list">
+<text>地址</text>
+  <input class="news_input" placeholder="地址"></input>
+  <text class="cuIcon-right lg text-gray righticon"></text>
+</view>
+
+<view class="add_list">
+<text>门牌号</text>
+  <input class="news_input" placeholder="门牌号"></input>
+</view>
+
+</form>
+  <button class="tj_btn">保存并使用</button>
+</view>

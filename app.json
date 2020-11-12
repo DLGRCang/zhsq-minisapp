@@ -29,8 +29,10 @@
     "pages/index/partyServiceDetails/dq_hdxq",
     "pages/index/service/cd_fwxq",
     "pages/index/living_payment/shjf",
-    "pages/index/life_details/life_details",
-    "pages/index/life_detailsOrder/life_detailsOrder"
+    "pages/index/life_detailsOrder/life_detailsOrder",
+    "pages/index/setting_address/setting_address",
+    "pages/index/news_address/news_address",
+    "pages/index/setting/setting"
   ],
   "window": {
     "backgroundTextStyle": "light",

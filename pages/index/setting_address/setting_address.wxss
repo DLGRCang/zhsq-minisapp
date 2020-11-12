@@ -1,0 +1,17 @@
+/* pages/index/setting_address/setting_address.wxss */
+/* 引入已有的样式 */
+@import "../../index/setting/setting.wxss"
+.fr{float: right;}
+.fl{float: left;}
+/* 内容样式 */
+.cu_address_box{width:100%;padding:35rpx;background: #fff;margin-top:25rpx;
+  height: 100%;clear: both;overflow: hidden;border-radius: 15rpx;}
+.box01{width: 90%;float: left;}
+.text_01{
+  font-family: Microsoft YaHei;
+  font-weight: bold;font-size: 28rpx;
+  color: #333333;
+  line-height: 30rpx;}
+.text_02{padding-top: 20rpx;}
+.box_btn{float: right;width: 10%;}
+.box_btn>image{width: 40rpx;height: 40rpx;margin-top:25rpx;}

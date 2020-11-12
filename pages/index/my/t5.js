@@ -23,11 +23,17 @@ Component({
     loginJs:true,
     myLogin:[]
   },
- 
+
   /**
    * 组件的方法列表
    */
   methods: {
+       //设置-跳转
+   settingClick:function(){
+    wx.navigateTo({
+      url: '/pages/index/setting/setting'
+    })
+  },
  //点击登录
  loginClick(){
   common.checkLogin()

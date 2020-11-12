@@ -65,8 +65,8 @@
           "scene": null
         },
         {
-          "name": "pages/index/life_detailsOrder/life_detailsOrder",
-          "pathName": "pages/index/life_detailsOrder/life_detailsOrder",
+          "name": "pages/index/news_address/news_address",
+          "pathName": "pages/index/news_address/news_address",
           "query": "",
           "scene": null
         }
