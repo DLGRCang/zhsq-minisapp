@@ -135,3 +135,21 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
   .cu-item_sj{width:100%;padding:35rpx;background: #fff;padding-bottom: 35rpx;}
   .sj_title{font-weight: bold;font-size: 32rpx;line-height: 2;}
   .sj_content{line-height: 1.8;text-indent: 55rpx;}
+  /* 结算样式 */
+.js_button{width:80%;margin:0 auto;height:100rpx;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+border-radius:50rpx;
+position: fixed;z-index: 999;
+    bottom: 3%;left: 10%;
+}
+
+  .js_button>.button_lf{float: left;width:70%;background: #eee;line-height: 1.5;padding-top: 8rpx;
+    border-radius: 50rpx 0rpx 0rpx 50rpx;height: 100rpx;padding-left: 45rpx;}
+  .button_djg{display: inline-block;font-size: 32rpx;font-weight: bold;}
+  .button_xjg{font-size: 24rpx;color: #999;padding-left: 25rpx;text-decoration:line-through;}
+  .psf{font-size: 24rpx;color: #999;}
+  .js_button>.button_lr{float: right;width:30%;}
+  .button_lr>button{
+    height: 100rpx;color:#fff;font-size: 32rpx;line-height: 100rpx;
+    background: linear-gradient(60deg, #66B7F9, #3A91F7);
+    border-radius: 0px 50rpx 50rpx 0px;}

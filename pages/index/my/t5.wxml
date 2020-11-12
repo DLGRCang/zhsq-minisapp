@@ -82,11 +82,22 @@
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
-  <!-- <view class="my-from">
-        <text>出行记录</text>
-        <image class="fromImg" src="{{rightHui}}"></image>
-  </view> -->
   </view>
+  <view class="my-b-from">
+    <view class="my-p-from">
+      <view class="bot-border">
+        <text>积分商城</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>积分记录</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  </view>
+
   <view class="my-b-from">
     <view class="my-p-from">
       <view class="bot-border">

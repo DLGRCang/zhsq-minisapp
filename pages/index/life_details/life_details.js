@@ -62,6 +62,13 @@ tab: function (e) {
     })
   },
 
+  //去结算-跳转到订单
+  order:function(){
+    wx.navigateTo({
+      url: '/pages/index/life_detailsOrder/life_detailsOrder'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

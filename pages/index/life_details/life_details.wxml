@@ -122,6 +122,19 @@
       </view>
     </view>
   </scroll-view>
+  <!-- 结算 button -->
+<view class="js_button" bindtap="order">
+    <view class="button_lf">
+      <view class="button_djg">￥72.9  </view><text class="button_xjg">￥8.9</text> 
+      <view class="psf">另需配送费￥2.5</view>
+    </view>  
+    
+     <view class="button_lr">
+       <button>去结算</button>
+     </view>
+</view>
+
+
 </view>
     </view>
 
