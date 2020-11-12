@@ -1,0 +1,22 @@
+<!--pages/index/feedback/feedback.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+    <view slot="content">帮助反馈</view>
+  </cu-custom>
+
+  <view style="height:100%;">
+    <view class="box-body">
+        <view class="back-box1"></view>
+        <view class="back-box2"></view>
+        <view class="back-box3"></view>
+
+    <!-- 内容 -->
+    <view class="about">
+      <view class="wx_timebox">
+        <text class="wx_title">请输入要反馈的内容：</text>
+        <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入您要反馈的内容..."></textarea>
+      </view>
+      <button class="tj_btn">提交反馈</button>
+    </view>
+
+  </view>
+ </view>

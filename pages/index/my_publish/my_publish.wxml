@@ -1,0 +1,17 @@
+<!--pages/index/my_publish/my_publish.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+    <view slot="content">我的发布</view>
+</cu-custom>
+
+<view style="height:100%;">
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+    <!-- 内容 -->
+    <view class="publish_content">
+      <view class="box text-blue" bindtap="llqClick">邻里圈</view>
+      <view class="box text-blue" bindtap="fwClick">房屋</view>
+    </view>
+</view>
+</view>

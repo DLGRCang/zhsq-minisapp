@@ -28,6 +28,30 @@ Component({
    * 组件的方法列表
    */
   methods: {
+        //缴费记录-跳转
+  jfjlClick:function(){
+    wx.navigateTo({
+      // url: '/pages/index/feedback/feedback'
+    })
+  },
+//维修记录-跳转
+   wxjlClick:function(){
+        wx.navigateTo({
+          url: 'pages/index/maintenance-records/wxjl'
+        })
+      },
+    //帮助反馈-跳转
+  feedbackClick:function(){
+    wx.navigateTo({
+      url: '/pages/index/feedback/feedback'
+    })
+  },
+           //关于我们-跳转
+   aboutMe:function(){
+    wx.navigateTo({
+      url: '/pages/index/about/about'
+    })
+  },
        //设置-跳转
    settingClick:function(){
     wx.navigateTo({

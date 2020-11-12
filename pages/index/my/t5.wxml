@@ -70,14 +70,14 @@
   </view>
 
   <view class="my-b-from">
-    <view class="my-p-from">
+    <view class="my-p-from" bindtap="jfjlClick">
       <view class="bot-border">
         <text>缴费记录</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
-  <view class="my-p-from">
-    <view class="bot-border">
+  <view class="my-p-from" >
+    <view class="bot-border" bindtap="wxjlClick">
         <text>维修记录</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
@@ -99,13 +99,13 @@
   </view>
 
   <view class="my-b-from">
-    <view class="my-p-from">
+    <view class="my-p-from" bindtap="feedbackClick">
       <view class="bot-border">
         <text>帮助反馈</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
-  <view class="my-p-from">
+  <view class="my-p-from" bindtap="aboutMe">
     <view class="bot-border">
         <text>关于我们</text>
         <image class="fromImg" src="{{rightHui}}"></image>

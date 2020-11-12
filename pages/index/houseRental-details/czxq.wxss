@@ -43,7 +43,7 @@ height: 300rpx;background: #1BB1FD;border-radius: 50%;}
 .view_tab>.tab_bar>view{width:125rpx;height:65rpx;line-height: 65rpx;float: left;margin-right: 45rpx;text-align: center;}
 
 /* 内容样式 */
-.fyxx_box{width:93%;margin:0 auto;}
+.fyxx_box{width:93%;margin:0 auto;padding-bottom: 10%;}
 .fyxx_box>.box_one>.title{font-weight: bold;font-size: 32rpx;line-height: 1.8;padding-top: 15rpx;color: #333;}
 .fyxx_box>.box_one>text{display: block;line-height: 1.8;padding-left:35rpx;}
 .textarea{
