@@ -96,12 +96,21 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
     width: calc(100% - 96rpx - 80rpx - 30rpx - 20rpx);
     left:220rpx;
 }
+.cu-list.menu-avatar>.cu-item .content_two {
+  width: calc(100% - 36rpx - 80rpx - 30rpx - 0rpx);
+  /* left: 0rpx; */
+}
+
 .two_title{padding-right: 15rpx;}
 .two_imgtab{  color: #F55E5A;font-weight: bold;}
 .two_imgtab>image{width: 25rpx;height: 20rpx;padding-right: 5rpx;}
 .cu-list.menu-avatar>.cu-item {
 	height: 240rpx;
 }
+.cu-list.menu-avatar>.item_two {
+  height:140rpx;border-bottom: 1rpx solid #f4f4f4;
+}
+.cu-list+.cu-list {margin-top: 0rpx;}
 .dz_bold{font-size: 36rpx;font-weight: bold; color: #F55E5A;}
 .qc_dz{padding-left: 25rpx;text-decoration:line-through;}
 .cu-avatar.lg {
@@ -109,10 +118,20 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
 	height: 200rpx;
 	font-size: 2em;
 }
+.cu-avatar.lg_two {
+	width: 80rpx;
+	height: 80rpx;
+	font-size: 2em;margin-left: 20rpx;
+}
 .two_jjh{width:135rpx;height: 65rpx;line-height:65rpx;position: absolute;bottom:15rpx;
   display: inline-flex;}
 .two_jjh>image{width: 35rpx;height: 35rpx;}
-.two_jjh>text{padding:15rpx;    line-height: 0;
+.two_jjh>text{padding:15rpx;    line-height: 0.4;
   font-weight: 400;
   font-size: 32rpx;
   color: #333333;}
+
+  /* 商家样式 */
+  .cu-item_sj{width:100%;padding:35rpx;background: #fff;padding-bottom: 35rpx;}
+  .sj_title{font-weight: bold;font-size: 32rpx;line-height: 2;}
+  .sj_content{line-height: 1.8;text-indent: 55rpx;}

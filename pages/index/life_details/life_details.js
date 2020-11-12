@@ -51,7 +51,7 @@ tab: function (e) {
       mask: true
     });
     let list = [{}];
-    for (let i = 0; i < 26; i++) {
+    for (let i = 0; i < 6; i++) {
       list[i] = {};
       list[i].name = String.fromCharCode(65 + i);
       list[i].id = i;

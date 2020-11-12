@@ -132,16 +132,39 @@
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
     <view class="tab_box">
-    222222222222222
+
+     <view class="cu-list menu-avatar">
+    <view class="cu-item item_two {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-avatar lg_two" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
+      <view class="content_two">
+        <view class="text-grey">文晓港</view>
+        <!-- 评分 -->
+        <view class="text-gray text-sm">
+          <text class="cuIcon-favorfill lg text-red"></text>
+          <text class="cuIcon-favorfill lg text-red"></text>
+          <text class="cuIcon-favorfill lg text-red"></text>
+          <text class="cuIcon-favorfill lg text-red"></text>
+          <text class="cuIcon-favor lg text-red"></text>
+          <text style="padding-left:10rpx;">评分：5.6</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
     </view>
 
 
   </view> 
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
-
     <view class="tab_box">
-    333333333333333
+      <view class="cu-item_sj">
+         <text class="sj_title">商家简介：</text>
+         <view class="sj_content">
+          首先来bai说说什么是店铺介绍，店铺介绍的du解释也就是对店铺的介zhi绍，相信老卖家都知道了，如果是新手卖家，相信你跟我以前一样不知道写些什么话吧？别着急，我在这里告诉大家一个秘密，去街上逛逛收集一些实体店的介绍或其它成功网店的介绍，看看别人怎么写的，拿过来适当修改一下就可以用了（但是用之前有必要让主人知道哦，呵呵！）
+         </view>
+         </view>
     </view>
     
   </view> 
