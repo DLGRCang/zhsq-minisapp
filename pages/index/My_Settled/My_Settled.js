@@ -1,4 +1,4 @@
-// pages/index/setting_address/setting_address.js
+// pages/index/My_Settled/My_Settled.js
 Page({
 
   /**
@@ -7,19 +7,7 @@ Page({
   data: {
 
   },
-     //编辑地址-跳转
-     editClick:function(){
-      wx.navigateTo({
-        url: '/pages/index/news_address/news_address'
-      })
-    },
 
-   //新增收货地址-跳转
-   Add_address:function(){
-    wx.navigateTo({
-      url: '/pages/index/news_address/news_address'
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

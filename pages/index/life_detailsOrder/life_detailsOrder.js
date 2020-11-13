@@ -7,6 +7,12 @@ Page({
   data: {
     isCollect: true, // 默认下箭头
   },
+  // 地址跳转
+  AddressClick:function(){
+    wx.navigateTo({
+      url: '/pages/index/setting_address/setting_address'
+    })
+  },
   // 下拉/上拉
   toCollect () {
     var bol = this.data.isCollect; // 获取状态

@@ -91,7 +91,7 @@
       </view>
   </view>
   <view class="my-p-from">
-    <view class="bot-border">
+    <view class="bot-border"  bindtap="Credits_LogClick">
         <text>积分记录</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>

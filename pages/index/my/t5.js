@@ -28,16 +28,23 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+  //积分记录-跳转
+  Credits_LogClick:function(){
+    wx.navigateTo({
+      url: "/pages/index/Credits_Log/Credits_Log"
+    })
+  },  
         //缴费记录-跳转
   jfjlClick:function(){
     wx.navigateTo({
-      // url: '/pages/index/feedback/feedback'
+      url: '/pages/index/feedback/feedback'
     })
   },
 //维修记录-跳转
    wxjlClick:function(){
         wx.navigateTo({
-          url: 'pages/index/maintenance-records/wxjl'
+          url: "/pages/index/maintenance-records/wxjl",
         })
       },
     //帮助反馈-跳转

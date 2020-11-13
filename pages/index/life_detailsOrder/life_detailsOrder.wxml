@@ -12,7 +12,7 @@
      <!-- 第一块 -->
     <view class="order_box">
        <view class="box_one">
-          <view class="one_top">
+          <view class="one_top" bindtap="AddressClick">
             <view class="one_dbt">呼和浩特科创中心 505</view>
             <view class="one_xbt">用户名(先生)<view>18247140000</view> </view>
             <text class="cuIcon-right lg text-gray one_righticon"></text>

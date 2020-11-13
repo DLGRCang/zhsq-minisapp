@@ -1,0 +1,28 @@
+/* pages/index/Credits_Log/Credits_Log.wxss */
+.fr{float: right;}
+.fl{float: left;}
+/* 頭部背景樣式 */
+.box-body{ width: 100%;height: 100%;position: relative;overflow-x: hidden;color:#000;}
+.back-box1{width: 200%;height: 488rpx;background: #0688F8;opacity: 0.3;
+border-radius: 50%;position: absolute;top: -7%;left: -50%;z-index: -3;}
+.back-box2{position: absolute;top: -9%;left: -55%;z-index: -2;width: 200%;
+height: 479rpx;background: #1BB1FD;border-radius: 50%;}
+.back-box3{position: absolute;top: -12%;left: -50%;z-index: -1;
+  width: 200%;height: 479rpx; background: #1082FF; border-radius: 50%;
+}
+/* 内容样式 */
+.credits_box{width:93%;padding:35rpx;background: #fff;margin:15rpx auto;
+  height: 100%;clear: both;overflow: hidden;border-radius: 15rpx;}
+  .cu_credits_box {margin-top:25rpx;
+    width: 100%;height: 100rpx;   border-bottom: 1rpx solid #F9F9F9;
+}
+.zjf{font-size: 40rpx;padding:35rpx;font-weight: bold;color: #fff;}
+.box01{width: 90%;float: left; }
+.text_01{
+  font-family: Microsoft YaHei;
+  font-weight: bold;font-size: 28rpx;
+  color: #333333;
+  line-height: 30rpx;}
+.text_02{padding-top: 20rpx;}
+.box_btn{float: right;width: 10%;    margin-top: 25rpx;}
+.box_btn>image{width: 40rpx;height: 40rpx;margin-top:25rpx;}

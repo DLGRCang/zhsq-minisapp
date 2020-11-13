@@ -26,7 +26,7 @@
           <text class="text_02">李三(女士)   18247140000</text>
         </view>
       </view>
-      <view class="box_btn">
+      <view class="box_btn" bindtap="editClick">
         <image src="../../../images/t5/address_bj.png"></image>
       </view>
     </view>
@@ -40,7 +40,7 @@
           <text class="text_02">李三(女士)   18247140000</text>
         </view>
       </view>
-      <view class="box_btn">
+      <view class="box_btn" bindtap="editClick">
         <image src="../../../images/t5/address_bj.png"></image>
       </view>
     </view>

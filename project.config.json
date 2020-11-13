@@ -65,8 +65,8 @@
           "scene": null
         },
         {
-          "name": "pages/index/feedback/feedback",
-          "pathName": "pages/index/feedback/feedback",
+          "name": "pages/index/My_Settled/My_Settled",
+          "pathName": "pages/index/My_Settled/My_Settled",
           "query": "",
           "scene": null
         }
