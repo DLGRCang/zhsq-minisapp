@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+  
     "pages/index/index",
     "pages/index/liveBroadcast/liveBroadcast",
     "pages/index/community/community",
@@ -38,7 +38,8 @@
     "pages/index/about/about",
     "pages/index/feedback/feedback",
     "pages/index/Credits_Log/Credits_Log",
-    "pages/index/My_Settled/My_Settled"
+    "pages/index/My_Settled/My_Settled",
+    "pages/index/Search/Search"
   ],
   "window": {
     "backgroundTextStyle": "light",

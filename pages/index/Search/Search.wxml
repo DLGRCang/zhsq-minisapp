@@ -1,0 +1,31 @@
+<!--pages/index/Search/Search.wxml-->
+<cu-custom bgColor="bg-gray" isBack="{{true}}">
+    <view slot="content">搜索</view>
+  </cu-custom>
+  <!-- 内容开始 -->
+  <view class="ditails_box">
+        <!-- 搜索 -->
+      <view class="sousuo">
+      <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
+      <input type="text" placeholder="请输入要搜索的内容"/>
+      <view>搜索</view>
+      </view>
+      <!-- 大家都在搜 -->
+      <view class="peo">
+        <view>大家都在搜</view>
+        <text class="cu-tag bg-white">维他红茶</text>
+        <text class="cu-tag bg-white">维他红茶</text>
+        <text class="cu-tag bg-white">维他红茶500ml</text>
+        <text class="cu-tag bg-white">维他红茶</text>
+        <text class="cu-tag bg-white">维他红茶</text>
+        <text class="cu-tag bg-white">维他红茶500ml</text>
+      </view>
+      <!-- 搜索历史 -->
+      <view class="peo">
+        <view>搜索历史</view>
+        <text class="cuIcon-time lg text-gray"> 维他红茶</text>   
+        <text class="cuIcon-time lg text-gray"> 维他红茶</text>
+      </view>
+      <!-- 删除 -->
+      <view class="cuIcon-delete lg text-gray fr padding"></view>
+  </view>    

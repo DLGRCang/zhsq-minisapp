@@ -1,2 +1,58 @@
 <!--pages/index/My_Settled/My_Settled.wxml-->
-<text>pages/index/My_Settled/My_Settled.wxml</text>
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+    <view slot="content">我的入驻</view>
+</cu-custom>
+
+<view style="height:100%;">
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+    <!-- 第一部分 头部 -->
+
+      <view class="settled_content">
+              <view class="fl">
+                <image src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2070453827,1163403148&fm=26&gp=0.jpg"></image>
+              </view>
+              <view class="fr">
+                <text>李三<text class="cu-tag bg-blue light fr">待审核</text></text>
+                 <view>证件号码：1502222222222220987</view>
+                 <view>手机号码：12345678909</view>
+                 <view>住房信息：12号楼1单元602</view>
+              </view>
+      </view>
+
+      <!-- 复制 第二栏 -->
+      <view class="settled_content">
+              <view class="fl">
+                <image src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2070453827,1163403148&fm=26&gp=0.jpg"></image>
+              </view>
+              <view class="fr">
+                <text>李三<text class="cu-tag bg-grey light fr">已审核</text></text>
+                 <view>证件号码：1502222222222220987</view>
+                 <view>手机号码：12345678909</view>
+                 <view>住房信息：12号楼1单元602</view>
+              </view>
+      </view>
+
+      <!-- 复制 第三栏 -->
+      <view class="settled_content">
+              <view class="fl">
+                <image src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2070453827,1163403148&fm=26&gp=0.jpg"></image>
+              </view>
+              <view class="fr">
+                <text>李三<text class="cu-tag bg-orange light fr">审核中</text></text>
+                 <view>证件号码：1502222222222220987</view>
+                 <view>手机号码：12345678909</view>
+                 <view>住房信息：12号楼1单元602</view>
+              </view>
+      </view>
+
+
+
+
+
+            <!-- <view class="cu-tag bg-blue light">待审核</view> -->
+
+    </view>
+</view>
