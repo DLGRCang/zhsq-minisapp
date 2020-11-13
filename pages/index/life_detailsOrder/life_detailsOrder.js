@@ -6,6 +6,7 @@ Page({
    */
   data: {
     isCollect: true, // 默认下箭头
+    time: '12:01',
   },
   // 地址跳转
   AddressClick:function(){
@@ -13,6 +14,13 @@ Page({
       url: '/pages/index/setting_address/setting_address'
     })
   },
+  // 时间控件
+  TimeChange(e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+
   // 下拉/上拉
   toCollect () {
     var bol = this.data.isCollect; // 获取状态

@@ -1,6 +1,6 @@
 {
   "pages": [
-   
+  
     "pages/index/index",
     "pages/index/liveBroadcast/liveBroadcast",
     "pages/index/community/community",
@@ -40,7 +40,8 @@
     "pages/index/Credits_Log/Credits_Log",
     "pages/index/My_Settled/My_Settled",
     "pages/index/Search/Search",
-    "pages/index/My_appointment/My_appointment"
+    "pages/index/My_appointment/My_appointment",
+    "pages/index/Llq_pub/Llq_pub"
   ],
   "window": {
     "backgroundTextStyle": "light",

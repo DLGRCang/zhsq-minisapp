@@ -54,6 +54,13 @@ Page({
   onReady: function () {
 
   },
+  // 发布
+  fabu:function(){
+    wx.navigateTo({
+      url: '/pages/index/Llq_pub/Llq_pub'
+    })
+  },
+
   lljClick:function(){
 
     wx.navigateTo({
