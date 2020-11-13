@@ -28,7 +28,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    // 我的预约 跳转
+    My_appointmentClick:function(){
+      wx.navigateTo({
+        url: "/pages/index/My_appointment/My_appointment"
+      })
+    },  
   //积分记录-跳转
   Credits_LogClick:function(){
     wx.navigateTo({

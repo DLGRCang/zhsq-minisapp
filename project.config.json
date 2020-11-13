@@ -65,8 +65,8 @@
           "scene": null
         },
         {
-          "name": "pages/index/Search/Search",
-          "pathName": "pages/index/Search/Search",
+          "name": "pages/index/My_appointment/My_appointment",
+          "pathName": "pages/index/My_appointment/My_appointment",
           "query": "",
           "scene": null
         }

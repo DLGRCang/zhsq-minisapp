@@ -30,7 +30,7 @@
   </view>
   <!-- 第一栏 -->
   <view class="my-b-from">
-    <view class="my-p-from">
+    <view class="my-p-from" bindtap="My_appointmentClick">
       <view class="bot-border">
         <text>我的预约</text>
         <image class="fromImg" src="{{rightHui}}"></image>
