@@ -1,0 +1,48 @@
+/* pages/index/My_Order/My_Order.wxss */
+@import "../life/t2.wxss";
+.fl{float: left;}
+.fr{float: right;}
+/* 内容样式 */
+.xtb{    z-index: 999; position: absolute;}
+.tab_bar .active{color: #188BFF;border-bottom: 1px solid #188BFF;}
+.box_content .right-item{display: none}
+.box_content .right-item.active{display: block}
+
+.bg{width: 100%;background: #0090FA;}
+.box_content{font-size: 28rpx;}
+.view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
+.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
+.view_tab>.tab_bar>view{height:45rpx;font-weight:bold;height: 45rpx;float: left;margin-right: 45rpx;text-align: center;}
+
+.tab_box{overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;
+    border-radius: 20rpx;}
+
+ /* 搜索样式 */
+ .ditails_box{width:100%;margin:0 auto;padding:35rpx;width: 100%;padding-top:35rpx;background: #0090FA;}
+.sousuo{width: 100%;height: 70rpx;background: #fff;
+  border-radius: 35rpx; margin-bottom: 20rpx;display: flex;align-items: center;
+  justify-content: space-between;padding: 0 10rpx 0 20rpx; box-sizing: border-box;
+}
+.sousuo input:nth-child(2){ width: 70%;height: 100%;}
+.sousuo view:last-child{ width: 120rpx;height: 55rpx;background: linear-gradient(60deg, #66B7F9, #3A91F7);
+border-radius: 28rpx;display: flex;align-items: center;justify-content: center;
+font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
+
+
+
+/* tab1样式 */
+.life-bot{padding: 0rpx;}
+.bot-neirong{display: block;}
+.r-n3 { padding-top: 25rpx;}
+.nr-left view { width: 125rpx;height: 115rpx;background: #eee;border-radius: 50%;}
+.nr-left view>image{ width: 125rpx;height: 115rpx;border-radius: 50%;}
+.n3-nr view>image{width: 100%;    height: 140rpx;}
+.n3-nr view:last-child { display: flex;align-items: flex-end;color: #333;}
+.tj_js{padding:25rpx 0;color: #999;font-size: 26rpx;overflow: hidden;clear: both;}
+/* .tj_js>view:nth-child(1){width: 70%;}
+.tj_js>view:nth-child(2){width: 30%;} */
+.dfont{font-size:32rpx;font-weight:bold;color: #333;}
+.btn_pj{font-size: 26rpx;margin:35rpx 35rpx 0 0;
+  height: 70rpx;line-height: 70rpx;color: #fff;float: right;right:-5%;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+  border-radius: 10rpx;}
