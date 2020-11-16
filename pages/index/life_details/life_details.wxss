@@ -123,13 +123,23 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
 	height: 80rpx;
 	font-size: 2em;margin-left: 20rpx;
 }
-.two_jjh{width:135rpx;height: 65rpx;line-height:65rpx;position: absolute;bottom:15rpx;
-  display: inline-flex;}
-.two_jjh>image{width: 35rpx;height: 35rpx;}
-.two_jjh>text{padding:15rpx;    line-height: 0.4;
-  font-weight: 400;
-  font-size: 32rpx;
-  color: #333333;}
+
+/*主容器*/  
+.stepper { width:135rpx;height: 65rpx;line-height:65rpx;position: absolute;bottom:15rpx;
+  display: inline-flex; }
+/*加号和减号*/  
+.stepper text {  width:35rpx; height:35rpx;  line-height: 35rpx;  
+  text-align: center;   float: left; border-radius: 50%; font-weight: bold;border:1px solid #A5B3BD; }  
+.stepper>.jian{background: #fff;color: #A5B3BD;}
+.stepper>.jia{background:#008CFF;color: #fff !important;}
+/*数值*/  
+.stepper input {   width: 40rpx;   height: 26rpx;  line-height: 26rpx;font-weight: bold;
+  float: left;   margin: 0 auto;  text-align: center;   font-size: 26rpx;      margin-top: -10rpx; }
+/*普通样式*/  
+.stepper .normal{   color: #A5B3BD;  }  
+/*禁用样式*/  
+.stepper .disabled{   color: #ccc;  }  
+
 
   /* 商家样式 */
   .cu-item_sj{width:100%;padding:35rpx;background: #fff;padding-bottom: 35rpx;}

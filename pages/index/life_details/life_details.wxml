@@ -86,10 +86,13 @@
               <view class="qc_dz">￥8.9</view>
             </view>
           </view>
-          <view class="two_jjh">
-              <image src="../../../images/images/shxq_jh.png"></image>
-              <text>3</text>
-              <image src="../../../images/images/shxq_jj.png"></image>
+          <view class="stepper">
+             <!-- 减号 -->  
+            <text class="jian {{minusStatus}}" bindtap="bindMinus">-</text>  
+            <!-- 数值 -->  
+            <input type="number" bindchange="bindManual" value="{{num}}" />  
+            <!-- 加号 -->  
+            <text class="jia normal" bindtap="bindPlus">+</text>  
           </view>
         </view>
       </view>
@@ -113,10 +116,13 @@
               <view class="qc_dz">￥8.9</view>
             </view>
           </view>
-          <view class="two_jjh">
-              <image src="../../../images/images/shxq_jh.png"></image>
-              <text>3</text>
-              <image src="../../../images/images/shxq_jj.png"></image>
+          <view class="stepper">
+             <!-- 减号 -->  
+            <text class="jian {{minusStatus}}" bindtap="bindMinus">-</text>  
+            <!-- 数值 -->  
+            <input type="number" bindchange="bindManual" value="{{num}}" />  
+            <!-- 加号 -->  
+            <text class="jia normal" bindtap="bindPlus">+</text>  
           </view>
         </view>
       </view>

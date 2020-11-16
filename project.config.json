@@ -65,8 +65,8 @@
           "scene": null
         },
         {
-          "name": "pages/index/Llq_pub/Llq_pub",
-          "pathName": "pages/index/Llq_pub/Llq_pub",
+          "name": "pages/index/life_details/life_details",
+          "pathName": "pages/index/life_details/life_details",
           "query": "",
           "scene": null
         }
