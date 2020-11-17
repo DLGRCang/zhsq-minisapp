@@ -47,3 +47,4 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
   background: linear-gradient(60deg, #66B7F9, #3A91F7);
   border-radius: 10rpx;}
 .clear{clear: both;overflow: hidden;}  
+.bot-over {padding-bottom: 0rpx;}
