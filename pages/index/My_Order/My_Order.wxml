@@ -49,7 +49,8 @@
               <view class="tj_js">
                 <view class="fl" style="line-height: 2.2;">下单时间：2020-11-12  11:30</view>
                 <view class="fr">合计 <text class="dfont">￥534.51</text></view>
-                <view><button class="btn_pj">确认收货</button></view>   
+                <!-- <view></view>    -->
+                <view class="clear"><button class="btn_pj">取消订单</button><button class="btn_pj">确认收货</button></view>   
               </view>
           </view>
         </view>

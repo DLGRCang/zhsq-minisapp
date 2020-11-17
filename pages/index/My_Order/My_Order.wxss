@@ -46,3 +46,4 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
   height: 70rpx;line-height: 70rpx;color: #fff;float: right;right:-5%;
   background: linear-gradient(60deg, #66B7F9, #3A91F7);
   border-radius: 10rpx;}
+.clear{clear: both;overflow: hidden;}  
