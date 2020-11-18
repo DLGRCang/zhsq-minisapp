@@ -1,5 +1,5 @@
 <!--pages/index/My_appointment/My_appointment.wxml-->
-<cu-custom bgColor="bg-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gray-bl" isBack="{{true}}">
     <view slot="content">我的预约</view>
 </cu-custom>
 

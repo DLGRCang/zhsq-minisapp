@@ -17,7 +17,7 @@
     <t2 wx:if="{{PageCur=='t2'}}"></t2>
     <t3 wx:if="{{PageCur=='t3'}}"></t3>
     <t4 wx:if="{{PageCur=='t4'}}"></t4>
-    <t5 wx:if="{{PageCur=='t5'}}"></t5>
+    <t5 wx:if="{{PageCur=='t5'}}" id="tip5"></t5>
   </view>
   
   

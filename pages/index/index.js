@@ -28,7 +28,7 @@ Page({
     this.setData({
       PageCur: e.currentTarget.dataset.cur
     })
-
+    this.selectComponent("#tip5").showClick()
   },
   onShareAppMessage() {
     return {
@@ -84,8 +84,7 @@ Page({
     }
     //console.log(this.data.login)
     https.xinwenApi({
-      data:{
-      },
+      
       success:res=>{
         console.log(res)
       },
@@ -107,11 +106,13 @@ Page({
 
   //监听页面显示
   onShow:function(){
+    
     //console.log(this.data.login)
     if(this.data.login != 0){
       setTimeout(()=>{
         wx.hideLoading()
       },1000)
     }
+    this.selectComponent("#tip5").showClick()
   }
 })

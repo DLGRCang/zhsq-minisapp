@@ -70,6 +70,33 @@ Component({
       url: '/pages/index/setting/setting'
     })
   },
+
+  showClick(){
+    console.log('aaa')
+    wx.getSetting({
+      success: res => {
+    
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+             this.setData({
+              myLogin:res.userInfo
+             })
+            }
+          })
+          this.setData({
+            loginJs:true,
+           })
+        }else{
+          this.setData({
+            loginJs:false,
+           })
+        }
+      }
+    })
+  },
+
  //点击登录
  loginClick(){
   common.checkLogin()
@@ -88,29 +115,12 @@ Component({
     
     //在组件实例进入页面节点树时执行
     attached() { 
-      
+    
     },
     //在组件在视图层布局完成后执行
     ready() {
-      wx.getSetting({
-        success: res => {
+     
       
-          if (res.authSetting['scope.userInfo']) {
-            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-            wx.getUserInfo({
-              success: res => {
-               this.setData({
-                myLogin:res.userInfo
-               })
-              }
-            })
-          }else{
-            this.setData({
-              loginJs:false,
-             })
-          }
-        }
-      })
     },
  
     //在组件实例被移动到节点树另一个位置时执行

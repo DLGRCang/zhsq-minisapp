@@ -9,5 +9,6 @@
     "t7": "/pages/index/t7/t7",
     "t8": "/pages/index/t8/t8",
     "t9": "/pages/index/t9/t9"
-  }
+  },
+  "disableScroll":true
 }
