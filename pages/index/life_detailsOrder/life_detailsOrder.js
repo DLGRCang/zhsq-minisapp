@@ -7,7 +7,13 @@ Page({
   data: {
     isCollect: true, // 默认下箭头
     time: '12:01',
+    isShow: false,
   },
+  // 下拉 上拉
+  // toggle() {
+  //   this.isShow = !this.isShow;
+  //   this.$apply();
+  //  },
   // 地址跳转
   AddressClick:function(){
     wx.navigateTo({
@@ -27,6 +33,8 @@ Page({
     this.setData({
     isCollect:!bol // 改变状态
     })
+    this.isShow = !this.isShow;
+    this.$apply();
     },
   /**
    * 生命周期函数--监听页面加载

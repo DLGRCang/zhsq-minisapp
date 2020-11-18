@@ -1,18 +1,29 @@
-// pages/index/news_address/news_address.js
+// pages/index/My_Order/My_Order.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    region: ['内蒙古', '呼和浩特市', '新城区'],
+    // tab 切换
+    tabArr: {
+      curHdIndex: 0,
+      curBdIndex: 0
+    }, 
   },
-  // 地址
-  RegionChange: function(e) {
+  // tab切换
+  tab: function (e) {
+    //var dataId = e.currentTarget.dataset.id;
+    var dataId = e.currentTarget.id;
+    var obj = {};
+    obj.curHdIndex = dataId;
+    obj.curBdIndex = dataId;
     this.setData({
-      region: e.detail.value
+      tabArr: obj
     })
-  },
+    //console.log(e);
+  },  
+
   /**
    * 生命周期函数--监听页面加载
    */

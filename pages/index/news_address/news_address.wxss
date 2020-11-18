@@ -10,6 +10,7 @@ background: #F7F8FA;
 border: 2rpx solid #E8EEF4;
 border-radius: 12rpx;
 }
+.news_input>picker{line-height: 90rpx;}
 .tj_btn{
   width: 590rpx;margin-top:65rpx;margin-bottom: 45rpx;
   height: 87rpx;
@@ -18,4 +19,4 @@ border-radius: 12rpx;
   border-radius: 44rpx;
 }
 .cu-tag {margin-top:25rpx;}
-.righticon{float:right;margin-right: 2%;margin-top: -8.5%;}
+.righticon{float:right;margin-right: 2%;margin-top: -14.5%;}
