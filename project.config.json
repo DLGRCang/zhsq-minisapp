@@ -65,8 +65,8 @@
           "scene": null
         },
         {
-          "name": "pages/index/life_details/life_details",
-          "pathName": "pages/index/life_details/life_details",
+          "name": "pages/index/my_publish/my_publish",
+          "pathName": "pages/index/my_publish/my_publish",
           "query": "",
           "scene": null
         }

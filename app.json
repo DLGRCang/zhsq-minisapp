@@ -41,7 +41,8 @@
     "pages/index/My_Settled/My_Settled",
     "pages/index/Search/Search",
     "pages/index/My_appointment/My_appointment",
-    "pages/index/Llq_pub/Llq_pub"
+    "pages/index/Llq_pub/Llq_pub",
+    "pages/index/My_Order/My_Order"
   ],
   "window": {
     "backgroundTextStyle": "light",
