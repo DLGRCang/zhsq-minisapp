@@ -1,0 +1,136 @@
+<!--pages/index/SJ_Order/SJ_Order.wxml-->
+<cu-custom bgColor="bg-gray" isBack="{{false}}">
+    <view slot="content">订单</view>
+</cu-custom>
+
+<view class="view_tab">
+<view class="tab_bar" > 
+  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">待付款</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">待发货</view> 
+  <view class="{{tabArr.curHdIndex=='3'? 'active' : ''}}" id="3"  data-id="3" bindtap="tab">待收货</view> 
+</view> 
+
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="tab_box" bindtap="xiangqing">
+      <view class="life-bot">
+        <view class="bot-over">
+          <view class="bot-neirong" wx:for="{{2}}" bindtap="life_details">
+            <view>
+              <view class="r-n1">待发货</view>
+              <view class="r-n2">订单编号:12324357947584638 </view>
+            </view>
+            <view class="r-n3">
+                <view class="n3-nr" wx:for="{{5}}">
+                  <view><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
+                  <view>青岛 听装醇厚</view>
+                </view>
+              </view>
+              <view class="tj_js">
+                <view class="yhm">
+                  <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image>
+                  <text>社区用户名称</text>
+                </view>
+                <view class="fr">共<text>7</text>件商品  合计 <text class="dfont">￥534.51</text></view>
+                <view class=""><button class="btn_pj">发货</button></view>   
+              </view>
+          </view>
+        </view>
+  </view>
+
+    </view>
+  </view> 
+
+  
+
+  <!-- 第二栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+    <view class="tab_box">
+      <view class="life-bot">
+        <view class="bot-over">
+          <view class="bot-neirong" wx:for="{{2}}" bindtap="life_details">
+            <view>
+              <view class="r-n1">待付款</view>
+              <view class="r-n2">订单编号:12324357947584638 </view>
+            </view>
+            <view class="r-n3">
+                <view class="n3-nr" wx:for="{{5}}">
+                  <view><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
+                  <view>青岛 听装醇厚</view>
+                </view>
+              </view>
+              <view class="tj_js">
+                <view class="yhm">
+                  <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image>
+                  <text>社区用户名称</text>
+                </view>
+                <view class="fr">共<text>7</text>件商品  合计 <text class="dfont">￥534.51</text></view>
+                <view class=""><button class="btn_pj">付款</button></view>   
+              </view>
+          </view>
+        </view>
+  </view>
+    </view>
+  </view> 
+  <!-- 第三栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+    <view class="tab_box">
+      <view class="life-bot">
+        <view class="bot-over">
+          <view class="bot-neirong" wx:for="{{2}}" bindtap="life_details">
+            <view>
+              <view class="r-n1">待发货</view>
+              <view class="r-n2">订单编号:12324357947584638 </view>
+            </view>
+            <view class="r-n3">
+                <view class="n3-nr" wx:for="{{5}}">
+                  <view><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
+                  <view>青岛 听装醇厚</view>
+                </view>
+              </view>
+              <view class="tj_js">
+                <view class="yhm">
+                  <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image>
+                  <text>社区用户名称</text>
+                </view>
+                <view class="fr">共<text>7</text>件商品  合计 <text class="dfont">￥534.51</text></view>
+                <view class=""><button class="btn_pj">发货</button></view>   
+              </view>
+          </view>
+        </view>
+  </view>
+    </view>
+  </view> 
+  <!-- 第四栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='3'? 'active' : ''}}">
+    <view class="tab_box">
+      <view class="life-bot">
+        <view class="bot-over">
+          <view class="bot-neirong" wx:for="{{2}}" bindtap="life_details">
+            <view>
+              <view class="r-n2">订单编号:12324357947584638 </view>
+            </view>
+            <view class="r-n3">
+                <view class="n3-nr" wx:for="{{5}}">
+                  <view><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
+                  <view>青岛 听装醇厚</view>
+                </view>
+              </view>
+              <view class="tj_js">
+                <view class="yhm">
+                  <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image>
+                  <text>社区用户名称</text>
+                </view>
+                <view class="fr">共<text>7</text>件商品  合计 <text class="dfont">￥534.51</text></view>
+              </view>
+          </view>
+        </view>
+  </view>
+    </view>
+  </view> 
+</view>
+<!-- 栏目结束 -->
+</view>
+<!-- view tab整体栏目结束 -->

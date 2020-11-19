@@ -1,0 +1,17 @@
+/* pages/index/SJ_Message/SJ_Message.wxss */
+@import "../../index/My_Order/My_Order.wxss";
+/* 内容样式 */
+.view_tab{border-radius: 0;}
+.view_tab>.tab_bar{color: #A9B3BD;    height:100rpx;width: 100%;
+  padding-left:40rpx;padding-top: 25rpx; display: inline-flex;
+  -moz-box-shadow:2px 1px 5px #A9B3BD; 
+  -webkit-box-shadow:2px 1px 5px #A9B3BD; 
+  box-shadow:2px 1px 5px #A9B3BD;
+}
+    /*补充样式  */
+  .bot-neirong>view:nth-child(1){overflow: hidden;clear: both;}
+  .r-n1{color: #188BFF;width: 40%;}
+  .tj_js{padding:25rpx 0 0 0 ;}
+  .tj_js>.yhm{height:50rpx;line-height: 50rpx;width: 40%;float: left;}
+  .tj_js>.yhm>image{width: 50rpx;height:50rpx;border-radius: 50rpx;margin-right: 15rpx;}
+  .tj_js>.yhm>text{    position: relative;top: -16rpx;}

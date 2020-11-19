@@ -1,0 +1,20 @@
+/* pages/index/SJ_Shop/SJ_Shop.wxss */
+@import "../../index/my/t5.wxss";
+/* 内容样式 */
+.cu{ 
+  display: flex;
+  height: 140rpx;
+  padding:35rpx;
+  align-items: center;
+}
+.content>view{padding-left: 15rpx;}
+.jye_box{color: #fff;margin-top: 25rpx;
+  width: 94.5%;padding:35rpx;margin:0 auto;
+background: linear-gradient(60deg, #66B7F9, #3A91F7);
+border-radius: 15rpx;}  
+.box_title{width: 100%;overflow: hidden;clear: both;}
+.box_title>view{line-height: 1.5;}
+.box_title>.title{width: 33.3%;float: left;}
+.dbold{font-weight: bold;line-height: 2;font-size: 45rpx;padding:15rpx 0 35rpx 0;}
+
+.my-b-from{width: 95%;margin:25rpx auto;}
