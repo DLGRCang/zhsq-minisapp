@@ -1,22 +1,26 @@
-// pages/visitor/visitor.js
-import verif from '../../../utils/verification'
+// pages/index/myGive/myGive.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    Length:7,    //输入框个数 
-  isFocus:true,  //聚焦 
-  Value:"",    //输入的内容 
-  ispassword:false, //是否密文显示 true为密文， false为明文。
+    //初始化数据
+    hideNotice: false,
+    notice: 'jgvjhvkhvbkjbkjbkjbkjbkjbkjbjk',
   },
+  // 点击关闭公告
+   switchNotice: function() {
+    this.setData({
+     hideNotice: true
+    })
+   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**
@@ -33,29 +37,6 @@ Page({
 
   },
 
-  floorTui:function(){
-    verif.pageBack()
-   },
-   Focus(e){ 
-    var that = this; 
-    console.log(e.detail.value);
-    var inputValue = e.detail.value; 
-    that.setData({ 
-     Value:inputValue, 
-    }) 
-   }, 
-   Tap(){ 
-    var that = this; 
-    that.setData({ 
-     isFocus:true, 
-    }) 
-   }, 
-
-   yuyue(){
-    wx.navigateTo({
-      url: '/pages/index/subscribe/subscribe'
-    })
-   },
   /**
    * 生命周期函数--监听页面隐藏
    */

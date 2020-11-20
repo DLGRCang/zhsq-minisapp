@@ -1,4 +1,6 @@
 // pages/index/Llq_pub/Llq_pub.js
+import https from '../../../utils/api'
+import verif from '../../../utils/verification'
 Page({
 
   /**
@@ -8,23 +10,15 @@ Page({
     imgList: [],
   },
   ChooseImage() {
-    wx.chooseImage({
-      count: 9, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
-      success: (res) => {
-        if (this.data.imgList.length != 0) {
-          this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
-          })
-        } else {
-          this.setData({
-            imgList: res.tempFilePaths
-          })
-        }
-      }
-    });
+    var imgs=verif.imgClick()
+
+    imgs.then(res=>{
+       this.setData({
+        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/PRIVATE/'+res)
+      })
+    })
   },
+
   ViewImage(e) {
     wx.previewImage({
       urls: this.data.imgList,
@@ -75,7 +69,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
 
+    
   },
 
   /**

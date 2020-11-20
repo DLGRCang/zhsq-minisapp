@@ -38,6 +38,7 @@ page {
 	--ttt: #333333;
 	--huang:#F55E5A;
 	--bai:#ffffff;
+	--zhsq:#1082FF;
 	/* 浅色 */
 	--redLight: #fadbd9;
 	--orangeLight: #fde6d2;
@@ -3438,6 +3439,11 @@ scroll-view.cu-steps .cu-item {
 .line-white::after,
 .lines-white::after {
 	border-color: var(--white);
+}
+
+.bg-zhsq{
+	background-color: var(--zhsq);
+	color: var(--white);
 }
 
 .bg-red {

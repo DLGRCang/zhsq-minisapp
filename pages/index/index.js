@@ -3,6 +3,7 @@
 import https from '../../utils/api'
 // import apidata from '../../utils/dataApi'
 // import common from '../../utils/common'
+import verif from '../../utils/verification'
 const app = getApp()
 
 Page({
@@ -14,9 +15,12 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     login:0,
-    PageCur: ''
+    PageCur: '',
 
   },
+
+  
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -83,15 +87,7 @@ Page({
       })
     }
     //console.log(this.data.login)
-    https.xinwenApi({
-      
-      success:res=>{
-        console.log(res)
-      },
-      fail:err=>{
-        console.log(err)
-      }
-    })
+   
   },
   getUserInfo: function(e) {
     //console.log(e)

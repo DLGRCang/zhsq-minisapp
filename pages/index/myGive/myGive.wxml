@@ -1,0 +1,6 @@
+<view class='notice-wrap' hidden='{{hideNotice}}'>
+　　<view class='tongzhitext'>
+　　　　<text class="tongzhi-text">{{notice}}</text>
+　　</view>
+　　<view bindtap='switchNotice' class="closeView">x</view>
+</view>

@@ -14,10 +14,10 @@ Component({
    */
   data: {
     t5state:[
-      {id:1,img:'../../../images/t5/state1.png',text:'我的订单'},
-      {id:2,img:'../../../images/t5/state2.png',text:'我的发布'},
-      {id:3,img:'../../../images/t5/state3.png',text:'我的活动'},
-      {id:4,img:'../../../images/t5/state4.png',text:'我的入驻'}
+      {id:1,img:'../../../images/t5/state1.png',text:'我的订单',url:'/pages/index/life_detailsOrder/life_detailsOrder'},
+      {id:2,img:'../../../images/t5/state2.png',text:'我的发布',url:'/pages/index/my_publish/my_publish'},
+      {id:3,img:'../../../images/t5/state3.png',text:'我的活动',url:''},
+      {id:4,img:'../../../images/t5/state4.png',text:'我的入驻',url:'/pages/index/My_Settled/My_Settled'}
     ],
     rightHui:'../../../images/t5/right-hui.png',
     loginJs:true,
@@ -71,8 +71,21 @@ Component({
     })
   },
 
+  orderClick(e){
+    let url = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: url
+    })
+  },
+
+  //清楚缓存
+  qcClick(){
+    wx.clearStorage()
+  },
+
+  //父组件调用子组件方法
   showClick(){
-    console.log('aaa')
+  
     wx.getSetting({
       success: res => {
     

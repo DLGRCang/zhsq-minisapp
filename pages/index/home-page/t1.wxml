@@ -3,7 +3,14 @@
 <view class="t1">
 <!-- 第一部分 头部 -->
 <view class="head_c">
-   <image src="../../../images/t1/index_banner.png" ></image>
+  <swiper class="swiper_container" style="width:100%;height:100%" vertical="true" autoplay="true" circular="true" interval="3000">
+    <block wx:for="{{msgList}}" style="width:100%;height:100%">
+    <swiper-item style="width:100%;height:100%">
+      <image src="{{item.img}}" style="width:100%;height:100%"></image>
+    </swiper-item>
+    </block>
+  </swiper>
+   <!-- <image src="../../../images/t1/index_banner.png" ></image> -->
 </view>
 <view class="h-c-b">
   <scroll-view scroll-x="true" style="width:100%" bindscroll="getleft">
@@ -36,7 +43,7 @@
 <!-- 第二部分 -->
 <view class="gg_box" bindtap="tzgg">
   <view class="box-1"><text>通知</text><text>公告</text></view>
-  <view class="box-2">紧急通知！呼和浩特市应对新型冠状冠状冠状</view>
+  <view class="box-2"><text class="tongzhi-text">紧急通知！呼和浩特市应对新型冠状病毒...</text></view>
   <text class="cuIcon-right lg text-gray"></text>
 </view>
 

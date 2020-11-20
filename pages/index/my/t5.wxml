@@ -25,7 +25,7 @@
   </view>
 
   <view class="my-state">
-    <view wx:for="{{t5state}}" wx:key="index" class="state-for">
+    <view wx:for="{{t5state}}" wx:key="index" class="state-for" bindtap="orderClick" data-url="{{item.url}}">
       <image src="{{item.img}}"></image>
       <view>{{item.text}}</view>
     </view>
@@ -113,7 +113,7 @@
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
-  <view class="my-from">
+  <view class="my-from" bindtap="qcClick">
         <text>清除缓存</text>
         <image class="fromImg" src="{{rightHui}}"></image>
   </view>

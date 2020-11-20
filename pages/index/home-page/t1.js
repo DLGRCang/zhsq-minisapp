@@ -27,15 +27,19 @@ Component({
       {id:11,image:'../../../images/t1/ts11.png',text:"民情直达",url:'/pages/index/complaint/complaint'},
       {id:12,image:'../../../images/t1/ts12.png',text:"入驻小区",url:'/pages/index/checkIn/checkIn'},
       {id:13,image:'../../../images/t1/ts13.png',text:"楼栋布局",url:'/pages/index/floor/floor'},
-      {id:14,image:'../../../images/t1/ts14.png',text:"活动设施",url:''},
-
-  
-
+      {id:14,image:'../../../images/t1/ts14.png',text:"活动设施",url:''}
+    ],
+    msgList: [
+      { img: '../../../images/t1/index_banner.png' },
+      { img: '../../../images/t1/index_banner.png' }
     ],
     dataItem1:[],
     dataItem2:[],
     scrollLeft:'',
-    lefthua:'2'
+    lefthua:'2',
+    starty: 0, //开始的位置x
+    endy: 0, //结束的位置y
+    margintop: 0, //滑动下拉距离
   },
  
   /**

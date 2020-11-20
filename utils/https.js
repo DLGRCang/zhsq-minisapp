@@ -15,7 +15,7 @@ module.exports = {
       data = { ...data, ...params.data }
     }
     wx.request({
-      url: 'http://192.168.0.9:8080/zhsq/app/release/api/neighbor/' + url, // 就是拼接上前缀,此接口域名是开放接口，可访问
+      url: 'http://172.16.20.81:9000/fileService/uploadFTP/zhsq/' + url, // 就是拼接上前缀,此接口域名是开放接口，可访问
       method: method == 'post' ? 'post' : 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
       data,
       header: {

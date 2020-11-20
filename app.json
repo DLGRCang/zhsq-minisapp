@@ -1,7 +1,8 @@
 {
   "pages": [
-  
     "pages/index/index",
+    "pages/index/Llq_pub/Llq_pub",
+    "pages/index/myGive/myGive",
     "pages/index/liveBroadcast/liveBroadcast",
     "pages/index/community/community",
     "pages/index/vote/kaishi_tp",
@@ -40,8 +41,8 @@
     "pages/index/Credits_Log/Credits_Log",
     "pages/index/My_Settled/My_Settled",
     "pages/index/Search/Search",
-    "pages/index/My_appointment/My_appointment",
-    "pages/index/Llq_pub/Llq_pub"
+    "pages/index/My_appointment/My_appointment"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

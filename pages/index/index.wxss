@@ -49,7 +49,7 @@ height: 479rpx;
 }
 .top-navigation{
   width: 100%;
-  height: 10.5%;
+  height: 100%;
   background: #1082FF;
   display: flex;
   align-items: flex-end;
