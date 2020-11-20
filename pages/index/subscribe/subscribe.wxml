@@ -1,8 +1,7 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="backText">返回</view>
+<cu-custom bgColor="bg-yuan" isBack="{{true}}">
   <view slot="content">访客预约</view>
 </cu-custom>
-
+<view class="sub">
 <view class="page">
   <view class="content">
     <view class="text_1">访客预约信息</view>
@@ -43,20 +42,5 @@
     	<van-area area-list="{{ areaList }}" bind:cancel="cancel" bind:confirm="confirm" />
 		</view>
 	</view>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</view>
 </view>

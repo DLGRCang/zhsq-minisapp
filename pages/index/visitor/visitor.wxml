@@ -1,9 +1,8 @@
-<view class="visitor">
-  <view class="top-navigation">
-    <text class="cuIcon-back" bindtap="floorTui"></text>
-    <text>楼栋布局</text>
-    <text></text>
-  </view>
+<cu-custom bgColor="bg-yuan" isBack="{{true}}">
+  <view slot="content">访客预约</view>
+</cu-custom>
+
+
   <view class="visitor-box">
     <view class="box-top">
       <text>访客预约</text>
@@ -21,7 +20,7 @@
       <view class="mima">
         <view class="mima-nei">
    
-            <view class='content'> 
+            <view class='content1'> 
               <block wx:for="{{Length}}" wx:key="item"> 
               <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input> 
               </block> 
@@ -39,5 +38,4 @@
       </view>
     </view>
   </view>
-  
-</view>
+

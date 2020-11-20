@@ -52,6 +52,7 @@ page {
 	--pinkLight: #f9d7ea;
 	--brownLight: #ede1d9;
 	--greyLight: #e7ebed;
+	--yuanse:#f9f9f9;
 	/* 渐变色 */
 	--gradualRed: linear-gradient(45deg, #f43f3b, #ec008c);
 	--gradualOrange: linear-gradient(45deg, #ff9700, #ed1c24);
@@ -3521,8 +3522,20 @@ scroll-view.cu-steps .cu-item {
 	color: var(--white);
 }
 
+.bg-gray-bljb{
+	background: linear-gradient(60deg, #0586F8, #1BB1FD);
+	color: var(--white);
+}
+
+.bg-bluejb{
+	
+background: linear-gradient(60deg, #0586F8, #1BB1FD);
+color: var(--white);
+}
+
 .bg-gray-re{
-	background-color: #F35854;
+	
+background: linear-gradient(60deg, #F35854, #FF7B79);
 	color: var(--white);
 }
 
@@ -3644,6 +3657,11 @@ scroll-view.cu-steps .cu-item {
 .bg-gradual-blue {
 	background-image: var(--gradualBlue);
 	color: var(--white);
+}
+
+.bg-yuan {
+	background-image: var(--yuanse);
+	color: var(--black);
 }
 
 .shadow[class*="-red"] {

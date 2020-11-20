@@ -1,5 +1,6 @@
 <view class="life">
   <view class="life-top">
+    
     <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
       <input type="text" placeholder="请输入搜索内容"/>

@@ -10,6 +10,14 @@
   position: relative;
   overflow-x: hidden;
 }
+.beijing{
+  width: 100%;
+  height: 530rpx;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+}
 .back-box1{
   width: 200%;
 height: 488rpx;
@@ -50,7 +58,8 @@ height: 479rpx;
 .top-navigation{
   width: 100%;
   height: 100%;
-  background: #1082FF;
+  
+background: linear-gradient(60deg, #0586F8, #1BB1FD);
   display: flex;
   align-items: flex-end;
   padding: 0 0 20rpx 27rpx;

@@ -9,11 +9,9 @@
       <view wx:if="{{PageCur=='t5'}}">我的</view>
     </view>
   
-  
+    <!-- style="background: url('../../images/back.png');" -->
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    <image src="../../images/back.png" class="beijing"></image>
     
     <t1 wx:if="{{PageCur=='t1'}}"></t1>
     <t2 wx:if="{{PageCur=='t2'}}"></t2>

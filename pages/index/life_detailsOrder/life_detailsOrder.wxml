@@ -1,13 +1,11 @@
 <!--pages/index/life_detailsOrder/life_detailsOrder.wxml-->
-<cu-custom bgColor="bg-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">订单</view>
 </cu-custom>
 
 <view style="height:100%;">
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    <image src="../../../images/back.png" class="beijing"></image>
   <!-- 内容开始 -->
      <!-- 第一块 -->
     <view class="order_box">

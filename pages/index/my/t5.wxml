@@ -1,4 +1,5 @@
 <view class="t5" style="padding-bottom:40%">
+  
   <view class="my-top" wx:if="{{loginJs}}">
     <view class="top-1">
       <view class="top-1-1"><image src="{{myLogin.avatarUrl}}"></image></view>

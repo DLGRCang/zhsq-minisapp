@@ -1,12 +1,10 @@
 <!--pages/index/Credits_Log/Credits_Log.wxml-->
-<cu-custom bgColor="bg-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">积分记录</view>
   </cu-custom>
-  <view style="height:100%;">
+  <view style="height:91%;overflow: hidden">
     <view class="box-body">
-        <view class="back-box1"></view>
-        <view class="back-box2"></view>
-        <view class="back-box3"></view>
+      <image src="../../../images/back.png" class="beijing"></image>
 
     <!-- 内容 -->
     <view class="zjf">3298分</view>
