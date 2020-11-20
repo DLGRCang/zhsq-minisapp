@@ -136,7 +136,7 @@ Page({
 
   ChooseImage() {
     wx.chooseImage({
-      count: 4, //默认9
+      count: 9, //默认9
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album'], //从相册选择
       success: (res) => {
@@ -160,10 +160,10 @@ Page({
   },
   DelImg(e) {
     wx.showModal({
-      title: '召唤师',
-      content: '确定要删除这段回忆吗？',
-      cancelText: '再看看',
-      confirmText: '再见',
+      title: '删除照片',
+      content: '确定要删除这张照片吗？',
+      cancelText: '取消',
+      confirmText: '删除',
       success: res => {
         if (res.confirm) {
           this.data.imgList.splice(e.currentTarget.dataset.index, 1);

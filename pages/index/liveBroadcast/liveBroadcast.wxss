@@ -125,8 +125,8 @@ color: #333333;
     margin: 30rpx auto;
   }
   .btn{
-    width: 200rpx;
-    height: 60rpx;
+    width: 250rpx;
+    height: 80rpx;
 background: linear-gradient(60deg, #66B7F9, #3A91F7);
     margin: 30rpx auto 10rpx;
     display: flex;

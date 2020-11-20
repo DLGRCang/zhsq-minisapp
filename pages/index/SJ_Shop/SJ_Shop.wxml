@@ -1,0 +1,64 @@
+<!--pages/index/SJ_Shop/SJ_Shop.wxml-->
+<cu-custom bgColor="bg-gray" isBack="{{false}}">
+    <view slot="content">店铺</view>
+</cu-custom>
+
+<!-- 头部 -->
+<view class="cu-list menu-avatar">
+    <view class="cu">
+      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+      <view class="content">
+        <view>利客(左右城店)</view>
+        <view class="text-gray text-sm flex">已认证</view>
+      </view>
+    </view>
+  </view>
+
+<!-- 交易额 -->
+<view class="jye_box">
+   <view>今日交易额（元）</view>
+   <view class="dbold">20210.68</view>
+   <view class="box_title">
+       <view class="title">
+           <view>今日订单</view>
+           <view>321</view>
+       </view>
+       <view class="title">
+           <view>7日订单</view>
+           <view>321</view>
+       </view>
+       <view class="title">
+           <view>今日访客</view>
+           <view>321</view>
+       </view>
+   </view>
+</view>
+
+<!-- 第三部分 -->
+<view class="my-b-from">
+    <view class="my-p-from" bindtap="feedbackClick">
+      <view class="bot-border">
+        <text>店铺营收</text>
+        <text class="cuIcon-right lg text-gray"></text>
+      </view>
+  </view>
+  </view>
+
+<view class="my-b-from">
+    <view class="my-p-from" bindtap="feedbackClick">
+      <view class="bot-border">
+        <text>店铺信息</text>
+        <text class="cuIcon-right lg text-gray"></text>
+      </view>
+  </view>
+  <view class="my-p-from" bindtap="aboutMe">
+    <view class="bot-border">
+        <text>店铺认证</text>
+        <text class="cuIcon-right fr lg text-gray"></text>
+      </view>
+  </view>
+  <view class="my-from">
+        <text>店铺地址</text>
+        <text class="cuIcon-right fr lg text-gray"></text>
+  </view>
+  </view>

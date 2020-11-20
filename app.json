@@ -41,8 +41,10 @@
     "pages/index/Credits_Log/Credits_Log",
     "pages/index/My_Settled/My_Settled",
     "pages/index/Search/Search",
-    "pages/index/My_appointment/My_appointment"
-    
+
+    "pages/index/My_appointment/My_appointment",
+    "pages/index/My_Order/My_Order"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
