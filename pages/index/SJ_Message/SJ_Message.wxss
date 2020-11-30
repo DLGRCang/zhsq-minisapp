@@ -1,5 +1,5 @@
 /* pages/index/SJ_Message/SJ_Message.wxss */
-@import "../../index/My_Order/My_Order.wxss";
+@import "../My_Order/My_Order.wxss";
 /* 内容样式 */
 .view_tab{border-radius: 0;}
 .view_tab>.tab_bar{color: #A9B3BD;    height:100rpx;width: 100%;

@@ -11,13 +11,16 @@
   
     <!-- style="background: url('../../images/back.png');" -->
   <view class="box-body">
-    <image src="../../images/back.png" class="beijing"></image>
+    <scroll-view scroll-y scroll-top="{{topNum}}" lower-threshold="100" style="height: 100%;">
+      <image src="../../images/back.png" class="beijing"></image>
     
-    <t1 wx:if="{{PageCur=='t1'}}"></t1>
-    <t2 wx:if="{{PageCur=='t2'}}"></t2>
-    <t3 wx:if="{{PageCur=='t3'}}"></t3>
-    <t4 wx:if="{{PageCur=='t4'}}"></t4>
-    <t5 wx:if="{{PageCur=='t5'}}" id="tip5"></t5>
+      <home wx:if="{{PageCur == 't1'}}"></home>
+      <life wx:if="{{PageCur == 't2'}}"></life>
+      <onekey wx:if="{{PageCur == 't3'}}"></onekey>
+      <neigh wx:if="{{PageCur == 't4'}}"></neigh>
+      <my wx:if="{{PageCur == 't5'}}" id="tip5"></my>
+  </scroll-view>
+    
   </view>
   
   
@@ -59,9 +62,6 @@
   </view>
 </view>
 <view class="box" wx:if="{{login == 2}}">
-  <cu-custom bgColor="bg-gradual-blue">
-    <view slot="content">ColorUI 首页(商家)</view>
-  </cu-custom>
 <t6 wx:if="{{PageCur=='t6'}}"></t6>
 <t7 wx:if="{{PageCur=='t7'}}"></t7>
 <t8 wx:if="{{PageCur=='t8'}}"></t8>
@@ -70,27 +70,31 @@
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="t6">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/basics{{PageCur=='t6'?'_cur':''}}.png"></image>
+      <image src="../../images/tabbar/message.png" class="tabimg" wx:if="{{PageCur!='t6'}}"></image>
+      <image src="../../images/tabbar/message2.png" class="tabimg" wx:if="{{PageCur=='t6'}}"></image>
     </view>
-    <view class="{{PageCur=='t6'?'text-green':'text-gray'}}">元素</view>
+    <view class="{{PageCur=='t6'?'text-ttt':'text-nnn'}}">消息</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t7">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/component{{PageCur=='t7'?'_cur':''}}.png"></image>
+      <image src="../../images/tabbar/order.png" class="tabimg" wx:if="{{PageCur!='t7'}}"></image>
+      <image src="../../images/tabbar/order2.png" class="tabimg" wx:if="{{PageCur=='t7'}}"></image>
     </view>
-    <view class="{{PageCur=='t7'?'text-green':'text-gray'}}">组件</view>
+    <view class="{{PageCur=='t7'?'text-ttt':'text-nnn'}}">订单</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t8">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/plugin{{PageCur=='t8'?'_cur':''}}.png"></image>
+      <image src="../../images/tabbar/goods.png" class="tabimg" wx:if="{{PageCur!='t8'}}"></image>
+      <image src="../../images/tabbar/goods2.png" class="tabimg" wx:if="{{PageCur=='t8'}}"></image>
     </view>
-    <view class="{{PageCur=='t8'?'text-green':'text-gray'}}">扩展</view>
+    <view class="{{PageCur=='t8'?'text-ttt':'text-nnn'}}">商品</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t9">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/about{{PageCur=='t9'?'_cur':''}}.png"></image>
+      <image src="../../images/tabbar/shop.png" class="tabimg" wx:if="{{PageCur!='t9'}}"></image>
+      <image src="../../images/tabbar/shop2.png" class="tabimg" wx:if="{{PageCur=='t9'}}"></image>
     </view>
-    <view class="{{PageCur=='t9'?'text-green':'text-gray'}}">关于</view>
+    <view class="{{PageCur=='t9'?'text-ttt':'text-nnn'}}">店铺</view>
   </view>
 </view>
 </view>

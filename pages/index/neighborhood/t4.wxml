@@ -1,6 +1,6 @@
 
 
-<view>
+<view class="t4">
 <!-- 第一部分 头部 -->
 <view class="head_content">
 <view class="cu-card dynamic {{isCard?'no-card':''}}" style="padding-bottom:35%">

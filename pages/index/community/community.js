@@ -1,4 +1,6 @@
 // pages/index/community/community.js
+import https from '../../../utils/api'
+import util from '../../../utils/util'
 Page({
 
   /**
@@ -7,8 +9,13 @@ Page({
   data: {
     tabArr: {
       curHdIndex: 0,
-      curBdIndex: 0
+      curBdIndex: 0,
+      
     }, 
+    rowsList:[],
+    rowsList1:[],
+    rowsList2:[],
+    time:''
   },
 // tab切换
 tab: function (e) {
@@ -20,6 +27,11 @@ tab: function (e) {
   this.setData({
     tabArr: obj
   })
+  if(dataId == '1'){
+    this.commList1()
+  }else if(dataId == '2'){
+    this.commList2()
+  }
   //console.log(e);
 },  
 
@@ -28,18 +40,108 @@ fbfy(){
     url: '/pages/index/lease/lease'
   })
 },
-xiangqing(){
+xiangqing(e){
+  var id = e.currentTarget.dataset.id
   wx.navigateTo({
-    url: '/pages/index/communityDetails/sq_hdxq'
+    url: '/pages/index/communityDetails/sq_hdxq?id='+id
   })
 },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      time : util.formatTime1(new Date())
+    })
+    this.commList()
   },
 
+  commList(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    https.commApi({
+      
+      success:res=>{
+        console.log(res)
+        var rowsList = res.rows
+        
+        for(var i in rowsList){
+          if(rowsList[i].activeStartTime.split(' ')[0] != rowsList[i].activeEndTime.split(' ')[0]){
+            rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime
+          }else{
+            rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime.split(' ')[1]
+          }
+          
+        }
+        this.setData({
+          rowsList:res.rows
+        })
+        wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
+
+  commList1(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    https.commrmApi({
+      
+      success:res=>{
+        console.log(res)
+        var rowsList = res.rows
+        
+        for(var i in rowsList){
+          if(rowsList[i].activeStartTime.split(' ')[0] != rowsList[i].activeEndTime.split(' ')[0]){
+            rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime
+          }else{
+            rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime.split(' ')[1]
+          }
+          
+        }
+        this.setData({
+          rowsList1:res.rows
+        })
+        wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
+
+  commList2(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    https.commpfApi({
+      
+      success:res=>{
+        console.log(res)
+        var rowsList = res.rows
+        
+        for(var i in rowsList){
+          if(rowsList[i].activeStartTime.split(' ')[0] != rowsList[i].activeEndTime.split(' ')[0]){
+            rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime
+          }else{
+            rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime.split(' ')[1]
+          }
+          
+        }
+        this.setData({
+          rowsList2:res.rows
+        })
+        wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

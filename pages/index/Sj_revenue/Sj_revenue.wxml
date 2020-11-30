@@ -1,0 +1,24 @@
+
+<cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+    <view slot="content">店铺营收</view>
+</cu-custom>
+<view class="reve">
+  <view class="reve-top">
+    <view class="top-1">可提现金额</view>
+    <view class="top-2">
+      <text>￥</text>
+      <text>65165</text>
+    </view>
+    <view class="top-btn">体现</view>
+  </view>
+  <view class="reve-bot">
+    <view class="bot-1 bot-border">
+      <text>账户明细</text>
+      <text class="cuIcon-right"></text>
+    </view>
+    <view class="bot-1">
+      <text>提现记录</text>
+      <text class="cuIcon-right"></text>
+    </view>
+  </view>
+</view>

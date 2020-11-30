@@ -1,12 +1,28 @@
-// pages/index/t9/t9.js
+// pages/index/SJ_Goods/SJ_Goods.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    // tab 切换
+    tabArr: {
+      curHdIndex: 0,
+      curBdIndex: 0
+    }, 
   },
+  // tab切换
+  tab: function (e) {
+    //var dataId = e.currentTarget.dataset.id;
+    var dataId = e.currentTarget.id;
+    var obj = {};
+    obj.curHdIndex = dataId;
+    obj.curBdIndex = dataId;
+    this.setData({
+      tabArr: obj
+    })
+    //console.log(e);
+  },  
 
   /**
    * 生命周期函数--监听页面加载

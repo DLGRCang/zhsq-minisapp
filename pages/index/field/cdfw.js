@@ -1,4 +1,5 @@
 // pages/index/community/community.js
+import http from '../../../utils/api'
 Page({
 
   /**
@@ -7,7 +8,8 @@ Page({
   data: {
     tabArr: {
       curHdIndex: 0,
-      curBdIndex: 0
+      curBdIndex: 0,
+      rowsList:[]
     }, 
   },
 // tab切换
@@ -24,18 +26,36 @@ tab: function (e) {
 },  
 
 
-xiangqing(){
+xiangqing(e){
+  //console.log(e)
+  var id = e.currentTarget.dataset.id
   wx.navigateTo({
-    url: '/pages/index/service/cd_fwxq'
+    url: '/pages/index/service/cd_fwxq?id='+id
   })
 },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.cdArr()
   },
-
+  cdArr(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    http.cdApi({
+      success:res=>{
+        console.log(res)
+        this.setData({
+          rowsList:res.rows
+        })
+        wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

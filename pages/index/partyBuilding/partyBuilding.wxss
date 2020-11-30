@@ -35,7 +35,7 @@ box-sizing: border-box;
   width: 100%;
   background: #fff;
   border-radius: 12rpx;
-  padding: 30rpx 30rpx 0;
+  padding: 30rpx;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;

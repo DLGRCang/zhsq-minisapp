@@ -1,7 +1,7 @@
 <import src="../../../wxParse/wxParse.wxml"></import>
 <view class="partyBranch">
   <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
-    <view slot="content">党支部</view>
+    <view slot="content">社区党建</view>
   </cu-custom>
   
   <scroll-view scroll-y="true"  style="height:91%" bindscroll="scry">
@@ -20,23 +20,20 @@
       <view class="text-shang">
         <view class="s-left"></view>
         <view class="s-right">
-          <view>XXXX群活动服务中心</view>
+          <view>{{rowsList.name}}</view>
           <view>
-            XXXX群活动服务中心秉承“以人民为中心”的服务理念，综合区位特点、人群特征、服务半径等因素，有限整合了全市基层党建、行政服务、社会服务
-            XXXX群活动服务中心秉承“以人民为中心”的服务理念，综合区位特点、人群特征、服务半径等因素，有限整合了全市基层党建、行政服务、社会服务
+            {{rowsList.introduce}}
           </view>
         </view>
       </view>
       <view class="text-xia">
         <view class="x-top">
-          <view><text class="cuIcon-dianhua" style="color:#F35854"></text><text class="padd_lf">电话:0470-1230000</text></view>
-          <view><text class="cuIcon-homefill" style="color:#F35854"></text><text class="padd_lf">面积:200㎡</text></view>
-          <view><text class="cuIcon-timefill" style="color:#F35854"></text><text class="padd_lf">开放时间:9:00-7:00</text></view>
+          <view><text class="cuIcon-dianhua" style="color:#F35854"></text><text class="padd_lf">电话:{{rowsList.tel}}</text></view>
+          <view><text class="cuIcon-homefill" style="color:#F35854"></text><text class="padd_lf">面积:{{rowsList.areaCovered}}㎡</text></view>
+          <view><text class="cuIcon-timefill" style="color:#F35854"></text><text class="padd_lf">开放时间:{{rowsList.openDate}}</text></view>
         </view>
         <view class="x-bot">
-          <text class="cuIcon-locationfill" style="color:#F35854"></text><text class="padd_lf">地址:内蒙古自治区XXXX市XXXX区刺勒川大街6号
-            
-          </text>
+          <text class="cuIcon-locationfill" style="color:#F35854"></text><text class="padd_lf">地址:{{rowsList.address}}</text>
         </view>
       </view>
     </view>

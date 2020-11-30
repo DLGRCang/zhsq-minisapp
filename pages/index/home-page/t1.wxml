@@ -43,7 +43,14 @@
 <!-- 第二部分 -->
 <view class="gg_box" bindtap="tzgg">
   <view class="box-1"><text>通知</text><text>公告</text></view>
-  <view class="box-2"><text class="tongzhi-text">紧急通知！呼和浩特市应对新型冠状病毒...</text></view>
+  <view class="box-2">
+    <!-- <text class="tongzhi-text">紧急通知！呼和浩特市应对新型冠状病毒...</text> -->
+    <view class="box-2-for-l"></view>
+      <view class="box-2-for" wx:for="{{jianxianL}}" :key="index" style="opacity: {{item.ids}};left:{{3*index}}rpx"></view>
+            <text class="header-marquee-item1">呼和浩特市应对新型冠状病毒</text>
+            <text class="header-marquee-item2">呼和浩特市应对新型冠状病毒</text>
+      <view class="box-2-for" wx:for="{{jianxianL}}" :key="index" style="opacity: {{item.ids}};right:{{3*index}}rpx"></view>
+  </view>
   <text class="cuIcon-right lg text-gray"></text>
 </view>
 

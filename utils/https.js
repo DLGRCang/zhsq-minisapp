@@ -1,5 +1,5 @@
 module.exports = {
-  http(url, method, params) {
+  https(url, method, params) {
     let token = 'token' // 获取token，自行获取token和签名，token和签名表示每个接口都要发送的数据
     let sign = 'sign' // 获取签名 (后台怎么定义的，就传什么)
     let data = {
@@ -15,7 +15,7 @@ module.exports = {
       data = { ...data, ...params.data }
     }
     wx.request({
-      url: 'http://172.16.20.81:9000/fileService/uploadFTP/zhsq/' + url, // 就是拼接上前缀,此接口域名是开放接口，可访问
+      url: 'http://172.16.20.54:8080/zhsq/app/release/api/' + url, // 就是拼接上前缀,此接口域名是开放接口，可访问
       method: method == 'post' ? 'post' : 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
       data,
       header: {

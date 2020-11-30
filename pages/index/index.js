@@ -16,7 +16,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     login:0,
     PageCur: '',
-
+    topNum:0,
   },
 
   
@@ -28,11 +28,15 @@ Page({
     })
   },
   NavChange(e) {
-    //console.log(e)
     this.setData({
+      topNum:0,
       PageCur: e.currentTarget.dataset.cur
     })
-    this.selectComponent("#tip5").showClick()
+    if(e.currentTarget.dataset.cur == 't5'){
+      this.selectComponent("#tip5").showClick()
+    }
+   
+    
   },
   onShareAppMessage() {
     return {
@@ -42,6 +46,7 @@ Page({
     }
   },
   onLoad: function () {
+   
     wx.showLoading({
       title: '拼命加载中',
     })
@@ -74,7 +79,10 @@ Page({
     this.appid()
   },
   appid(){
-    var indexId = 1
+    if(wx.getStorageSync('indexId') == ''){
+      wx.setStorageSync('indexId', 1)
+    }
+    var  indexId = wx.getStorageSync('indexId')
     if(indexId == 1){
       this.setData({
         login:1,
@@ -109,6 +117,10 @@ Page({
         wx.hideLoading()
       },1000)
     }
-    this.selectComponent("#tip5").showClick()
+
+    if(this.data.PageCur == 't5'){
+      this.selectComponent("#tip5").showClick()
+    }
+    
   }
 })

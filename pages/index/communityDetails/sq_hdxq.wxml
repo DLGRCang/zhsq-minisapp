@@ -3,33 +3,33 @@
     <view slot="content">社区-活动详情</view>
 </cu-custom>
 
-<view style="height:100%;">
+<view style="height:91%;">
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    <image src="../../../images/back2.png" class="beijing"></image>
 <!-- <view class="bg"></view> -->
 <!-- 第一部分 头部 -->
 <!-- <view class="bg-blue head_content"> -->
 <view class="cu-card">
   <view class="tab_box">
-    <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <!-- <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
       <swiper-item wx:for="{{swiperList}}" wx:key>
         <view class="cu-tag bg-lvse light xtb">进行中</view>
         <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
         <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
       </swiper-item>
-    </swiper>
-   <view class="xq_title">内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命”主题教育活动</view>
+    </swiper> -->
+    <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{rowsList.actPhonts}}" class="timg"></image>
+   <view class="xq_title">{{rowsList.name}}</view>
    <!-- 星星 -->
     <view>
-      <text class="cuIcon-favorfill lg text-red"></text>
-      <text class="cuIcon-favorfill lg text-red"></text>
-      <text class="cuIcon-favorfill lg text-red"></text>
-      <text class="cuIcon-favorfill lg text-red"></text>
-      <text class="cuIcon-favor lg text-red"></text>
-      <text style="padding-left:10rpx;">评分：5.6</text>
-      <view class="cu-tag bg-lvse light jnpx">职业技能培训</view>
+      <text class="{{rowsList.score >=2 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score >=4 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score >=6 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score >=8 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score ==10 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+   
+      <text style="padding-left:10rpx;">评分：{{rowsList.score}}</text>
+      <view class="cu-tag bg-lvse light jnpx">{{rowsList.type}}</view>
     </view>
 </view>
     
@@ -47,16 +47,15 @@
       <view class="fyxx_box">
         <view class="box_one">
           <view class="title">活动信息</view>
-          <text>活动地址：<text>内蒙古自治区XXXX市赛罕区大学东街83号</text></text>
-          <text>报名截止：<text>2020-11-06   17:00:00</text></text>
-          <text>活动时间：<text>2020-11-15   9:00至2020-11-15   17:00</text></text>
+          <text>活动地址：<text>{{rowsList.address}}</text></text>
+          <text>报名截止：<text>{{rowsList.deadline}}</text></text>
+          <text>活动时间：<text>{{rowsList.activeStartTime}}至{{rowsList.activeEndTime}}</text></text>
         </view>
         <view class="box_one">
           <view class="title">活动内容</view>
        
-          <text class="textarea">1、展出以“心目中的完美社区”为主题的小朋友的书画作品，以及协会的资料和近期活动的照片。 </text>
-          <text class="textarea">2、展出以“心目中的完美社区”为主题的小朋友的书画作品，以及协会的资料和近期活动的照片。 </text>
-          <text class="textarea">3、展出以“心目中的完美社区”为主题的小朋友的书画作品，以及协会的资料和近期活动的照片。 </text>
+          <text class="textarea">{{rowsList.actContent}} </text>
+     
         </view>
       
       </view>
@@ -86,7 +85,7 @@
   </view>
 
 
-<view class="bm_button">我要报名</view>
+<view class="bm_button" bindtap="baoming">我要报名</view>
 </view>
 
 

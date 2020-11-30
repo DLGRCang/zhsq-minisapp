@@ -14,6 +14,7 @@
 }
 .t1{
   width: 100%;
+
   padding: 0 30rpx 40%;
   overflow-y: auto;
 }
@@ -104,9 +105,66 @@ justify-content: space-between;
 
 .box-2{
   width: 70%;
+  height: 100%;
   color: #999;font-size:28rpx;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
   
-  overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+  /* flex-direction: row;
+  flex: 1; */
+}
+.box-2-for-l{
+  width: 4rpx;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -2;
+  z-index: 2;
+  background: #fff;
+}
+.box-2-for{
+  width: 4rpx;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+}
+
+.header-marquee-item1 {
+  margin: 0 10px;
+  position: absolute;
+  left: 0;
+  animation: marquee1 8s linear 1000000000;
+}
+
+.header-marquee-item2 {
+  margin: 0 10px;
+  position: absolute;
+  left: 0;
+  animation: marquee2 8s linear 1000000000;
+}
+
+@keyframes marquee1 {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
 }
 .tongzhi-text {
   font-size: 28rpx;

@@ -33,6 +33,9 @@ Component({
       { img: '../../../images/t1/index_banner.png' },
       { img: '../../../images/t1/index_banner.png' }
     ],
+    jianxianL:[
+      {ids:"1"},{ids:"0.9"},{ids:"0.8"},{ids:"0.7"},{ids:"0.6"},{ids:"0.5"},{ids:"0.4"},{ids:"0.3"},{ids:"0.2"},{ids:"0.1"}
+    ],
     dataItem1:[],
     dataItem2:[],
     scrollLeft:'',
@@ -40,8 +43,10 @@ Component({
     starty: 0, //开始的位置x
     endy: 0, //结束的位置y
     margintop: 0, //滑动下拉距离
+ 
   },
  
+
   /**
    * 组件的方法列表
    */
@@ -105,6 +110,7 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
+    
       var dataItem = this.data.dataItem
       var dataItem1 = []
       var dataItem2 = []
@@ -160,8 +166,7 @@ Component({
           dataItem1:dataItem
         })
       }
-    
-      
+   
     },
  
     //在组件实例被移动到节点树另一个位置时执行

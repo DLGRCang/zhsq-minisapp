@@ -1,4 +1,4 @@
-// pages/index/t7/t7.js
+// pages/index/Sj_revenue/Sj_revenue.js
 Page({
 
   /**

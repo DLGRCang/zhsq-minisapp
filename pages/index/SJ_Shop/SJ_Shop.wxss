@@ -1,5 +1,5 @@
 /* pages/index/SJ_Shop/SJ_Shop.wxss */
-@import "../../index/my/t5.wxss";
+@import "../my/t5.wxss";
 /* 内容样式 */
 .cu{ 
   display: flex;

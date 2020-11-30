@@ -1,6 +1,5 @@
 <view class="life">
   <view class="life-top">
-    
     <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
       <input type="text" placeholder="请输入搜索内容"/>
@@ -18,7 +17,7 @@
     <view class="bot-over">
       <view class="bot-neirong" wx:for="{{10}}" bindtap="life_details">
         <view class="nr-left">
-          <view></view>
+          <image class="nr-left-nei" src="../../../images/timg.jpg"></image>
         </view>
         <view class="nr-right">
           <view class="r-n1">立刻（左右商店）</view>

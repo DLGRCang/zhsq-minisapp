@@ -14,12 +14,14 @@ Page({
 
   //监听用户输入姓名
   enterName(e) {
-    let {
-      value
-    } = e.detail
-    this.setData({
-      name: value
-    })
+    console.log(e)
+    
+    // let {
+    //   value
+    // } = e.detail
+    // this.setData({
+    //   name: value
+    // })
   },
   DateChange(e) {
     this.setData({

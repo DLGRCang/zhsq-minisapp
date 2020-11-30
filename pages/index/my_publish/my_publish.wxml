@@ -178,8 +178,7 @@
 </view>
 </view>
 
-<!-- 发布图标 -->
-<button class="cuIcon-add bg-blue fabu_btn" role="button" aria-disabled="false" bindtap="fabu"></button>
+
 </view>
  </view>
 </view> 

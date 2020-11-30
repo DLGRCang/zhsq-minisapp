@@ -18,7 +18,7 @@
     "scopeDataCheck": false,
     "uglifyFileName": false,
     "checkInvalidKey": true,
-    "checkSiteMap": true,
+    "checkSiteMap": false,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "useMultiFrameRuntime": false,
@@ -38,7 +38,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.4.2",
   "appid": "wxab288f962df834dd",
-  "projectname": "只会社区",
+  "projectname": "智慧社区",
   "debugOptions": {
     "hidedInDevtools": []
   },

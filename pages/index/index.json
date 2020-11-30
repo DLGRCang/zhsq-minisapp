@@ -1,14 +1,14 @@
 {
   "usingComponents": {
-    "t1": "/pages/index/home-page/t1",
-    "t2": "/pages/index/life/t2",
-    "t3": "/pages/index/onekey/t3",
-    "t4": "/pages/index/neighborhood/t4",
-    "t5": "/pages/index/my/t5",
-    "t6": "/pages/index/t6/t6",
-    "t7": "/pages/index/t7/t7",
-    "t8": "/pages/index/t8/t8",
-    "t9": "/pages/index/t9/t9"
+    "home": "/pages/index/home-page/t1",
+    "life": "/pages/index/life/t2",
+    "onekey": "/pages/index/onekey/t3",
+    "neigh": "/pages/index/neighborhood/t4",
+    "my": "/pages/index/my/t5",
+    "t6": "/pages/index/SJ_Message/SJ_Message",
+    "t7": "/pages/index/SJ_Order/SJ_Order",
+    "t8": "/pages/index/SJ_Goods/SJ_Goods",
+    "t9": "/pages/index/SJ_Shop/SJ_Shop"
   },
   "disableScroll":true
 }

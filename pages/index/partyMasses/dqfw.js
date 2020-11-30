@@ -1,4 +1,6 @@
 // pages/index/community/community.js
+import https from '../../../utils/api'
+import util from '../../../utils/util'
 Page({
 
   /**
@@ -7,8 +9,13 @@ Page({
   data: {
     tabArr: {
       curHdIndex: 0,
-      curBdIndex: 0
+      curBdIndex: 0,
+      
     }, 
+    rowsList:[],
+      rowsList1:[],
+      rowsList2:[],
+      time:''
   },
 // tab切换
 tab: function (e) {
@@ -20,20 +27,115 @@ tab: function (e) {
   this.setData({
     tabArr: obj
   })
-  //console.log(e);
+  if(dataId == '1'){
+    this.dqfw1Arr()
+  }else if(dataId == '2'){
+    this.dqfw2Arr()
+  }
+  //console.log(dataId);
 },  
 
 
-xiangqing(){
+xiangqing(e){
+  //console.log(e)
+  var id = e.currentTarget.dataset.id
   wx.navigateTo({
-    url: '/pages/index/partyServiceDetails/dq_hdxq'
+    url: '/pages/index/partyServiceDetails/dq_hdxq?id='+id
   })
 },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      time : util.formatTime1(new Date())
+    })
+    this.dqfwArr()
+  },
+  dqfwArr(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    https.dqfwApi({
+      success:res=>{
+      console.log(res)
+        var rowsList = res.rows
+        for(var i in rowsList){
+          if(rowsList[i].activeStartTime.split(' ')[0] != rowsList[i].activeEndTime.split(' ')[0]){
+            rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime
+          }else{
+            rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime.split(' ')[1]
+          }
+        }
+        //console.log(rowsList)
+        this.setData({
+          rowsList:rowsList
+        })
+        wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  } ,
 
+  dqfw1Arr(){
+    
+    if(this.data.rowsList1.length == 0){
+      wx.showLoading({
+        title: '拼命加载中',
+      })
+      https.dqfwrmApi({
+        success:res=>{
+        console.log(res)
+          var rowsList = res.rows
+          for(var i in rowsList){
+            if(rowsList[i].activeStartTime.split(' ')[0] != rowsList[i].activeEndTime.split(' ')[0]){
+              rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime
+            }else{
+              rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime.split(' ')[1]
+            }
+          }
+          //console.log(rowsList)
+          this.setData({
+            rowsList1:rowsList
+          })
+          wx.hideLoading()
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+    }
+  },
+
+  dqfw2Arr(){
+    if(this.data.rowsList2.length == 0){
+      wx.showLoading({
+        title: '拼命加载中',
+      })
+      https.dqfwpfApi({
+        success:res=>{
+        console.log(res)
+          var rowsList = res.rows
+          for(var i in rowsList){
+            if(rowsList[i].activeStartTime.split(' ')[0] != rowsList[i].activeEndTime.split(' ')[0]){
+              rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime
+            }else{
+              rowsList[i].time = rowsList[i].activeStartTime +'-'+rowsList[i].activeEndTime.split(' ')[1]
+            }
+          }
+          //console.log(rowsList)
+          this.setData({
+            rowsList2:rowsList
+          })
+          wx.hideLoading()
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+    }
   },
 
   /**

@@ -1,4 +1,5 @@
 // pages/czxq/czxq.js
+import https from '../../../utils/api'
 Page({
 
   /**
@@ -10,7 +11,7 @@ Page({
       curHdIndex: 0,
       curBdIndex: 0
     }, 
-    
+    rowsList:[],
     cardCur: 0,
     swiperList: [{
       id: 0,
@@ -45,10 +46,35 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
- 
-  onLoad() {
+  
+  onLoad(options) {
+    //console.log(options.id)
     this.towerSwiper('swiperList');
+    this.dqDetailsArr(options.id)
     // 初始化towerSwiper 传已有的数组名即可
+  },
+
+  dqDetailsArr(id){
+    https.dqDetailsApi({
+      data:{
+        constructionsActivityId:id
+      },
+      success:res=>{
+       console.log(res)
+       var rowsList = res
+       for(var i in rowsList){
+        rowsList[i].activeEndTime = rowsList[i].activeEndTime.replace('T',' ')
+        rowsList[i].activeStartTime = rowsList[i].activeEndTime.replace('T',' ')
+       }
+       console.log(rowsList)
+      //  this.setData({
+      //    rowsList:res
+      //  })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
   },
   DotStyle(e) {
     this.setData({

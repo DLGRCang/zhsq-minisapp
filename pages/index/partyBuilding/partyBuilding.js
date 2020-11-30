@@ -1,4 +1,5 @@
 // pages/index/partyBuilding/partyBuilding.js
+import https from '../../../utils/api'
 Page({
 
   /**
@@ -15,15 +16,33 @@ Page({
     TabCur: 0,
     scrollLeft:0,
   panduan:true,
+  rowsList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.partyArr()
   },
-
+  partyArr(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    https.partyApi({
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          rowsList:res.rows[0]
+        })
+        //console.log(this.data.rowsList)
+        wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  } ,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -13,6 +13,17 @@ Page({
       url: '/pages/index/setting_address/setting_address'
     })
   },
+
+  qhjiaose(){
+    if(wx.getStorageSync('indexId') == 1){
+      wx.setStorageSync('indexId', 2)
+    }else{
+      wx.setStorageSync('indexId', 1)
+    }
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

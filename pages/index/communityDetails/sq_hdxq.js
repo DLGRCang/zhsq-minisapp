@@ -1,3 +1,6 @@
+import https from '../../../utils/api'
+import util from '../../../utils/util'
+import verif from '../../../utils/verification'
 Page({
   data: {
          // tab 切换
@@ -5,7 +8,8 @@ Page({
           curHdIndex: 0,
           curBdIndex: 0
         }, 
-
+        rowsList:[],
+         
     cardCur: 0,
     swiperList: [{
       id: 0,
@@ -40,9 +44,30 @@ Page({
 },  
 
 
-  onLoad() {
+  onLoad(options) {
+    this.hdDetailsArr(options.id)
     this.towerSwiper('swiperList');
     // 初始化towerSwiper 传已有的数组名即可
+  },
+  hdDetailsArr(id){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    https.hdDetailsApi({
+      data:{
+        constructionsActivityId:id
+      },
+      success:res=>{
+       console.log(res)
+       this.setData({
+         rowsList:res
+       })
+       wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
   },
   DotStyle(e) {
     this.setData({
@@ -53,6 +78,30 @@ Page({
   cardSwiper(e) {
     this.setData({
       cardCur: e.detail.current
+    })
+  },
+  baoming(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    https.bmDetailsApi({
+      data:{
+        constructionsActivityId:this.data.rowsList.constructionsActivityId,
+        time:util.formatTime(new Date()),
+        userId:11111
+      },
+      success:res=>{
+       //console.log(res)
+       wx.hideLoading()
+       if(res.code == 200){
+        verif.success('报名成功')
+       }else if(res.code == 201){
+        verif.tips('报名成功,请勿重复操作')
+       }
+      },
+      fail:err=>{
+        console.log(err)
+      }
     })
   },
   // towerSwiper

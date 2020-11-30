@@ -69,10 +69,11 @@ color: #FFFFFF;
 .nr-left{
   width: 20%;
 }
-.nr-left view{
+.nr-left-nei{
   width: 100%;
   height: 100rpx;
   background: #eee;
+  border-radius: 0;
 }
 .nr-right{
   width: 80%;

@@ -1,3 +1,5 @@
+import http from '../../../utils/api'
+
 // pages/kaishi_tp/kaishi_tp.js
 Page({
 
@@ -62,7 +64,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.tpArr()
+  },
+  tpArr(){
+    http.tpApi({
+      success:res=>{
+        console.log(res)
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
   },
   navTui(){
     wx.navigateBack({

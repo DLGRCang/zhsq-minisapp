@@ -11,14 +11,15 @@
 .box_content .right-item{display: none}
 .box_content .right-item.active{display: block}
 
-.bg{width: 100%;padding-top:85rpx;background: #F35854;}
-.box_content{font-size: 28rpx;}
-.view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
+.bg{width: 100%;padding-top:85rpx;height: 91%;
+  background: linear-gradient(60deg, #e03c37, #FF7B79);overflow-y: hidden;}
+.box_content{font-size: 28rpx;overflow-y: auto;height: 93%;}
+.view_tab{width: 100%;height:100%;overflow: hidden;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
 .view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
 .view_tab>.tab_bar>view{width:65rpx;height:45rpx;line-height: 45rpx;float: left;margin-right: 45rpx;text-align: center;}
 
 .tab_box{padding:35rpx;overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;border-radius: 20rpx;}
-.box_left{float:left;width: 35%;}
+.box_left{float:left;width: 35%;position: relative;}
 .box_left>image{width:100%;height: 200rpx;}
 .box_right{float:right;width: 62%;
 display: flex;

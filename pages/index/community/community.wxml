@@ -6,7 +6,7 @@
 <view class="bg">
 
 <view class="view_tab">
-<view class="tab_bar" > 
+<view class="tab_bar" style="padding-bottom:20rpx"> 
   <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
   <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">
     热门
@@ -15,40 +15,30 @@
     评分
   </view> 
 </view> 
+
  
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="tab_box" bindtap="xiangqing">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsActivityId}}" wx:for="{{rowsList}}" wx:key="index">
       <view class="box_left">
-        <view class="cu-tag bg-lvse light xtb">进行中</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <view class="cu-tag bg-huise light xtb" wx:if="{{item.infoStatus == 0}}">已取消</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.infoStatus == 1}}">
+          <text wx:if="{{item.activeStartTime > time}}">未开始</text>
+          <text wx:if="{{item.activeStartTime <= time && item.activeEndTime >= time}}">进行中</text>
+          <text wx:if="{{item.activeEndTime < time}}">已结束</text>
+        </view>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.actPhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
+          <text>{{item.type}}</text>
+          {{item.actContent}}
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill" style="color:#F35854"></text><text class="padd_lf">内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</text></view>
-          <view><text class="cuIcon-timefill" style="color:#F35854"></text><text class="padd_lf">2020-11-15  9:00-7:00</text></view>
-        </view>
-      </view>
-    </view>
-    <!-- 第一栏目 复制4 -->
-    <view class="tab_box">
-      <view class="box_left">
-        <view class="cu-tag bg-huise light xtb">已结束</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
-        </view>
-        <view class="right2">
-          <view><text class="cuIcon-locationfill"></text><text class="padd_lf">内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</text></view>
-          <view><text class="cuIcon-timefill"></text><text class="padd_lf">2020-11-15  9:00-7:00</text></view>
+          <view><text class="cuIcon-dianhua" style="{{item.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{item.address}}</text></view>
+          <view><text class="cuIcon-timefill" style="{{item.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{item.time}}</text></view>
+
         </view>
       </view>
     </view>
@@ -59,19 +49,25 @@
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="tab_box">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsActivityId}}" wx:for="{{rowsList1}}" wx:key="index">
       <view class="box_left">
-        <view class="cu-tag bg-huise light xtb">已结束</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <view class="cu-tag bg-huise light xtb" wx:if="{{item.infoStatus == 0}}">已取消</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.infoStatus == 1}}">
+          <text wx:if="{{item.activeStartTime > time}}">未开始</text>
+          <text wx:if="{{item.activeStartTime <= time && item.activeEndTime >= time}}">进行中</text>
+          <text wx:if="{{item.activeEndTime < time}}">已结束</text>
         </view>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.actPhonts}}"></image>
+      </view>
       <view class="box_right">
         <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
+          <text>{{item.type}}</text>
+          {{item.actContent}}
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill" style="color:#F35854"></text><text class="padd_lf">内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</text></view>
-          <view><text class="cuIcon-timefill" style="color:#F35854"></text><text class="padd_lf">2020-11-15  9:00-7:00</text></view>
+          <view><text class="cuIcon-dianhua" style="{{item.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{item.address}}</text></view>
+          <view><text class="cuIcon-timefill" style="{{item.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{item.time}}</text></view>
+
         </view>
       </view>
     </view>
@@ -81,19 +77,25 @@
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
 
-    <view class="tab_box">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsActivityId}}" wx:for="{{rowsList2}}" wx:key="index">
       <view class="box_left">
-        <view class="cu-tag bg-huise light xtb">已结束</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <view class="cu-tag bg-huise light xtb" wx:if="{{item.infoStatus == 0}}">已取消</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.infoStatus == 1}}">
+          <text wx:if="{{item.activeStartTime > time}}">未开始</text>
+          <text wx:if="{{item.activeStartTime <= time && item.activeEndTime >= time}}">进行中</text>
+          <text wx:if="{{item.activeEndTime < time}}">已结束</text>
         </view>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.actPhonts}}"></image>
+      </view>
       <view class="box_right">
         <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
+          <text>{{item.type}}</text>
+          {{item.actContent}}
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill"></text><text class="padd_lf">内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</text></view>
-          <view><text class="cuIcon-timefill"></text><text class="padd_lf">2020-11-15  9:00-7:00</text></view>
+          <view><text class="cuIcon-dianhua" style="{{item.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{item.address}}</text></view>
+          <view><text class="cuIcon-timefill" style="{{item.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{item.time}}</text></view>
+
         </view>
       </view>
     </view>

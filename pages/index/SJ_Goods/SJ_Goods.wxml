@@ -1,0 +1,63 @@
+<!--pages/index/SJ_Goods/SJ_Goods.wxml-->
+<cu-custom bgColor="bg-gray" isBack="{{false}}">
+    <view slot="content">商品</view>
+</cu-custom>
+
+<view class="goods_content">
+        <!-- 搜索 -->
+        <view class="sousuo">
+      <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
+      <input type="text" placeholder="搜索商品名称"/>
+      <view>搜索</view>
+      </view>
+</view>     
+
+  <view class="view_tab">
+    <view class="tab_bar" > 
+      <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">出售中</view> 
+      <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">未上架</view> 
+    </view>
+ 
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="tab_box" bindtap="xiangqing">
+      <view class="goods_box">
+        <view class="box_fl"><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
+        <view class="box_fr">
+          <view class="fr_title">青岛啤酒经典10度  大罐整箱装 口感醇厚（新老包装随机发放）</view>
+          <view class="fr_var"><text>规格：500ml*12罐/箱</text><text>销量：2345</text></view>
+          <view class="jg">
+            <view class="bot_fl">￥<text>7.9</text></view>
+            <view class="bot_fr">···</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view> 
+
+  
+
+  <!-- 第二栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+    <view class="tab_box">
+      <view class="goods_box">
+        <view class="box_fl"><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
+        <view class="box_fr">
+          <view class="fr_title">青岛啤酒经典10度  大罐整箱装 口感醇厚（新老包装随机发放）</view>
+          <view class="fr_var"><text>规格：500ml*12罐/箱</text><text>销量：2345</text></view>
+          <view class="jg">
+            <view class="bot_fl">￥<text>7.9</text></view>
+            <view class="bot_fr">···</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> 
+
+</view>
+<!-- 栏目结束 -->
+</view>
+<!-- view tab整体栏目结束 -->
+

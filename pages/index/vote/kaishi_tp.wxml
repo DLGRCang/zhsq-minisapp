@@ -1,14 +1,10 @@
 <!--pages/tp/tp.wxml-->
 <view class="details">
-  <view class="top-navigation">
-    <text class="cuIcon-back"  bindtap="navTui"></text>
-    <view>详情</view>
-    <text></text>
-  </view>
+  <cu-custom bgColor="bg-gray-bljb" isBack="{{true}}">
+    <view slot="content">详情</view>
+  </cu-custom>
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    <image src="../../../images/back.png" class="beijing"></image>
      <view class="tp_box">
         <view class="text-center padding text-blue">关于小区XXX 修建投票表决</view>
         <!-- 第一条事项 -->

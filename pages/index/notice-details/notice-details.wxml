@@ -1,15 +1,11 @@
 
 <import src="../../../wxParse/wxParse.wxml"></import>
 <view class="details">
-  <view class="top-navigation">
-    <text class="cuIcon-back"  bindtap="navTui"></text>
-    <view>详情</view>
-    <text></text>
-  </view>
+  <cu-custom bgColor="bg-gray-bljb" isBack="{{true}}">
+    <view slot="content">详情</view>
+  </cu-custom>
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    <image src="../../../images/back.png" class="beijing"></image>
     <view class="box-de">
       <view class="title">{{data.SITE_NAME}}</view>
       <view class="title-name">发布日期{{data.PUBLISH_DATE}}</view>

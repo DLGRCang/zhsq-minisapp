@@ -13,7 +13,7 @@ App({
     // 登录
     wx.login({
       success: res => {
-        //console.log(res)
+        console.log(res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -42,6 +42,7 @@ App({
     // 获取系统状态栏信息
     wx.getSystemInfo({
       success: e => {
+        //console.log(e)
         this.globalData.StatusBar = e.statusBarHeight;
         let capsule = wx.getMenuButtonBoundingClientRect();
         if (capsule) {

@@ -76,10 +76,31 @@ const pageBack = function () {
   });
 }
 
+//消息提示框
+const tips = function(data){
+  wx.showToast({
+    title: data,
+    icon: 'none',
+    duration: 2000
+  })
+  
+}
+
+//成功提示框
+const success = function(data){
+  wx.showToast({
+    title: data,
+    icon: 'success',
+    duration: 2000
+  })
+}
+
 export default{
   checkIdCard,
   checkPhone,
   checkEmail,
   pageBack,
-  imgClick
+  imgClick,
+  tips,
+  success
 }
