@@ -1,0 +1,25 @@
+/* pages/index/WY_tzfb/WY_tzfb.wxss */
+.tzfb_box{margin:0 auto;padding:35rpx;}
+.tzfb_box>picker{font-weight: bold;}
+.tzfb_box>.box>view:nth-child(1){line-height: 2;}
+.tzfb_box>.box{border-radius: 15rpx;background: #fff;padding:35rpx;clear: both;overflow: hidden;
+  font-size: 26rpx;margin-top:35rpx;}
+  .tzfb_box>.box>.text{color: #999;overflow: hidden;
+    text-overflow:ellipsis;line-height: 1.5;
+    display: -webkit-box;    margin-bottom: 25rpx;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;}  
+    .tzfb_box>.box>.date_title{color: #999;line-height: 2;}
+
+/* 发布图标样式     */
+.fabu_btn{font-size:30rpx;right:2%;bottom:10%;position: fixed;border-radius: 50%;
+  width:70rpx;height:70rpx;font-weight: bold;display: flex;
+  align-items: center;justify-content: center;}
+
+
+
+.bot_fr{float: right;width: 40%;width: 50rpx;height: 35rpx;line-height: 35rpx;text-align: center;
+  background: #EEEEEE;font-weight: 400;color:#333; border-radius: 10rpx;margin-top: 15rpx;}
+
+  .zwsj{text-align: center;font-size: 32rpx;line-height: 2;margin-top:65%;color: #999;}
+  .zwsj>image{width:60%;height:300rpx;}  

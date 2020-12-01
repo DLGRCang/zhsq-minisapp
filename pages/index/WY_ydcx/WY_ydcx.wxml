@@ -1,0 +1,109 @@
+<!--pages/index/WY_ydcx/WY_ydcx.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{false}}">
+    <view slot="content">移动巡查</view>
+  </cu-custom>
+<!-- <view class="llq_content"> -->
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+ 
+<view class="view_tab">
+<view class="tab_bar" > 
+  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">已发布</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">未发布</view> 
+</view> 
+
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="pban_box" bindtap="xiangqing">
+      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg "></text>
+			</view>
+    </picker>
+    <view class="box" wx:for="{{4}}">
+      <view class="zt text-blue">已发布</view>
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">巡查人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray fr">2020-11-23</view>
+        </view>
+        <view class="box_title">
+        <view>工作状态  <text>巡查中</text></view>
+        <view>巡查时间  <text>2020-11-23  9:00-10:00 拷贝</text></view>
+        <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
+        </view>
+        <view class="bot_fr">···</view>
+    </view>
+    </view>
+  </view> 
+  <!-- 第二栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+    <view class="pban_box">
+      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg "></text>
+			</view>
+    </picker>
+    <view class="box" wx:for="{{4}}">
+      <view class="zt text-blue">已发布</view>
+      <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">巡查人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray fr">2020-11-23</view>
+        </view>
+        <view class="box_title">
+        <view>工作状态  <text>巡查中</text></view>
+        <view>巡查时间  <text>2020-11-23  9:00-10:00 拷贝</text></view>
+        <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
+        </view>
+        <view class="bot_fr">···</view>
+    </view>
+    </view>
+  </view> 
+  <!-- 第三栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+    <view class="pban_box">
+      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg "></text>
+			</view>
+    </picker>
+    <view class="box" wx:for="{{4}}">
+      <view class="zt text-blue">未发布</view>
+      <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">巡查人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray fr">2020-11-23</view>
+        </view>
+        <view class="box_title">
+        <view>工作状态  <text>巡查中</text></view>
+        <view>巡查时间  <text>2020-11-23  9:00-10:00 拷贝</text></view>
+        <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
+        </view>
+        <view class="bot_fr">···</view>
+    </view>
+    </view>
+  </view> 
+
+</view>
+<!-- 栏目结束 -->
+</view>
+<!-- view tab整体栏目结束 -->
+
+  </view>
+
+<!-- 发布图标 -->
+<button class="cuIcon-add bg-blue fabu_btn" role="button" aria-disabled="false" bindtap="fabu"></button>
