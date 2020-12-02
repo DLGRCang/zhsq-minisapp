@@ -1,5 +1,7 @@
 {
   "pages": [
+
+
     "pages/index/index",
     "pages/index/service/cd_fwxq",
     "pages/index/Llq_pub/Llq_pub",
@@ -44,7 +46,16 @@
     "pages/index/Search/Search",
     "pages/index/My_appointment/My_appointment",
     "pages/index/My_Order/My_Order",
-    "pages/index/Sj_revenue/Sj_revenue"
+    "pages/index/Sj_revenue/Sj_revenue",
+
+    "pages/index/Sj_dpyh/Sj_dpyh",
+    "pages/index/Register/Register",
+    "pages/index/Login/Login",
+    "pages/index/WY_pj/WY_pj",
+    "pages/index/WY_pban/WY_pban",
+    "pages/index/WY_ydcx/WY_ydcx",
+    "pages/index/WY_wxd/WY_wxd",
+    "pages/index/WY_tzfb/WY_tzfb"
 
   ],
   "window": {

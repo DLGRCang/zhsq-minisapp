@@ -1,0 +1,31 @@
+<!--pages/index/WY_pj/WY_pj.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+    <view slot="content">评价</view>
+  </cu-custom>
+<!-- <view class="llq_content"> -->
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+
+<view class="pj_box">
+  <view class="user">
+    <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+    <view>用户名称</view>
+  </view>
+  <view class="pj_title">
+    <text>您的评价让我们做的更好</text>
+    <text>你的反馈将有助于提高我们的服务</text>
+    <text>为本次服务打分</text>
+  </view>
+   
+    <!-- 评分星星 -->
+    <view class="star">
+     <image src="../../../images/images/star_active_lg.png" wx:for="{{4}}"></image> 
+     <image src="../../../images/images/star_lg.png" wx:for="{{1}}"></image>
+    </view>
+    <button class="btn">提交</button>
+  </view>
+
+
+ </view>
