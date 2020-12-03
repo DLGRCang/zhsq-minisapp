@@ -15,10 +15,26 @@
             <textarea maxlength="-1" placeholder="请输入情况描述"></textarea>
           </view>
       </view>
-      <view class="danhang">
-        <view class="biaoti">附件</view>
-        
-      </view>
+      <!-- <view class="danhang">
+        <view class="biaoti">附件</view> -->
+
+  <view class="danhang" >
+		<view class="biaoti">
+			附件
+		</view>
+	</view>
+  <view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
+				<text class="cuIcon-add lg text-gray"></text>
+			</view>
+  </view>
+
     </view>
   </view> 
   <view class="bot-fb">

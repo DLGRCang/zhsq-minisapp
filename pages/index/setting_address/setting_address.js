@@ -5,8 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    clickId: -1,
+    // reason: ['不需要服务了', '买错了', '服务质量不满意', '想购买其他服务项目', '其他原因'],   
   },
+  // 点击选中 变色  
+selectBtn(event) {    
+  var text = event.currentTarget.dataset.text;    
+  this.setData({      
+     clickId: event.currentTarget.id,   
+  })  
+},
+
      //编辑地址-跳转
      editClick:function(){
       wx.navigateTo({

@@ -16,66 +16,45 @@ Component({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     ColorList: app.globalData.ColorList,
-    isStar: false, // 默认没有收藏
-    isShare: true, // 默认有分享
-    isShare: false, // 默认没有赞
     forF4:[],
-    // 邻里圈分类功能tab
-    dataTab:[
-      {id:0,content:"全部"},
-      {id:1,content:"好人好事"},
-      {id:2,content:"小区一角"},
-      {id:3,content:"投诉建议"},
-      {id:4,content:"吐槽..."}
-    ],
-    TabCur: 0,
-    scrollLeft:0
-
+ // tab 切换
+  tabArr: {
+      curHdIndex: 0,
+      curBdIndex: 0
+    }, 
   },
-
-
+  // tab切换
+      tab: function (e) {
+      //var dataId = e.currentTarget.dataset.id;
+      var dataId = e.currentTarget.id;
+      var obj = {};
+      obj.curHdIndex = dataId;
+      obj.curBdIndex = dataId;
+      this.setData({
+        tabArr: obj
+      })
+      //console.log(e);
+      }, 
+        // 新闻详情
+    newsxq(){
+      wx.navigateTo({
+        url: '/pages/index/notice-details/notice-details'
+      })
+    }, 
+  // 邻里圈列表跳详情
+      lljClick:function(){
+        wx.navigateTo({
+          url: '/pages/index/neighborhood-details/llq_xq'
+        })
+      },
+  
   /**
    * 组件的方法列表
    */
   methods: {
-          // 邻里圈分类功能tab
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
-    })
-  },
-    // 发布
-    fabu:function(){
-      wx.navigateTo({
-        url: '/pages/index/Llq_pub/Llq_pub'
-      })
-    },
-
     lljClick:function(){
       wx.navigateTo({
         url: '/pages/index/neighborhood-details/llq_xq'
-      })
-    },
-    // 点击收藏
-    toStar () {
-      var bol = this.data.isStar; // 获取状态
-      this.setData({
-        isStar:!bol // 改变状态
-      })
-      },
-    // 点击分享
-    toShare () {
-      var bol = this.data.isShare; // 获取状态
-      this.setData({
-        isShare:!bol // 改变状态
-      })
-      },
-    // 点赞/取消点赞
-    toZan () {
-      var bol = this.data.isZan; // 获取状态
-      this.setData({
-        isZan:!bol // 改变状态
       })
     },
   },

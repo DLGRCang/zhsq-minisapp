@@ -1,8 +1,16 @@
 
 
-<view class="t4">
+<view class="">
 <!-- 第一部分 头部 -->
+
 <view class="head_content">
+  <view class="tab">
+      <scroll-view scroll-x class="nav" style="color:#eee" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item {{index==TabCur?'text-bai cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+          {{item.content}}
+        </view>
+      </scroll-view>
+    </view>
 <view class="cu-card dynamic {{isCard?'no-card':''}}" style="padding-bottom:35%">
 <!-- 第一部分 内容 -->
   <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">

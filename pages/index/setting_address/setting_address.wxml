@@ -16,6 +16,17 @@
     </view>
   </view>
 
+  <view>      
+  
+   <text id="{{index}}"  bindtap='selectBtn'>          
+   <block wx:if="{{index==clickId}}">            
+      <text class='reason_item' style='background:#ff0000;color:#fff'>111111111111</text>          
+   </block>          
+   <block wx:else>            
+      <text class='reason_item' style='background:#fff;color:#ff0000'>22222222222222</text>          
+   </block>        
+   </text>   
+</view>
   <!-- 第二栏 -->
   <view class="cu_address_box">
       <view class="box01">

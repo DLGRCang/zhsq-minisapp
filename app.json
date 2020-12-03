@@ -1,6 +1,6 @@
 {
   "pages": [
-
+    "pages/index/zscpl/zscpl",
 
     "pages/index/index",
     "pages/index/service/cd_fwxq",

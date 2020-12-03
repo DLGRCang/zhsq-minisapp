@@ -28,6 +28,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 我的点赞/评论/收藏跳转
+    my_dzClick:function(){
+      wx.navigateTo({
+        url: "/pages/index/zscpl/zscpl"
+      })
+    },  
     // 我的预约 跳转
     My_appointmentClick:function(){
       wx.navigateTo({

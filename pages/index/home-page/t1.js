@@ -51,12 +51,16 @@ Component({
    * 组件的方法列表
    */
 
-  sqhd_xq(){
+
+  methods: {
+    // 社区活动跳转详情页
+  sqhd_xq(e){
+    //console.log(e)
+    var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../community/community'
+      url: '/pages/index/communityDetails/sq_hdxq?id='+id
     })
   },
-  methods: {
  //点击登录
  loginClick(){
   common.checkLogin()
@@ -81,18 +85,35 @@ Component({
       url:'/pages/index/vote/kaishi_tp' 
     })
   },
+  xqvodetwo(){
+    wx.navigateTo({
+      url:'/pages/index/vote/kaishi_tp' 
+    })
+  },
+  xqvodethree(){
+    wx.navigateTo({
+      url:'/pages/index/vote/kaishi_tp' 
+    })
+  },
   getleft(e){
     //console.log(e)
     this.setData({
       scrollLeft:e.detail.scrollLeft
     })
   },
-
+// 通知公告
   tzgg(){
     wx.navigateTo({
       url: '/pages/index/notice/tzgg'
     })
+  },
+  // 新闻详情
+  newsxq(){
+    wx.navigateTo({
+      url: '/pages/index/notice-details/notice-details'
+    })
   }
+
 
   },
  

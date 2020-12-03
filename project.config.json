@@ -64,8 +64,8 @@
           "scene": null
         },
         {
-          "name": "pages/index/Sj_revenue/Sj_revenue",
-          "pathName": "pages/index/Sj_revenue/Sj_revenue",
+          "name": "pages/index/setting_address/setting_address",
+          "pathName": "pages/index/setting_address/setting_address",
           "query": "",
           "scene": null
         }

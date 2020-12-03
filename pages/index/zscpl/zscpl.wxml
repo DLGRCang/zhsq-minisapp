@@ -1,0 +1,70 @@
+<!--pages/index/zscpl/zscpl.wxml-->
+<cu-custom bgColor="bg-gray-bl" isBack="{{true}}">
+    <view slot="content">点赞/收藏/评论</view>
+</cu-custom>
+
+<view class="bg">
+<view class="view_tab">
+<view class="tab_bar" > 
+  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">我的点赞</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">我的收藏</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">我的评论</view> 
+</view> 
+
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="tab_box">
+
+          <!-- 邻里圈列表 -->
+  <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="content flex-sub">
+          <view>小区用户名</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.gmtCreate}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content" bindtap="lljClick">
+     内容111111111111
+    </view>
+   <view class="bg-white padding">
+    <view class="grid col-3 grid-square">
+      <view class="bg-img" wx:for="{{3}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+    </view>
+  </view>
+    </view>
+
+
+  </view>
+  </view>
+  <!-- 我的收藏 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+    <view class="tab_box">
+                    <!-- 新闻列表 -->
+        <view class="seven_box"  bindtap="newsxq" wx:for="{{2}}">
+          <view class="seven_left">
+              <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
+              <text>2020-10-28</text>  
+          </view>
+            <view class="seven_right">
+              <image src="../../../images/t1/componentBg.png"></image>
+            </view>
+        </view>
+    </view>
+  </view>
+<!-- 我的评论 -->
+  <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+    <view class="tab_box">
+      33333333333333
+    </view>
+  </view>
+</view>
+
+</view>
+
+</view>

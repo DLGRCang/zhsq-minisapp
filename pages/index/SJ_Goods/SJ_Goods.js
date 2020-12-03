@@ -11,6 +11,12 @@ Page({
       curBdIndex: 0
     }, 
   },
+    // 搜索页面跳转
+    Search:function(){
+      wx.navigateTo({
+        url: '/pages/index/Search/Search'
+      })
+    },
   // tab切换
   tab: function (e) {
     //var dataId = e.currentTarget.dataset.id;

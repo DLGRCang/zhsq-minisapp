@@ -26,6 +26,12 @@ Page({
       curBdIndex: 0
     }, 
   },
+    // 搜索页面跳转
+    Search:function(){
+      wx.navigateTo({
+        url: '/pages/index/Search/Search'
+      })
+    },
     /* 点击减号 */  
     bindMinus: function() {  
       var num = this.data.num;  

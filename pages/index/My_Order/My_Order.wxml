@@ -7,7 +7,7 @@
         <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
       <input type="text" placeholder="搜索店内商品"/>
-      <view>搜索</view>
+      <view bindtap="Search">搜索</view>
       </view>
  </view>
 <view class="bg"> 

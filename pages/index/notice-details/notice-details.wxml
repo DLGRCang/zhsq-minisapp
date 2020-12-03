@@ -13,5 +13,32 @@
       <!-- <web-view src="https://mp.weixin.qq.com/s/b1osD-pN5Zp9Zq2CCoaPHQ"></web-view> -->
     </view>
   </view>
+
+
+  <!-- 收藏 分享 -->
+<view class="shoucang">
+  <!-- 收藏，取消收藏 -->
+  <view class="padd">
+  <view bindtap="toStar" class="fl">
+      <block wx:if="{{isStar == false}}">
+        <image src="../../../images/images/star_lg.png " class="good_lg_img"></image>
+      </block>
+      <block wx:elif="{{isStar == true}}" >
+        <image src="../../../images/images/star_active_lg.png " class="good_lg_img"></image>
+      </block>
+  </view>
+      <!-- 分享  取消分享 -->
+      <view bindtap="toCollect" class="fr">
+      <block wx:if="{{isCollect == false}}">
+      <image src="../../../images/images/share.png " class="good_lg_img"></image>
+      </block>
+      <block wx:elif="{{isCollect == true}}" >
+      <image src="../../../images/images/share.png " class="good_lg_img"></image>
+      </block>
+      </view>
+    </view>   
+</view>
+
+
 </view>
 

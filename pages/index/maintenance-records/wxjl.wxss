@@ -1,6 +1,7 @@
 /* 公共颜色 */
 .font9{color:#999999;}
 .right{float:right;}
+.light{margin-right: 8rpx;}
 
 .top-navigation{
   width: 100%;position: fixed;

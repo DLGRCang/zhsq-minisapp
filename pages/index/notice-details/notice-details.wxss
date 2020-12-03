@@ -1,5 +1,6 @@
 /* pages/notice-details/notice-details.wxss */
 @import "../../../wxParse/wxParse.wxss";
+.fl{}
 .details{
   width: 100%;
   height: 100%;
@@ -61,3 +62,9 @@ margin-bottom: 15rpx;
   padding: 30rpx;
   box-sizing: border-box;
 }
+
+.shoucang{position: fixed;width: 100%;height:100rpx;line-height: 100rpx;background: #fff;    bottom: 0;}
+.good_lg_img{
+  width: 41rpx;height: 41rpx;
+}
+.shoucang>.padd{width: 50%;margin:0 auto;}
