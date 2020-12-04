@@ -49,7 +49,7 @@ Component({
         //缴费记录-跳转
   jfjlClick:function(){
     wx.navigateTo({
-      url: '/pages/index/feedback/feedback'
+      url: '/pages/index/Home_jfjl/Home_jfjl'
     })
   },
 //维修记录-跳转

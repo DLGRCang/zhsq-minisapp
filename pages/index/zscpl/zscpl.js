@@ -16,26 +16,40 @@ Component({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     ColorList: app.globalData.ColorList,
+    isStar: false, // 默认没有收藏
+    isShare: true, // 默认有分享
+    isShare: false, // 默认没有赞
     forF4:[],
- // tab 切换
-  tabArr: {
-      curHdIndex: 0,
-      curBdIndex: 0
-    }, 
+    tabArr: {
+      curHdIndex: 0,
+      curBdIndex: 0
+    }, 
   },
-  // tab切换
-      tab: function (e) {
-      //var dataId = e.currentTarget.dataset.id;
-      var dataId = e.currentTarget.id;
-      var obj = {};
-      obj.curHdIndex = dataId;
-      obj.curBdIndex = dataId;
-      this.setData({
-        tabArr: obj
-      })
-      //console.log(e);
-      }, 
-        // 新闻详情
+   
+  
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    // tab切换
+  tab: function (e) {
+    console.log(e)
+    //var dataId = e.currentTarget.dataset.id;
+    var dataId = e.currentTarget.id;
+    var obj = {};
+    obj.curHdIndex = dataId;
+    obj.curBdIndex = dataId;
+    this.setData({
+      tabArr: obj
+    })
+    //console.log(e);
+  }, 
+    lljClick:function(){
+      wx.navigateTo({
+        url: '/pages/index/neighborhood-details/llq_xq'
+      })
+    },
+      // 新闻详情
     newsxq(){
       wx.navigateTo({
         url: '/pages/index/notice-details/notice-details'
@@ -47,16 +61,6 @@ Component({
           url: '/pages/index/neighborhood-details/llq_xq'
         })
       },
-  
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-    lljClick:function(){
-      wx.navigateTo({
-        url: '/pages/index/neighborhood-details/llq_xq'
-      })
-    },
   },
  
   /*组件生命周期*/ 
@@ -115,5 +119,4 @@ Component({
     }
    
   }
- 
 })

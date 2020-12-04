@@ -1,9 +1,8 @@
 /* pages/index/zscpl/zscpl.wxss */
 /* 公共颜色 */
-@import "../../../colorui/main.wxss";
-@import "../../../colorui/icon.wxss";
+
 /*  引入邻里圈列表样式*/
-@import "../../index/neighborhood/t4.wxss";
+/* @import "../../index/neighborhood/t4.wxss"; */
 /* tab样式 */
 .xtb{    z-index: 999; position: absolute;}
 .tab_bar .active{color: #188BFF;border-bottom: 1px solid #188BFF;}
@@ -32,3 +31,8 @@
 .seven_boxtwo{margin-top:-10rpx;  width: 100%;color: #999999;
   padding:25rpx;background: #fff;border-radius: 25rpx;}
 .seven_boxtwo>text{display: block;line-height:1.3;width: 100%;padding:5rpx 0;}
+.text-content{background: #fff;padding:0 35rpx;    overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;}

@@ -40,5 +40,5 @@ margin-top: 35rpx;
       height: 60rpx;line-height: 60rpx;left: 40%;
       background: linear-gradient(60deg, #66B7F9, #3A91F7);
       border-radius: 30rpx;}      
-.bg {padding-top: 5rpx !important; }
+.bg {padding-top: 5rpx !important;     background: #F9F9F9;}
 .view_tab {border-radius:0rpx !important;}

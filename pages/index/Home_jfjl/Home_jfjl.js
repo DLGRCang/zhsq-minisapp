@@ -1,29 +1,29 @@
-// pages/index/setting_address/setting_address.js
+// pages/index/Home_jfjl/Home_jfjl.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    clickId: -1,
-    // reason: ['不需要服务了', '买错了', '服务质量不满意', '想购买其他服务项目', '其他原因'],   
-  },
-  // 点击选中 变色  
-
-
-     //编辑地址-跳转
-     editClick:function(){
-      wx.navigateTo({
-        url: '/pages/index/news_address/news_address'
-      })
-    },
-
-   //新增收货地址-跳转
-   Add_address:function(){
-    wx.navigateTo({
-      url: '/pages/index/news_address/news_address'
+  // tab 切换
+  tabArr: {
+    curHdIndex: 0,
+    curBdIndex: 0
+  }, 
+},
+// tab切换
+    tab: function (e) {
+    //var dataId = e.currentTarget.dataset.id;
+    var dataId = e.currentTarget.id;
+    var obj = {};
+    obj.curHdIndex = dataId;
+    obj.curBdIndex = dataId;
+    this.setData({
+      tabArr: obj
     })
-  },
+    //console.log(e);
+    },  
+
   /**
    * 生命周期函数--监听页面加载
    */

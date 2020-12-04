@@ -15,7 +15,6 @@
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <view class="tab_box">
-
           <!-- 邻里圈列表 -->
   <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
     <view class="cu-list menu-avatar">
@@ -30,14 +29,14 @@
       </view>
     </view>
     <view class="text-content" bindtap="lljClick">
-     内容111111111111
+      {{item.message}}
     </view>
    <view class="bg-white padding">
     <view class="grid col-3 grid-square">
       <view class="bg-img" wx:for="{{3}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
     </view>
   </view>
-    </view>
+   </view>
 
 
   </view>
@@ -55,12 +54,56 @@
               <image src="../../../images/t1/componentBg.png"></image>
             </view>
         </view>
+                  <!-- 邻里圈列表 -->
+  <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="content flex-sub">
+          <view>小区用户名</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.gmtCreate}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content" bindtap="lljClick">
+      {{item.message}}
+    </view>
+   <view class="bg-white padding">
+    <view class="grid col-3 grid-square">
+      <view class="bg-img" wx:for="{{3}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+    </view>
+  </view>
+   </view>
     </view>
   </view>
 <!-- 我的评论 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
     <view class="tab_box">
-      33333333333333
+                   <!-- 邻里圈列表 -->
+  <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="content flex-sub">
+          <view>小区用户名</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.gmtCreate}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="text-content" bindtap="lljClick">
+      {{item.message}}
+    </view>
+   <view class="bg-white padding">
+    <view class="grid col-3 grid-square">
+      <view class="bg-img" wx:for="{{3}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+    </view>
+  </view>
+   </view>
+   
     </view>
   </view>
 </view>

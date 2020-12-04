@@ -28,6 +28,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
@@ -38,7 +39,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.4.2",
   "appid": "wxab288f962df834dd",
-  "projectname": "智慧社区",
+  "projectname": "%E6%99%BA%E6%85%A7%E7%A4%BE%E5%8C%BA",
   "debugOptions": {
     "hidedInDevtools": []
   },
@@ -64,8 +65,8 @@
           "scene": null
         },
         {
-          "name": "pages/index/setting_address/setting_address",
-          "pathName": "pages/index/setting_address/setting_address",
+          "name": "pages/index/My_appointment/My_appointment",
+          "pathName": "pages/index/My_appointment/My_appointment",
           "query": "",
           "scene": null
         }
