@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shows: false,
     date: '2018年12月',
   },
   DateChange(e) {
@@ -14,6 +15,16 @@ Page({
     })
    
   },
+
+  bjClick:function(){
+    console.log(2);
+      var that = this;
+      var sh = that.data.shows;
+      that.setData({
+        shows: !sh
+      })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

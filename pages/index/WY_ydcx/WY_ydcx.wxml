@@ -39,7 +39,12 @@
         <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
         <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
         </view>
-        <view class="bot_fr">···</view>
+        <!-- <view class="bot_fr">···</view> -->
+          <!-- 编辑修改删除 -->
+    <view class="bianji">
+        <view bindtap="" class="text-blue">编辑</view>
+        <view bindtap="" class="text-red">删除</view>
+    </view>
     </view>
     </view>
   </view> 
@@ -66,7 +71,12 @@
         <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
         <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
         </view>
-        <view class="bot_fr">···</view>
+        <!-- <view class="bot_fr">···</view> -->
+                 <!-- 编辑修改删除 -->
+    <view class="bianji">
+        <view bindtap="" class="text-blue">编辑</view>
+        <view bindtap="" class="text-red">删除</view>
+    </view>
     </view>
     </view>
   </view> 
@@ -93,7 +103,12 @@
         <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
         <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
         </view>
-        <view class="bot_fr">···</view>
+        <!-- <view class="bot_fr">···</view> -->
+                 <!-- 编辑修改删除 -->
+    <view class="bianji">
+        <view bindtap="" class="text-blue">编辑</view>
+        <view bindtap="" class="text-red">删除</view>
+    </view>
     </view>
     </view>
   </view> 

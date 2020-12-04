@@ -23,3 +23,6 @@
 
   .zwsj{text-align: center;font-size: 32rpx;line-height: 2;margin-top:65%;color: #999;}
   .zwsj>image{width:60%;height:300rpx;}  
+
+.bianji{float: right;}  
+.bianji>view{float: left;margin:15rpx;}

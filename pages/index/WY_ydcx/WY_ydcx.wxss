@@ -52,3 +52,7 @@ height: 479rpx;background: #1BB1FD;border-radius: 50%;}
 
 .bot_fr{float: right;width: 40%;width: 50rpx;height: 35rpx;line-height: 35rpx;text-align: center;
     background: #EEEEEE;font-weight: 400;color:#333; border-radius: 10rpx;margin-top: 15rpx;} 
+
+
+    .bianji{float: right;}  
+    .bianji>view{float: left;margin:15rpx;}    

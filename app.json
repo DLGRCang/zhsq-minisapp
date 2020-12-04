@@ -1,6 +1,6 @@
 {
   "pages": [
-
+    "pages/index/WY_tzfb/WY_tzfb",
     "pages/index/index",
     "pages/index/service/cd_fwxq",
     "pages/index/Llq_pub/Llq_pub",
@@ -54,7 +54,7 @@
     "pages/index/WY_pban/WY_pban",
     "pages/index/WY_ydcx/WY_ydcx",
     "pages/index/WY_wxd/WY_wxd",
-    "pages/index/WY_tzfb/WY_tzfb",
+    
     "pages/index/Home_jfjl/Home_jfjl",
     "pages/index/zscpl/zscpl"
 

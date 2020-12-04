@@ -65,8 +65,8 @@
           "scene": null
         },
         {
-          "name": "pages/index/My_appointment/My_appointment",
-          "pathName": "pages/index/My_appointment/My_appointment",
+          "name": "pages/index/WY_pban/WY_pban",
+          "pathName": "pages/index/WY_pban/WY_pban",
           "query": "",
           "scene": null
         }

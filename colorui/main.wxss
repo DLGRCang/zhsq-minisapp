@@ -3966,7 +3966,8 @@ background: linear-gradient(60deg, #F35854, #FF7B79);
 .text-blue,
 .line-blue,
 .lines-blue {
-	color: var(--blue);
+	/* color: var(--blue); */
+	color:#188bff;
 }
 
 .text-purple,

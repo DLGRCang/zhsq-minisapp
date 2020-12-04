@@ -14,7 +14,7 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="tab_box">
+    <view class="tab_box" bindtap="lljClick">
           <!-- 邻里圈列表 -->
   <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
     <view class="cu-list menu-avatar">
@@ -28,7 +28,7 @@
         </view>
       </view>
     </view>
-    <view class="text-content" bindtap="lljClick">
+    <view class="text-content" >
       {{item.message}}
     </view>
    <view class="bg-white padding">
@@ -43,7 +43,7 @@
   </view>
   <!-- 我的收藏 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="tab_box">
+    <view class="tab_box" >
                     <!-- 新闻列表 -->
         <view class="seven_box"  bindtap="newsxq" wx:for="{{2}}">
           <view class="seven_left">
@@ -80,7 +80,7 @@
   </view>
 <!-- 我的评论 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
-    <view class="tab_box">
+    <view class="tab_box" bindtap="lljClick">
                    <!-- 邻里圈列表 -->
   <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
     <view class="cu-list menu-avatar">
@@ -94,7 +94,7 @@
         </view>
       </view>
     </view>
-    <view class="text-content" bindtap="lljClick">
+    <view class="text-content">
       {{item.message}}
     </view>
    <view class="bg-white padding">

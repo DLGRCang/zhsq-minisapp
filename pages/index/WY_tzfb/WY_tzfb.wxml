@@ -14,9 +14,16 @@
     <view class="text">紧急通知！呼和浩特市应对新型冠状病毒内容.紧急通知！呼和浩特市应对新型冠状病毒内容呼和浩特市应对新型冠状病毒内容.紧急通知！呼和浩特市应对新型冠状病毒内容</view>
     <view class="date_title">
       <text>2020-10-13</text>
-      <view class="bot_fr">···</view>
+    
+      <!-- <view class="bot_fr" bindtap="bjClick">···</view> -->
     </view>
-</view>
+    <!-- 编辑修改删除 -->
+    <view class="bianji">
+        <view bindtap="" class="text-blue">编辑</view>
+        <view bindtap="" class="text-red">删除</view>
+    </view>
+</view>   
+<!-- 复制第二个 -->
 
 <view style="display:none;" class="zwsj">
       <image src="../../../images/SJ/zwsj.png"></image>
