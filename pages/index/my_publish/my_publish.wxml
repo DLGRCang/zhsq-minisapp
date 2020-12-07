@@ -205,7 +205,7 @@
         <text>2室2厅1卫   100㎡</text>  
         <text>左右城左城E4 1-1-1203</text>  
         <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-        <view class="fr text-blue">修改</view>
+        <view class="fr text-blue" bindtap="update">修改</view>
       </view>
     </view>
 <!-- 第一栏目 复制2 -->
@@ -219,12 +219,12 @@
         <text>2室2厅1卫   100㎡</text>  
         <text>左右城左城E4 1-1-1203</text>  
         <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-        <view class="fr text-blue">修改</view>
+        <view class="fr text-blue" bindtap="update">修改</view>
       </view>
     </view>
 
 <!-- 第一栏目 复制3 -->
-<view class="tab_box" bindtap="xiangqing">
+<view class="tab_box" bindtap="xiangqing" wx:if="hidden">
       <view class="box_left">
         <view class="cu-tag bg-grey light xtb">关闭</view>
         <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
@@ -234,12 +234,12 @@
         <text>2室2厅1卫   100㎡</text>  
         <text>左右城左城E4 1-1-1203</text>  
         <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view> 
-        <view class="fr text-blue">删除</view> 
+        <view class="fr text-blue" bindtap="Delete">删除</view> 
       </view>
     </view>
 
     <!-- 第一栏目 复制4 -->
-    <view class="tab_box" bindtap="xiangqing">
+    <view class="tab_box" bindtap="xiangqing" wx:if="hidden">
       <view class="box_left">
         <view class="cu-tag bg-grey light xtb">关闭</view>
         <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
@@ -249,7 +249,7 @@
         <text>2室2厅1卫   100㎡</text>  
         <text>左右城左城E4 1-1-1203</text>  
         <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view> 
-        <view class="fr text-red">删除</view> 
+        <view class="fr text-red" bindtap="Delete">删除</view> 
       </view>
     </view>
 

@@ -1,7 +1,7 @@
 {
   "pages": [
   
-    "pages/index/MY_ydxcCreate/MY_ydxcCreate",
+
 
     "pages/index/index",
     "pages/index/service/cd_fwxq",
@@ -47,9 +47,14 @@
     "pages/index/Search/Search",
     "pages/index/My_appointment/My_appointment",
     "pages/index/My_Order/My_Order",
-    "pages/index/Sj_revenue/Sj_revenue",
 
+    "pages/index/Sj_revenue/Sj_revenue",
     "pages/index/Sj_dpyh/Sj_dpyh",
+    "pages/index/SJ_Goods/SJ_Goods",
+    "pages/index/SJ_Message/SJ_Message",
+    "pages/index/SJ_Order/SJ_Order",
+    "pages/index/SJ_Shop/SJ_Shop",
+
     "pages/index/Register/Register",
     "pages/index/Login/Login",
     "pages/index/WY_pj/WY_pj",
@@ -61,7 +66,8 @@
     "pages/index/Home_jfjl/Home_jfjl",
     "pages/index/Home_myactivity/Home_myactivity",
     "pages/index/Home_myorders/Home_myorders",
-    "pages/index/Home_mytoupiao/Home_mytoupiao"
+    "pages/index/Home_mytoupiao/Home_mytoupiao",
+    "pages/index/MY_ydxcCreate/MY_ydxcCreate"
 
   ],
   "window": {

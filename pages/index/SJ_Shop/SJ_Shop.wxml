@@ -64,7 +64,7 @@
   </view>
 
   <view class="my-b-from">
-    <view class="my-p-from" bindtap="">
+    <view class="my-p-from" bindtap="qhjiaose">
       <view class="bot-border">
         <text>切换角色</text>
         <text class="cuIcon-right lg text-gray"></text>

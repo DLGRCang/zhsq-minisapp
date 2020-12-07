@@ -59,14 +59,14 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/index/lease/lease",
-          "pathName": "pages/index/lease/lease",
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/index/MY_ydxcCreate/MY_ydxcCreate",
-          "pathName": "pages/index/MY_ydxcCreate/MY_ydxcCreate",
+          "name": "pages/index/SJ_Shop/SJ_Shop",
+          "pathName": "pages/index/SJ_Shop/SJ_Shop",
           "query": "",
           "scene": null
         }

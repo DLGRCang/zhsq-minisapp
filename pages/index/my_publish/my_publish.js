@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hidden:false,
 
       // tab 切换
       tabArr: {
@@ -64,7 +65,16 @@ fabu:function(){
     url: '/pages/index/Llq_pub/Llq_pub'
   })
 },
-
+ // 移动巡查发布跳转
+ update(){
+  wx.navigateTo({
+    url: '/pages/index/lease/lease'
+  })
+},
+// 删除按钮
+Delete:function(){
+    
+},
 // 邻里圈点击进入详情
 lljClick:function(){
   wx.navigateTo({
