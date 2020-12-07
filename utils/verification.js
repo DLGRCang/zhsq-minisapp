@@ -35,10 +35,12 @@ const checkEmail = function (data) {
   }
 }
 
+//上传附件
 const imgClick = function (){
   return new Promise((resolve, reject) => {
     wx.chooseImage({
       success (res) {
+        //console.log(res)
         const tempFilePaths = res.tempFilePaths[0]
         var str = tempFilePaths.substring(tempFilePaths.length-6)
         var code1 = str.match(/\.(.*)/)[1];//取 ?id=后面所有字符串
@@ -50,10 +52,10 @@ const imgClick = function (){
           formData: {
             'file':tempFilePaths,
             'fileType':code1,
-            'fileGrant':code1
+            //'fileGrant':code1
           },
           success (resd){
-
+            //console.log(resd)
             var data = JSON.parse(resd.data)
         
             var imgs = data.data[0].fileID
@@ -63,6 +65,9 @@ const imgClick = function (){
           }
         })
        
+      },
+      fail:err=>{
+        console.log(err)
       }
     })
   });

@@ -7,21 +7,33 @@
       <view class="body-top">投诉内容:</view>
       <view class="danhang">
         <view class="biaoti">标题</view>
-        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入标题"/></view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入标题" bindinput="inputClick" value="{{title}}"/></view>
       </view>
       <view class="danhang">
         <view class="biaoti">描述</view>
         <view class="dhwbk">
-            <textarea maxlength="-1" placeholder="请输入情况描述"></textarea>
+            <textarea maxlength="-1" placeholder="请输入情况描述" bindinput="textClick" value="{{content}}"></textarea>
           </view>
       </view>
       <view class="danhang">
         <view class="biaoti">附件</view>
-        
+        <view class="">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+  </view>
       </view>
     </view>
   </view> 
   <view class="bot-fb">
-    <button>提交</button>
+    <button bindtap="tsjyList">提交</button>
   </view>
 </view>

@@ -1,20 +1,64 @@
 // pages/index/complaint/complaint.js
+import http from '../../../utils/api'
+import verif from '../../../utils/verification'
+import util from '../../../utils/util'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    imgList: [],
+    imgId:[],
+    content:'',
+    title:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
+  ChooseImage() {
+    var imgs=verif.imgClick()
+    imgs.then(res=>{
+       this.setData({
+        imgId:this.data.imgId.concat(res),
+        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)
+      })
+    })
+   // console.log(this.data.imgList)
+  },
+
+  textClick(e){
+    //console.log(e)
+    this.setData({
+      content:e.detail.value
+    })
+  },
+  inputClick(e){
+    this.setData({
+      title:e.detail.value
+    })
+  },
+
+  tsjyList(){
+    var time = util.formatTime(new Date)
+    console.log(this.data.title)
+    console.log(this.data.content)
+    http.tsjyApi({
+      data:{
+        peopleId:'aaa',
+        peopleName:'bbb',
+        time:time,
+        content:this.data.content
+      },
+      success:res=>{
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

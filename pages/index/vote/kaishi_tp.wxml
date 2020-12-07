@@ -3,24 +3,44 @@
   <cu-custom bgColor="bg-gray-bljb" isBack="{{true}}">
     <view slot="content">详情</view>
   </cu-custom>
+  <view class="queshiye" wx:if="{{rows.length == 0}}">
+    <image src="../../../images/queshi.png"></image>
+    <view>暂无数据</view>
+  </view>
   <view class="box-body">
     <image src="../../../images/back.png" class="beijing"></image>
-     <view class="tp_box">
-        <view class="text-center padding text-blue">关于小区XXX 修建投票表决</view>
-        <!-- 第一条事项 -->
+    <view class="body-ase" wx:for="{{rows}}" bindtap="tp_click" data-id="{{item.voteId}}">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>{{item.voteName}}</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
+    
+    </view>
+     <!-- <view class="tp_box" wx:for="{{rows}}" bindtap="tp_click" wx:for-index="i">
+        <view class="text-center padding text-blue">{{item.voteName}}</view>
+        
         <view class="tp_xx" style="margin-top:0;">
-          <text>1.关于小区XXXX修建投票时表决。</text>
+       
           <view>
             <radio-group class="radio-group" bindchange="radioChange">
-               <label class="radio" wx:for="{{items}}">
-                   <view class="tui-menu-list"><radio class="blue" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}</view>
+               <label class="radio" wx:for="{{item.voteOption1[0]}}" wx:for-item="items" catchtap="dxClick" data-indexa="{{index}}" data-index="{{i}}" data-item="{{items}}">
+                   <view class="tui-menu-list"><radio class="blue"/>{{items}}</view>
               </label>
             </radio-group>
           </view>
         </view>
-
-        <!-- 复制  第一条事项 -->
-        <view class="tp_xx" >
+        <button catchtap="tpClick" data-index="{{i}}" data-voteId="{{item.voteId}}">投票</button>
+     </view> -->
+  </view>
+</view>
+<!-- 复制  第一条事项 -->
+        <!-- <view class="tp_xx" >
           <text>2.关于小区XXXX修建投票时表决。</text>
           <checkbox-group bindchange="checkboxChange">
           <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
@@ -29,15 +49,4 @@
               {{item.name}}</view>
           </label>
         </checkbox-group>
-        </view>
-
-
-        <button bindtap="tp_click">投票</button>
-     </view>
-
-
-  </view>
-
-
-
-</view>
+        </view> -->

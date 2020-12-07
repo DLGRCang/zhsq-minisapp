@@ -17,7 +17,7 @@
       <home wx:if="{{PageCur == 't1'}}"></home>
       <life wx:if="{{PageCur == 't2'}}"></life>
       <onekey wx:if="{{PageCur == 't3'}}"></onekey>
-      <neigh wx:if="{{PageCur == 't4'}}"></neigh>
+      <neigh wx:if="{{PageCur == 't4'}}" id="tip4"></neigh>
       <my wx:if="{{PageCur == 't5'}}" id="tip5"></my>
   </scroll-view>
     

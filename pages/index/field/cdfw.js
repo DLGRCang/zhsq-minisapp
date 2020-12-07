@@ -9,8 +9,11 @@ Page({
     tabArr: {
       curHdIndex: 0,
       curBdIndex: 0,
-      rowsList:[]
+     
     }, 
+    rowsList:[],
+    rowsList1:[],
+    rowsList2:[],
   },
 // tab切换
 tab: function (e) {
@@ -22,6 +25,11 @@ tab: function (e) {
   this.setData({
     tabArr: obj
   })
+  if(dataId == '1'){
+    this.cdArr1()
+  }else if(dataId == '2'){
+    this.cdArr2()
+  }
   //console.log(e);
 },  
 
@@ -45,7 +53,7 @@ xiangqing(e){
     })
     http.cdApi({
       success:res=>{
-        console.log(res)
+        //console.log(res)
         this.setData({
           rowsList:res.rows
         })
@@ -55,6 +63,44 @@ xiangqing(e){
         console.log(err)
       }
     })
+  },
+  cdArr1(){
+    if(this.data.rowsList1.length == 0){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    http.cdrmApi({
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          rowsList1:res.rows
+        })
+        wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  }
+  },
+  cdArr2(){
+    if(this.data.rowsList2.length == 0){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    http.cdpfApi({
+      success:res=>{
+        console.log(res)
+        this.setData({
+          rowsList2:res.rows
+        })
+        wx.hideLoading()
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

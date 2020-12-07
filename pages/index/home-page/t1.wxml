@@ -88,39 +88,51 @@
 <!-- 第四部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title">小区投票</text>
-<view class="bigBox">
-    <view class="circleBox"></view> 
-   
-  <view class="four_box">
-    <view class="cu-tag bg-grey light xtb">已结束</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
-    <text>2020-10-28</text>   
-    <button class="bm_btn_cur" bindtap="xqvode">投 票</button>
-  </view>
+<view class="body-ase" bindtap="xqvode">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>ascas</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
 </view>
 </view>
 <!-- 第五部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title">小区公示</text>
-  <view class="bigBox">
-    <view class="circleBox"></view> 
-  <view class="four_box">
-    <view class="cu-tag bg-blue light xtb">进行中</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
-    <text>2020-10-28</text>   
-    <button class="bm_btn_cur">投 票</button>
-  </view>
+  <view class="body-ase">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>ascas</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
 </view>
 </view>
 <!-- 第六部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title">问卷调查</text>
- <view class="bigBox">
-    <view class="circleBox"></view> 
-  <view class="four_box">
-    <view class="cu-tag bg-grey light xtb">已结束</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
-    <text>2020-10-28</text>   
-    <button class="bm_btn_cur">投 票</button>
-  </view>
+<view class="body-ase" wx:for="{{rowsWJ}}" bindtap="xqvode" data-id="{{item.questionnaireId}}">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>{{item.questionnaireName}}</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
 </view>
+
 </view>
 <!-- 第七部分 社区新闻-->
 <view class="sqxw_box">

@@ -1,5 +1,5 @@
 // pages/index/community/community.js
-import https from '../../../utils/api'
+import http from '../../../utils/api'
 import util from '../../../utils/util'
 Page({
 
@@ -56,9 +56,9 @@ xiangqing(e){
     wx.showLoading({
       title: '拼命加载中',
     })
-    https.dqfwApi({
+    http.dqfwApi({
       success:res=>{
-      console.log(res)
+      //console.log(res)
         var rowsList = res.rows
         for(var i in rowsList){
           if(rowsList[i].activeStartTime.split(' ')[0] != rowsList[i].activeEndTime.split(' ')[0]){
@@ -85,7 +85,7 @@ xiangqing(e){
       wx.showLoading({
         title: '拼命加载中',
       })
-      https.dqfwrmApi({
+      http.dqfwrmApi({
         success:res=>{
         console.log(res)
           var rowsList = res.rows
@@ -114,7 +114,7 @@ xiangqing(e){
       wx.showLoading({
         title: '拼命加载中',
       })
-      https.dqfwpfApi({
+      http.dqfwpfApi({
         success:res=>{
         console.log(res)
           var rowsList = res.rows

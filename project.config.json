@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "enhance": false,
     "postcss": true,
@@ -67,6 +67,11 @@
           "name": "pages/index/my_publish/my_publish",
           "pathName": "pages/index/my_publish/my_publish",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/SJ_Message/SJ_Message",
+          "pathName": "pages/index/SJ_Message/SJ_Message",
           "scene": null
         }
       ]

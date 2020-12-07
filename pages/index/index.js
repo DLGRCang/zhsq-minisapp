@@ -110,7 +110,20 @@ Page({
 
   //监听页面显示
   onShow:function(){
-    
+    var that = this
+    wx.getStorage({
+      key: 'llqfb',
+      success: function(res){
+        //console.log(res)
+        if(res.data){
+          if(that.data.PageCur == 't4'){
+            that.selectComponent("#tip4").llqList()
+          }
+          //console.log('aaaaaaaaaaaaa')
+        }
+      }
+    })
+    //console.log('111')
     //console.log(this.data.login)
     if(this.data.login != 0){
       setTimeout(()=>{

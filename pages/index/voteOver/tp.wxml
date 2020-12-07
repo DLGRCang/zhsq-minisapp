@@ -6,10 +6,10 @@
   <view class="box-body">
     <image src="../../../images/back.png" class="beijing"></image>
      <view class="tp_box">
-        <view class="text-center padding text-blue">关于小区XXX 修建投票表决</view>
+        <view class="text-center padding text-blue">{{rows.voteName}}</view>
         <!-- 第一条事项 -->
-        <view class="tp_xx" style="margin-top:0;">
-          <text>1.关于小区XXXX修建投票时表决。</text>
+        <!-- <view class="tp_xx" style="margin-top:0;">
+
           <view class="flex_tp margin-top">
             <view>同意</view>
             <view class="cu-progress round">
@@ -25,72 +25,14 @@
             </view>
             <text class="margin-left">8票</text>
           </view>
-        </view>
+        </view> -->
+        <radio-group class="radio-group" bindchange="radioChange">
+               <label class="radio" wx:for="{{rows.voteOption1[0]}}" wx:for-item="items" catchtap="dxClick" data-indexa="{{index}}" data-item="{{items}}">
+                   <view class="tui-menu-list"><radio class="blue"/> {{items}}</view>
+              </label>
+            </radio-group>
 
-       <!-- 复制 第一条事项 -->
-       <view class="tp_xx">
-          <text>2.关于小区XXXX修建投票时表决。</text>
-          <view class="flex_tp margin-top">
-            <view>同意</view>
-            <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'80%':''}};"></view>
-            </view>
-            <text class="margin-left">80票</text>
-          </view>
-
-          <view class="flex_tp margin-top">
-            <view>不同意</view>
-            <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
-            </view>
-            <text class="margin-left">8票</text>
-          </view>
-        </view>
-
-
-       <!-- 复制 第一条事项 -->
-       <view class="tp_xx">
-          <text>3.关于小区XXXX修建投票时表决。</text>
-          <view class="flex_tp margin-top">
-            <view>同意</view>
-            <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'40%':''}};"></view>
-            </view>
-            <text class="margin-left">40票</text>
-          </view>
-
-          <view class="flex_tp margin-top">
-            <view>不同意</view>
-            <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'30%':''}};"></view>
-            </view>
-            <text class="margin-left">30票</text>
-          </view>
-        </view>
-
-
-        
-       <!-- 复制 第一条事项 -->
-       <view class="tp_xx">
-          <text>4.关于小区XXXX修建投票时表决。</text>
-          <view class="flex_tp margin-top">
-            <view>同意</view>
-            <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
-            </view>
-            <text class="margin-left">8票</text>
-          </view>
-
-          <view class="flex_tp margin-top">
-            <view>不同意</view>
-            <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
-            </view>
-            <text class="margin-left">8票</text>
-          </view>
-        </view>
-
-        <button>已投票</button>
+            <button class="cu-btn lg" style="background:linear-gradient(60deg, #66B7F9, #3A91F7);width:100%;color:#fff;margin:30rpx auto 0" bindtap="tpClick" data-id="{{rows.voteId}}">投票</button>
      </view>
 
 

@@ -32,7 +32,6 @@
         <view class="right2">
           <view>
             <text class="cuIcon-locationfill" style="{{item.status == 0? '':'color:#F35854'}}">
-
             </text> <text class="padd_lf">{{item.address}}</text>
           </view>
           <view><text class="cuIcon-friendfill " style="{{item.status == 0? '':'color:#F35854'}}"></text> <text class="padd_lf">{{item.hold_people}}人</text></view>
@@ -46,19 +45,23 @@
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="tab_box">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList1}}" :key="index">
       <view class="box_left">
-        <view class="cu-tag bg-huise light xtb">已结束</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.placePhonts}}"></image>
+      </view>
       <view class="box_right">
         <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
+          <text>{{item.type}}</text>
+          {{item.synopsis}}
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill" style="color:#F35854"></text> <text class="padd_lf">内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</text></view>
-          <view><text class="cuIcon-friendfill " style="color:#F35854"></text> <text class="padd_lf">100人</text></view>
+          <view>
+            <text class="cuIcon-locationfill" style="{{item.status == 0? '':'color:#F35854'}}">
+            </text> <text class="padd_lf">{{item.address}}</text>
+          </view>
+          <view><text class="cuIcon-friendfill " style="{{item.status == 0? '':'color:#F35854'}}"></text> <text class="padd_lf">{{item.hold_people}}人</text></view>
         </view>
       </view>
     </view>
@@ -68,19 +71,23 @@
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
 
-    <view class="tab_box">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList2}}" :key="index">
       <view class="box_left">
-        <view class="cu-tag bg-huise light xtb">已结束</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.placePhonts}}"></image>
+      </view>
       <view class="box_right">
         <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
+          <text>{{item.type}}</text>
+          {{item.synopsis}}
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill"></text> <text class="padd_lf">内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</text></view>
-          <view><text class="cuIcon-friendfill "></text> <text class="padd_lf">100人</text></view>
+          <view>
+            <text class="cuIcon-locationfill" style="{{item.status == 0? '':'color:#F35854'}}">
+            </text> <text class="padd_lf">{{item.address}}</text>
+          </view>
+          <view><text class="cuIcon-friendfill " style="{{item.status == 0? '':'color:#F35854'}}"></text> <text class="padd_lf">{{item.hold_people}}人</text></view>
         </view>
       </view>
     </view>

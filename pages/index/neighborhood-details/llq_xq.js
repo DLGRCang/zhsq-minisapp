@@ -1,3 +1,5 @@
+import http from '../../../utils/api'
+
 // pages/my/my.js
 Page({
 
@@ -7,7 +9,9 @@ Page({
   data: {
     isCollect: true, // 默认有点赞
     isStar: false, // 默认没有收藏
+    rows:[]
   },
+
 
   // 点击收藏
 toStar () {
@@ -31,7 +35,27 @@ toCollect () {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      //console.log(options)
+      this.setData({
+        rows:JSON.parse(options.rows)
+      })
+      this.lllList()
+      //console.log(this.data.rows)
+  },
+  lllList(){
+    http.llqlllzjApi({
+      data:{
+        neighborId:this.data.rows.neighborId,
+        createPeopleId:this.data.rows.createPeopleId,
+        loginId:this.data.rows.loginId
+      },
+      success:res=>{
+        console.log(res)
+      },
+      fail:err=>{
 
+      }
+    })
   },
 
   /**

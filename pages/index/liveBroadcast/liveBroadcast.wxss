@@ -21,7 +21,7 @@
 }
 .beijing{
   width: 100%;
-  height: 530rpx;
+  height: 412rpx;
   left: 0;
   top: 0;
   position: absolute;

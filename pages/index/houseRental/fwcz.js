@@ -1,4 +1,5 @@
 // pages/fwcz/fwcz.js
+import http from '../../../utils/api'
 Page({
 
   /**
@@ -8,7 +9,10 @@ Page({
      // tab 切换
      tabArr: {
       curHdIndex: 0,
-      curBdIndex: 0
+      curBdIndex: 0,
+      rows:[],
+      rows1:[],
+      rows2:[],
     }, 
   },
   // tab切换
@@ -29,18 +33,47 @@ Page({
       url: '/pages/index/lease/lease'
     })
   },
-  xiangqing(){
+  xiangqing(e){
+    //console.log(e)
     wx.navigateTo({
-      url: '/pages/index/houseRental-details/czxq'
+      url: '/pages/index/houseRental-details/czxq?id='+JSON.stringify(e.currentTarget.dataset.id)
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.fwLiist()
   },
-
+  fwLiist(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    http.fwczApi({
+      success:res=>{
+        
+        var rows1 = []
+        var rows2 = []
+        for(var i in res){
+          if(res[i].mode == '0'){
+            rows1.push(res[i])
+          }else if(res[i].mode == '1'){
+            rows2.push(res[i])
+          }
+        }
+        this.setData({
+          rows:res,
+          rows1:rows1,
+          rows2:rows2
+        })
+        //console.log(rows2)
+        wx.hideLoading({
+          success: (res) => {},
+        })
+        //console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

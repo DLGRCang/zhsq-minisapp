@@ -15,76 +15,48 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="tab_box" bindtap="xiangqing">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item}}" wx:for="{{rows}}">
       <view class="box_left">
-        <view class="cu-tag bg-cyan light xtb">已租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
+        <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
+        <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
         <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
       </view>
       <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+        <view class="cchh">
+          <text wx:if="{{item.mode == 0}}">合租</text>
+          <text wx:if="{{item.mode == 1}}">整租</text>
+          |{{item.title}}
+        </view>   
+        <text>{{item.houseType}}</text>  
+        <text>{{item.floorId}}{{item.unitId}}{{item.roomId}}</text>  
+        <view class="text-yellow text-bold">￥{{item.rentMoney}} <text class="yy_title"> 元/月</text></view>  
       </view>
     </view>
-<!-- 第一栏目 复制2 -->
-    <view class="tab_box">
-      <view class="box_left">
-        <view class="cu-tag bg-blue light xtb">待租</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-      </view>
-    </view>
-
-<!-- 第一栏目 复制3 -->
-<view class="tab_box">
-      <view class="box_left">
-        <view class="cu-tag bg-grey light xtb">关闭</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-      </view>
-    </view>
-
-    <!-- 第一栏目 复制4 -->
-    <view class="tab_box">
-      <view class="box_left">
-        <view class="cu-tag bg-blue light xtb">待租</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-      </view>
-    </view>
-
   </view> 
 
   
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="tab_box">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.rentRoomId}}" wx:for="{{rows1}}">
       <view class="box_left">
-        <view class="cu-tag bg-blue light xtb">待租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
+        <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
+        <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
         <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
+      </view>
       <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+        <view class="cchh">
+          <text wx:if="{{item.mode == 0}}">合租</text>
+          <text wx:if="{{item.mode == 1}}">整租</text>
+          |{{item.title}}
+        </view>   
+        <text>{{item.houseType}}</text>  
+        <text>{{item.floorId}}{{item.unitId}}{{item.roomId}}</text>  
+        <view class="text-yellow text-bold">￥{{item.rentMoney}} <text class="yy_title"> 元/月</text></view>  
       </view>
     </view>
 
@@ -92,17 +64,23 @@
   </view> 
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
-
-    <view class="tab_box">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.rentRoomId}}" wx:for="{{rows2}}">
       <view class="box_left">
-        <view class="cu-tag bg-blue light xtb">待租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
+        <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
+        <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
         <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
+      </view>
       <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+        <view class="cchh">
+          <text wx:if="{{item.mode == 0}}">合租</text>
+          <text wx:if="{{item.mode == 1}}">整租</text>
+          |{{item.title}}
+        </view>   
+        <text>{{item.houseType}}</text>  
+        <text>{{item.floorId}}{{item.unitId}}{{item.roomId}}</text>  
+        <view class="text-yellow text-bold">￥{{item.rentMoney}} <text class="yy_title"> 元/月</text></view>  
       </view>
     </view>
     

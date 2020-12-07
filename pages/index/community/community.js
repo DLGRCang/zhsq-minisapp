@@ -1,5 +1,5 @@
 // pages/index/community/community.js
-import https from '../../../utils/api'
+import http from '../../../utils/api'
 import util from '../../../utils/util'
 Page({
 
@@ -60,7 +60,7 @@ xiangqing(e){
     wx.showLoading({
       title: '拼命加载中',
     })
-    https.commApi({
+    http.commApi({
       
       success:res=>{
         console.log(res)
@@ -86,10 +86,11 @@ xiangqing(e){
   },
 
   commList1(){
+    if(this.data.rowsList1.length == 0){
     wx.showLoading({
       title: '拼命加载中',
     })
-    https.commrmApi({
+    http.commrmApi({
       
       success:res=>{
         console.log(res)
@@ -112,13 +113,15 @@ xiangqing(e){
         console.log(err)
       }
     })
+  }
   },
 
   commList2(){
+    if(this.data.rowsList2.length == 0){
     wx.showLoading({
       title: '拼命加载中',
     })
-    https.commpfApi({
+    http.commpfApi({
       
       success:res=>{
         console.log(res)
@@ -141,6 +144,7 @@ xiangqing(e){
         console.log(err)
       }
     })
+  }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

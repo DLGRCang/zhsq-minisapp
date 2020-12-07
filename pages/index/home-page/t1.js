@@ -1,5 +1,7 @@
 // pages/index/t1/t1.js
 import common from '../../../utils/common'
+import http from '../../../utils/api'
+import util from '../../../utils/util';
 var app = getApp();
 Component({
   /**
@@ -40,22 +42,13 @@ Component({
     dataItem2:[],
     scrollLeft:'',
     lefthua:'2',
-    starty: 0, //开始的位置x
-    endy: 0, //结束的位置y
-    margintop: 0, //滑动下拉距离
- 
+    timeL:0,
+    rowsWJ:[]
   },
  
-
   /**
    * 组件的方法列表
    */
-
-  sqhd_xq(){
-    wx.navigateTo({
-      url: '../community/community'
-    })
-  },
   methods: {
  //点击登录
  loginClick(){
@@ -76,9 +69,9 @@ Component({
     }
     
   },
-  xqvode(){
+  xqvode(e){
     wx.navigateTo({
-      url:'/pages/index/vote/kaishi_tp' 
+      url:'/pages/index/vote/kaishi_tp?id='+e.currentTarget.dataset.id
     })
   },
   getleft(e){
@@ -92,16 +85,37 @@ Component({
     wx.navigateTo({
       url: '/pages/index/notice/tzgg'
     })
-  }
-
+  },
+  sqhd_xq(){
+    wx.navigateTo({
+      url: '../community/community'
+    })
+  },
+  wenjuan(){
+    http.wjApi({
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          rowsWJ:res.rows
+        })
+      }
+    })
+  },
+  timeList(){
+    var time = util.formatTime(new Date)
+    var times = time.split(' ')[0]
+    this.setData({
+      timeL:times
+    })
+  },
   },
  
   /*组件生命周期*/ 
   lifetimes: {
     //在组件实例刚刚被创建时执行
     created() {
-      var dataItem = this.data.dataItem
-      
+      this.wenjuan()
+     
     },
     
     //在组件实例进入页面节点树时执行
@@ -110,7 +124,7 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
-    
+      this.timeList()
       var dataItem = this.data.dataItem
       var dataItem1 = []
       var dataItem2 = []

@@ -1,5 +1,5 @@
 // pages/index/Llq_pub/Llq_pub.js
-import https from '../../../utils/api'
+import http from '../../../utils/api'
 import verif from '../../../utils/verification'
 Page({
 
@@ -8,15 +8,68 @@ Page({
    */
   data: {
     imgList: [],
+    imgId:[],
+    textArea:'',
+
+  },
+
+  textClick(e){
+    this.setData({
+      textArea:e.detail.value
+    })
+    //console.log(e)
+  },
+  fabuClick(){
+    var imgId1 = ''
+    for(var i in this.data.imgId){
+      if(imgId1 == ''){
+        imgId1=this.data.imgId[i]
+      }else{
+        imgId1=imgId1+','+this.data.imgId[i]
+      }
+    }
+    if(this.data.textArea == ''){
+      verif.tips('请输入发布内容')
+    }else{
+      wx.showLoading({
+        title: '拼命加载中',
+      })
+      http.llqfbApi({
+        data:{
+          message:this.data.textArea,
+          file:imgId1,
+          createPeopleId:'a',
+          floorId:'',
+          unitId:'',
+          roomId:''
+        },
+        success:res=>{
+          //console.log(res)
+          wx.hideLoading({
+            success: (res) => {
+              verif.tips('发布成功')
+              this.setData({
+                imgList: [],
+                imgId:[],
+                textArea:''
+              })
+              wx.setStorageSync('llqfb', 'true')
+            },
+          })
+        }
+      })
+    }
+   
   },
   ChooseImage() {
     var imgs=verif.imgClick()
-
     imgs.then(res=>{
        this.setData({
-        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/PRIVATE/'+res)
+        imgId:this.data.imgId.concat(res),
+        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)
       })
     })
+   // console.log(this.data.imgList)
   },
 
   ViewImage(e) {
@@ -34,8 +87,10 @@ Page({
       success: res => {
         if (res.confirm) {
           this.data.imgList.splice(e.currentTarget.dataset.index, 1);
+          this.data.imgId.splice(e.currentTarget.dataset.index, 1);
           this.setData({
-            imgList: this.data.imgList
+            imgList: this.data.imgList,
+            imgId:this.data.imgId
           })
         }
       }
