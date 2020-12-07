@@ -40,17 +40,30 @@ height: 479rpx;background: #1BB1FD;border-radius: 50%;}
 .pban_box>.box>.box_title{display: inline-block;margin-left:55rpx;line-height:2;padding-top: 15rpx;}
 .pban_box>.box>.box_title>view{color: #999;padding-right: 35rpx;}
 .pban_box>.box>.box_title>view>text{padding-left: 35rpx;color: #000;}
-.pban_box>.box>.box_title>view>.title_textarea{width: 80%; display: block;
-  margin-left: 108rpx;
+.pban_box>.box>.box_title>view>.title_textarea{ display: block;
+  margin-left: 108rpx;    position: relative;
   margin-top: -50rpx;}
-.pban_box>.box>.btn{padding-top: 25rpx;float: right;}
-.pban_box>.box>.btn>button{
+.pban_box>.box>.btn{padding-top: 25rpx;    width: 100%;text-align: right;}
+.pban_box>.box>.btn>button{    color: #999;border:none;
     display: inline;padding:15rpx 35rpx;
     background: #FFFFFF;font-size: 26rpx;
-    border: 2px solid #EEEEEE;
+    /* border: 2px solid #EEEEEE; */
     border-radius: 15rpx;  margin-left: 15rpx;
   }
   .pban_box>.box>.btn>.active{color: #fff;
     background: linear-gradient(60deg, #66B7F9, #3A91F7);}  
+ .wxjg_text{color: #000;    height: 150rpx;padding:5rpx;
+  border: 1rpx solid #999;width: 420rpx;
+  margin-left: 145rpx !important;}   
+
+ .save_btn{float: right;    padding: 15rpx 0 35rpx 35rpx;}
+ .save_btn>button{ color: #999;border:none;
+  display: inline;padding:15rpx 35rpx;font-size: 26rpx;color: #fff;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+  border-radius: 15rpx;  margin-left: 15rpx;}
+  .vshow{ display : block }
+  .vhidden{ display : none }
+
+
 
  

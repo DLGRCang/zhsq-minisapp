@@ -12,6 +12,12 @@ Page({
      curBdIndex: 0
    }, 
  },
+ // 移动巡查发布跳转
+fabu(){
+  wx.navigateTo({
+    url: '/pages/index/MY_ydxcCreate/MY_ydxcCreate'
+  })
+},
  // tab切换
  tab: function (e) {
    //var dataId = e.currentTarget.dataset.id;

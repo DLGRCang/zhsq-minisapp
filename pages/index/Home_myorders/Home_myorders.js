@@ -1,30 +1,41 @@
-// pages/index/WY_tzfb/WY_tzfb.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shows: false,
-    date: '2018年12月',
+    isCollect: true, // 默认下箭头
+    time: '12:01',
+    isShow: false,
   },
-  DateChange(e) {
-    let datemonth = e.detail.value
+  // 下拉 上拉
+  // toggle() {
+  //   this.isShow = !this.isShow;
+  //   this.$apply();
+  //  },
+  // 地址跳转
+  // AddressClick:function(){
+  //   wx.navigateTo({
+  //     url: '/pages/index/setting_address/setting_address'
+  //   })
+  // },
+  // 时间控件
+  TimeChange(e) {
     this.setData({
-      date: datemonth.replace("-","年")+"月"
+      time: e.detail.value
     })
-   
   },
 
-  bjClick:function(){
-    // console.log(2);
-      var that = this;
-      var sh = that.data.shows;
-      that.setData({
-        shows: !sh
-      })
-  },
-
+  // 下拉/上拉
+  toCollect () {
+    var bol = this.data.isCollect; // 获取状态
+    this.setData({
+    isCollect:!bol // 改变状态
+    })
+    this.isShow = !this.isShow;
+    this.$apply();
+    },
   /**
    * 生命周期函数--监听页面加载
    */

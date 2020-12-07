@@ -6,12 +6,23 @@ Page({
    */
   data: {
     date: '2018年12月',
+    shows: false,
      // tab 切换
      tabArr: {
       curHdIndex: 0,
       curBdIndex: 0
     }, 
   },
+// 结果记录显示 隐藏
+  Jgjlshow:function(){
+    // console.log(2);
+      var that = this;
+      var sh = that.data.shows;
+      that.setData({
+        shows: !sh
+      })
+  },
+
   // tab切换
   tab: function (e) {
     //var dataId = e.currentTarget.dataset.id;

@@ -25,7 +25,8 @@
 				{{date}} <text class="cuIcon-unfold lg "></text>
 			</view>
     </picker>
-    <view class="box" wx:for="{{4}}">
+    <!-- 第一个 -->
+    <view class="box">
         <view class="box_top">
           <view class="bor_fl">
           <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
@@ -45,6 +46,54 @@
           <button class="active">接单</button>
         </view>
     </view>
+    <!-- 复制 第一个 -->
+    <view class="box">
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">申请人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view>
+        <view class="box_title">
+        <view>维修地址  <text>几号楼几单元几楼几零几</text></view>
+        <view>联系电话  <text>18247141111</text></view>
+        <view>维修类型  <text>房屋</text></view>
+        <view>维修内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
+        </view>
+        <view class="btn">
+          <button class="active">派单</button>
+        </view>
+    </view>
+    <!-- 复制 第一个 -->
+    <view class="box">
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">申请人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view>
+        <view class="box_title">
+        <view>维修地址  <text>几号楼几单元几楼几零几</text></view>
+        <view>联系电话  <text>18247141111</text></view>
+        <view>维修类型  <text>房屋</text></view>
+        <view>维修内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
+        </view>
+        <view class="btn" bindtap="Jgjlshow">
+          <button class="active" >结果记录</button>
+        </view>
+        <view class="box_title" wx:if="{{shows}}">
+        <view>维修结果  <textarea class="title_textarea wxjg_text" placeholder="请输入维修结果..."></textarea>
+          <view class="save_btn">
+          <button class="active">保存</button>
+        </view>
+        </view>
+        </view>
+    </view>
+
     </view>
   </view> 
   <!-- 第二栏目 -->
@@ -71,7 +120,7 @@
         <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
         </view>
         <view class="btn">
-          <button>代付款</button>
+          <button>待付款</button>
           <button class="active">已付款</button>
         </view>
     </view>
@@ -101,7 +150,7 @@
         <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
         </view>
         <view class="btn">
-          <button>代发货</button>
+          <button>待发货</button>
           <button class="active">已发货</button>
         </view>
     </view>

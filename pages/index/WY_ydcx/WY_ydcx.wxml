@@ -42,7 +42,7 @@
         <!-- <view class="bot_fr">···</view> -->
           <!-- 编辑修改删除 -->
     <view class="bianji">
-        <view bindtap="" class="text-blue">编辑</view>
+        <view bindtap="fabu" class="text-blue">编辑</view>
         <view bindtap="" class="text-red">删除</view>
     </view>
     </view>
@@ -74,7 +74,7 @@
         <!-- <view class="bot_fr">···</view> -->
                  <!-- 编辑修改删除 -->
     <view class="bianji">
-        <view bindtap="" class="text-blue">编辑</view>
+        <view bindtap="fabu" class="text-blue">编辑</view>
         <view bindtap="" class="text-red">删除</view>
     </view>
     </view>
@@ -106,7 +106,7 @@
         <!-- <view class="bot_fr">···</view> -->
                  <!-- 编辑修改删除 -->
     <view class="bianji">
-        <view bindtap="" class="text-blue">编辑</view>
+        <view bindtap="fabu" class="text-blue">编辑</view>
         <view bindtap="" class="text-red">删除</view>
     </view>
     </view>

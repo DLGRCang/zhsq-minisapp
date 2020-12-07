@@ -1,30 +1,20 @@
-// pages/index/WY_tzfb/WY_tzfb.js
+// pages/index/Home_myactivity/Home_myactivity.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    shows: false,
-    date: '2018年12月',
-  },
-  DateChange(e) {
-    let datemonth = e.detail.value
-    this.setData({
-      date: datemonth.replace("-","年")+"月"
-    })
-   
-  },
 
-  bjClick:function(){
-    // console.log(2);
-      var that = this;
-      var sh = that.data.shows;
-      that.setData({
-        shows: !sh
+  },
+    // 社区活动跳转详情页
+    sqhd_xq(e){
+      //console.log(e)
+      var id = e.currentTarget.dataset.id
+      wx.navigateTo({
+        url: '/pages/index/communityDetails/sq_hdxq?id='+id
       })
-  },
-
+    },
   /**
    * 生命周期函数--监听页面加载
    */
