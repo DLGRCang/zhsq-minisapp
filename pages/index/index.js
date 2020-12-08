@@ -35,7 +35,6 @@ Page({
     if(e.currentTarget.dataset.cur == 't5'){
       this.selectComponent("#tip5").showClick()
     }
-   
     
   },
   onShareAppMessage() {
@@ -83,6 +82,7 @@ Page({
       wx.setStorageSync('indexId', 1)
     }
     var  indexId = wx.getStorageSync('indexId')
+    //console.log(indexId)
     if(indexId == 1){
       this.setData({
         login:1,
@@ -92,6 +92,11 @@ Page({
       this.setData({
         login:2,
         PageCur:'t6'
+      })
+    }else if(indexId == 3){
+      this.setData({
+        login:3,
+        PageCur:'t10'
       })
     }
     //console.log(this.data.login)

@@ -19,13 +19,36 @@ Component({
     isStar: false, // 默认没有收藏
     isShare: true, // 默认有分享
     isShare: false, // 默认没有赞
+
     rows:[],
+
+    forF4:[],
+    // 邻里圈分类功能tab
+    dataTab:[
+      {id:0,content:"全部"},
+      {id:1,content:"好人好事"},
+      {id:2,content:"小区一角"},
+      {id:3,content:"投诉建议"},
+      {id:4,content:"吐槽..."}
+    ],
+    TabCur: 0,
+    scrollLeft:0
+
+
   },
- 
+
+
   /**
    * 组件的方法列表
    */
   methods: {
+          // 邻里圈分类功能tab
+  tabSelect(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id-1)*60
+    })
+  },
     // 发布
     fabu:function(){
       wx.navigateTo({
@@ -34,7 +57,7 @@ Component({
     },
 
     lljClick:function(e){
-      //console.log(e.currentTarget.dataset.rows)
+ 
       wx.navigateTo({
         url: '/pages/index/neighborhood-details/llq_xq?rows='+JSON.stringify(e.currentTarget.dataset.rows)
       })
@@ -117,7 +140,6 @@ Component({
   lifetimes: {
     //在组件实例刚刚被创建时执行
     created() {
-      
     },
     
     //在组件实例进入页面节点树时执行

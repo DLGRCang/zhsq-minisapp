@@ -1,0 +1,17 @@
+/* pages/index/Sj_dpyh/Sj_dpyh.wxss */
+.dpyh_box{background: #F9F9F9;margin:0rpx auto;padding:15rpx 35rpx 35rpx 35rpx;}
+.dpyh_box>.box{border-radius: 15rpx;background: #fff;padding:0rpx 35rpx 0rpx 0;clear: both;overflow: hidden;
+font-size: 26rpx;margin-top:35rpx;}
+.dpyh_box>.box>.box_fl{width: 35%;height: 200rpx;color: #fff;z-index: 999;position: relative;
+float: left;padding-top: 0;padding-bottom: 0;}
+.dpyh_box>.box>.box_fl>image{height:100%;}
+.dpyh_box>.box>.box_fl>.fl_title{color: #fff;position: relative;margin-top:-65%;z-index: 99;text-align: center;
+font-size: 22rpx;}
+.dpyh_box>.box>.box_fl>.fl_title>text{font-size: 45rpx;}
+.dpyh_box>.box>.box_fr{
+  float: right;width: 63%;padding-top: 35rpx !important;
+}
+.dpyh_box>.box>.box_fr>.fr_title{color: #999;font-size: 22rpx;    padding-top: 15rpx;}
+
+.bot_fr{float: right;width: 40%;width: 50rpx;height: 35rpx;line-height: 35rpx;text-align: center;
+  background: #EEEEEE;font-weight: 400;color:#333; border-radius: 10rpx;margin-top: 15rpx;}

@@ -1,0 +1,21 @@
+/* pages/index/Home_jfjl/Home_jfjl.wxss */
+/* 引入物业缴费样式 */
+@import "../../index/property-payment/wyjf.wxss";
+/* tab样式 */
+/* 内容样式 */
+.xtb{    z-index: 999; position: absolute;}
+.tab_bar .active{color: #188BFF;border-bottom: 1px solid #188BFF;}
+.box_content .right-item{display: none}
+.box_content .right-item.active{display: block}
+
+.bg{width: 100%;padding-top:35rpx;background: #0090FA;}
+.box_content{font-size: 28rpx;}
+.view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
+.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
+.view_tab>.tab_bar>view{font-weight:bold;height:55rpx;line-height: 55rpx;float: left;margin-right: 45rpx;text-align: center;}
+
+.tab_box{overflow: hidden;clear: both;width:100%;margin:0rpx auto; 
+  border-radius: 20rpx;}
+/* 暂无数据样式 */
+.zwsj{text-align: center;font-size: 32rpx;line-height: 2;margin-top:15%;color: #999;}
+.zwsj>image{width:90%;height:500rpx;}

@@ -26,7 +26,23 @@ Page({
       "FILE": "",
       "OLD_NEWS_ID": "b2cc3ff572d94642a8766d9d22d20719",
       "TYPE": 2
-  }
+  },
+  isCollect: true, // 默认有点赞
+  isStar: false, // 默认没有收藏
+  },
+// 点击收藏
+toStar () {
+  var bol = this.data.isStar; // 获取状态
+  this.setData({
+    isStar:!bol // 改变状态
+  })
+  },
+// 分享/取消分享
+toCollect () {
+  var bol = this.data.isCollect; // 获取状态
+  this.setData({
+  isCollect:!bol // 改变状态
+  })
   },
 
   /**

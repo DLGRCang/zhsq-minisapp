@@ -1,0 +1,22 @@
+<!--pages/index/Sj_dpyh/Sj_dpyh.wxml-->
+
+<cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+    <view slot="content">店铺优惠</view>
+</cu-custom>
+
+<view class="dpyh_box"> 
+   <view class="box"  wx:for="{{3}}" >
+      <view class="box_fl">
+        <image src="../../../images/SJ/yhj.png"></image>
+        <view class="fl_title"><text>5</text>元</view>
+        <view class="fl_title" style="margin-top:5rpx;">满35元可用</view>
+      </view>
+      <view class="box_fr">
+       <view style="font-size:32rpx;">现金抵扣券</view>
+       <view class="fr_title">使用时间：2020.11.30-2020.12.30</view>
+      </view>
+      <view class="bot_fr">···</view>
+   </view>
+
+
+</view>

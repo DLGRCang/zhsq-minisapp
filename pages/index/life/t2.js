@@ -1,4 +1,4 @@
-// pages/index/t2/t2.js
+// pages/index//.js
 Page({
 
   /**
@@ -15,6 +15,12 @@ Page({
     ],
     TabCur:0,
     scrollLeft:0
+  },
+  // 搜索页面跳转
+  Search:function(){
+    wx.navigateTo({
+      url: '/pages/index/Search/Search'
+    })
   },
   // 生活跳转详情页面
   life_details:function(){

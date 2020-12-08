@@ -1,0 +1,32 @@
+<!--pages/index/Register/Register.wxml-->
+<!-- 登录页面 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+    <view slot="content">登录</view>
+  </cu-custom>
+
+  <view class="login_box">
+    <view class="login_top">
+          <image src="../../../images/SJ/zc.png" class="fr"></image>
+          <view class="hello">
+            <view>Hello</view>
+            <view>欢迎您登录</view>
+          </view>
+        
+    </view>
+  
+
+<view class="login_input">
+    <view>
+      <text class="tubiao cuIcon-mobilefill lg text-gray"></text>
+      <input type="text" placeholder="请输入您的手机号"></input>
+    </view>
+    <view>
+      <text class="tubiao cuIcon-lock lg text-gray"></text>
+      <input type="password" placeholder="请输入您的密码"></input>
+    </view>
+    <button class="btn"  bindtap="login">登录</button>
+    <view class="center" bindtap="login">没有账号，请注册</view>
+</view>
+
+  </view>
+

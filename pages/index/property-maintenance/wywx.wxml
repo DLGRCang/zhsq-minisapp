@@ -10,6 +10,15 @@
   </navigator>
 
 <form>
+  <view class="cu-form-group" style="width:100%;padding:5rpx;">
+		<view class="title"><text class="text-red">*</text>分类选择</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker text-blue">
+				{{index?picker[index]:'请选择类别'}}
+			</view>
+		</picker>
+  </view>
+  
 <view class="wx_timebox">
 <text class="wx_title"><text class="text-red">*</text>维修时段</text>
   <view class="wx_time">

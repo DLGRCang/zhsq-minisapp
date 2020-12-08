@@ -1,0 +1,192 @@
+<!--pages/index/WY_wxd/WY_wxd.wxml-->
+<cu-custom bgColor="bg-gray-bljb" isBack="{{false}}">
+    <view slot="content">维修单</view>
+  </cu-custom>
+<!-- <view class="llq_content"> -->
+  <view class="box-body">
+    <image src="../../../images/back.png" class="beijing"></image>
+<view class="view_tab">
+<view class="tab_bar" > 
+  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">待付款</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">待发货</view> 
+  <view class="{{tabArr.curHdIndex=='3'? 'active' : ''}}" id="3"  data-id="3" bindtap="tab">待收货</view> 
+</view> 
+
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="pban_box" bindtap="xiangqing">
+      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg "></text>
+			</view>
+    </picker>
+    <!-- 第一个 -->
+    <view class="box">
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">申请人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view>
+        <view class="box_title">
+        <view>维修地址  <text>几号楼几单元几楼几零几</text></view>
+        <view>联系电话  <text>18247141111</text></view>
+        <view>维修类型  <text>房屋</text></view>
+        <view>维修内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
+        </view>
+        <view class="btn">
+          <button>拒绝</button>
+          <button class="active">接单</button>
+        </view>
+    </view>
+    <!-- 复制 第一个 -->
+    <view class="box">
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">申请人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view>
+        <view class="box_title">
+        <view>维修地址  <text>几号楼几单元几楼几零几</text></view>
+        <view>联系电话  <text>18247141111</text></view>
+        <view>维修类型  <text>房屋</text></view>
+        <view>维修内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
+        </view>
+        <view class="btn">
+          <button class="active">派单</button>
+        </view>
+    </view>
+    <!-- 复制 第一个 -->
+    <view class="box">
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">申请人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view>
+        <view class="box_title">
+        <view>维修地址  <text>几号楼几单元几楼几零几</text></view>
+        <view>联系电话  <text>18247141111</text></view>
+        <view>维修类型  <text>房屋</text></view>
+        <view>维修内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
+        </view>
+        <view class="btn" bindtap="Jgjlshow">
+          <button class="active" >结果记录</button>
+        </view>
+        <view class="box_title" wx:if="{{shows}}">
+        <view>维修结果  <textarea class="title_textarea wxjg_text" placeholder="请输入维修结果..."></textarea>
+          <view class="save_btn">
+          <button class="active">保存</button>
+        </view>
+        </view>
+        </view>
+    </view>
+
+    </view>
+  </view> 
+  <!-- 第二栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+    <view class="pban_box">
+      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg "></text>
+			</view>
+    </picker>
+    <view class="box" wx:for="{{4}}">
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">申请人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view>
+        <view class="box_title">
+        <view>维修地址  <text>几号楼几单元几楼几零几</text></view>
+        <view>联系电话  <text>18247141111</text></view>
+        <view>维修类型  <text>房屋</text></view>
+        <view>维修内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
+        </view>
+        <view class="btn">
+          <button>待付款</button>
+          <button class="active">已付款</button>
+        </view>
+    </view>
+    </view>
+  </view> 
+  <!-- 第三栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+    <view class="pban_box">
+      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg "></text>
+			</view>
+    </picker>
+    <view class="box" wx:for="{{4}}">
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">申请人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view>
+        <view class="box_title">
+        <view>维修地址  <text>几号楼几单元几楼几零几</text></view>
+        <view>联系电话  <text>18247141111</text></view>
+        <view>维修类型  <text>房屋</text></view>
+        <view>维修内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
+        </view>
+        <view class="btn">
+          <button>待发货</button>
+          <button class="active">已发货</button>
+        </view>
+    </view>
+    </view>
+  </view> 
+  <!-- 第四栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='3'? 'active' : ''}}">
+    <view class="pban_box">
+      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg "></text>
+			</view>
+    </picker>
+    <view class="box" wx:for="{{4}}">
+        <view class="box_top">
+          <view class="bor_fl">
+          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+          <view class="text-black">申请人员姓名</view>
+        </view>
+        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view>
+        <view class="box_title">
+        <view>维修地址  <text>几号楼几单元几楼几零几</text></view>
+        <view>联系电话  <text>18247141111</text></view>
+        <view>维修类型  <text>房屋</text></view>
+        <view>维修内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view>预约时间  <text>2020-11-23  9:00-10:00</text></view>
+        </view>
+        <view class="btn">
+          <button>待收货</button>
+          <button class="active">已收货</button>
+        </view>
+    </view>
+    </view>
+  </view> 
+</view>
+<!-- 栏目结束 -->
+</view>
+<!-- view tab整体栏目结束 -->
+
+  </view>
+

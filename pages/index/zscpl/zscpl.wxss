@@ -1,0 +1,38 @@
+/* pages/index/zscpl/zscpl.wxss */
+/* 公共颜色 */
+
+/*  引入邻里圈列表样式*/
+/* @import "../../index/neighborhood/t4.wxss"; */
+/* tab样式 */
+.xtb{    z-index: 999; position: absolute;}
+.tab_bar .active{color: #188BFF;border-bottom: 1px solid #188BFF;}
+.box_content .right-item{display: none}
+.box_content .right-item.active{display: block}
+
+.bg{width: 100%;padding-top:35rpx;background: #0090FA;}
+.box_content{font-size: 28rpx;}
+.view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
+.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
+.view_tab>.tab_bar>view{font-weight:bold;height:55rpx;line-height: 55rpx;float: left;margin-right: 45rpx;text-align: center;}
+
+/* .tab_box{padding:35rpx;overflow: hidden;clear: both;width:93%;margin:25rpx auto;  
+  background: #FFFFFF;border-radius: 20rpx;} */
+
+
+/* 新闻列表样式 */
+.seven_right>image{width:100%;height:150rpx;margin:0 auto;}
+.sqxw_box>.more{line-height: 2;}
+.seven_box{overflow: hidden;clear:both;padding:35rpx;overflow: hidden;clear: both;width:93%;margin:25rpx auto;  
+  background: #FFFFFF;border-radius: 20rpx;}
+.seven_box>.seven_left{color: #999999;width: 75%;float:left;}
+.seven_box>.seven_left>text{display: block;line-height:1.3;}
+.seven_box>.seven_right{width:25%;height:130rpx;float:right; }
+.seven_box>.seven_right>image{width:100%;height:100%;}
+.seven_boxtwo{margin-top:-10rpx;  width: 100%;color: #999999;
+  padding:25rpx;background: #fff;border-radius: 25rpx;}
+.seven_boxtwo>text{display: block;line-height:1.3;width: 100%;padding:5rpx 0;}
+.text-content{background: #fff;padding:0 35rpx;    overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;}

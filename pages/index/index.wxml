@@ -98,3 +98,47 @@
   </view>
 </view>
 </view>
+
+
+<view class="box" wx:if="{{login == 3}}">
+<t10 wx:if="{{PageCur=='t10'}}"></t10>
+<t11 wx:if="{{PageCur=='t11'}}"></t11>
+<t12 wx:if="{{PageCur=='t12'}}"></t12>
+<t13 wx:if="{{PageCur=='t13'}}"></t13>
+
+<view class="cu-bar tabbar bg-white foot">
+    <view class="action text-green" bindtap="NavChange" data-cur="t10">
+      <view>
+        <image src="../../images/tabbar/wy11.png" class="tabimg" wx:if="{{PageCur!='t10'}}"></image>
+        <image src="../../images/tabbar/wy12.png" class="tabimg" wx:if="{{PageCur=='t10'}}"></image>
+      </view>
+      <view class="{{PageCur=='t10'?'text-ttt':'text-nnn'}}">物业排版</view>
+    </view>
+    <view class="action text-gray" bindtap="NavChange" data-cur="t11">
+      <view>
+        <image src="../../images/tabbar/wy21.png" class="tabimg" wx:if="{{PageCur!='t11'}}"></image>
+        <image src="../../images/tabbar/wy22.png" class="tabimg" wx:if="{{PageCur=='t11'}}"></image>
+      </view>
+      <view class="{{PageCur=='t11'?'text-ttt':'text-nnn'}}">通知发布</view>
+    </view>
+    <view class="action text-gray add-action" bindtap="NavChange" data-cur="t3">
+
+      <image class="img3" src="../../images/tabbar/wy31.png"></image>
+      <view class="{{PageCur=='t3'?'text-ttt':'text-nnn'}}">安防巡更</view>
+    </view>
+    <view class="action text-gray" bindtap="NavChange" data-cur="t12">
+      <view>
+        <image src="../../images/tabbar/wy41.png" class="tabimg" wx:if="{{PageCur!='t12'}}"></image>
+        <image src="../../images/tabbar/wy42.png" class="tabimg" wx:if="{{PageCur=='t12'}}"></image>
+      </view>
+      <view class="{{PageCur=='t12'?'text-ttt':'text-nnn'}}">维修单</view>
+    </view>
+    <view class="action text-gray" bindtap="NavChange" data-cur="t13">
+      <view>
+        <image src="../../images/tabbar/wy51.png" class="tabimg" wx:if="{{PageCur!='t13'}}"></image>
+        <image src="../../images/tabbar/wy52.png" class="tabimg" wx:if="{{PageCur=='t13'}}"></image>
+      </view>
+      <view class="{{PageCur=='t13'?'text-ttt':'text-nnn'}}">移动巡查</view>
+    </view>
+  </view>
+</view>

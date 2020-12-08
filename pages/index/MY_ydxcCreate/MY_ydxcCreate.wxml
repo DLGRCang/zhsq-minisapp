@@ -1,0 +1,62 @@
+<!--pages/index/MY_ydxcCreate/MY_ydxcCreate.wxml-->
+<view class="lease">
+<cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+  <view slot="content">巡查工作创建</view>
+</cu-custom>
+<view class="lease-box">
+  <view class="box-body">
+    <view class="body-top">移动巡查工作</view>
+      <view class="twobiao"> <view></view> 基础信息</view>
+      <view class="danhang">
+        <view class="biaoti"><text style="color:red">*</text>工作状态</view>
+        <view class="inputCss">
+          <picker class="picCss" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+          <view class="picker">
+            {{index?picker[index]:'巡查完毕'}}
+          </view>
+        </picker>
+        </view>
+
+      </view>
+
+      <view class="danhang">
+        <view class="biaoti"><text style="color:red">*</text>巡查时间</view>
+        <view class="inputCss">
+          <picker class="picCss" mode="date" value="{{date}}" start="{{date}}" bindchange="DateChange">
+            <view class="picker">
+              {{date}}
+              <text style="float:right" class="cuIcon-right"></text>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="danhang">
+        <view class="biaoti"><text style="color:red">*</text>巡查内容</view>
+      </view>
+      <view class="danhang">
+        <view class="dhwbk">
+          <textarea maxlength="-1" placeholder="请输入巡查内容..."></textarea>
+        </view>
+      </view>
+      <view class="danhang">
+        <view class="biaoti"><text style="color:red">*</text>巡查视频/照片</view>
+          <view class="grid col-4 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+              <image src='{{imgList[index]}}' mode='aspectFill'></image>
+              <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                <text class="cuIcon-close"></text>
+              </view>
+            </view>
+            <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
+              <text class="cuIcon-cameraadd"></text>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+<!-- </view> -->
+<view class="bot-fb" bindtap="Create">
+  <button>创建</button>
+</view>
+</view>

@@ -45,14 +45,24 @@ Page({
 
   tsjyList(){
     var time = util.formatTime(new Date)
-    console.log(this.data.title)
-    console.log(this.data.content)
+    //console.log(this.data.title)
+    //console.log(this.data.content)
+    var imgId1 = ''
+    for(var i in this.data.imgId){
+      if(imgId1 == ''){
+        imgId1=this.data.imgId[i]
+      }else{
+        imgId1=imgId1+','+this.data.imgId[i]
+      }
+    }
     http.tsjyApi({
       data:{
         peopleId:'aaa',
         peopleName:'bbb',
         time:time,
-        content:this.data.content
+        content:this.data.content,
+        file:imgId1,
+        title:this.data.title
       },
       success:res=>{
         console.log(res)

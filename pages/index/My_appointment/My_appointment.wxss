@@ -81,3 +81,5 @@ overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
 
 .text-bold{font-size: 32rpx;}
     .yy_title{color:#A9B3BD;font-size:28rpx !important;font-weight: normal;}
+.pj_btn{margin-top:25rpx;}
+.pj_btn>button{background: #188BFF;color: #fff;    font-size: 20rpx;}    

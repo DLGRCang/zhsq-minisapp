@@ -9,7 +9,14 @@ Page({
     dateTime: null,
     startYear: 2000,
     endYear: 2050,
-    times:true
+    times:true,
+    picker: ['水', '电', '暖','燃气','房屋','其他']
+  },
+  PickerChange(e) {
+    console.log(e);
+    this.setData({
+      index: e.detail.value
+    })
   },
   onLoad(){
     // 获取完整的年月日 时分秒，以及默认显示的数组

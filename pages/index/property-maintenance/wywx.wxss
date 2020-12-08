@@ -10,7 +10,7 @@
 .wxjl_title{float:right;color:#188BFF;line-height: 3;display: block;}
 
 .wx_timebox{
-  margin-top: 45rpx;font-size: 32rpx;
+font-size: 32rpx;
 }
 .wx_timebox>.wx_title{line-height: 2;}
 .wx_timebox>.wx_time{

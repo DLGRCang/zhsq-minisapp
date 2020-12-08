@@ -7,7 +7,12 @@ Page({
   data: {
 
   },
-
+  // 搜索页面跳转
+  Search:function(){
+    wx.navigateTo({
+      // url: '/pages/index/Search/Search'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

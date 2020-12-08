@@ -31,7 +31,7 @@
       </view>
     </view>
   <!-- 第二栏 复制-->
-  <view class="cu_address_box">
+  <view class="cu_address_box ">
       <view class="box01">
         <view class="text-black">
           <text class="text_01">XXX小区几单元   5层505</text>

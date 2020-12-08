@@ -15,11 +15,9 @@ Page({
   },
 
   qhjiaose(){
-    if(wx.getStorageSync('indexId') == 1){
+  
       wx.setStorageSync('indexId', 2)
-    }else{
-      wx.setStorageSync('indexId', 1)
-    }
+ 
     wx.reLaunch({
       url: '/pages/index/index'
     })

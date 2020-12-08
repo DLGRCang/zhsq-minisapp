@@ -1,0 +1,39 @@
+<!--pages/index/WY_tzfb/WY_tzfb.wxml-->
+<cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+    <view slot="content">通知发布</view>
+</cu-custom>
+
+<view class="tzfb_box">
+  <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg text-gray"></text>
+			</view>
+    </picker>
+<view class="box" wx:for="{{3}}" style="display:block;">
+    <view>紧急通知！呼和浩特市应对新型冠状病最新政策</view>
+    <view class="text">紧急通知！呼和浩特市应对新型冠状病毒内容.紧急通知！呼和浩特市应对新型冠状病毒内容呼和浩特市应对新型冠状病毒内容.紧急通知！呼和浩特市应对新型冠状病毒内容</view>
+    <view class="date_title">
+      <text>2020-10-13</text>
+    
+      <!-- <view class="bot_fr" bindtap="bjClick">···</view> -->
+    </view>
+    <!-- 编辑修改删除 -->
+    <view class="bianji">
+        <view bindtap="" class="text-blue">编辑</view>
+        <view bindtap="" class="text-red">删除</view>
+    </view>
+</view>   
+<!-- 复制第二个 -->
+
+<view style="display:none;" class="zwsj">
+      <image src="../../../images/SJ/zwsj.png"></image>
+      <view>暂无数据</view>
+    </view>
+
+</view>
+
+
+<!-- 发布图标 -->
+<button class="cuIcon-add bg-blue fabu_btn" role="button" aria-disabled="false" bindtap="fabu"></button>
+
+   

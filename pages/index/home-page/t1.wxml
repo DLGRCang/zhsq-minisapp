@@ -104,6 +104,7 @@
 <!-- 第五部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title">小区公示</text>
+
   <view class="body-ase">
       <view class="abc"></view>
       <view class="ase-box">
@@ -117,6 +118,7 @@
       </view>
 </view>
 </view>
+
 <!-- 第六部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title">问卷调查</text>
@@ -131,15 +133,14 @@
           <view class="btn">投票</view>
         </view>
       </view>
-</view>
+
 
 </view>
 <!-- 第七部分 社区新闻-->
 <view class="sqxw_box">
 <text class="sqxw_title">社区新闻</text>
 <text class="font9 right more">查看更多<text class="cuIcon-right lg text-gray"></text></text>
- <view class="seven_box">
-
+ <view class="seven_box"  bindtap="newsxq">
    <view class="seven_left">
       <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
       <text>2020-10-28</text>  
@@ -154,10 +155,11 @@
 
 <!-- 第七部分 社区新闻二-->
 <view class="sqxw_box" style="margin-top:0rpx">
-  <view class="seven_boxtwo">
+  <view class="seven_boxtwo"  bindtap="newsxq">
     <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！31省区市新增42例确诊,其中境外输入病例20例 战疫情</text>   
     <text>2020-10-28</text>   
   </view>
 
+</view>
 </view>
 </view>

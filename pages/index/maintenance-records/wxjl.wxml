@@ -11,10 +11,10 @@
   </view>
 
 <!--  -->
-<view class="wxjl_content" style="margin-top:115rpx;">
+<view class="wxjl_content" style="margin-top:115rpx;" wx:for="{{1}}">
    <view class="content_box">
      <view class="content_title">
-      <text>2020-10-30</text>
+      <text><text class="cu-tag bg-blue light">维修中</text>2020-10-30</text>
       <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
      </view>
 
@@ -24,10 +24,10 @@
     </view>
 </view>
 
-<view class="wxjl_content">
+<view class="wxjl_content"  wx:for="{{2}}">
    <view class="content_box">
      <view class="content_title02">
-      <text>2020-10-30</text>
+      <text><text class="cu-tag bg-red light">已结束</text>2020-10-30</text>
       <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
      </view>
      <view class="box_btn02">
@@ -36,34 +36,10 @@
     </view>
 </view>
 
-<view class="wxjl_content">
+<view class="wxjl_content"  wx:for="{{3}}">
    <view class="content_box">
      <view class="content_title02">
-      <text>2020-10-30</text>
-      <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
-     </view>
-     <view class="box_btn02">
-      <text class="">已解决</text>
-    </view>
-    </view>
-</view>
-
-<view class="wxjl_content">
-   <view class="content_box">
-     <view class="content_title02">
-      <text>2020-10-30</text>
-      <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
-     </view>
-     <view class="box_btn02">
-      <text class="">已解决</text>
-    </view>
-    </view>
-</view>
-
-<view class="wxjl_content">
-   <view class="content_box">
-     <view class="content_title02">
-      <text>2020-10-30</text>
+      <text><text class="cu-tag bg-grey light">已拒绝</text>2020-10-30</text>  
       <view>墙面漏水,墙面涂层脱落，水泥勾缝出现开裂等现象，雨水会从裂缝中渗入，造成墙体发潮脱落。</view>
      </view>
      <view class="box_btn02">

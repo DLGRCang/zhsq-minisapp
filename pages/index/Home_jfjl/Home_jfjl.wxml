@@ -1,0 +1,79 @@
+<!--pages/index/Home_jfjl/Home_jfjl.wxml-->
+<cu-custom bgColor="bg-gray-bl" isBack="{{true}}">
+    <view slot="content">缴费记录</view>
+</cu-custom>
+
+<view class="bg">
+
+<view class="view_tab">
+<view class="tab_bar" > 
+  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">物业缴费</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">生活缴费</view> 
+</view> 
+ 
+<view class="box_content"> 
+    <!-- 第一栏目 1-->
+  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="tab_box" bindtap="xiangqing">
+      <!-- 物业缴费 -->
+      
+<!-- 内容第一块 -->
+<view class="cu-list menu-avatar wxjl_content">
+    <view class="cu-item">
+      <view class="cu-avatar lg wxjl_image">
+        <image src="../../../images/images/wyjf_01.png"></image>
+      </view>
+      <view class="content content_title">
+        <view class="text-black">
+          <text class="text-cut">10月物业住宅服务费</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">金额：￥49.20</text>
+        </view>
+      </view>
+      <view class="box_btn">
+        <button class="bg-blue">缴 费</button>
+      </view>
+    </view>
+  </view>    
+<!-- 复制 内容第二块 -->
+  <view class="cu-list menu-avatar wxjl_content" wx:for="{{4}}">
+    <view class="cu-item">
+      <view class="cu-avatar lg wxjl_image">
+        <image src="../../../images/images/wyjf_02.png"></image>
+      </view>
+      <view class="content content_title02">
+        <view class="text-black">
+          <text class="text-cut">9月物业住宅服务费</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">金额：￥49.20</text>
+        </view>
+      </view>
+      <view class="box_btn02">
+        <text>已缴纳</text>
+      </view>
+    </view>
+  </view>    
+</view>
+</view>
+
+  <!-- 第二栏目 -->
+  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+      <view class="tab_box" bindtap="xiangqing">
+        <view class="zwsj">
+          <image src="../../../images/SJ/zwsj.png"></image>
+          <view>暂无数据</view>
+        </view>
+    </view>
+    <!-- </view> -->
+
+
+  </view> 
+</view>
+<!-- 栏目结束 -->
+</view>
+<!-- view tab整体栏目结束 -->
+
+</view>
+

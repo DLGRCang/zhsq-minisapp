@@ -3,7 +3,7 @@
     <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
       <input type="text" placeholder="请输入搜索内容"/>
-      <view>搜索</view>
+      <view bindtap="Search">搜索</view>
     </view>
     <view class="tab">
       <scroll-view scroll-x class="nav" style="color:#eee" scroll-with-animation scroll-left="{{scrollLeft}}">

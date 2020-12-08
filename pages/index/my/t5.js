@@ -14,9 +14,9 @@ Component({
    */
   data: {
     t5state:[
-      {id:1,img:'../../../images/t5/state1.png',text:'我的订单',url:'/pages/index/life_detailsOrder/life_detailsOrder'},
+      {id:1,img:'../../../images/t5/state1.png',text:'我的订单',url:'/pages/index/Home_myorders/Home_myorders'},
       {id:2,img:'../../../images/t5/state2.png',text:'我的发布',url:'/pages/index/my_publish/my_publish'},
-      {id:3,img:'../../../images/t5/state3.png',text:'我的活动',url:''},
+      {id:3,img:'../../../images/t5/state3.png',text:'我的活动',url:'/pages/index/Home_myactivity/Home_myactivity'},
       {id:4,img:'../../../images/t5/state4.png',text:'我的入驻',url:'/pages/index/My_Settled/My_Settled'}
     ],
     rightHui:'../../../images/t5/right-hui.png',
@@ -28,12 +28,24 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 我的点赞/评论/收藏跳转
+    my_dzClick:function(){
+      wx.navigateTo({
+        url: "/pages/index/zscpl/zscpl"
+      })
+    },  
     // 我的预约 跳转
     My_appointmentClick:function(){
       wx.navigateTo({
         url: "/pages/index/My_appointment/My_appointment"
       })
-    },  
+    }, 
+       // 我的投票 跳转
+       My_toupiaoClick:function(){
+        wx.navigateTo({
+          url: "/pages/index/Home_mytoupiao/Home_mytoupiao"
+        })
+      },  
   //积分记录-跳转
   Credits_LogClick:function(){
     wx.navigateTo({
@@ -43,7 +55,7 @@ Component({
         //缴费记录-跳转
   jfjlClick:function(){
     wx.navigateTo({
-      url: '/pages/index/feedback/feedback'
+      url: '/pages/index/Home_jfjl/Home_jfjl'
     })
   },
 //维修记录-跳转
