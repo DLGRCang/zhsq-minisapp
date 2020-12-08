@@ -1,4 +1,4 @@
-// pages/index/SJ_Shop/SJ_Shop.js
+// pages/index/Sj_dprz/Sj_dprz.js
 Page({
 
   /**
@@ -7,33 +7,7 @@ Page({
   data: {
 
   },
-      // 店铺营收跳转
-  feedbackClick:function(){
-    wx.navigateTo({
-      url: '/pages/index/Sj_revenue/Sj_revenue'
-    })
-  },
-        // 店铺信息跳转
-        dpxx:function(){
-          wx.navigateTo({
-            url: '/pages/index/Sj_dpxx/Sj_dpxx'
-          })
-        },
-  // 店铺认证跳转
-  aboutMe:function(){
-    wx.navigateTo({
-      url: '/pages/index/Sj_dprz/Sj_dprz'
-    })
-  },
-  // 切换角色
-  qhjiaose(){
 
-      wx.setStorageSync('indexId', 3)
-  
-    wx.reLaunch({
-      url: '/pages/index/index'
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

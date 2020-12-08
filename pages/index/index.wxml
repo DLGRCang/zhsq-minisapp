@@ -3,7 +3,7 @@
     <view class="top-navigation" style="height:{{CustomBar}}px">
       <view wx:if="{{PageCur=='t1'||PageCur=='t2'||PageCur=='t3'||PageCur=='t4'}}">
         <text class="cuIcon-location"></text>
-        <view style="width:324rpx">左右城左E4 1单元1203</view>
+        <view>天龙嘉苑 乌兰小区</view>
         <text class="cuIcon-right lg" style="font-size:20rpx"></text>
       </view>
       <view wx:if="{{PageCur=='t5'}}">我的</view>

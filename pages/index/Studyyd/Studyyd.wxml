@@ -1,0 +1,55 @@
+<!--pages/index/Studyyd/Studyyd.wxml-->
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="partyBranch">
+  <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
+    <view slot="content">学习园地</view>
+  </cu-custom>
+  
+  <scroll-view scroll-y="true"  style="height:91%" bindscroll="scry">
+    <view class="pos-top" wx:if="{{topPos}}">
+    <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          {{item.content}}
+        </view>
+      </scroll-view>
+    </view>
+    <view>
+  <view class="box">
+    <image src="../../../images/back2.png" class="beijing"></image>
+    
+
+    <view class="top-tab">
+      <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item {{index==TabCur?'text-white cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          {{item.content}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="bot-box">
+    <view class="dang" wx:if="{{panduan}}">
+      <view class="neirong" wx:for="{{10}}">
+        <view class="nrimg"></view>
+        <view class="nrText">
+          <view>党员姓名</view>
+          <view>支部委员会委员</view>
+        </view>
+      </view>
+    </view>
+    <view class="xinwen" wx:if="{{!panduan}}">
+      <view class="seven_box" wx:for="{{10}}">
+
+        <view class="seven_left">
+          <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
+          <text>2020-10-28</text>  
+        </view>
+          <view class="seven_right">
+          <image src="../../../images/t1/componentBg.png"></image>
+          </view>
+        </view>
+    
+      </view>
+  </view>
+</view>
+</scroll-view>
+</view>

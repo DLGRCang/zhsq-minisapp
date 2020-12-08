@@ -1,0 +1,38 @@
+<!--pages/index/Sj_dprz/Sj_dprz.wxml-->
+<cu-custom bgColor="bg-gray" isBack="{{true}}">
+    <view slot="content">店铺认证</view>
+  </cu-custom>
+
+  <!-- 内容 -->
+  <view class="setting_box">
+    <!-- 第二栏 -->
+    <view class="my-b-from">
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>真实姓名</text>
+        <view class="fr text-gray">张三<text class="cuIcon-right lg text-gray"></text></view>
+      </view>
+  </view>
+  <!-- <view class="my-p-from">
+    <view class="bot-border">
+        <text>性别</text>
+        <view class="fr text-gray">男<text class="cuIcon-right lg text-gray"></text></view>
+      </view>
+  </view> -->
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>证件号码</text>
+        <view class="fr text-gray">1****************9<text class="cuIcon-right lg text-gray"></text></view>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>联系方式</text>
+        <view class="fr text-gray">176********<text class="cuIcon-right lg text-gray"></text></view>
+      </view>
+  </view>
+  </view>
+    
+
+  
+</view>

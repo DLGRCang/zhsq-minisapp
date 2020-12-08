@@ -52,6 +52,10 @@
         <image src="../../../images/partyBuilding/3.png"></image>
         <view style="width:100%">社区活动</view>
       </view>
+      <view class="fuwunei" bindtap="studyyd">
+        <image src="../../../images/partyBuilding/4.png"></image>
+        <view style="width:100%">学习园地</view>
+      </view>
     </view>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">

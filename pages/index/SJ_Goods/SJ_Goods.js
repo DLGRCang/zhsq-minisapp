@@ -11,6 +11,13 @@ Page({
       curBdIndex: 0
     }, 
   },
+
+      // 发布
+      fabu:function(){
+        wx.navigateTo({
+          url: '/pages/index/SJ_Goodsfabu/SJ_Goodsfabu'
+        })
+      },
     // 搜索页面跳转
     Search:function(){
       wx.navigateTo({

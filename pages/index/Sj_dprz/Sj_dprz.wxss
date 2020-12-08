@@ -1,0 +1,17 @@
+/* pages/index/Sj_dprz/Sj_dprz.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+.fr{float: right;}
+/* 内容样式 */
+.setting_box{width: 100%;margin:25rpx auto;
+  padding: 0 30rpx;box-sizing: border-box;
+}
+.my-b-from{border-radius: 15rpx;font-size: 26rpx;
+font-family: Microsoft YaHei;font-weight: 400;color: #333333;
+margin: 25rpx 0;background: #FFFFFF;}
+.my-p-from{width: 100%;padding: 0 30rpx;}
+.bot-border{width: 100%;
+  padding: 30rpx 0;border-bottom: 2rpx solid #f9f9f9;
+  display: flex;align-items: center;justify-content: space-between;
+}
+.tx_img{width:50rpx;height:50rpx;border-radius: 50%;position: absolute;right:10%;}

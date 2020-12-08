@@ -1,17 +1,22 @@
 <!--pages/index/SJ_Message/SJ_Message.wxml-->
-<cu-custom bgColor="bg-gray" isBack="{{false}}">
+<cu-custom bgColor="bg-blue" isBack="{{false}}">
     <view slot="content">消息</view>
 </cu-custom>
 
-<view class="view_tab">
-<view class="tab_bar" > 
+  <view style="height:100%;">
+  <view class="box-body">
+    <view class="back-box1"></view>
+    <view class="back-box2"></view>
+    <view class="back-box3"></view>
+<!-- <view > -->
+<!-- <view class="tab_bar" > 
   <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">交易信息</view> 
   <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">退款信息</view> 
-</view> 
+</view>  -->
 
 <view class="box_content"> 
     <!-- 第一栏目 1-->
-  <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+  <!-- <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}"> -->
     <view class="tab_box" bindtap="xiangqing">
       <view class="life-bot">
         <view class="bot-over">
@@ -31,33 +36,16 @@
   </view>
 
     </view>
-  </view> 
 
   
 
   <!-- 第二栏目 -->
-  <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="tab_box">
-      <view class="life-bot">
-        <view class="bot-over">
-          <view class="bot-neirong" wx:for="{{2}}" bindtap="life_details">
-            <view>
-              <view class="r-n1 fl">买家已退款</view>
-              <view class="fr">2020-11-17 <text class="cuIcon-title text-red"></text></view>
-            </view>
-            <view class="r-n3">
-                <view class="n3-nr" wx:for="{{5}}">
-                  <view><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
-                  <view>青岛 听装醇厚</view>
-                </view>
-              </view>
-          </view>
-        </view>
-  </view>
-    </view>
-  </view> 
+  <!-- <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+
+  </view>  -->
 
 </view>
 <!-- 栏目结束 -->
 </view>
 <!-- view tab整体栏目结束 -->
+</view>

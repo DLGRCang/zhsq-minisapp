@@ -1,4 +1,6 @@
 /* pages/index/Sj_dpyh/Sj_dpyh.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
 .dpyh_box{background: #F9F9F9;margin:0rpx auto;padding:15rpx 35rpx 35rpx 35rpx;}
 .dpyh_box>.box{border-radius: 15rpx;background: #fff;padding:0rpx 35rpx 0rpx 0;clear: both;overflow: hidden;
 font-size: 26rpx;margin-top:35rpx;}

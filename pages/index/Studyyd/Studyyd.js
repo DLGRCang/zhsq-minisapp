@@ -1,3 +1,4 @@
+// pages/index/Studyyd/Studyyd.js
 // pages/index/partyBuilding/partyBuilding.js
 import http from '../../../utils/api'
 Page({
@@ -7,17 +8,15 @@ Page({
    */
   data: {
     dataTab:[
-      {id:0,content:"工作动态"},
-      {id:1,content:"场地服务"},
-      {id:2,content:"志愿者服务"},
-      {id:3,content:"精准扶贫"},
-      {id:4,content:"学习园地"}
+      {id:0,content:"党规党章"},
+      {id:1,content:"政策法规"},
+      {id:2,content:"准则条例"},
+      {id:3,content:"办法规定"},
     ],
     TabCur: 0,
     scrollLeft:0,
-  panduan:'0',
-  rowsList:[],
-  rows4:[]
+  panduan:true,
+  rowsList:[]
   },
 
   /**
@@ -60,34 +59,20 @@ Page({
 
 
   tabSelect(e) {
-    //console.log(e)
+    console.log(e)
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id-1)*60
     })
-    if(e.currentTarget.dataset.id == 4){
-     // console.log(this.data.rows)
-      if(this.data.rows == undefined){
-        this.xuexiList()
-      }
-      
+    if(e.currentTarget.dataset.id == '0'||e.currentTarget.dataset.id == '1'){
+      this.setData({
+        panduan:true
+      })
+    }else{
+      this.setData({
+        panduan:false
+      })
     }
-  },
-  xuexiList(){
-   wx.showLoading({
-     title: '拼命加载中',
-   })
-    http.xxzlApi({
-      success:res=>{
-        this.setData({
-          rows4:res
-        })
-        wx.hideLoading({
-          success: (res) => {},
-        })
-        console.log(res)
-      }
-    })
   },
   scry(e){
     //console.log(e)
@@ -101,28 +86,7 @@ Page({
       })
     }
   },
-  shequhd(){
-    wx.navigateTo({
-      url: '/pages/index/community/community'
-    })
-    
-  },
-  // 学习园地跳转
-  studyyd(){
-    wx.navigateTo({
-      url: '/pages/index/Studyyd/Studyyd'
-    })
-  },
-  changdifw(){
-    wx.navigateTo({
-      url: '/pages/index/field/cdfw'
-    })
-  },
-  dangqunfw(){
-    wx.navigateTo({
-      url: '/pages/index/partyMasses/dqfw'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

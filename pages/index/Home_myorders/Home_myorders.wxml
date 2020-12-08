@@ -93,7 +93,7 @@
       </view>
     </view>
 
-
+    <view class="bzf"><text class="fl">派送方式</text><text class="fr text-blue">自提</text></view>
     <!-- 包装费  配送费 -->
     <view class="bzf"><text class="fl">包装费</text><text class="fr">￥2.5</text></view>
     <view class="psf"><text class="fl">配送费</text><text class="fr">￥2.5</text></view>
@@ -194,7 +194,7 @@
       </view>
     </view>
 
-
+    <view class="bzf"><text class="fl">派送方式</text><text class="fr text-blue">物流派送</text></view>
     <!-- 包装费  配送费 -->
     <view class="bzf"><text class="fl">包装费</text><text class="fr">￥2.5</text></view>
     <view class="psf"><text class="fl">配送费</text><text class="fr">￥2.5</text></view>
