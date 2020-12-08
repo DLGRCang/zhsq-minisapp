@@ -22,13 +22,10 @@
   </scroll-view>
     
   </view>
-  
-  
-
 <view class="cu-bar tabbar bg-white foot">
     <view class="action text-green" bindtap="NavChange" data-cur="t1">
       <view>
-        <image src="../../images/tabbar/1.png" class="tabimg" wx:if="{{PageCur!='t1'}}"></image>
+        <image src="http://127.0.0.1:8080/zhsq/assets/images/applets/1.png" class="tabimg" wx:if="{{PageCur!='t1'}}"></image>
         <image src="../../images/tabbar/1j.png" class="tabimg" wx:if="{{PageCur=='t1'}}"></image>
       </view>
       <view class="{{PageCur=='t1'?'text-ttt':'text-nnn'}}">首页</view>

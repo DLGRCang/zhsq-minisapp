@@ -7,16 +7,17 @@ Page({
    */
   data: {
     dataTab:[
-      {id:0,content:"支委会成员"},
-      {id:1,content:"支部党员"},
-      {id:2,content:"组织生活会"},
-      {id:3,content:"支部党课"},
-      {id:4,content:"主题党日"}
+      {id:0,content:"工作动态"},
+      {id:1,content:"场地服务"},
+      {id:2,content:"志愿者服务"},
+      {id:3,content:"精准扶贫"},
+      {id:4,content:"学习园地"}
     ],
     TabCur: 0,
     scrollLeft:0,
-  panduan:true,
-  rowsList:[]
+  panduan:'0',
+  rowsList:[],
+  rows4:[]
   },
 
   /**
@@ -59,20 +60,34 @@ Page({
 
 
   tabSelect(e) {
-    console.log(e)
+    //console.log(e)
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id-1)*60
     })
-    if(e.currentTarget.dataset.id == '0'||e.currentTarget.dataset.id == '1'){
-      this.setData({
-        panduan:true
-      })
-    }else{
-      this.setData({
-        panduan:false
-      })
+    if(e.currentTarget.dataset.id == 4){
+     // console.log(this.data.rows)
+      if(this.data.rows == undefined){
+        this.xuexiList()
+      }
+      
     }
+  },
+  xuexiList(){
+   wx.showLoading({
+     title: '拼命加载中',
+   })
+    http.xxzlApi({
+      success:res=>{
+        this.setData({
+          rows4:res
+        })
+        wx.hideLoading({
+          success: (res) => {},
+        })
+        console.log(res)
+      }
+    })
   },
   scry(e){
     //console.log(e)

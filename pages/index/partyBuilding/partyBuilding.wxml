@@ -62,7 +62,7 @@
     </view>
   </view>
   <view class="bot-box">
-    <view class="dang" wx:if="{{panduan}}">
+    <view class="dang" wx:if="{{TabCur != 4}}">
       <view class="neirong" wx:for="{{10}}">
         <view class="nrimg"></view>
         <view class="nrText">
@@ -71,18 +71,8 @@
         </view>
       </view>
     </view>
-    <view class="xinwen" wx:if="{{!panduan}}">
-      <view class="seven_box" wx:for="{{10}}">
-
-        <view class="seven_left">
-          <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
-          <text>2020-10-28</text>  
-        </view>
-          <view class="seven_right">
-          <image src="../../../images/t1/componentBg.png"></image>
-          </view>
-        </view>
-    
+    <view class="xinwen" wx:if="{{TabCur == 4}}">
+      swfdrghbwr
       </view>
   </view>
 </view>

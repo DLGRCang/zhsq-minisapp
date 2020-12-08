@@ -123,6 +123,10 @@ function tsjyApi(params){
   http('complaint/savecomplaint','post',params)
 }
 
+function xxzlApi(params){
+  http('studyfile/liststudyfile','get',params)
+}
+
 
 
 
@@ -151,5 +155,6 @@ export default { // 暴露接口
   tpxqApi,
   fwczApi,
   llqlllzjApi,
-  tsjyApi
+  tsjyApi,
+  xxzlApi
 }
