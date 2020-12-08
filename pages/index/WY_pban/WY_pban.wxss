@@ -18,7 +18,8 @@
 }
 /* 内容样式 */
 .pban_box{margin:0 auto;padding:35rpx;}
-.pban_box>picker{font-weight: bold;color: #fff;}
+.datetop{color: #fff;margin:25rpx 0 25rpx 0;float: left;font-size: 32rpx;font-weight: bold;}
+.datetop>picker{font-weight: bold;color: #fff;}
 .pban_box>.box{border-radius: 15rpx;background: #fff;padding:35rpx;clear: both;overflow: hidden;
   font-size: 26rpx;margin-top:35rpx;}
 .pban_box>.box>.box_top>.bor_fl{float: left;width: 60%;display: block;} 
@@ -26,9 +27,10 @@
 .pban_box>.box>.box_top>.bor_fl>image{width:45rpx;height: 45rpx;border-radius: 50%;margin-right: 15rpx;} 
 /* 大头像样式 */
 
-.dbox_top>.bor_fl{float: left;    display: inline-flex;} 
+.dbox_top>.bor_fl{  display:block;height: 130rpx; width: 80%;float: left;} 
+.wxgr{font-size: 24rpx;    margin-top: -30rpx;}
 .dbox_top{height:85rpx;line-height: 85rpx;    margin-bottom: 35rpx;color: #fff;font-size: 32rpx;font-weight: bold;}
-.dbox_top>.bor_fl>image{width:85rpx;height: 85rpx;border-radius: 50%;margin-right: 15rpx;} 
+.dbox_top>.bor_fl>image{width:125rpx;height: 125rpx;border-radius: 50%;margin-right: 15rpx;} 
 
 
 
