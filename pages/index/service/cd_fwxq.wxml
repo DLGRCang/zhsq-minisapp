@@ -28,7 +28,7 @@
       <text class="{{rowsList.score >= 8 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
       <text class="{{rowsList.score == 10 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
  
-      <text style="padding-left:10rpx;">评分：{{'0'+rowsList.score}}</text>
+      <text style="padding-left:10rpx;">评分：{{rowsList.score}}</text>
       <view class="cu-tag bg-lvse light jnpx">{{rowsList.type}}</view>
     </view>
 </view>

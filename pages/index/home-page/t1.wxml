@@ -88,46 +88,53 @@
 <!-- 第四部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title">小区投票</text>
-<view class="bigBox">
-  <view class="four_box"  bindtap="xqvode">
-    <view class="cu-tag bg-grey light xtb">已结束</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
-    <text>2020-10-28</text>   
-    <button class="bm_btn_cur">投 票</button>
-  </view>
+<view class="body-ase" bindtap="xqvode">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>ascas</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
 </view>
 </view>
 <!-- 第五部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title">小区公示</text>
-<!-- 投票环节 -->
-  <!-- <view class="bigBox">
-  <view class="four_box"  bindtap="xqvodetwo">
-    <view class="cu-tag bg-blue light xtb">进行中</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
-    <text>2020-10-28</text>   
-    <button class="bm_btn_cur">投 票</button>
-  </view>
-</view> -->
-<!-- 小区新闻详情 -->
-<view class="seven_box"  bindtap="newsxq">
-   <view class="seven_left">
-      <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
-      <text>2020-10-28</text>  
-   </view>
-     <view class="seven_right">
-      <image src="../../../images/t1/componentBg.png"></image>
-     </view>
-  </view>
+
+  <view class="body-ase">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>ascas</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
 </view>
+</view>
+
 <!-- 第六部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title">问卷调查</text>
- <view class="bigBox">
-  <view class="four_box"  bindtap="xqvodethree">
-    <view class="cu-tag bg-grey light xtb">已结束</view><text class="text01">汇通社区居委会举办家庭亲子活动</text>   
-    <text>2020-10-28</text>   
-    <button class="bm_btn_cur">投 票</button>
-  </view>
-</view>
+<view class="body-ase" wx:for="{{rowsWJ}}" bindtap="xqvode" data-id="{{item.questionnaireId}}">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>{{item.questionnaireName}}</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
+
+
 </view>
 <!-- 第七部分 社区新闻-->
 <view class="sqxw_box">
@@ -153,5 +160,6 @@
     <text>2020-10-28</text>   
   </view>
 
+</view>
 </view>
 </view>

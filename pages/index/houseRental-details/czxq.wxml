@@ -14,12 +14,19 @@
 <view class="cu-card">
   <view class="tab_box">
       <view class="box_left">
-        <view class="cu-tag bg-cyan light xtb">已租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{rows.state == 0}}">使用</view>
+        <view class="cu-tag bg-cyan light xtb" wx:if="{{rows.state == 1}}">已租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{rows.state == 2}}">待租</view>
+        <view class="cu-tag bg-grey light xtb" wx:if="{{rows.state == 3}}">关闭</view>
         <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
         </view>
       <view class="box_right">
-        <text><text>整租</text> | 首租汇商广场师大农大东瓦窑 牧机所家具家电齐全</text> 
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
+        <view class="cchh">
+          <text wx:if="{{rows.mode == 0}}">合租</text>
+          <text wx:if="{{rows.mode == 1}}">整租</text>
+          | {{rows.title}}
+        </view> 
+        <view class="text-yellow text-bold">￥{{rows.rentMoney}} <text class="yy_title"> 元/月</text></view>  
       </view>
     </view>
     
@@ -37,18 +44,19 @@
       <view class="fyxx_box">
         <view class="box_one">
           <view class="title">房源信息</view>
-          <text>租赁方式：<text>合租-主卧</text></text>
-          <text>房屋类型：<text>2室2厅1卫   20㎡</text></text>
-          <text>详细地址：<text>左右城左城 E4 1-1203</text></text>
+          <text>租赁方式：<text wx:if="{{rows.mode == 0}}">合租</text>
+          <text wx:if="{{rows.mode == 1}}">整租</text></text>
+          <text>房屋类型：<text>{{rows.houseType}}</text></text>
+          <text>详细地址：<text>{{rows.floorId}}{{rows.unitId}}{{rows.roomId}}</text></text>
         </view>
         <view class="box_one">
           <view class="title">房源详情</view>
-          <text>入住时间：<text>11月2日</text></text>
-          <text>房屋租期：<text>1年</text></text>
-          <text>房屋要求：<text>只限女生、半年起租、租户稳定</text></text>
+          <text>入住时间：<text>{{rows.startRentDate}}</text></text>
+          <text>房屋租期：<text>{{rows.rentMonth}}月</text></text>
+          <text>房屋要求：<text>{{rows.requirement}}</text></text>
           <view class="box_two">
           <text style="float:left;">房源描述：</text>
-          <text class="textarea right">合租屋装修精美拎包入住，前方视野开阔无遮挡采光特别好阳光充足，格局较周正私密性强步行地铁站200米，家具家电齐全设施安全保洁阿</text>
+          <text class="textarea right">{{rows.roomState}}</text>
           </view>
         
           <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
@@ -61,8 +69,8 @@
        <view class="fyxx_box">
           <view class="box_one">
             <view class="title">房东信息</view>
-            <text>房东姓名：<text>张三</text></text>
-            <text>联系方式：<text>176********</text></text>
+            <text>房东姓名：<text>{{rows.rentName1}}</text></text>
+            <text>联系方式：<text>{{rows.rentPhone}}</text></text>
           </view>
         </view>
   </view> 

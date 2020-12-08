@@ -19,6 +19,9 @@ Component({
     isStar: false, // 默认没有收藏
     isShare: true, // 默认有分享
     isShare: false, // 默认没有赞
+
+    rows:[],
+
     forF4:[],
     // 邻里圈分类功能tab
     dataTab:[
@@ -30,6 +33,7 @@ Component({
     ],
     TabCur: 0,
     scrollLeft:0
+
 
   },
 
@@ -52,9 +56,10 @@ Component({
       })
     },
 
-    lljClick:function(){
+    lljClick:function(e){
+ 
       wx.navigateTo({
-        url: '/pages/index/neighborhood-details/llq_xq'
+        url: '/pages/index/neighborhood-details/llq_xq?rows='+JSON.stringify(e.currentTarget.dataset.rows)
       })
     },
     // 点击收藏
@@ -78,6 +83,57 @@ Component({
         isZan:!bol // 改变状态
       })
     },
+    quanwen(e){
+      //console.log(e.currentTarget.dataset.i)
+      var rows = this.data.rows
+      rows[e.currentTarget.dataset.i].pantrue = false
+      this.setData({
+        rows:rows
+      })
+    },
+    squanwen(e){
+      //console.log(e.currentTarget.dataset.i)
+      var rows = this.data.rows
+      rows[e.currentTarget.dataset.i].pantrue = true
+      this.setData({
+        rows:rows
+      })
+    },
+    llqList(){
+      http.xinwenApi({
+      
+        success:res=>{
+          // this.setData({
+          //   forF4:res.rows
+          // })
+          //console.log(this.data.forF4)
+          var rows = res.rows
+          var message1 = ''
+          
+          for(var i in rows){
+            rows[i].img = rows[i].file.split(',')
+            if(rows[i].message.length > 100){
+              message1 = rows[i].message.slice(0,100)
+              
+              rows[i].message1 = message1+'...'
+              rows[i].pantrue = true
+              rows[i].pantrue1 = true
+            }else{
+              rows[i].pantrue = false
+              rows[i].pantrue1 = false
+            }
+            
+          }
+          console.log(rows)
+          this.setData({
+            rows:rows
+          })
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+    }
   },
  
   /*组件生命周期*/ 
@@ -92,20 +148,11 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
-      http.xinwenApi({
+      this.llqList()
       
-        success:res=>{
-          
-          this.setData({
-            forF4:res.rows
-          })
-          console.log(this.data.forF4)
-        },
-        fail:err=>{
-          console.log(err)
-        }
-      })
     },
+
+    
  
     //在组件实例被移动到节点树另一个位置时执行
     moved() {

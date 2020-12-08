@@ -4,9 +4,7 @@
   </cu-custom>
 <!-- <view class="llq_content"> -->
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    <image src="../../images/back.png" class="beijing"></image>
   <!-- </view> -->
 <!-- 第一部分 头部 -->
 <!-- <view class="bg-blue head_content"> -->
@@ -19,28 +17,28 @@
         <view class="content flex-sub">
           <view>小区用户名</view>
           <view class="text-gray text-sm flex justify-between">
-            2020-10-28 16:43
+            {{rows.gmtCreate}}
           </view>
         </view>
       </view>
     </view>
-    <view class="text-content">
-      折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！
+    <view style="padding:0 25rpx">
+      {{rows.message}}
     </view>
    <view class="bg-white padding">
     <view class="grid col-3 grid-square">
-      <view class="bg-img" wx:for="{{6}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+      <view class="bg-img" wx:for="{{rows.img}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
     </view>
   </view>
-    <view class="text-gray text-sm text-left padding padding-right" style="margin-bottom:15rpx;">
+    <!-- <view class="text-gray text-sm text-left padding padding-right" style="margin-bottom:15rpx;">
       <text class="text-gray"> 收藏</text> 
       <text class="text-gray"> 分享148</text> 
       <text class="margin-lr-xs text-yellow right" style="padding-right:0"> 赞15</text>  
-    </view>
+    </view> -->
 
 <!-- 第二部分 评论内容-->
 
-  <view class="cu-list menu-avatar comment solids-top" style="padding-top: 25rpx;">
+  <!-- <view class="cu-list menu-avatar comment solids-top" style="padding-top: 25rpx;">
     <view class='action'>
       <text class='cuIcon-titles text-blue'></text>评论 20
     </view>
@@ -55,59 +53,21 @@
       折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环。
     </view>
     
-</view>
-<!-- 第二部分 复制  评论内容2-->
-<view class="cu-list menu-avatar comment solids-top">
-  <view class="cu-item">
-        <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-        <view class="content">
-          <view class="text-black">小区用户名</view>
-          <view class="text-gray text-content text-df">2020-10-28  16:43</view>
-        </view>
-      </view>
-    <view class="text-content">
-      折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环。
-    </view>
-</view>
+</view> -->
 
-<!-- 第二部分 复制  评论内容3-->
-<view class="cu-list menu-avatar comment solids-top">
-  <view class="cu-item">
-        <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-        <view class="content">
-          <view class="text-black">小区用户名</view>
-          <view class="text-gray text-content text-df">2020-10-28  16:43</view>
-        </view>
-      </view>
-    <view class="text-content">
-      折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环。
-    </view>
-</view>
 
-<!-- 第二部分 复制  评论内容4-->
-<view class="cu-list menu-avatar comment solids-top">
-  <view class="cu-item">
-        <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-        <view class="content">
-          <view class="text-black">小区用户名</view>
-          <view class="text-gray text-content text-df">2020-10-28  16:43</view>
-        </view>
-      </view>
-    <view class="text-content">
-      折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环。
-    </view>
-</view>
+
 
 </view>
 <!-- </view> -->
 </view> 
 
 <!-- 评论条框 -->
-<view class="pl_tkbtn">
+<!-- <view class="pl_tkbtn">
 <view class="cu-bar input">
     <input class="solid-bottom" focus="{{false}}" maxlength="300" cursor-spacing="10" placeholder="请发表您的评论"></input>
     <view class="action">
-      <!-- 收藏，取消收藏 -->
+  
       <view bindtap="toStar">
       <block wx:if="{{isStar == false}}">
         <image src="../../../images/images/star_lg.png " class="good_lg_img"></image>
@@ -116,7 +76,7 @@
         <image src="../../../images/images/star_active_lg.png " class="good_lg_img"></image>
       </block>
       </view>
-      <!-- 点赞  取消点赞 -->
+
       <view bindtap="toCollect" style="margin-left: 15rpx;">
       <block wx:if="{{isCollect == false}}">
       <image src="../../../images/images/good_lg.png " class="good_lg_img"></image>
@@ -129,6 +89,6 @@
     </view>
     <button class="cu-btn bg-blue shadow-blur">评论</button>
   </view>
-</view>
+</view> -->
 
 </view>

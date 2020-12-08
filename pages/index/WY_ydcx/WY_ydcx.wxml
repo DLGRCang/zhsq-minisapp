@@ -1,12 +1,10 @@
 <!--pages/index/WY_ydcx/WY_ydcx.wxml-->
-<cu-custom bgColor="bg-blue" isBack="{{false}}">
+<cu-custom bgColor="bg-gray-bljb" isBack="{{false}}">
     <view slot="content">移动巡查</view>
   </cu-custom>
 <!-- <view class="llq_content"> -->
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    <image src="../../../images/back.png" class="beijing"></image>
  
 <view class="view_tab">
 <view class="tab_bar" > 

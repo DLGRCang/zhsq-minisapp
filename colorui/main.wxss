@@ -3507,6 +3507,7 @@ scroll-view.cu-steps .cu-item {
 	color: var(--white);
 }
 
+
 .bg-gray {
 	background-color: #f0f0f0;
 	color: var(--black);
@@ -4016,4 +4017,25 @@ background: linear-gradient(60deg, #F35854, #FF7B79);
 .line-white,
 .lines-white {
 	color: var(--white);
+}
+
+.queshiye{
+	width: 100%;
+	height: 100%;
+	padding-top: 600rpx;
+	text-align: center;
+}
+.queshiye image{
+	width: 350rpx;
+	height: 274rpx;
+	margin: 0 auto;
+}
+.queshiye view{
+	margin-top: 50rpx;
+	width: 100%;
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #999999;
+	text-align: center;
 }

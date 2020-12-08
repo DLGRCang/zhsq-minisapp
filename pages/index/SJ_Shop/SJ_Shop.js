@@ -27,11 +27,9 @@ Page({
   },
   // 切换角色
   qhjiaose(){
-    if(wx.getStorageSync('indexId') == 2){
-      wx.setStorageSync('indexId', 1)
-    }else{
-      wx.setStorageSync('indexId', 2)
-    }
+
+      wx.setStorageSync('indexId', 3)
+  
     wx.reLaunch({
       url: '/pages/index/index'
     })

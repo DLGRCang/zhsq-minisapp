@@ -1,5 +1,5 @@
 // pages/index/partyBuilding/partyBuilding.js
-import https from '../../../utils/api'
+import http from '../../../utils/api'
 Page({
 
   /**
@@ -29,7 +29,7 @@ Page({
     wx.showLoading({
       title: '拼命加载中',
     })
-    https.partyApi({
+    http.partyApi({
       success:res=>{
         //console.log(res)
         this.setData({

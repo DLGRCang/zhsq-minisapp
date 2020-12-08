@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "enhance": false,
     "postcss": true,
@@ -68,6 +68,11 @@
           "name": "pages/index/SJ_Shop/SJ_Shop",
           "pathName": "pages/index/SJ_Shop/SJ_Shop",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/SJ_Message/SJ_Message",
+          "pathName": "pages/index/SJ_Message/SJ_Message",
           "scene": null
         }
       ]

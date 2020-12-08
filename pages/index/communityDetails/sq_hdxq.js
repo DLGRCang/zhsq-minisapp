@@ -1,4 +1,4 @@
-import https from '../../../utils/api'
+import http from '../../../utils/api'
 import util from '../../../utils/util'
 import verif from '../../../utils/verification'
 Page({
@@ -53,7 +53,7 @@ Page({
     wx.showLoading({
       title: '拼命加载中',
     })
-    https.hdDetailsApi({
+    http.hdDetailsApi({
       data:{
         constructionsActivityId:id
       },
@@ -84,7 +84,7 @@ Page({
     wx.showLoading({
       title: '拼命加载中',
     })
-    https.bmDetailsApi({
+    http.bmDetailsApi({
       data:{
         constructionsActivityId:this.data.rowsList.constructionsActivityId,
         time:util.formatTime(new Date()),

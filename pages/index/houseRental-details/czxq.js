@@ -1,4 +1,5 @@
 // pages/czxq/czxq.js
+import http from '../../../utils/api'
 Page({
 
   /**
@@ -10,6 +11,7 @@ Page({
       curHdIndex: 0,
       curBdIndex: 0
     }, 
+    rows:[]
   },
  // tab切换
  tab: function (e) {
@@ -28,8 +30,14 @@ Page({
    */
   onLoad: function (options) {
 
+    var item = JSON.parse(options.id)
+    var items = item.rentName.substring(0,1)
+    item.rentName1 = items+'**'
+    //console.log(item)
+    this.setData({
+      rows:item
+    })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,4 +1,7 @@
 // pages/index/complaint/complaint.js
+import http from '../../../utils/api'
+import verif from '../../../utils/verification'
+import util from '../../../utils/util'
 Page({
 
   /**
@@ -6,54 +9,66 @@ Page({
    */
   data: {
     imgList: [],
+    imgId:[],
+    content:'',
+    title:''
   },
-  ChooseImage() {
-    wx.chooseImage({
-      count: 9, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
-      success: (res) => {
-        if (this.data.imgList.length != 0) {
-          this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
-          })
-        } else {
-          this.setData({
-            imgList: res.tempFilePaths
-          })
-        }
-      }
-    });
-  },
-  ViewImage(e) {
-    wx.previewImage({
-      urls: this.data.imgList,
-      current: e.currentTarget.dataset.url
-    });
-  },
-  DelImg(e) {
-    wx.showModal({
-      title: '附件内容',
-      content: '确定要删除附件吗？',
-      cancelText: '取消',
-      confirmText: '确认',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-          this.setData({
-            imgList: this.data.imgList
-          })
-        }
-      }
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
+  ChooseImage() {
+    var imgs=verif.imgClick()
+    imgs.then(res=>{
+       this.setData({
+        imgId:this.data.imgId.concat(res),
+        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)
+      })
+    })
+   // console.log(this.data.imgList)
+  },
+
+  textClick(e){
+    //console.log(e)
+    this.setData({
+      content:e.detail.value
+    })
+  },
+  inputClick(e){
+    this.setData({
+      title:e.detail.value
+    })
+  },
+
+  tsjyList(){
+    var time = util.formatTime(new Date)
+    //console.log(this.data.title)
+    //console.log(this.data.content)
+    var imgId1 = ''
+    for(var i in this.data.imgId){
+      if(imgId1 == ''){
+        imgId1=this.data.imgId[i]
+      }else{
+        imgId1=imgId1+','+this.data.imgId[i]
+      }
+    }
+    http.tsjyApi({
+      data:{
+        peopleId:'aaa',
+        peopleName:'bbb',
+        time:time,
+        content:this.data.content,
+        file:imgId1,
+        title:this.data.title
+      },
+      success:res=>{
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

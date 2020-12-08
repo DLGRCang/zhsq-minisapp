@@ -1,76 +1,135 @@
 // 在这里面定义所有接口，一个文件管理所有接口，易于维护
 import { http } from './http'; // 引入刚刚封装好的http模块，import属于ES6的语法，微信开发者工具必须打开ES6转ES5选项
-import {https} from './https';
 
-function xinwenApi(params) { // 新闻详情
+// 邻里圈列表
+function xinwenApi(params) { 
   http('neighbor/listpageneighbor', 'get', params)  // 接口请求的路由地址以及请求方法在此处传递
 }
+// 邻里圈发布按钮
+function llqfbApi(params) { 
+  http('neighbor/saveneighbor', 'post', params)  // 接口请求的路由地址以及请求方法在此处传递
+}
+// 邻里圈浏览量增加接口
+function llqlllzjApi(params) { 
+  http('neighbor/views', 'post', params)  // 接口请求的路由地址以及请求方法在此处传递
+}
+
 //社区党建
 function partyApi(params){
-  https('constructions/listpageconstructions','get', params)
+  http('constructions/listpageconstructions','get', params)
 }
 
 //党群服务
 function dqfwApi(params){
-  https('constructionsactivity/listpageconstructionsactivity/ser','get', params)
+  http('constructionsactivity/listpageconstructionsactivity/ser','get', params)
 }
 //党群服务热门
 function dqfwrmApi(params){
-  https('constructionsactivity/popularListpageconstructionsactivity/ser','get', params)
+  http('constructionsactivity/popularListpageconstructionsactivity/ser','get', params)
 }
 //党群服务评分
 function dqfwpfApi(params){
-  https('constructionsactivity/scoreListpageconstructionsactivity/ser','get', params)
+  http('constructionsactivity/scoreListpageconstructionsactivity/ser','get', params)
 }
 
 //党群服务详情
 function dqDetailsApi(params){
-  https('constructionsactivity/getconstructionsactivity/'+params.data.constructionsActivityId,'get', params)
+  http('constructionsactivity/getconstructionsactivity/'+params.data.constructionsActivityId,'get', params)
 }
 
 //社区活动
 function commApi(params){
-  https('constructionsactivity/listpageconstructionsactivity/act','get', params)
+  http('constructionsactivity/listpageconstructionsactivity/act','get', params)
 }
 //社区活动热门
 function commrmApi(params){
-  https('constructionsactivity/popularListpageconstructionsactivity/act','get', params)
+  http('constructionsactivity/popularListpageconstructionsactivity/act','get', params)
 }
 //社区活动评分
 function commpfApi(params){
-  https('constructionsactivity/scoreListpageconstructionsactivity/act','get', params)
+  http('constructionsactivity/scoreListpageconstructionsactivity/act','get', params)
 }
 
 //社区活动详情
 function hdDetailsApi(params){
-  https('constructionsactivity/getconstructionsactivity/'+params.data.constructionsActivityId,'get', params)
+  http('constructionsactivity/getconstructionsactivity/'+params.data.constructionsActivityId,'get', params)
 }
 
 //社区活动报名
 function bmDetailsApi(params){
-  https('constructionssignup/saveconstructionssignup','post', params)
+  http('constructionssignup/saveconstructionssignup','post', params)
 }
 
 //场地列表
 function cdApi(params){
   http('constructionsplace/listpageconstructionsplace','get', params)
 }
+//场地列表热门
+function cdrmApi(params){
+  http('constructionsplace/remenlistPageConstructionsPlace','get', params)
+}
+//场地列表评分
+function cdpfApi(params){
+  http('constructionsplace/pingfenlistPageConstructionsPlace','get', params)
+}
 
 //场地列表详情
 function cdDetailsApi(params){
-  console.log('constructionsplace/getconstructionsplace/'+params.data.constructionsActivityId)
+  //console.log('constructionsplace/getconstructionsplace/'+params.data.constructionsActivityId)
   http('constructionsplace/getconstructionsplace/'+params.data.constructionsActivityId,'get', params)
 }
 
-//小区投票
+//小区投票列表
 function tpApi(params){
-  http('vote/listvote','get',params)
+  console.log(params)
+  http('vote/listpagevoteFront/0/'+params.data.votePeopleId,'get',params)
 }
+
+//小区投票按钮
+function tpanApi(params){
+  http('voterecord/savevoterecord','post',params)
+}
+
+//问卷调查
+function wjApi(params){
+  http('questionnaire/listpagequestionnaire','get',params)
+}
+
+//问卷调查详情
+function wjdcApi(params){
+  //console.log(params)
+  http('vote/questionnaireList/'+params.data.questionnaireId,'get',params)
+}
+
+//投票详情列表
+function tpxqApi(params){
+  //console.log(params)
+  http('vote/getvote/'+params.data.voteId,'get',params)
+}
+
+//房屋出租列表
+function fwczApi(params){
+  //console.log(params)
+  http('rentroom/listrentroom','get',params)
+}
+// //房屋出租详情列表
+// function fwczxqApi(params){
+//   //console.log(params)
+//   http('rentroom/getrentroom/'+params.data.rentRoomId,'get',params)
+// }
+
+//投诉建议
+function tsjyApi(params){
+  http('complaint/savecomplaint','post',params)
+}
+
+
 
 
 
 export default { // 暴露接口
   xinwenApi,
+  llqfbApi,
   partyApi,
   dqfwApi,
   dqfwrmApi,
@@ -82,6 +141,15 @@ export default { // 暴露接口
   hdDetailsApi,
   bmDetailsApi,
   cdApi,
+  cdrmApi,
+  cdpfApi,
   cdDetailsApi,
-  tpApi
+  tpApi,
+  tpanApi,
+  wjApi,
+  wjdcApi,
+  tpxqApi,
+  fwczApi,
+  llqlllzjApi,
+  tsjyApi
 }

@@ -38,3 +38,13 @@ font-family: Microsoft YaHei;
 font-weight: bold;
 color: #999999;
 }
+.radio-group{
+  margin-top: 15rpx;
+  width: 100%;
+}
+.radio{
+  width: 100%;
+}
+switch, checkbox, radio {
+  margin: 15rpx 15rpx 0 0;
+}

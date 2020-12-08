@@ -8,7 +8,11 @@
     "t6": "/pages/index/SJ_Message/SJ_Message",
     "t7": "/pages/index/SJ_Order/SJ_Order",
     "t8": "/pages/index/SJ_Goods/SJ_Goods",
-    "t9": "/pages/index/SJ_Shop/SJ_Shop"
+    "t9": "/pages/index/SJ_Shop/SJ_Shop",
+    "t10": "/pages/index/WY_pban/WY_pban",
+    "t11": "/pages/index/WY_tzfb/WY_tzfb",
+    "t12": "/pages/index/WY_wxd/WY_wxd",
+    "t13": "/pages/index/WY_ydcx/WY_ydcx"
   },
   "disableScroll":true
 }

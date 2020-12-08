@@ -3,12 +3,15 @@
     "pages/index/SJ_Goodsfabu/SJ_Goodsfabu",
 
     "pages/index/index",
-    "pages/index/service/cd_fwxq",
     "pages/index/Llq_pub/Llq_pub",
+   
+    "pages/index/vote/kaishi_tp",
+    "pages/index/service/cd_fwxq",
+    "pages/index/froms/froms",
+    
     "pages/index/myGive/myGive",
     "pages/index/liveBroadcast/liveBroadcast",
     "pages/index/community/community",
-    "pages/index/vote/kaishi_tp",
     "pages/index/voteOver/tp",
     "pages/index/partyBuilding/partyBuilding",
     "pages/index/partyBranch/partyBranch",
@@ -31,7 +34,6 @@
     "pages/index/field/cdfw",
     "pages/index/partyMasses/dqfw",
     "pages/index/partyServiceDetails/dq_hdxq",
-    
     "pages/index/living_payment/shjf",
     "pages/index/life_details/life_details",
     "pages/index/life_detailsOrder/life_detailsOrder",

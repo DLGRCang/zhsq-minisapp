@@ -31,10 +31,12 @@
           <view><text class="cuIcon-dianhua" style="color:#F35854"></text><text class="padd_lf">电话:{{rowsList.tel}}</text></view>
           <view><text class="cuIcon-homefill" style="color:#F35854"></text><text class="padd_lf">面积:{{rowsList.areaCovered}}㎡</text></view>
           <view><text class="cuIcon-timefill" style="color:#F35854"></text><text class="padd_lf">开放时间:{{rowsList.openDate}}</text></view>
+          <view>
+            <text class="cuIcon-locationfill" style="color:#F35854"></text><text class="padd_lf">地址:{{rowsList.address}}</text>
+          </view>
         </view>
-        <view class="x-bot">
-          <text class="cuIcon-locationfill" style="color:#F35854"></text><text class="padd_lf">地址:{{rowsList.address}}</text>
-        </view>
+
+        
       </view>
     </view>
     <view class="fuwu">

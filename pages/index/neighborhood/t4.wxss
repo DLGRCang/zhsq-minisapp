@@ -12,7 +12,7 @@
   text-align: center;
   color:#000;
 }
-.text-content{text-align: left;}
+.text-content{text-align: left;padding-bottom: 20rpx;}
 .padding-right>text{padding-right:35rpx;}
 .fabu_btn{font-size:30rpx;right:2%;bottom:10%;position: fixed;border-radius: 50%;
 width:70rpx;height:70rpx;font-weight: bold;display: flex;
@@ -25,3 +25,19 @@ align-items: center;justify-content: center;}
  .download{
    display:inline-block;margin-left:25rpx;
  }   
+ .text-cont{
+   width: 100%;
+   padding: 0 30rpx 20rpx;
+   
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+text-align: left;
+ }
+ .imgFor{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   
+ }
