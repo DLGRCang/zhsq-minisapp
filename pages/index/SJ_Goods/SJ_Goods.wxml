@@ -29,7 +29,13 @@
           <view class="fr_var"><text>规格：500ml*12罐/箱</text><text>销量：2345</text></view>
           <view class="jg">
             <view class="bot_fl">￥<text>7.9</text></view>
-            <view class="bot_fr">···</view>
+            <!-- <view class="bot_fr">···</view> -->
+                      <!-- 编辑修改删除 -->
+    <view class="bianji">
+        <view bindtap="update" class="text-blue">编辑</view>
+        <view bindtap="xiajia" class="text-gray">下架</view>
+        <view bindtap="delete" class="text-red">删除</view>
+    </view>
           </view>
         </view>
       </view>
@@ -49,7 +55,12 @@
           <view class="fr_var"><text>规格：500ml*12罐/箱</text><text>销量：2345</text></view>
           <view class="jg">
             <view class="bot_fl">￥<text>7.9</text></view>
-            <view class="bot_fr">···</view>
+            <!-- <view class="bot_fr">···</view> -->
+            <view class="bianji">
+                <view bindtap="update" class="text-blue">编辑</view>
+                <view bindtap="xiajia" class="text-gray">上架</view>
+                <view bindtap="delete" class="text-red">删除</view>
+            </view>
           </view>
         </view>
       </view>
@@ -60,4 +71,5 @@
 <!-- 栏目结束 -->
 </view>
 <!-- view tab整体栏目结束 -->
-
+<!-- 发布图标 -->
+<button class="cuIcon-add bg-blue fabu_btn" role="button" aria-disabled="false" bindtap="fabu"></button>

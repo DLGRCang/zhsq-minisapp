@@ -1,41 +1,12 @@
-// pages/index/SJ_Goods/SJ_Goods.js
+// pages/index/Sj_dprz/Sj_dprz.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // tab 切换
-    tabArr: {
-      curHdIndex: 0,
-      curBdIndex: 0
-    }, 
-  },
 
-      // 发布
-      fabu:function(){
-        wx.navigateTo({
-          url: '/pages/index/SJ_Goodsfabu/SJ_Goodsfabu'
-        })
-      },
-    // 搜索页面跳转
-    Search:function(){
-      wx.navigateTo({
-        url: '/pages/index/Search/Search'
-      })
-    },
-  // tab切换
-  tab: function (e) {
-    //var dataId = e.currentTarget.dataset.id;
-    var dataId = e.currentTarget.id;
-    var obj = {};
-    obj.curHdIndex = dataId;
-    obj.curBdIndex = dataId;
-    this.setData({
-      tabArr: obj
-    })
-    //console.log(e);
-  },  
+  },
 
   /**
    * 生命周期函数--监听页面加载

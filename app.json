@@ -1,7 +1,6 @@
 {
   "pages": [
-  
-
+    "pages/index/SJ_Goodsfabu/SJ_Goodsfabu",
 
     "pages/index/index",
     "pages/index/service/cd_fwxq",
@@ -54,6 +53,8 @@
     "pages/index/SJ_Message/SJ_Message",
     "pages/index/SJ_Order/SJ_Order",
     "pages/index/SJ_Shop/SJ_Shop",
+    "pages/index/Sj_dprz/Sj_dprz",
+    "pages/index/Sj_dpxx/Sj_dpxx",
 
     "pages/index/Register/Register",
     "pages/index/Login/Login",

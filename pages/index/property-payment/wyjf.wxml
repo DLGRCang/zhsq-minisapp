@@ -6,7 +6,7 @@
   <view class="top-navigation bg-gray">
     <view>
       <text class="cuIcon-location"></text>
-      <view style="width:324rpx">左右城左E4 1单元1203</view>
+      <view>天龙嘉苑 乌兰小区</view>
     </view>
   </view>
 

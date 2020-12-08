@@ -7,6 +7,24 @@ Page({
   data: {
 
   },
+      // 店铺营收跳转
+  feedbackClick:function(){
+    wx.navigateTo({
+      url: '/pages/index/Sj_revenue/Sj_revenue'
+    })
+  },
+        // 店铺信息跳转
+        dpxx:function(){
+          wx.navigateTo({
+            url: '/pages/index/Sj_dpxx/Sj_dpxx'
+          })
+        },
+  // 店铺认证跳转
+  aboutMe:function(){
+    wx.navigateTo({
+      url: '/pages/index/Sj_dprz/Sj_dprz'
+    })
+  },
   // 切换角色
   qhjiaose(){
     if(wx.getStorageSync('indexId') == 2){

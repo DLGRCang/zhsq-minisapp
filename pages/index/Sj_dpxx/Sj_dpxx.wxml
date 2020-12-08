@@ -1,0 +1,51 @@
+<!--pages/index/Sj_dpxx/Sj_dpxx.wxml-->
+<cu-custom bgColor="bg-gray" isBack="{{true}}">
+    <view slot="content">店铺信息</view>
+  </cu-custom>
+
+  <!-- 内容 -->
+  <view class="setting_box">
+    <!-- 第二栏 -->
+    <view class="my-b-from">
+    <view class="my-p-from">
+      <view class="bot-border">
+        <text>店铺照片</text>
+        <image class="tx_img" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg"> </image>
+        <!-- <text class="cuIcon-right lg text-gray"></text> -->
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>店铺名称</text>
+        <view class="fr text-gray">张三水果店铺<text class="cuIcon-right lg text-gray"></text></view>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>店铺简介</text>
+        <view class="fr text-gray">商铺简介内容...<text class="cuIcon-right lg text-gray"></text></view>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>联系方式</text>
+        <view class="fr text-gray">176********<text class="cuIcon-right lg text-gray"></text></view>
+      </view>
+  </view>
+
+  </view>
+
+      <!-- 第四栏 -->
+      <!-- <view class="my-b-from">
+    <view class="my-p-from">
+      <view class="bot-border" bindtap="qhjiaose">
+        <text>切换角色</text>
+        <text class="cuIcon-right lg text-gray"></text>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <button class="cu-btn block bg-blue margin-tb-sm lg" disabled type="">退出登录</button>
+  </view>
+  </view> -->
+  
+</view>
