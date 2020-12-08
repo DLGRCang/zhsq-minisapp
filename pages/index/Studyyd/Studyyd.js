@@ -1,3 +1,4 @@
+// pages/index/Studyyd/Studyyd.js
 // pages/index/partyBuilding/partyBuilding.js
 import http from '../../../utils/api'
 Page({
@@ -7,11 +8,10 @@ Page({
    */
   data: {
     dataTab:[
-      {id:0,content:"支委会成员"},
-      {id:1,content:"支部党员"},
-      {id:2,content:"组织生活会"},
-      {id:3,content:"支部党课"},
-      {id:4,content:"主题党日"}
+      {id:0,content:"党规党章"},
+      {id:1,content:"政策法规"},
+      {id:2,content:"准则条例"},
+      {id:3,content:"办法规定"},
     ],
     TabCur: 0,
     scrollLeft:0,
@@ -86,28 +86,7 @@ Page({
       })
     }
   },
-  shequhd(){
-    wx.navigateTo({
-      url: '/pages/index/community/community'
-    })
-    
-  },
-  // 学习园地跳转
-  studyyd(){
-    wx.navigateTo({
-      url: '/pages/index/Studyyd/Studyyd'
-    })
-  },
-  changdifw(){
-    wx.navigateTo({
-      url: '/pages/index/field/cdfw'
-    })
-  },
-  dangqunfw(){
-    wx.navigateTo({
-      url: '/pages/index/partyMasses/dqfw'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
