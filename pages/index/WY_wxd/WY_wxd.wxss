@@ -1,4 +1,6 @@
 /* pages/index/WY_wxd/WY_wxd.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
 .fl{float: left;}
 .fr{float: right;}
 /* 頭部背景樣式 */
