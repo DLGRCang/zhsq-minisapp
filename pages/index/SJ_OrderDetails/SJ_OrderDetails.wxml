@@ -1,0 +1,4 @@
+<!--pages/index/SJ_OrderDetails/SJ_OrderDetails.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{false}}">
+    <view slot="content">详情</view>
+</cu-custom>

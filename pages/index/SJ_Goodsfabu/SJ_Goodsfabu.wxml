@@ -46,14 +46,14 @@
       <view class="bot-fb">
         <button>发布</button>
       </view>
-      <view class="danhang" wx:if="{{hezufang}}">
+  
+
+    </view>
+</view>
+<view class="danhang" wx:if="{{hezufang}}">
         <view class="bot-fb">
           <button>上架商品</button>
         </view>
       </view>
-
-    </view>
-</view>
-
 </view>
 

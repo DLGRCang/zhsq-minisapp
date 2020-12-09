@@ -17,31 +17,24 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <!-- <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}"> -->
-    <view class="tab_box" bindtap="xiangqing">
-      <view class="life-bot">
-        <view class="bot-over">
-          <view class="bot-neirong" wx:for="{{2}}" bindtap="life_details">
-            <view>
-              <view class="r-n1 fl">买家已付款</view>
+    <view class="tab_box" bindtap="xiangqing" wx:for="{{5}}">
+            <view class="messtop">
+              <view class="text-blue fl">买家已付款</view>
               <view class="fr">17:53 <text class="cuIcon-title text-red"></text></view>
             </view>
-            <view class="r-n3">
+            <view class="message_boximg">
                 <view class="n3-nr" wx:for="{{5}}">
                   <view><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
                   <view>青岛 听装醇厚</view>
                 </view>
               </view>
-          </view>
-        </view>
-  </view>
-
     </view>
 
   
 
   <!-- 第二栏目 -->
   <!-- <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-
+22222222222
   </view>  -->
 
 </view>

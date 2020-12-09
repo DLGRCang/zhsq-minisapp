@@ -11,6 +11,12 @@ Page({
       curBdIndex: 0
     }, 
   },
+    // 消息跳转详情页面
+    xiangqing:function(){
+      wx.navigateTo({
+        url: '/pages/index/SJ_OrderDetails/SJ_OrderDetails'
+      })
+    },
   // tab切换
   tab: function (e) {
     //var dataId = e.currentTarget.dataset.id;
