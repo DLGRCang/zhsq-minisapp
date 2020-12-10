@@ -5,6 +5,14 @@ App({
   },
 
   onLaunch: function() {
+    var user = {
+      userId:'500',
+      floorId:'0f6bf2bc-b710-4d7a-bf58-9099b294a44a',
+      unitId:'3770b051-2a14-4804-b0de-2464434b46de',
+      roomId:'0626e48e-39eb-4cba-bd46-adead0010032'
+    }
+
+    wx.setStorageSync('user', user)
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())

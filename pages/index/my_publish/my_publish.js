@@ -1,4 +1,5 @@
 // pages/index/my_publish/my_publish.js
+import http from '../../../utils/api'
 var app = getApp();
 Page({
 
@@ -7,7 +8,7 @@ Page({
    */
   data: {
     hidden:false,
-
+    rows:[],
       // tab 切换
       tabArr: {
         curHdIndex: 0,
@@ -76,9 +77,10 @@ Delete:function(){
     
 },
 // 邻里圈点击进入详情
-lljClick:function(){
+lljClick:function(e){
+ 
   wx.navigateTo({
-    url: '/pages/index/neighborhood-details/llq_xq'
+    url: '/pages/index/neighborhood-details/llq_xq?rows='+JSON.stringify(e.currentTarget.dataset.rows)
   })
 },
   // 点击收藏
@@ -119,7 +121,42 @@ lljClick:function(){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.llqList()
+  },
 
+  llqList(){
+    http.wdfbLlqApi({
+      data:{
+        createPeopleId:wx.getStorageSync('user').userId
+      },
+      success:res=>{
+        console.log(res)
+        var rows = res.rows
+        var message1 = ''
+        
+        for(var i in rows){
+          rows[i].img = rows[i].file.split(',')
+          if(rows[i].message.length > 100){
+            message1 = rows[i].message.slice(0,100)
+            
+            rows[i].message1 = message1+'...'
+            rows[i].pantrue = true
+            rows[i].pantrue1 = true
+          }else{
+            rows[i].pantrue = false
+            rows[i].pantrue1 = false
+          }
+          
+        }
+        console.log(rows)
+        this.setData({
+          rows:rows
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
   },
 
   /**

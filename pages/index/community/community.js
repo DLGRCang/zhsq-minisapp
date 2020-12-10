@@ -93,7 +93,7 @@ xiangqing(e){
     http.commrmApi({
       
       success:res=>{
-        console.log(res)
+        //console.log(res)
         var rowsList = res.rows
         
         for(var i in rowsList){

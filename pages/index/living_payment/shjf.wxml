@@ -7,7 +7,7 @@
 <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/shjf_lt.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/shjf_lt.png"></image>
       </view>
       <view class="content content_title">
         <view class="text-black">
@@ -24,7 +24,7 @@
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/shjf_yd.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/shjf_yd.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -42,7 +42,7 @@
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/shjf_dx.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/images/shjf_dx.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -60,7 +60,7 @@
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/shjf_sf.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/images/shjf_sf.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -78,7 +78,7 @@
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/shjf_df.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/images/shjf_df.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -96,7 +96,7 @@
     <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/shjf_nq.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/images/shjf_nq.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -114,7 +114,7 @@
       <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/shjf_rq.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/images/shjf_rq.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">

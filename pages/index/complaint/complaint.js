@@ -31,6 +31,31 @@ Page({
    // console.log(this.data.imgList)
   },
 
+  ViewImage(e) {
+    wx.previewImage({
+      urls: this.data.imgList,
+      current: e.currentTarget.dataset.url
+    });
+  },
+  DelImg(e) {
+    wx.showModal({
+      title: '删除图片',
+      content: '确定要删除该图片吗？',
+      cancelText: '取消',
+      confirmText: '确认',
+      success: res => {
+        if (res.confirm) {
+          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
+          this.data.imgId.splice(e.currentTarget.dataset.index, 1);
+          this.setData({
+            imgList: this.data.imgList,
+            imgId:this.data.imgId
+          })
+        }
+      }
+    })
+  },
+
   textClick(e){
     //console.log(e)
     this.setData({
@@ -46,7 +71,7 @@ Page({
   tsjyList(){
     var time = util.formatTime(new Date)
     //console.log(this.data.title)
-    //console.log(this.data.content)
+   // console.log(this.data.content)
     var imgId1 = ''
     for(var i in this.data.imgId){
       if(imgId1 == ''){
@@ -55,9 +80,12 @@ Page({
         imgId1=imgId1+','+this.data.imgId[i]
       }
     }
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     http.tsjyApi({
       data:{
-        peopleId:'aaa',
+        peopleId:'500',
         peopleName:'bbb',
         time:time,
         content:this.data.content,
@@ -65,7 +93,18 @@ Page({
         title:this.data.title
       },
       success:res=>{
-        console.log(res)
+        //console.log(res)
+        wx.hideLoading({
+          success: (res) => {},
+        })
+        if(res.code == 200){
+          verif.tips('提交成功')
+        }else{
+          verif.tips(res.msg)
+        }
+      },
+      fali:err=>{
+        console.log(err)
       }
     })
   },

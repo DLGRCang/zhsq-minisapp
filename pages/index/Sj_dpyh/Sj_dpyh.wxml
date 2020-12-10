@@ -7,7 +7,7 @@
 <view class="dpyh_box"> 
    <view class="box"  wx:for="{{3}}" >
       <view class="box_fl">
-        <image src="../../../images/SJ/yhj.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/yhj.png"></image>
         <view class="fl_title"><text>5</text>元</view>
         <view class="fl_title" style="margin-top:5rpx;">满35元可用</view>
       </view>

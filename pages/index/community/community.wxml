@@ -79,8 +79,8 @@
 
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsActivityId}}" wx:for="{{rowsList2}}" wx:key="index">
       <view class="box_left">
-        <view class="cu-tag bg-huise light xtb" wx:if="{{item.infoStatus == 0}}">已取消</view>
-        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.infoStatus == 1}}">
+        <view class="cu-tag bg-huise light xtb" wx:if="{{item.status == 0}}">已取消</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">
           <text wx:if="{{item.activeStartTime > time}}">未开始</text>
           <text wx:if="{{item.activeStartTime <= time && item.activeEndTime >= time}}">进行中</text>
           <text wx:if="{{item.activeEndTime < time}}">已结束</text>

@@ -14,7 +14,7 @@
 <view class="cu-list menu-avatar wxjl_content" style="margin-top:115rpx;">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/wyjf_01.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wyjf_01.png"></image>
       </view>
       <!-- <view class="cu-avatar lg wxjl_image" style="background-image:url(../../../../images/images/wyjf_01.png);"></view> -->
       <view class="content content_title">
@@ -34,7 +34,7 @@
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/wyjf_02.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wyjf_02.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -54,7 +54,7 @@
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/wyjf_02.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wyjf_02.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -74,7 +74,7 @@
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/wyjf_02.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wyjf_02.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -94,7 +94,7 @@
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/wyjf_02.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wyjf_02.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">
@@ -114,7 +114,7 @@
     <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
-        <image src="../../../images/images/wyjf_02.png"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wyjf_02.png"></image>
       </view>
       <view class="content content_title02">
         <view class="text-black">

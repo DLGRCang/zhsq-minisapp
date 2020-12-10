@@ -73,6 +73,18 @@
         {
           "name": "pages/index/SJ_Message/SJ_Message",
           "pathName": "pages/index/SJ_Message/SJ_Message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/lease/lease",
+          "pathName": "pages/index/lease/lease",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "入住小区",
+          "pathName": "pages/index/checkIn/checkIn",
           "scene": null
         }
       ]

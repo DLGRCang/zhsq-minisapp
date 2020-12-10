@@ -7,17 +7,74 @@
       <view class="body-top">发布房源:</view>
       <view class="danhang">
         <view class="biaoti">姓名</view>
-        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入姓名"/></view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入姓名" value="{{name}}" bindinput="inputName"/></view>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">性别</view>
+        <view class="xingbie"><view class="{{sex == '1'?'yxg':'wxg'}}" bindtap="sexClick" data-sex="{{1}}">男</view><view class="{{sex == '0'?'yxg':'wxg'}}" bindtap="sexClick" data-sex="{{0}}">女</view></view>
       </view>
       <view class="danhang">
         <view class="biaoti">身份证号</view>
-        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入身份证号"/></view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入您的身份证号" bindinput="inputsfzh" value="{{sfzh}}"/></view>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">民族</view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入您的民族" bindinput="inputmz" value="{{mz}}"/></view>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">籍贯</view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入您的户籍地址" bindinput="inputjg" value="{{jg}}"/></view>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">职业</view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入您的职业" bindinput="inputzy" value="{{zy}}"/></view>
       </view>
       <view class="danhang">
         <view class="biaoti">手机号</view>
-        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入手机号"/></view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入手机号" bindinput="inputsjh" value="{{sjh}}"/></view>
       </view>
       <view class="danhang">
+        <view class="biaoti">与户主关系</view>
+        <picker bindchange="PickerChange" value="{{pickerIndex}}" range="{{picker}}">
+          <view class="inputCss">
+                <view class="picker">
+                  <text>{{pickerIndex?picker[pickerIndex]:'请选择'}}</text>
+                  <text class="cuIcon-right"></text>
+                </view>
+              </view>
+              </picker>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">入住是时间</view>
+            <picker mode="date" value="{{date}}" start="{{date}}" bindchange="DateChange">
+              <view class="inputCss">
+                <view class="picker">
+                  <text>{{date}}</text>
+                  <text class="cuIcon-right"></text>
+                </view>
+            </view>
+            </picker>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">状态</view>
+            <picker value="{{status1}}" range="{{status}}" bindchange="statusChange">
+              <view class="inputCss">
+                <view class="picker">
+                  <text>{{status1?status[status1]:'请选择'}}</text>
+                  <text class="cuIcon-right"></text>
+                </view>
+            </view>
+            </picker>
+      </view>
+      <view class="danhang">
+        <view class="biaoti">是否常驻</view>
+        <view class="xingbie"><view class="{{sfcz == '1'?'yxg':'wxg'}}" bindtap="sfczClick" data-sfcz="{{1}}">是</view><view class="{{sfcz == '0'?'yxg':'wxg'}}" bindtap="sfczClick" data-sfcz="{{0}}">否</view></view>
+      </view>
+      <!-- <view class="danhang">
+        <view class="biaoti">是否户主</view>
+        <view class="xingbie"><view class="{{sfhz == '0'?'yxg':'wxg'}}" bindtap="sfhzClick" data-sfhz="{{0}}">是</view><view class="{{sfhz == '1'?'yxg':'wxg'}}" bindtap="sfhzClick" data-sfhz="{{1}}">否</view></view>
+      </view> -->
+      <!-- <view class="danhang">
         <view class="biaoti">人脸照片</view>
 
 		<view class="grid col-4 grid-square flex-sub">
@@ -31,8 +88,8 @@
 				<text class="cuIcon-cameraadd"></text>
 			</view>
 	</view>
-      </view>
-      <view class="body-top">住房信息:</view>
+      </view> -->
+      <!-- <view class="body-top">住房信息:</view>
       <view class="danhang">
         <view class="biaoti">住房信息</view>
         <view class="fwhx">
@@ -53,10 +110,10 @@
             </view>
 
           </view>
-      </view>
+      </view> -->
     </view>
   </view>
   <view class="bot-fb">
-    <button>提交审核</button>
+    <button catchtap="tjshClick">提交审核</button>
   </view>
 </view>

@@ -17,7 +17,27 @@
         <view class="twobiao"> <view></view> 基础信息</view>
         <view class="danhang">
           <view class="biaoti"><text style="color:red">*</text>标题</view>
-          <view class="inputCss"><input type="text" class="btInput" placeholder="请输入房屋标题"/></view>
+          <view class="inputCss"><input type="text" class="btInput" placeholder="请输入房屋标题" value="{{title}}"/></view>
+        </view>
+        <view class="danhang">
+          <view class="biaoti"> <text style="color:red">*</text> 房屋地址</view>
+          <view class="fwhx">
+            <view class="inputCss xuanze3">
+              <text></text>
+              <input type="text" class="fwhxInput" value="{{floorId}}"/>
+              <text>楼</text>
+            </view>
+            <view class="inputCss xuanze3">
+              <text></text>
+              <input type="text" class="fwhxInput" value="{{unitId}}"/>
+              <text>单元</text>
+            </view>
+            <view class="inputCss xuanze3">
+              <text></text>
+              <input type="text" class="fwhxInput" value="{{roomId}}"/>
+              <text>户</text>
+            </view>
+          </view>
         </view>
         <view class="danhang">
           <view class="biaoti"> <text style="color:red">*</text> 房屋户型</view>
@@ -68,10 +88,7 @@
             </view>
           </view>
         </view>
-        <view class="danhang">
-          <view class="biaoti"><text style="color:red">*</text>房屋地址</view>
-          <view class="inputCss"><input type="text" class="btInput" placeholder="请输入房源地址"/></view>
-        </view>
+        
         <view class="danhang">
           <view class="biaoti"><text style="color:red">*</text>租金信息</view>
           <view class="inputCss zjxx">

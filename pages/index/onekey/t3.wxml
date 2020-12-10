@@ -1,5 +1,5 @@
 <view class="onekey">
-  <image class="keyimg" src="../../../images/t1/index_banner.png"></image>
+  <image class="keyimg" src="http://172.16.20.82:8080/zhsq/assets/images/applets/index_banner.png"></image>
   <view class="biaoshi">
     <view class="bsnei"><view style="border: 5rpx solid #ccc;"></view>离线</view>
     <view class="bsnei"><view style="border: 5rpx solid #188BFF;"></view>蓝牙</view>

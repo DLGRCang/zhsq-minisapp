@@ -106,6 +106,11 @@ function tpxqApi(params){
   //console.log(params)
   http('vote/getvote/'+params.data.voteId,'get',params)
 }
+//投票详情数量
+function tpxqslApi(params){
+  //console.log(params)
+  http('voterecord/votingStatistics/'+params.data.voteId,'get',params)
+}
 
 //房屋出租列表
 function fwczApi(params){
@@ -123,8 +128,14 @@ function tsjyApi(params){
   http('complaint/savecomplaint','post',params)
 }
 
-function xxzlApi(params){
-  http('studyfile/liststudyfile','get',params)
+//入住小区
+function rzxqApi(params){
+  http('residentsInfo/saveresidentsinfo','post',params)
+}
+
+//我的发布——邻里圈
+function wdfbLlqApi(params){
+  http('neighbor/listByCreatePeopleId/'+params.data.createPeopleId,'get',params)
 }
 
 
@@ -156,5 +167,7 @@ export default { // 暴露接口
   fwczApi,
   llqlllzjApi,
   tsjyApi,
-  xxzlApi
+  rzxqApi,
+  tpxqslApi,
+  wdfbLlqApi
 }

@@ -8,10 +8,9 @@ Page({
   data: {
     dataTab:[
       {id:0,content:"工作动态"},
-      {id:1,content:"场地服务"},
+      {id:1,content:"党员风采"},
       {id:2,content:"志愿者服务"},
-      {id:3,content:"精准扶贫"},
-      {id:4,content:"学习园地"}
+      {id:3,content:"精准扶贫"}
     ],
     TabCur: 0,
     scrollLeft:0,
@@ -65,13 +64,7 @@ Page({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id-1)*60
     })
-    if(e.currentTarget.dataset.id == 4){
-     // console.log(this.data.rows)
-      if(this.data.rows == undefined){
-        this.xuexiList()
-      }
-      
-    }
+    
   },
   xuexiList(){
    wx.showLoading({

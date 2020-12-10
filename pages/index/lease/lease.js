@@ -21,6 +21,10 @@ Page({
     picker: ['其他', '主卧', '次卧'],
     index1:null,
     picker1: ['东','南','西','北','东南','东北','西南','西北','南北','东西'],
+    title:'',
+    floorId:'',
+    unitId:'',
+    roomId:'',
   },
 
   /**

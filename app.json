@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/index/SJ_Goodsfabu/SJ_Goodsfabu",
 
-    "pages/index/index",
+    
     "pages/index/Llq_pub/Llq_pub",
    
     "pages/index/vote/kaishi_tp",

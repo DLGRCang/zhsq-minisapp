@@ -8,7 +8,8 @@ Page({
     color:'red',
 
     rows:[],
-    rowsdx:null
+    rowsdx:null,
+    
   },
   onLoad(options) {
     let that = this;
@@ -38,6 +39,14 @@ Page({
       },
       fail:err=>{
         console.log(err)
+      }
+    }),
+    http.tpxqslApi({
+      data:{
+        voteId:id
+      },
+      success:res=>{
+        console.log(res)
       }
     })
   },

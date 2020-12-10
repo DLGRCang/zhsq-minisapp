@@ -25,34 +25,34 @@
 <view class="cu-bar tabbar bg-white foot">
     <view class="action text-green" bindtap="NavChange" data-cur="t1">
       <view>
-        <image src="http://127.0.0.1:8080/zhsq/assets/images/applets/1.png" class="tabimg" wx:if="{{PageCur!='t1'}}"></image>
-        <image src="../../images/tabbar/1j.png" class="tabimg" wx:if="{{PageCur=='t1'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/1.png" class="tabimg" wx:if="{{PageCur!='t1'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/1j.png" class="tabimg" wx:if="{{PageCur=='t1'}}"></image>
       </view>
       <view class="{{PageCur=='t1'?'text-ttt':'text-nnn'}}">首页</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t2">
       <view>
-        <image src="../../images/tabbar/2.png" class="tabimg" wx:if="{{PageCur!='t2'}}"></image>
-        <image src="../../images/tabbar/2j.png" class="tabimg" wx:if="{{PageCur=='t2'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/2.png" class="tabimg" wx:if="{{PageCur!='t2'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/2j.png" class="tabimg" wx:if="{{PageCur=='t2'}}"></image>
       </view>
       <view class="{{PageCur=='t2'?'text-ttt':'text-nnn'}}">生活</view>
     </view>
     <view class="action text-gray add-action" bindtap="NavChange" data-cur="t3">
 
-      <image class="img3" src="../../images/tabbar/3.png"></image>
+      <image class="img3" src="http://172.16.20.82:8080/zhsq/assets/images/applets/3.png"></image>
       <view class="{{PageCur=='t3'?'text-ttt':'text-nnn'}}">一键开门</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t4">
       <view>
-        <image src="../../images/tabbar/4.png" class="tabimg" wx:if="{{PageCur!='t4'}}"></image>
-        <image src="../../images/tabbar/4j.png" class="tabimg" wx:if="{{PageCur=='t4'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/4.png" class="tabimg" wx:if="{{PageCur!='t4'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/4j.png" class="tabimg" wx:if="{{PageCur=='t4'}}"></image>
       </view>
       <view class="{{PageCur=='t4'?'text-ttt':'text-nnn'}}">邻居</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t5">
       <view>
-        <image src="../../images/tabbar/5.png" class="tabimg" wx:if="{{PageCur!='t5'}}"></image>
-        <image src="../../images/tabbar/5j.png" class="tabimg" wx:if="{{PageCur=='t5'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/5.png" class="tabimg" wx:if="{{PageCur!='t5'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/5j.png" class="tabimg" wx:if="{{PageCur=='t5'}}"></image>
       </view>
       <view class="{{PageCur=='t5'?'text-ttt':'text-nnn'}}">我的</view>
     </view>
@@ -67,29 +67,29 @@
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="t6">
     <view class='cuIcon-cu-image'>
-      <image src="../../images/tabbar/message.png" class="tabimg" wx:if="{{PageCur!='t6'}}"></image>
-      <image src="../../images/tabbar/message2.png" class="tabimg" wx:if="{{PageCur=='t6'}}"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/message.png" class="tabimg" wx:if="{{PageCur!='t6'}}"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/message2.png" class="tabimg" wx:if="{{PageCur=='t6'}}"></image>
     </view>
     <view class="{{PageCur=='t6'?'text-ttt':'text-nnn'}}">消息</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t7">
     <view class='cuIcon-cu-image'>
-      <image src="../../images/tabbar/order.png" class="tabimg" wx:if="{{PageCur!='t7'}}"></image>
-      <image src="../../images/tabbar/order2.png" class="tabimg" wx:if="{{PageCur=='t7'}}"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/order.png" class="tabimg" wx:if="{{PageCur!='t7'}}"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/order2.png" class="tabimg" wx:if="{{PageCur=='t7'}}"></image>
     </view>
     <view class="{{PageCur=='t7'?'text-ttt':'text-nnn'}}">订单</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t8">
     <view class='cuIcon-cu-image'>
-      <image src="../../images/tabbar/goods.png" class="tabimg" wx:if="{{PageCur!='t8'}}"></image>
-      <image src="../../images/tabbar/goods2.png" class="tabimg" wx:if="{{PageCur=='t8'}}"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/goods.png" class="tabimg" wx:if="{{PageCur!='t8'}}"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/goods2.png" class="tabimg" wx:if="{{PageCur=='t8'}}"></image>
     </view>
     <view class="{{PageCur=='t8'?'text-ttt':'text-nnn'}}">商品</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t9">
     <view class='cuIcon-cu-image'>
-      <image src="../../images/tabbar/shop.png" class="tabimg" wx:if="{{PageCur!='t9'}}"></image>
-      <image src="../../images/tabbar/shop2.png" class="tabimg" wx:if="{{PageCur=='t9'}}"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/shop.png" class="tabimg" wx:if="{{PageCur!='t9'}}"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/shop2.png" class="tabimg" wx:if="{{PageCur=='t9'}}"></image>
     </view>
     <view class="{{PageCur=='t9'?'text-ttt':'text-nnn'}}">店铺</view>
   </view>
@@ -106,34 +106,34 @@
 <view class="cu-bar tabbar bg-white foot">
     <view class="action text-green" bindtap="NavChange" data-cur="t10">
       <view>
-        <image src="../../images/tabbar/wy11.png" class="tabimg" wx:if="{{PageCur!='t10'}}"></image>
-        <image src="../../images/tabbar/wy12.png" class="tabimg" wx:if="{{PageCur=='t10'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy11.png" class="tabimg" wx:if="{{PageCur!='t10'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy12.png" class="tabimg" wx:if="{{PageCur=='t10'}}"></image>
       </view>
       <view class="{{PageCur=='t10'?'text-ttt':'text-nnn'}}">物业排版</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t11">
       <view>
-        <image src="../../images/tabbar/wy21.png" class="tabimg" wx:if="{{PageCur!='t11'}}"></image>
-        <image src="../../images/tabbar/wy22.png" class="tabimg" wx:if="{{PageCur=='t11'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy21.png" class="tabimg" wx:if="{{PageCur!='t11'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy22.png" class="tabimg" wx:if="{{PageCur=='t11'}}"></image>
       </view>
       <view class="{{PageCur=='t11'?'text-ttt':'text-nnn'}}">通知发布</view>
     </view>
     <view class="action text-gray add-action" bindtap="NavChange" data-cur="t3">
 
-      <image class="img3" src="../../images/tabbar/wy31.png"></image>
+      <image class="img3" src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy31.png"></image>
       <view class="{{PageCur=='t3'?'text-ttt':'text-nnn'}}">安防巡更</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t12">
       <view>
-        <image src="../../images/tabbar/wy41.png" class="tabimg" wx:if="{{PageCur!='t12'}}"></image>
-        <image src="../../images/tabbar/wy42.png" class="tabimg" wx:if="{{PageCur=='t12'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy41.png" class="tabimg" wx:if="{{PageCur!='t12'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy42.png" class="tabimg" wx:if="{{PageCur=='t12'}}"></image>
       </view>
       <view class="{{PageCur=='t12'?'text-ttt':'text-nnn'}}">维修单</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t13">
       <view>
-        <image src="../../images/tabbar/wy51.png" class="tabimg" wx:if="{{PageCur!='t13'}}"></image>
-        <image src="../../images/tabbar/wy52.png" class="tabimg" wx:if="{{PageCur=='t13'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy51.png" class="tabimg" wx:if="{{PageCur!='t13'}}"></image>
+        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/wy52.png" class="tabimg" wx:if="{{PageCur=='t13'}}"></image>
       </view>
       <view class="{{PageCur=='t13'?'text-ttt':'text-nnn'}}">移动巡查</view>
     </view>

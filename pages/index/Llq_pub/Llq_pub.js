@@ -38,10 +38,10 @@ Page({
         data:{
           message:this.data.textArea,
           file:imgId1,
-          createPeopleId:'a',
-          floorId:'',
-          unitId:'',
-          roomId:''
+          createPeopleId:wx.getStorageSync('user').userId,
+          floorId:wx.getStorageSync('user').floorId,
+          unitId:wx.getStorageSync('user').unitId,
+          roomId:wx.getStorageSync('user').roomId
         },
         success:res=>{
           //console.log(res)

@@ -16,7 +16,7 @@ module.exports = {
     }
     //https://yiqi.sucstep.com
     wx.request({
-      url: 'http://172.16.20.82:8080/zhsq/app/release/api/' + url, // 就是拼接上前缀,此接口域名是开放接口，可访问
+      url: 'https://yiqi.sucstep.com/zhsq/app/release/api/' + url, // 就是拼接上前缀,此接口域名是开放接口，可访问
       method: method == 'post' ? 'post' : 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
       data,
       header: {

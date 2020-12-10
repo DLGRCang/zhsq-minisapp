@@ -67,19 +67,25 @@
     <button class="bm_btn">报 名</button>
   </view>   
 </view> -->
-<view class="tab_box" bindtap="sqhd_xq">
+<view class="tab_box" bindtap="xiangqing" data-id="{{rowsSQHD.constructionsActivityId}}" wx:key="index">
       <view class="box_left">
-        <view class="cu-tag bg-lvse light xtb">进行中</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <view class="cu-tag bg-huise light xtb" wx:if="{{rowsSQHD.status == 0}}">已取消</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{rowsSQHD.status == 1}}">
+          <text wx:if="{{rowsSQHD.activeStartTime > time}}">未开始</text>
+          <text wx:if="{{rowsSQHD.activeStartTime <= time && rowsSQHD.activeEndTime >= time}}">进行中</text>
+          <text wx:if="{{rowsSQHD.activeEndTime < time}}">已结束</text>
+        </view>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{rowsSQHD.actPhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
+          <text>{{rowsSQHD.type}}</text>
+          {{rowsSQHD.actContent}}
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill" style="color:#F35854"></text>内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</view>
-          <view><text class="cuIcon-timefill" style="color:#F35854"></text>2020-11-15  9:00-7:00</view>
+          <view><text class="cuIcon-dianhua" style="{{rowsSQHD.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{rowsSQHD.address}}</text></view>
+          <view><text class="cuIcon-timefill" style="{{rowsSQHD.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{rowsSQHD.time}}</text></view>
+
         </view>
       </view>
     </view>
@@ -146,7 +152,7 @@
       <text>2020-10-28</text>  
    </view>
      <view class="seven_right">
-      <image src="../../../images/t1/componentBg.png"></image>
+      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/componentBg.png"></image>
      </view>
   </view>
   

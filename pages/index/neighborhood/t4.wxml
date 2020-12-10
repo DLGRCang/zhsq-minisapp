@@ -14,7 +14,7 @@
 <view class="cu-card dynamic {{isCard?'no-card':''}}" style="padding-bottom:35%">
 <!-- 第一部分 内容 -->
 <view class="queshiye" wx:if="{{rows.length == 0}}">
-    <image src="../../../images/queshi.png"></image>
+    <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/queshi.png"></image>
     <view>暂无数据</view>
   </view>
   <view class="cu-item shadow" wx:for="{{rows}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}">

@@ -11,6 +11,7 @@
 }
 .box_left image{
   border-radius: 3px;
+  position: relative;
 }
 .t1{
   width: 100%;
