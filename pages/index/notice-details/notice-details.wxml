@@ -21,19 +21,19 @@
   <view class="padd">
   <view bindtap="toStar" class="fl">
       <block wx:if="{{isStar == false}}">
-        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/star_lg.png " class="good_lg_img"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star_lg.png " class="good_lg_img"></image>
       </block>
       <block wx:elif="{{isStar == true}}" >
-        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/star_active_lg.png " class="good_lg_img"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star_active_lg.png " class="good_lg_img"></image>
       </block>
   </view>
       <!-- 分享  取消分享 -->
       <view bindtap="toCollect" class="fr">
       <block wx:if="{{isCollect == false}}">
-      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/share.png " class="good_lg_img"></image>
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/share.png " class="good_lg_img"></image>
       </block>
       <block wx:elif="{{isCollect == true}}" >
-      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/share.png " class="good_lg_img"></image>
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/share.png " class="good_lg_img"></image>
       </block>
       </view>
     </view>   

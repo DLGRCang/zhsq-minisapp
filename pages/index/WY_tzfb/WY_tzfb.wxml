@@ -26,7 +26,7 @@
 <!-- 复制第二个 -->
 
 <view style="display:none;" class="zwsj">
-      <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/queshi.png"></image>
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
 

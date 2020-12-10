@@ -41,19 +41,19 @@
     </view>
     <view class="fuwu">
       <view class="fuwunei" bindtap="dangqunfw">
-        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/love1.png"></image>
+        <image src="http://172.16.20.82:80https://yiqi.sucstep.com80/zhsq/assets/images/applets/love1.png"></image>
         <view style="width:100%">党群服务</view>
       </view>
       <view class="fuwunei" bindtap="changdifw">
-        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/dqfw2.png"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dqfw2.png"></image>
         <view style="width:100%">场地服务</view>
       </view>
       <view class="fuwunei" bindtap="shequhd">
-        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/dqfw3.png"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dqfw3.png"></image>
         <view style="width:100%">社区活动</view>
       </view>
       <view class="fuwunei" bindtap="studyyd">
-        <image src="http://172.16.20.82:8080/zhsq/assets/images/applets/dqfw4.png"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dqfw4.png"></image>
         <view style="width:100%">学习园地</view>
       </view>
     </view>

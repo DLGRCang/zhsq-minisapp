@@ -16,24 +16,24 @@ Component({
    */
   data: {
     dataItem:[
-      {id:1,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts1.png',text:"访客通行",url:'/pages/index/visitor/visitor'},
-      {id:2,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts2.png',text:"物业维修",url:'/pages/index/property-maintenance/wywx'},
-      {id:3,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts3.png',text:"物业缴费",url:'/pages/index/property-payment/wyjf'},
-      {id:4,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts4.png',text:"生活缴费",url:'/pages/index/living_payment/shjf'},
-      {id:5,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts5.png',text:"SOS求助",url:''},
-      {id:6,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts6.png',text:"房屋出租",url:'/pages/index/houseRental/fwcz'},
-      {id:7,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts7.png',text:"空中课堂",url:''},
-      {id:8,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts8.png',text:"视频直播",url:'/pages/index/liveBroadcast/liveBroadcast'},
+      {id:1,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts1.png',text:"访客通行",url:'/pages/index/visitor/visitor'},
+      {id:2,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts2.png',text:"物业维修",url:'/pages/index/property-maintenance/wywx'},
+      {id:3,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts3.png',text:"物业缴费",url:'/pages/index/property-payment/wyjf'},
+      {id:4,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts4.png',text:"生活缴费",url:'/pages/index/living_payment/shjf'},
+      {id:5,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts5.png',text:"SOS求助",url:''},
+      {id:6,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts6.png',text:"房屋出租",url:'/pages/index/houseRental/fwcz'},
+      {id:7,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts7.png',text:"空中课堂",url:''},
+      {id:8,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts8.png',text:"视频直播",url:'/pages/index/liveBroadcast/liveBroadcast'},
       //{id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:'/pages/index/partyBranch/partyBranch'},
-      {id:10,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts10.png',text:"社区党建",url:'/pages/index/partyBuilding/partyBuilding'},
-      {id:11,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts11.png',text:"民情直达",url:'/pages/index/complaint/complaint'},
-      {id:12,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts12.png',text:"入驻小区",url:'/pages/index/checkIn/checkIn'},
-      {id:13,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts13.png',text:"楼栋布局",url:'/pages/index/floor/floor'},
-      {id:14,image:'http://172.16.20.82:8080/zhsq/assets/images/applets/ts14.png',text:"活动设施",url:''}
+      {id:10,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts10.png',text:"社区党建",url:'/pages/index/partyBuilding/partyBuilding'},
+      {id:11,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts11.png',text:"民情直达",url:'/pages/index/complaint/complaint'},
+      {id:12,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts12.png',text:"入驻小区",url:'/pages/index/checkIn/checkIn'},
+      {id:13,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts13.png',text:"楼栋布局",url:'/pages/index/floor/floor'},
+      {id:14,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts14.png',text:"活动设施",url:''}
     ],
     msgList: [
-      { img: 'http://172.16.20.82:8080/zhsq/assets/images/applets/index_banner.png' },
-      { img: 'http://172.16.20.82:8080/zhsq/assets/images/applets/index_banner.png' }
+      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png' },
+      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png' }
     ],
     jianxianL:[
       {ids:"1"},{ids:"0.9"},{ids:"0.8"},{ids:"0.7"},{ids:"0.6"},{ids:"0.5"},{ids:"0.4"},{ids:"0.3"},{ids:"0.2"},{ids:"0.1"}
