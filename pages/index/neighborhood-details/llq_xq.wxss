@@ -1,4 +1,6 @@
 /* 公共颜色 */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
 .font9{color:#999999;}
 .right{float:right;}
 .padding{padding:15rpx 25rpx;}
@@ -16,9 +18,18 @@
   left: 0;
   top: 0;
   position: absolute;
-  z-index: 0;
+  z-index: -1;
 }
-
+.text-cont{
+  width: 100%;
+  padding: 0 30rpx 20rpx;
+  
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+text-align: left;
+}
 
 .text-content{text-align: left;}
 .padding-right>text{padding-right:35rpx;}

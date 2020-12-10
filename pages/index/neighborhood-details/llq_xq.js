@@ -40,7 +40,7 @@ toCollect () {
         rows:JSON.parse(options.rows)
       })
       this.lllList()
-      //console.log(this.data.rows)
+      console.log(this.data.rows)
   },
   lllList(){
     http.llqlllzjApi({

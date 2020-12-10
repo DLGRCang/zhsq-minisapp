@@ -130,7 +130,7 @@ lljClick:function(e){
         createPeopleId:wx.getStorageSync('user').userId
       },
       success:res=>{
-        console.log(res)
+        //console.log(res)
         var rows = res.rows
         var message1 = ''
         
@@ -148,13 +148,22 @@ lljClick:function(e){
           }
           
         }
-        console.log(rows)
+        //console.log(rows)
         this.setData({
           rows:rows
         })
       },
       fail:err=>{
         console.log(err)
+      }
+    }),
+
+    http.wdfbfwApi({
+      data:{
+        residentsId:wx.getStorageSync('user').userId
+      },
+      success:res=>{
+        console.log(res)
       }
     })
   },

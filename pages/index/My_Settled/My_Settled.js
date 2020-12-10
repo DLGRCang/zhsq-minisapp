@@ -1,3 +1,5 @@
+
+import http from '../../../utils/api'
 // pages/index/My_Settled/My_Settled.js
 Page({
 
@@ -5,14 +7,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    rows:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.wdrzList()
+  },
 
+  wdrzList(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    http.wdrzApi({
+      data:{
+        unifiedUserId:wx.getStorageSync('user').userId
+      },
+      success:res=>{
+        this.setData({
+          rows:res.rows
+        })
+        wx.hideLoading({
+          success: (res) => {},
+        })
+        console.log(res)
+      }
+    })
   },
 
   /**

@@ -9,7 +9,7 @@ Page({
 
     rows:[],
     rowsdx:null,
-    
+    tjRows:[]
   },
   onLoad(options) {
     let that = this;
@@ -31,8 +31,8 @@ Page({
           var voteOption1 = []
           voteOption1.push(rows.voteOption.split(';'))
           rows.voteOption1 = voteOption1
-        console.log(JSON.parse(res.test))
-        console.log(rows)
+        //console.log(JSON.parse(res.test))
+        //console.log(rows)
         this.setData({
           rows:rows
         })
@@ -46,7 +46,10 @@ Page({
         voteId:id
       },
       success:res=>{
-        console.log(res)
+        this.setData({
+          tjRows:res
+        })
+        //console.log(res)
       }
     })
   },

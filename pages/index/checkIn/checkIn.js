@@ -176,9 +176,9 @@ inputsjh(e){
           })
           http.rzxqApi({
             data:{
-              floorId:'0f6bf2bc-b710-4d7a-bf58-9099b294a44a',
-              unitId:'3770b051-2a14-4804-b0de-2464434b46de',
-              roomId:'0626e48e-39eb-4cba-bd46-adead0010032',
+              floorId:wx.getStorageSync('user').floorId,
+              unitId:wx.getStorageSync('user').unitId,
+              roomId:wx.getStorageSync('user').roomId,
               doorNo:'0',
               type:'123',
               isMaster:'0',
@@ -193,7 +193,7 @@ inputsjh(e){
               homeTime:this.data.date,
               status:this.data.status1,
               isStay:this.data.sfcz,
-              unifiedUserId:'500',
+              unifiedUserId:wx.getStorageSync('user').userId,
               work:''
             },
             success:res=>{

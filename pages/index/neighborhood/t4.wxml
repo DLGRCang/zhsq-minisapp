@@ -35,10 +35,15 @@
       
     </view>
     <!-- <view wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items">{{items}}</view> -->
-   <view class="bg-white padding" wx:if="{{item.file != ''}}">
+   <!-- <view class="bg-white padding" wx:if="{{item.file != ''}}">
     <view class="imgFor" style="{{item.img.length >= 3?'justify-content: space-between':''}}">
         <image wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" style="{{item.img.length == 2?'margin-right:15rpx':''}};width:200rpx;height:200rpx" src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{items}}"></image>
         
+    </view>
+  </view> -->
+  <view class="bg-white padding" style="background:#fff">
+    <view class="grid col-3 grid-square">
+      <view class="bg-img" wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" wx:key style="background-image:url(http://172.16.20.81:9000/fileService/downloadFTP/public/{{items}});"></view>
     </view>
   </view>
     <!-- <view class="text-gray text-sm text-left padding padding-right">

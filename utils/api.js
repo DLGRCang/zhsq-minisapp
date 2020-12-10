@@ -137,9 +137,15 @@ function rzxqApi(params){
 function wdfbLlqApi(params){
   http('neighbor/listByCreatePeopleId/'+params.data.createPeopleId,'get',params)
 }
+//我的发布——房屋
+function wdfbfwApi(params){
+  http('rentroom/getListByResidentsId/'+params.data.residentsId,'get',params)
+}
 
-
-
+//我的入住
+function wdrzApi(params){
+  http('residentsInfo/mySettled/'+params.data.unifiedUserId,'get',params)
+}
 
 
 export default { // 暴露接口
@@ -169,5 +175,7 @@ export default { // 暴露接口
   tsjyApi,
   rzxqApi,
   tpxqslApi,
-  wdfbLlqApi
+  wdfbLlqApi,
+  wdfbfwApi,
+  wdrzApi
 }

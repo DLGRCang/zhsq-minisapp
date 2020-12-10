@@ -8,24 +8,17 @@
      <view class="tp_box">
         <view class="text-center padding text-blue">{{rows.voteName}}</view>
         <!-- 第一条事项 -->
-        <!-- <view class="tp_xx" style="margin-top:0;">
+        <view class="tp_xx" style="margin-top:0;">
 
-          <view class="flex_tp margin-top">
-            <view>同意</view>
-            <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
+          <view class="flex_tp margin-top" style="display:block" wx:for="{{tjRows}}">
+            <view style="text-align: left;margin-bottom:10rpx;width:100%">{{item.name}} /
+              <text wx:if="{{item.number <= 20}}">{{item.number}}票</text>
             </view>
-            <text class="margin-left">8票</text>
+            <view class="bg-blue" wx:if="{{item.number != 0}}" style="width:{{loading?item.number+'%':''}};"><text class="margin-left">
+              <text wx:if="{{item.number > 20}}">{{item.number}}票</text>
+            </text></view>
           </view>
-
-          <view class="flex_tp margin-top">
-            <view>不同意</view>
-            <view class="cu-progress round">
-              <view class="bg-blue" style="width:{{loading?'8%':''}};"></view>
-            </view>
-            <text class="margin-left">8票</text>
-          </view>
-        </view> -->
+        </view>
         <radio-group class="radio-group" bindchange="radioChange">
                <label class="radio" wx:for="{{rows.voteOption1[0]}}" wx:for-item="items" catchtap="dxClick" data-indexa="{{index}}" data-item="{{items}}">
                    <view class="tui-menu-list"><radio class="blue"/> {{items}}</view>

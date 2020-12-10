@@ -8,41 +8,18 @@
     <image src="../../../images/back.png" class="beijing"></image>
     <!-- 第一部分 头部 -->
 
-      <view class="settled_content">
-              <view class="fl">
+      <view class="settled_content" wx:for="{{rows}}">
+              <!-- <view class="fl">
                 <image src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2070453827,1163403148&fm=26&gp=0.jpg"></image>
-              </view>
+              </view> -->
               <view class="fr">
-                <text>李三<text class="cu-tag bg-blue light fr">待审核</text></text>
-                 <view>证件号码：1502222222222220987</view>
-                 <view>手机号码：12345678909</view>
-                 <view>住房信息：12号楼1单元602</view>
-              </view>
-      </view>
-
-      <!-- 复制 第二栏 -->
-      <view class="settled_content">
-              <view class="fl">
-                <image src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2070453827,1163403148&fm=26&gp=0.jpg"></image>
-              </view>
-              <view class="fr">
-                <text>李三<text class="cu-tag bg-grey light fr">已审核</text></text>
-                 <view>证件号码：1502222222222220987</view>
-                 <view>手机号码：12345678909</view>
-                 <view>住房信息：12号楼1单元602</view>
-              </view>
-      </view>
-
-      <!-- 复制 第三栏 -->
-      <view class="settled_content">
-              <view class="fl">
-                <image src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2070453827,1163403148&fm=26&gp=0.jpg"></image>
-              </view>
-              <view class="fr">
-                <text>李三<text class="cu-tag bg-orange light fr">审核中</text></text>
-                 <view>证件号码：1502222222222220987</view>
-                 <view>手机号码：12345678909</view>
-                 <view>住房信息：12号楼1单元602</view>
+                <view>
+                  {{item.name}}
+                  <text class="cu-tag bg-blue light" style="float: right">待审核</text>
+                </view>
+                 <view>证件号码：{{item.idCard}}</view>
+                 <view>手机号码：{{item.phone}}</view>
+                 <view>住房信息：{{item.floorName}}{{item.unitName}}{{item.roomName}}</view>
               </view>
       </view>
 
