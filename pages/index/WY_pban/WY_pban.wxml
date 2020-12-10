@@ -7,21 +7,23 @@
     <image src="../../../images/back.png" class="beijing"></image>
   <view class="pban_box">
 <!-- da头像 -->
-    <view class="dbox_top" bindtap="">
+
+    <view class="dbox_top" bindtap="qhjiaose">
           <view class="bor_fl">
           <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg" bindtap="qhjiaose"></image>
           <view >物业人员姓名</view>
+          <view class="wxgr">职位：维修工人</view>
         </view>
-        <text class="cuIcon-right lg"></text>
+        <text class="cuIcon-right fr lg"></text>
     </view>
 
-
+  <view class="datetop">
   <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
 			<view class="picker">
 				{{date}} <text class="cuIcon-unfold lg "></text>
 			</view>
     </picker>
-   
+  </view>   
     <view class="box" wx:for="{{4}}" style="display:block;">
         <view class="box_top">
           <view class="bor_fl">

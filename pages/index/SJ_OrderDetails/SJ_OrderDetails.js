@@ -1,35 +1,42 @@
-// pages/index/SJ_Order/SJ_Order.js
+// pages/index/SJ_OrderDetails/SJ_OrderDetails.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // tab 切换
-    tabArr: {
-      curHdIndex: 0,
-      curBdIndex: 0
-    }, 
+    isCollect: true, // 默认下箭头
+    time: '12:01',
+    isShow: false,
   },
-      // 订单跳转详情页面
-      xiangqing:function(){
-        wx.navigateTo({
-          url: '/pages/index/SJ_OrderDetails/SJ_OrderDetails'
-        })
-      },
-  // tab切换
-  tab: function (e) {
-    //var dataId = e.currentTarget.dataset.id;
-    var dataId = e.currentTarget.id;
-    var obj = {};
-    obj.curHdIndex = dataId;
-    obj.curBdIndex = dataId;
+  // 下拉 上拉
+  // toggle() {
+  //   this.isShow = !this.isShow;
+  //   this.$apply();
+  //  },
+  // 地址跳转
+  // AddressClick:function(){
+  //   wx.navigateTo({
+  //     url: '/pages/index/setting_address/setting_address'
+  //   })
+  // },
+  // 时间控件
+  TimeChange(e) {
     this.setData({
-      tabArr: obj
+      time: e.detail.value
     })
-    //console.log(e);
-  },  
+  },
 
+  // 下拉/上拉
+  toCollect () {
+    var bol = this.data.isCollect; // 获取状态
+    this.setData({
+    isCollect:!bol // 改变状态
+    })
+    this.isShow = !this.isShow;
+    this.$apply();
+    },
   /**
    * 生命周期函数--监听页面加载
    */

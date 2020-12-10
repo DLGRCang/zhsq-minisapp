@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/index/SJ_Goodsfabu/SJ_Goodsfabu",
-
+   
+  
     
+    "pages/index/index",
     "pages/index/Llq_pub/Llq_pub",
    
     "pages/index/vote/kaishi_tp",
@@ -49,7 +49,8 @@
     "pages/index/Search/Search",
     "pages/index/My_appointment/My_appointment",
     "pages/index/My_Order/My_Order",
-
+    "pages/index/Studyyd/Studyyd",
+    
     "pages/index/Sj_revenue/Sj_revenue",
     "pages/index/Sj_dpyh/Sj_dpyh",
     "pages/index/SJ_Goods/SJ_Goods",
@@ -58,6 +59,7 @@
     "pages/index/SJ_Shop/SJ_Shop",
     "pages/index/Sj_dprz/Sj_dprz",
     "pages/index/Sj_dpxx/Sj_dpxx",
+    "pages/index/SJ_OrderDetails/SJ_OrderDetails",
 
     "pages/index/Register/Register",
     "pages/index/Login/Login",
@@ -71,7 +73,8 @@
     "pages/index/Home_myactivity/Home_myactivity",
     "pages/index/Home_myorders/Home_myorders",
     "pages/index/Home_mytoupiao/Home_mytoupiao",
-    "pages/index/MY_ydxcCreate/MY_ydxcCreate"
+    "pages/index/MY_ydxcCreate/MY_ydxcCreate",
+    "pages/index/SJ_Goodsfabu/SJ_Goodsfabu"
 
   ],
   "window": {

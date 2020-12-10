@@ -1,0 +1,127 @@
+<!--pages/index/SJ_OrderDetails/SJ_OrderDetails.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{false}}">
+    <view slot="content">详情</view>
+</cu-custom>
+
+<view style="height:100%;">
+  <view class="box-body">
+    <image src="../../../images/back.png" class="beijing"></image>
+  <!-- 内容开始 -->
+     <!-- 第一块 -->
+    <view class="order_box">
+       <view class="box_one">
+          <view class="one_top" >
+            <view class="one_dbt text-blue" >订单已完成</view>
+            <view class="one_dbt">呼和浩特科创中心 505</view>
+            <view class="one_xbt">用户名(先生)<view>18247140000</view> </view>
+            <!-- <text class="cuIcon-right lg text-gray one_righticon"></text> -->
+          </view>
+    
+       <!-- <view class="one_bottom">
+          <view class="title fl">立即送出</view>
+          <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="TimeChange" class="fr text-blue">
+            <view class="picker">
+              大约{{time}}送达
+            </view>
+          </picker>
+       </view> -->
+      </view>
+
+      <!-- 第二块 -->
+  <view class="cu-list menu-avatar list_two">
+      <view class="cu-bar bg-white solid-bottom ">
+            <view class="action">
+              利客超市(左右城店)
+            </view>
+      </view>
+
+    <view class="cu-item ">
+      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+      <view class="content">
+        <view class="content_title">
+          澳大利亚脐橙 橙子 澳橙一级中果 180g/个
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">x1</text>
+        </view>
+      </view>
+      <view class="fl_jg">
+        <view class="button_djg">￥72.9  </view><text class="button_xjg">￥8.9</text> 
+      </view>
+    </view>
+    <!-- 复制 第二个 -->
+    <view class="cu-item ">
+      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+      <view class="content">
+        <view class="content_title">
+          澳大利亚脐橙 橙子 澳橙一级中果 180g/个
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">x1</text>
+        </view>
+      </view>
+      <view class="fl_jg">
+        <view class="button_djg">￥72.9  </view><text class="button_xjg">￥8.9</text> 
+      </view>
+    </view>
+    <!-- 展开 -->
+    <view class="zk" bindtap="toCollect">
+      <view >展开（共11件）
+                   <!-- 箭头下拉  上拉 -->
+      <block wx:if="{{isCollect == false}}">
+        <text class='cuIcon-unfold lg text-gray'></text>
+      </block>
+      <block wx:elif="{{isCollect == true}}" >
+        <text class='cuIcon-fold lg text-gray'></text>
+      </block>
+      </view>
+    </view>
+
+        <!-- 复制 第二个 -->
+     <view class="cu-item content {{isShow ? 'on' : ''}}" style="display:none;">
+      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+      <view class="content">
+        <view class="content_title">
+          澳大利亚脐橙 橙子 澳橙一级中果 180g/个
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">x1</text>
+        </view>
+      </view>
+      <view class="fl_jg">
+        <view class="button_djg">￥72.9  </view><text class="button_xjg">￥8.9</text> 
+      </view>
+    </view>
+
+    <view class="bzf"><text class="actiondd" style="margin-left: 0;">派送方式</text><text class="fr text-blue">自提</text></view>
+    <!-- 包装费  配送费 -->
+    <view class="bzf"><text class="fl">包装费</text><text class="fr">￥2.5</text></view>
+    <view class="psf"><text class="fl">配送费</text><text class="fr">￥2.5</text></view>
+    
+       <!-- 订单信息 -->
+       <view>
+        <view class="actiondd">订单信息</view>
+        <view class="bzf"><text class="fl">订单号</text><text class="fr">09238419312</text></view>
+        <view class="psf"><text class="fl">下单时间</text><text class="fr">2020-04-11</text></view>
+       </view>
+   
+    <!-- 以优惠，合计 -->
+    <view class="fr">
+       <view class="youhui">已优惠 <text class="text-blue">￥8.5</text> </view>
+       <view class="youhui">合计：<text class="text-bold">￥23.70</text></view>
+    </view>
+    
+        <!-- btn 拒绝，接单 -->
+    <view class="btn_bottom">
+      <button class="no">拒绝</button>
+      <button class="yes">接单</button>
+    </view>
+
+
+  </view>
+    </view>
+
+   </view> 
+</view>
+
+

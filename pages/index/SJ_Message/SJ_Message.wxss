@@ -1,8 +1,9 @@
 /* pages/index/SJ_Message/SJ_Message.wxss */
 @import "../../../colorui/main.wxss";
 @import "../../../colorui/icon.wxss";
-@import "../My_Order/My_Order.wxss";
+/* @import "../My_Order/My_Order.wxss"; */
 /* 頭部背景樣式 */
+.box_content{    margin-bottom: 35%;}
 .box-body{ width: 100%;height: 100%;position: relative;overflow-x: hidden;
   /* padding: 0 30rpx; */color:#000;
 }
@@ -22,10 +23,13 @@ height: 350rpx;background: #1BB1FD;border-radius: 50%;}
   -webkit-box-shadow:2px 1px 5px #A9B3BD; 
   box-shadow:2px 1px 5px #A9B3BD;
 }
-    /*补充样式  */
-  .bot-neirong>view:nth-child(1){overflow: hidden;clear: both;}
-  .r-n1{color: #188BFF;width: 40%;}
-  .tj_js{padding:25rpx 0 0 0 ;}
-  .tj_js>.yhm{height:50rpx;line-height: 50rpx;width: 40%;float: left;}
-  .tj_js>.yhm>image{width: 50rpx;height:50rpx;border-radius: 50rpx;margin-right: 15rpx;}
-  .tj_js>.yhm>text{    position: relative;top: -16rpx;}
+    /*补充样式  滑动样式*/
+.tab_box{overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;
+      border-radius: 15rpx;      padding: 0 35rpx 35rpx 35rpx;}
+.messtop{height: 100rpx;line-height: 100rpx;}
+.message_boximg{ width: 100%; display:flex; overflow-y:hidden;overflow-x:scroll;flex-wrap:nowrap;}
+.message_boximg>.n3-nr{ width:22%; flex-shrink: 0;margin-right: 20rpx;}
+.message_boximg>.n3-nr>image{ width: 100%;height:100%;} 
+.message_boximg>.n3-nr>view>image{width: 100%;    height: 140rpx;}
+.message_boximg>.n3-nr>view:last-child { display: flex;align-items: flex-end;color: #333;    font-size: 20rpx;}
+.message_boximg>.tj_js{padding:25rpx 0;color: #999;font-size: 26rpx;overflow: hidden;clear: both;}

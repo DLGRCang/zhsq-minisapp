@@ -65,26 +65,15 @@
           "scene": null
         },
         {
-          "name": "pages/index/SJ_Shop/SJ_Shop",
-          "pathName": "pages/index/SJ_Shop/SJ_Shop",
+          "name": "pages/index/SJ_OrderDetails/SJ_OrderDetails",
+          "pathName": "pages/index/SJ_OrderDetails/SJ_OrderDetails",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/index/SJ_Message/SJ_Message",
-          "pathName": "pages/index/SJ_Message/SJ_Message",
+          "name": "pages/index/My_Order/My_Order",
+          "pathName": "pages/index/My_Order/My_Order",
           "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/lease/lease",
-          "pathName": "pages/index/lease/lease",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "入住小区",
-          "pathName": "pages/index/checkIn/checkIn",
           "scene": null
         }
       ]

@@ -47,7 +47,7 @@
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="tab_box">
+    <view class="tab_box" wx:for="{{13}}">
       <view class="goods_box">
         <view class="box_fl"><image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=427521938,3722192058&fm=11&gp=0.jpg"></image></view>
         <view class="box_fr">
