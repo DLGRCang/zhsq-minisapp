@@ -56,8 +56,8 @@
         <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dqfw4.png"></image>
         <view style="width:100%">学习园地</view>
       </view>
-      <view class="fuwunei" bindtap="studyyd">
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dqfw4.png"></image>
+      <view class="fuwunei" bindtap="studysqdzb">
+        <image src="../../../images/sqdzb.png"></image>
         <view style="width:100%">社区党支部</view>
       </view>
     </view>

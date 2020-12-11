@@ -109,6 +109,12 @@ Page({
       url: '/pages/index/Studyyd/Studyyd'
     })
   },
+  // 社区党支部跳转
+  studysqdzb(){
+    wx.navigateTo({
+      url: '/pages/index/partyBranch/partyBranch'
+    })
+  },
   changdifw(){
     wx.navigateTo({
       url: '/pages/index/field/cdfw'

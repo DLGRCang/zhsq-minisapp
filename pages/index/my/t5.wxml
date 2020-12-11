@@ -40,12 +40,12 @@
       </view>
   </view>
 
-    <view class="my-p-from" bindtap="dzbuClick">
+    <!-- <view class="my-p-from" bindtap="dzbuClick">
       <view class="bot-border">
         <text>我的党支部</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
-  </view>
+  </view> -->
   <view class="my-p-from" bindtap="My_toupiaoClick">
     <view class="bot-border">
         <text>我的投票</text>
