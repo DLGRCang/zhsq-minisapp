@@ -223,7 +223,7 @@ line-height: 2;}
 
 /* 第七部分 社区新闻*/
 .sqxw_box{color: #000;clear: both;overflow: hidden;
-  width:100%;margin:25rpx auto;text-align: left;border-radius: 15rpx;
+  width:100%;margin:30rpx auto;text-align: left;border-radius: 15rpx;
 }
 .sqxw_title{color:#000;font-size:30rpx;font-weight: 600;
 line-height: 2;}
