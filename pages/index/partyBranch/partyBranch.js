@@ -9,9 +9,10 @@ Page({
     dataTab:[
       {id:0,content:"支委会成员"},
       {id:1,content:"支部党员"},
-      {id:2,content:"组织生活会"},
+     /* {id:2,content:"组织生活会"},
       {id:3,content:"支部党课"},
-      {id:4,content:"主题党日"}
+      {id:4,content:"主题党日"}*/
+      
     ],
     TabCur: 0,
     scrollLeft:0,

@@ -10,7 +10,10 @@ Page({
       {id:0,content:"工作动态"},
       {id:1,content:"党员风采"},
       {id:2,content:"志愿者服务"},
-      {id:3,content:"精准扶贫"}
+      {id:3,content:"精准扶贫"},
+      {id:4,content:"组织生活会"},
+      {id:5,content:"支部党课"},
+      {id:6,content:"主题党日"},
     ],
     TabCur: 0,
     scrollLeft:0,
@@ -104,6 +107,12 @@ Page({
   studyyd(){
     wx.navigateTo({
       url: '/pages/index/Studyyd/Studyyd'
+    })
+  },
+  // 社区党支部跳转
+  studysqdzb(){
+    wx.navigateTo({
+      url: '/pages/index/partyBranch/partyBranch'
     })
   },
   changdifw(){

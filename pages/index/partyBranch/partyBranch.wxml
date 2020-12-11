@@ -1,13 +1,13 @@
 <import src="../../../wxParse/wxParse.wxml"></import>
 <view class="partyBranch">
   <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
-    <view slot="content">党支部</view>
+    <view slot="content">社区党支部</view>
   </cu-custom>
   
   <scroll-view scroll-y="true"  style="height:91%" bindscroll="scry">
     <view class="pos-top" wx:if="{{topPos}}">
     <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}} tabcenter" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
           {{item.content}}
         </view>
       </scroll-view>
