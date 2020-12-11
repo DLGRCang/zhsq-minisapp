@@ -1,4 +1,6 @@
 // pages/my/my.js
+import http from '../../../utils/api'
+import verif from '../../../utils/verification'
 Page({
 
   /**
@@ -12,9 +14,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.jfList()
   },
 
+  jfList(){
+    http.myjfApi({
+      data:{
+        unifiedUserId:wx.getStorageSync('uset').userId
+      },
+      success:res=>{
+        console.log(res)
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

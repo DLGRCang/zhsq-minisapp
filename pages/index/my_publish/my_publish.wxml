@@ -23,6 +23,10 @@
 <view class="head_content">
 <view class="cu-card dynamic {{isCard?'no-card':''}}" style="padding-bottom:15%;">
 <!-- 第一部分 内容 -->
+<view class="queshiye" wx:if="{{rows.length == 0}}">
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+    <view>暂无数据</view>
+  </view>
 <view class="cu-item shadow" wx:for="{{rows}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}">
     <view class="cu-list menu-avatar">
       <view class="cu-item">
@@ -101,104 +105,49 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <!-- <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}"> -->
-    <view class="tab_box" bindtap="xiangqing">
+    <view class="queshiye" wx:if="{{rows1.length == 0}}">
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+    <view>暂无数据</view>
+  </view>
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item}}" wx:for="{{rows1}}">
       <view class="box_left">
-        <view class="cu-tag bg-cyan light xtb">已租</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
+        <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
+        <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
+        <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.img[0]}}"></image>
       </view>
       <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-        <view class="fr text-blue" bindtap="update">修改</view>
-      </view>
-    </view>
-<!-- 第一栏目 复制2 -->
-    <view class="tab_box" bindtap="xiangqing">
-      <view class="box_left">
-        <view class="cu-tag bg-cyan light xtb">已租</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-        <view class="fr text-blue" bindtap="update">修改</view>
+        <view class="cchh">
+          <text wx:if="{{item.mode == 0}}">合租</text>
+          <text wx:if="{{item.mode == 1}}">整租</text>
+          |{{item.title}}
+        </view>   
+        <text>{{item.houseType}}</text>  
+        <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text>  
+        <view class="text-yellow text-bold">￥{{item.rentMoney}} <text class="yy_title"> 元/月</text></view>  
+        <view class="fr text-red" style="margin-left:30rpx" wx:if="{{item.state != 3}}" catchtap="showModal" data-id="{{item.rentRoomId}}" data-target="DialogModal1">关闭</view><view class="fr text-blue" catchtap="update" data-item="{{item}}">修改</view>
       </view>
     </view>
 
-<!-- 第一栏目 复制3 -->
-<view class="tab_box" bindtap="xiangqing" wx:if="hidden">
-      <view class="box_left">
-        <view class="cu-tag bg-grey light xtb">关闭</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view> 
-        <view class="fr text-blue" bindtap="Delete">删除</view> 
-      </view>
-    </view>
-
-    <!-- 第一栏目 复制4 -->
-    <view class="tab_box" bindtap="xiangqing" wx:if="hidden">
-      <view class="box_left">
-        <view class="cu-tag bg-grey light xtb">关闭</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view> 
-        <view class="fr text-red" bindtap="Delete">删除</view> 
-      </view>
-    </view>
-
-  <!-- </view>  -->
-
-  
-
-  <!-- 第二栏目 -->
-  <!-- <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="tab_box">
-      <view class="box_left">
-        <view class="cu-tag bg-blue light xtb">待租</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-      </view>
-    </view>
-
-
-  </view>  -->
-  <!-- 第三栏目 -->
-  <!-- <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
-
-    <view class="tab_box">
-      <view class="box_left">
-        <view class="cu-tag bg-blue light xtb">待租</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-        </view>
-      <view class="box_right">
-        <text>整租|精装合租单间 押一付一 可短...</text>   
-        <text>2室2厅1卫   100㎡</text>  
-        <text>左右城左城E4 1-1-1203</text>  
-        <view class="text-yellow text-bold">￥2000 <text class="yy_title"> 元/月</text></view>  
-      </view>
-    </view>
-    
-  </view>  -->
 </view>
 <!-- 栏目结束 -->
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white justify-end">
+      <view class="content text-red">删除</view>
+    </view>
+    <view class="padding-xl">
+      确认关闭此房屋信息吗
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn line-red margin-left" bindtap="delete">确定</button>
+      </view>
+    </view>
+  </view>
 </view>
 <!-- view tab整体栏目结束 -->
 

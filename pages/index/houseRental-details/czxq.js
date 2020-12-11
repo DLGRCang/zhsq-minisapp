@@ -31,8 +31,9 @@ Page({
   onLoad: function (options) {
 
     var item = JSON.parse(options.id)
-    var items = item.rentName.substring(0,1)
+    var items = item.residentsName.substring(0,1)
     item.rentName1 = items+'**'
+    item.img = item.housePhoto.split(',')
     //console.log(item)
     this.setData({
       rows:item

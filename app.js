@@ -6,10 +6,10 @@ App({
 
   onLaunch: function() {
     var user = {
-      userId:'500',
-      floorId:'0f6bf2bc-b710-4d7a-bf58-9099b294a44a',
-      unitId:'3770b051-2a14-4804-b0de-2464434b46de',
-      roomId:'0626e48e-39eb-4cba-bd46-adead0010032'
+      userId:'100',
+      floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',
+      unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',
+      roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'
     }
 
     wx.setStorageSync('user', user)

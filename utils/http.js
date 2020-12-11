@@ -1,5 +1,6 @@
 module.exports = {
   http(url, method, params) {
+    //console.log(method)
     let token = 'token' // 获取token，自行获取token和签名，token和签名表示每个接口都要发送的数据
     let sign = 'sign' // 获取签名 (后台怎么定义的，就传什么)
     let data = {
@@ -14,11 +15,13 @@ module.exports = {
       }
       data = { ...data, ...params.data }
     }
-    //http://172.16.20.82:8080
+
+    //http://192.168.0.14:8083
+    //http://172.16.20.82:8083
     //https://yiqi.sucstep.com
     wx.request({
-      url: 'http://172.16.20.82:8080/zhsq/app/release/api/' + url, // 就是拼接上前缀,此接口域名是开放接口，可访问
-      method: method == 'post' ? 'post' : 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
+      url: 'https://yiqi.sucstep.com/zhsq/app/release/api/' + url, // 就是拼接上前缀,此接口域名是开放接口，可访问
+      method: method, // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
       data,
       header: {
         'content-type': 'application/json'

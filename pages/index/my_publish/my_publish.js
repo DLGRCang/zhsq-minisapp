@@ -1,5 +1,6 @@
 // pages/index/my_publish/my_publish.js
 import http from '../../../utils/api'
+import verif from '../../../utils/verification'
 var app = getApp();
 Page({
 
@@ -9,6 +10,8 @@ Page({
   data: {
     hidden:false,
     rows:[],
+    rows1:[],
+    rentRoomId:null,
       // tab 切换
       tabArr: {
         curHdIndex: 0,
@@ -55,9 +58,10 @@ fbfy(){
   })
 },
 // 房屋详情跳转
-xiangqing(){
+xiangqing(e){
+  //console.log(e)
   wx.navigateTo({
-    url: '/pages/index/houseRental-details/czxq'
+    url: '/pages/index/houseRental-details/czxq?id='+JSON.stringify(e.currentTarget.dataset.id)
   })
 },
 // 邻里圈的发布
@@ -67,14 +71,45 @@ fabu:function(){
   })
 },
  // 移动巡查发布跳转
- update(){
+ update(e){
+
   wx.navigateTo({
-    url: '/pages/index/lease/lease'
+    url: '/pages/index/lease/lease?item='+JSON.stringify(e.currentTarget.dataset.item)
   })
 },
 // 删除按钮
-Delete:function(){
-    
+showModal(e) {
+  this.setData({
+    rentRoomId:e.currentTarget.dataset.id,
+    modalName: e.currentTarget.dataset.target
+  })
+},
+hideModal(e) {
+  this.setData({
+    modalName: null
+  })
+},
+delete(){
+  http.scczfwApi({
+    data:{
+      residentsId:wx.getStorageSync('user').userId,
+      rentRoomIds:this.data.rentRoomId,
+      state:'3'
+    },
+    success:res=>{
+      console.log(res)
+      if(res.code == 200){
+        verif.tips('关闭成功')
+        this.setData({
+          modalName: null
+        })
+        this.fwList()
+      }
+    },
+    fail:err=>{
+      console.log(err)
+    }
+  })
 },
 // 邻里圈点击进入详情
 lljClick:function(e){
@@ -122,9 +157,13 @@ lljClick:function(e){
    */
   onLoad: function (options) {
     this.llqList()
+    this.fwList()
   },
 
   llqList(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     http.wdfbLlqApi({
       data:{
         createPeopleId:wx.getStorageSync('user').userId
@@ -152,18 +191,44 @@ lljClick:function(e){
         this.setData({
           rows:rows
         })
+        wx.hideLoading({
+          success: (res) => {},
+        })
       },
       fail:err=>{
         console.log(err)
       }
-    }),
+    })
 
+    
+  },
+
+  fwList(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     http.wdfbfwApi({
       data:{
         residentsId:wx.getStorageSync('user').userId
       },
       success:res=>{
-        console.log(res)
+        //console.log(res)
+        var rows = res.rows
+        for(var i in rows){
+          rows[i].img = rows[i].housePhoto.split(',')
+        }
+        console.log(rows)
+        
+        this.setData({
+          rows1:rows
+        })
+        wx.hideLoading({
+          success: (res) => {},
+        })
+        
+      },
+      fail:err=>{
+        console.log(err)
       }
     })
   },

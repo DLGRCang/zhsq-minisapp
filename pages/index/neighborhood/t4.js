@@ -106,7 +106,7 @@ Component({
           // this.setData({
           //   forF4:res.rows
           // })
-          //console.log(this.data.forF4)
+          //console.log(res)
           var rows = res.rows
           var message1 = ''
           

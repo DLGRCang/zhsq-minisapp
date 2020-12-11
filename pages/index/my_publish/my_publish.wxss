@@ -24,7 +24,10 @@
   /* 后补样式 */
 .box_content01 {width: 100% !important;overflow-y: auto;height: 100%;padding-bottom: 30rpx;}
 .cu-card{background-color: #F9F9F9 !important;width: 100% !important;}
-
+.cchh{
+  width: 100%;
+  overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+}
 /* 导航tab样式 */
 .tab_bar01 .active{color: #188BFF;border-bottom: 1px solid #188BFF;font-weight: bold;}
 .box_content01 .right-item{display: none}

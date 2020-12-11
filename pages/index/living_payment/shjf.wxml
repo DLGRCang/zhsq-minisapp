@@ -2,60 +2,6 @@
 <cu-custom bgColor="bg-gray" isBack="{{true}}">
     <view slot="content">生活缴费</view>
   </cu-custom>
-
-<!-- 内容第一块 -->
-<view class="cu-list menu-avatar wxjl_content">
-    <view class="cu-item">
-      <view class="cu-avatar lg wxjl_image">
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/shjf_lt.png"></image>
-      </view>
-      <view class="content content_title">
-        <view class="text-black">
-          <text class="text-cut">中国联通</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">在线缴费</text>
-        </view>
-      </view>
-      <text class="cuIcon-right lg text-gray padding-right"></text>
-    </view>
-  </view>    
-<!-- 复制 内容第二块 -->
-  <view class="cu-list menu-avatar wxjl_content">
-    <view class="cu-item">
-      <view class="cu-avatar lg wxjl_image">
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/shjf_yd.png"></image>
-      </view>
-      <view class="content content_title02">
-        <view class="text-black">
-          <text class="text-cut">中国移动</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">在线缴费</text>
-        </view>
-      </view>
-      <text class="cuIcon-right lg text-gray padding-right"></text>
-    </view>
-  </view>    
-
-  <!-- 复制 内容第三块 -->
-  <view class="cu-list menu-avatar wxjl_content">
-    <view class="cu-item">
-      <view class="cu-avatar lg wxjl_image">
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/images/shjf_dx.png"></image>
-      </view>
-      <view class="content content_title02">
-        <view class="text-black">
-          <text class="text-cut">中国电信</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">在线缴费</text>
-        </view>
-      </view>
-      <text class="cuIcon-right lg text-gray padding-right"></text>
-    </view>
-  </view>    
-
   <!-- 复制 内容第四块 -->
   <view class="cu-list menu-avatar wxjl_content">
     <view class="cu-item">

@@ -13,7 +13,7 @@
     </view>
 <view class="cu-card dynamic {{isCard?'no-card':''}}" style="padding-bottom:35%">
 <!-- 第一部分 内容 -->
-<view class="queshiye" wx:if="{{rows.length == 0}}">
+<view class="queshiye" wx:if="{{rows.length == 0}}" style="padding-top:600rpx">
     <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
     <view>暂无数据</view>
   </view>
@@ -41,7 +41,7 @@
         
     </view>
   </view> -->
-  <view class="bg-white padding" style="background:#fff">
+  <view class="bg-white padding" style="background:#fff" wx:if="{{item.file != ''}}">
     <view class="grid col-3 grid-square">
       <view class="bg-img" wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" wx:key style="background-image:url(http://172.16.20.81:9000/fileService/downloadFTP/public/{{items}});"></view>
     </view>

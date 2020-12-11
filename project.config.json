@@ -75,6 +75,17 @@
           "pathName": "pages/index/My_Order/My_Order",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "新增房屋出租",
+          "pathName": "pages/index/lease/lease",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的发布",
+          "pathName": "pages/index/my_publish/my_publish",
+          "scene": null
         }
       ]
     }

@@ -34,7 +34,8 @@
 .fabu_btn>button{width: 200rpx;
     height: 60rpx;line-height: 60rpx;left: 40%;
     background: linear-gradient(60deg, #66B7F9, #3A91F7);
-    border-radius: 30rpx;}    
+    border-radius: 30rpx;}   
+     
 .cchh{
     width: 100%;
     overflow: hidden;white-space: nowrap;text-overflow: ellipsis;

@@ -81,7 +81,7 @@ function cdDetailsApi(params){
 
 //小区投票列表
 function tpApi(params){
-  console.log(params)
+//console.log(params)
   http('vote/listpagevoteFront/0/'+params.data.votePeopleId,'get',params)
 }
 
@@ -147,6 +147,26 @@ function wdrzApi(params){
   http('residentsInfo/mySettled/'+params.data.unifiedUserId,'get',params)
 }
 
+//新增房屋出租
+function xzfwczApi(params){
+  http('rentroom/saverentroom','post',params)
+}
+//修改出租房屋
+function xgczfwApi(params){
+  //console.log(params)
+  http('rentroom/updaterentroom/'+params.data.rentRoomIds,'put',params)
+}
+//删除出租房屋
+function scczfwApi(params){
+  //console.log(params)
+  http('rentroom/appUpdateRentRoom/'+params.data.rentRoomIds,'put',params)
+}
+
+//个人缴费列表
+function myjfApi(params){
+  http('housepay/payMoneyList/'+params.data.unifiedUserId,'get',params)
+}
+
 
 export default { // 暴露接口
   xinwenApi,
@@ -177,5 +197,9 @@ export default { // 暴露接口
   tpxqslApi,
   wdfbLlqApi,
   wdfbfwApi,
-  wdrzApi
+  wdrzApi,
+  xzfwczApi,
+  xgczfwApi,
+  scczfwApi,
+  myjfApi
 }

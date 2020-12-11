@@ -156,7 +156,7 @@ Component({
           this.setData({
             rowsSQHD:res.rows[0]
           })
-          console.log(res.rows)
+          console.log(this.data.rowsSQHD)
           wx.hideLoading()
         },
         fail:err=>{

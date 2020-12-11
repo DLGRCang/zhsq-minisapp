@@ -44,7 +44,7 @@ const imgClick = function (){
         const tempFilePaths = res.tempFilePaths[0]
         var str = tempFilePaths.substring(tempFilePaths.length-6)
         var code1 = str.match(/\.(.*)/)[1];//取 ?id=后面所有字符串
-        
+        //http://172.16.20.81:9000
         wx.uploadFile({
           url: 'http://172.16.20.81:9000/fileService/uploadFTP/zhsq/linliquan', //仅为示例，非真实的接口地址
           filePath: tempFilePaths,

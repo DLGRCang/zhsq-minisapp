@@ -55,7 +55,7 @@
 </view>
 
 <!-- 第三部分 -->
-<view class="sqhd_box">
+<view class="sqhd_box" wx:if="{{rowsSQHD.length != 0}}">
 <text class="sqhd_title">社区活动</text>
 <!-- <view class="bigBox">
     <view class="circleBox"></view>    

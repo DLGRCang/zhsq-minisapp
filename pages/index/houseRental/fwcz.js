@@ -43,7 +43,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.fwLiist()
+    
   },
   fwLiist(){
     wx.showLoading({
@@ -51,13 +51,15 @@ Page({
     })
     http.fwczApi({
       success:res=>{
-        
+        //console.log(res)
+        var res = res
         var rows1 = []
         var rows2 = []
         for(var i in res){
-          if(res[i].mode == '0'){
+          res[i].img = res[i].housePhoto.split(',')
+          if(res[i].mode == '1'){
             rows1.push(res[i])
-          }else if(res[i].mode == '1'){
+          }else if(res[i].mode == '0'){
             rows2.push(res[i])
           }
         }
@@ -85,7 +87,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.fwLiist()
   },
 
   /**

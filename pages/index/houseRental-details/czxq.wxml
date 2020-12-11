@@ -1,16 +1,16 @@
 <!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
-<cu-custom bgColor="bg-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">详情</view>
 </cu-custom>
 
-<view style="height:100%;">
+<view style="height:91%;">
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    
+    <image src="../../../images/back.png" class="beijing"></image>
 <!-- <view class="bg"></view> -->
 <!-- 第一部分 头部 -->
 <!-- <view class="bg-blue head_content"> -->
+  <view class="waibian">
 <view class="cu-card">
   <view class="tab_box">
       <view class="box_left">
@@ -18,7 +18,7 @@
         <view class="cu-tag bg-cyan light xtb" wx:if="{{rows.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{rows.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{rows.state == 3}}">关闭</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{rows.img[0]}}"></image>
         </view>
       <view class="box_right">
         <view class="cchh">
@@ -47,7 +47,7 @@
           <text>租赁方式：<text wx:if="{{rows.mode == 0}}">合租</text>
           <text wx:if="{{rows.mode == 1}}">整租</text></text>
           <text>房屋类型：<text>{{rows.houseType}}</text></text>
-          <text>详细地址：<text>{{rows.floorId}}{{rows.unitId}}{{rows.roomId}}</text></text>
+          <text>详细地址：<text>{{rows.floorName}}{{rows.unitName}}{{rows.roomName}}</text></text>
         </view>
         <view class="box_one">
           <view class="title">房源详情</view>
@@ -55,11 +55,15 @@
           <text>房屋租期：<text>{{rows.rentMonth}}月</text></text>
           <text>房屋要求：<text>{{rows.requirement}}</text></text>
           <view class="box_two">
-          <text style="float:left;">房源描述：</text>
-          <text class="textarea right">{{rows.roomState}}</text>
+            <text>房源描述：</text>
+            <text class="textarea right">{{rows.roomState}}</text>
           </view>
         
-          <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+          <swiper style="margin-top:20rpx;border-radius:15rpx" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+            <swiper-item wx:for="{{rows.img}}" wx:key>
+              <image style="width:100%;height:100%;border-radius:15rpx" src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item}}"></image>
+            </swiper-item>
+          </swiper>
         </view>
       
       </view>
@@ -70,7 +74,7 @@
           <view class="box_one">
             <view class="title">房东信息</view>
             <text>房东姓名：<text>{{rows.rentName1}}</text></text>
-            <text>联系方式：<text>{{rows.rentPhone}}</text></text>
+            <text>联系方式：<text>{{rows.residentsPhone}}</text></text>
           </view>
         </view>
   </view> 
@@ -82,5 +86,6 @@
 <!-- </view> -->
 
 
+</view>
 </view>
 </view>

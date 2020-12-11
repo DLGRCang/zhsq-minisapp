@@ -48,7 +48,7 @@ color: #333333;
   align-items: center;
 }
 .fzxz view{
-  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+
   border-radius: 30rpx;
   padding: 15rpx 25rpx;
   margin-right: 10rpx;
@@ -180,4 +180,13 @@ align-items: center;
 justify-content: center;
 color: #fff;
 font-size: 24rpx;
+}
+.yxg{
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);border: 1rpx solid #1082FF;color: #fff;
+}
+.wxg{
+  background: #fff;border: 1rpx solid #ccc;color: #000;
+}
+.duoxg{
+  background: #1082FF;border: 1rpx solid #1082FF;color: #fff;
 }

@@ -8,8 +8,8 @@
       <view class="body-top">发布房源</view>
       <view class="fzxz">
         
-        <view bindtap="zzf" style="{{zhengzu}}">整租房</view>
-        <view bindtap="hzf" style="{{hezu}}">合租房</view>
+        <view class="{{zufang == '1' ? 'yxg':'wxg'}}" bindtap="zfClick" data-id="{{1}}">整租房</view>
+        <view class="{{zufang == '0' ? 'yxg':'wxg'}}" bindtap="zfClick" data-id="{{0}}">合租房</view>
         <!-- <button class="cu-btn" style="background: #3A91F7;color:#fff" bindtap="toggle" data-class="fade">整租房</button>
         <button class="cu-btn" style="background: #3A91F7;color:#fff" bindtap="toggle" data-class="fade">单租房</button> -->
       </view>
@@ -17,26 +17,17 @@
         <view class="twobiao"> <view></view> 基础信息</view>
         <view class="danhang">
           <view class="biaoti"><text style="color:red">*</text>标题</view>
-          <view class="inputCss"><input type="text" class="btInput" placeholder="请输入房屋标题" value="{{title}}"/></view>
+          <view class="inputCss"><input type="text" class="btInput" bindinput="titleClick" value="{{title}}" placeholder="请输入房屋标题" value="{{title}}"/></view>
         </view>
         <view class="danhang">
           <view class="biaoti"> <text style="color:red">*</text> 房屋地址</view>
-          <view class="fwhx">
-            <view class="inputCss xuanze3">
-              <text></text>
-              <input type="text" class="fwhxInput" value="{{floorId}}"/>
-              <text>楼</text>
-            </view>
-            <view class="inputCss xuanze3">
-              <text></text>
-              <input type="text" class="fwhxInput" value="{{unitId}}"/>
-              <text>单元</text>
-            </view>
-            <view class="inputCss xuanze3">
-              <text></text>
-              <input type="text" class="fwhxInput" value="{{roomId}}"/>
-              <text>户</text>
-            </view>
+          <view class="inputCss">
+            <picker class="picCss" bindchange="fangyuanxc" value="{{fangyuan1}}" range="{{fangyuan}}">
+              <view class="picker">
+                {{fangyuan1?fangyuan[fangyuan1]:'请选择'}}
+                <text style="float:right" class="cuIcon-right"></text>
+              </view>
+            </picker>
           </view>
         </view>
         <view class="danhang">
@@ -44,22 +35,22 @@
           <view class="fwhx">
             <view class="inputCss xuanze4">
               <text></text>
-              <input type="text" class="fwhxInput"/>
+              <input type="number" class="fwhxInput" bindinput="shiClick" value="{{shi}}"/>
               <text>室</text>
             </view>
             <view class="inputCss xuanze4">
               <text></text>
-              <input type="text" class="fwhxInput"/>
+              <input type="number" class="fwhxInput" bindinput="tingClick" value="{{ting}}"/>
               <text>厅</text>
             </view>
             <view class="inputCss xuanze4">
               <text></text>
-              <input type="text" class="fwhxInput"/>
+              <input type="number" class="fwhxInput" bindinput="weiClick" value="{{wei}}"/>
               <text>卫</text>
             </view>
             <view class="inputCss xuanze4">
               <text>共</text>
-              <input type="text" class="fwhxInput"/>
+              <input type="number" class="fwhxInput" bindinput="pmClick" value="{{pm}}"/>
               <text>㎡</text>
             </view>
           </view>
@@ -92,7 +83,7 @@
         <view class="danhang">
           <view class="biaoti"><text style="color:red">*</text>租金信息</view>
           <view class="inputCss zjxx">
-            <input type="text" class="zjxxInput" placeholder="请输入租金"/>
+            <input type="number" class="zjxxInput" bindinput="zjClick" value="{{zujin}}" placeholder="请输入租金"/>
             <text>元/月</text>
           </view>
         </view>
@@ -111,48 +102,45 @@
         <view class="danhang">
           <view class="biaoti"><text style="color:red">*</text>租期</view>
           <view class="inputCss zjxx">
-            <input type="text" class="zjxxInput" placeholder="请输入租房时期"/>
+            <input type="number" class="zjxxInput" bindinput="zqClick" value="{{zuqi}}" placeholder="请输入租房时期"/>
             <text>月</text>
           </view>
         </view>
         <view class="danhang">
-          <view class="biaoti"><text style="color:red">*</text>要求</view>
+          <view class="biaoti">要求</view>
           <view class="duoxuan">
-            <view class="duoxuanNei" style="{{zxns}}" bindtap="zxns">只限女生</view>
-            <view class="duoxuanNei" style="{{bnqz}}" bindtap="bnqz">半年起租</view>
-            <view class="duoxuanNei" style="{{ynqz}}" bindtap="ynqz">一年起租</view>
-            <view class="duoxuanNei" style="{{zhwd}}" bindtap="zhwd">租户稳定</view>
+            <view wx:for="{{duoxuan}}" class="duoxuanNei {{item.xg}}" bindtap="duoxClick" data-i="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
           </view>
         </view>
         <view class="danhang">
           <view class="biaoti">描述</view>
           <view class="dhwbk">
-            <textarea maxlength="-1" placeholder="多行文本输入框"></textarea>
+            <textarea maxlength="-1" placeholder="多行文本输入框" bindinput="msClick" value="{{miaoshu}}"></textarea>
           </view>
         </view>
         <view class="danhang">
-          <view class="biaoti"><text style="color:red">*</text>房源照片</view>
-            <view class="grid col-4 grid-square flex-sub">
-              <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-                <image src='{{imgList[index]}}' mode='aspectFill'></image>
-                <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-                  <text class="cuIcon-close"></text>
-                </view>
-              </view>
-              <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
-                <text class="cuIcon-cameraadd"></text>
+          <view class="biaoti">房源照片</view>
+          <view class="grid col-4 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+              <image src='{{imgList[index]}}' mode='aspectFill'></image>
+              <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                <text class="cuIcon-close"></text>
               </view>
             </view>
+            <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<9}}">
+              <text class="cuIcon-cameraadd"></text>
+            </view>
+          </view>
         </view>
         <view class="danhang">
           <view class="biaoti"><text style="color:red">*</text>联系方式</view>
-          <view class="inputCss" style="margin-bottom:10rpx"><input type="text" class="btInput" placeholder="请输入姓名"/></view>
-          <view class="inputCss"><input type="text" class="btInput" placeholder="请输入手机号"/></view>
+          <view class="inputCss" style="margin-bottom:10rpx"><input type="text" class="btInput" bindinput="xmClick" value="{{name}}" placeholder="请输入姓名"/></view>
+          <view class="inputCss"><input type="text" class="btInput" bindinput="sjClick" value="{{phone}}" placeholder="请输入手机号"/></view>
         </view>
       </view>
     </view>
   <!-- </view> -->
   <view class="bot-fb">
-    <button>发布</button>
+    <button bindtap="fbfy">{{anniu}}</button>
   </view>
 </view>

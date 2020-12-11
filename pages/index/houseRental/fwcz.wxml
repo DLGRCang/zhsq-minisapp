@@ -15,13 +15,17 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+    <view class="queshiye" wx:if="{{rows.length == 0}}">
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+    <view>暂无房源信息</view>
+  </view>
     <view class="tab_box" bindtap="xiangqing" data-id="{{item}}" wx:for="{{rows}}">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.img[0]}}"></image>
       </view>
       <view class="box_right">
         <view class="cchh">
@@ -30,7 +34,7 @@
           |{{item.title}}
         </view>   
         <text>{{item.houseType}}</text>  
-        <text>{{item.floorId}}{{item.unitId}}{{item.roomId}}</text>  
+        <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text>  
         <view class="text-yellow text-bold">￥{{item.rentMoney}} <text class="yy_title"> 元/月</text></view>  
       </view>
     </view>
@@ -40,13 +44,17 @@
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
+    <view class="queshiye" wx:if="{{rows1.length == 0}}">
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+    <view>暂无房源信息</view>
+  </view>
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.rentRoomId}}" wx:for="{{rows1}}">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.img[0]}}"></image>
       </view>
       <view class="box_right">
         <view class="cchh">
@@ -64,13 +72,17 @@
   </view> 
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
+    <view class="queshiye" wx:if="{{rows2.length == 0}}">
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+    <view>暂无房源信息</view>
+  </view>
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.rentRoomId}}" wx:for="{{rows2}}">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.img[0]}}"></image>
       </view>
       <view class="box_right">
         <view class="cchh">
