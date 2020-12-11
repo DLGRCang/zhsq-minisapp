@@ -57,7 +57,7 @@ color: #FFFFFF;
   display: flex;
   flex-wrap: wrap;
   background: #fff;
-  border-radius: 12rpx;
+  border-radius: 15rpx;
 }
 
 .state-for{
@@ -92,12 +92,12 @@ color: #333333;
   height: 20rpx;
 }
 .my-b-from{
-  border-radius: 12rpx;
+  border-radius: 15rpx;
   font-size: 24rpx;
 font-family: Microsoft YaHei;
 font-weight: 400;
 color: #333333;
-margin: 15rpx 0;
+margin: 30rpx 0;
 background: #FFFFFF;
 }
 .my-p-from{
