@@ -1,0 +1,126 @@
+/* pages/czxq/czxq.wxss */
+/* 公共颜色 */
+@import '../../../../colorui/main.wxss';
+.font9{color:#999999;}
+.right{float:right;}
+
+/* 頭部背景樣式 */
+.box-body{ width: 100%;height: 100%;position: relative;overflow-x: hidden;
+  /* padding: 0 30rpx; */color:#333;
+}
+.beijing{
+  width: 100%;
+  height: 206rpx;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: -2;
+}
+.tab_box .timg{
+  width: 100%;
+  height: 390rpx;
+}
+.times{
+  width: 100%;
+}
+.times-s{
+  width: 100%;
+  display: flex;
+  
+  margin-bottom: 20rpx;
+}
+.times-f{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0.5%;
+}
+.times-f view{
+  width: 30%;
+  padding: 20rpx 0;
+  
+
+  margin: 0 1.5% 20rpx;
+}
+.timeClass1{
+  background: #F1F1F1;
+  color: #999999;
+}
+.timeClass2{
+background: linear-gradient(60deg, #F35854, #FF7B79);
+  color: #fff;
+}
+.timeClass3{
+  background: #999999;
+  color: #000;
+}
+/* 顶部房租信息样式 */
+.bg{width: 100%; background: #F9F9F9;   height: 13%;}
+.head_content{height:175rpx;}
+/* .cu-card{padding-top:6%;} */
+.xtb{    z-index: 999; position: absolute;}
+.tab_box{padding:35rpx;overflow: hidden;clear: both;width:93%;margin:0rpx auto; 
+   background: #FFFFFF;border-radius: 20rpx;margin-top:5rpx;
+  }
+.box_left{float:left;width: 35%;}
+.box_left>image{width:100%;height: 150rpx;}
+.box_right{float:right;width: 62%;}
+.box_right>text{width:100%;overflow: hidden;text-overflow: ellipsis;display: block;color: #A9B3BD;line-height:1.8;}
+.box_right>text:first-child{color: #333333;}
+.text-bold{font-size: 32rpx;}
+.yy_title{color:#A9B3BD;font-size:28rpx !important;font-weight: normal;}
+/* 导航tab样式 */
+.tab_bar .active{color: #F55E5A;border-bottom: 1px solid #F55E5A;font-weight: bold;}
+.box_content .right-item{display: none}
+.box_content .right-item.active{display: block}
+.box_content{font-size: 28rpx;color: #666;padding-bottom: 20%;}
+.view_tab{width: 100%;height:120rpx;
+  border-bottom:2px solid #DEE6F0; 
+}
+.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
+.view_tab>.tab_bar>view{width:125rpx;height:65rpx;line-height: 65rpx;float: left;margin-right: 45rpx;text-align: center;}
+
+/* 内容样式 */
+.fyxx_box{width:93%;margin:0 auto;}
+.fyxx_box>.box_one>.title{font-weight: bold;font-size: 32rpx;line-height: 1.8;padding-top: 15rpx;color: #333;}
+.fyxx_box>.box_one>text{display: block;line-height: 1.8;padding-left:35rpx;}
+.textarea{
+  width:95%;
+}
+.box_two{overflow: hidden;clear: both;width: 100%;}
+.box_two>text:first-child{width:20%;padding-left: 35rpx;}
+.box_two>text:last-child{width:75%;}
+.box_one>image{
+  width: 100%;padding:35rpx;
+  height: 370rpx;margin:0 auto;
+  border-radius: 15rpx;text-align: center;
+}
+
+
+/* 新增 */
+.xq_title{
+  line-height: 1.5; padding-top: 15rpx;
+}
+.hdhg_txt{width: 96%;margin: 0 auto;font-size: 28rpx;text-indent: 35rpx;line-height: 1.8;}
+.hdhg_img{width:100%;margin:0 auto;}
+.jnpx{border-radius: 20rpx;float: right;}
+.btn-bot{
+  width: 100%;
+  padding: 20rpx 60rpx;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+}
+.btn-bot button{
+width: 100%;
+height: 60rpx;
+background: linear-gradient(60deg, #F35854, #FF7B79);
+color: #fff;
+font-size: 26rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+}
+

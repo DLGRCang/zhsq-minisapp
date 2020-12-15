@@ -1,0 +1,36 @@
+<!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
+<cu-custom bgColor="bg-gray" isBack="{{true}}">
+    <view slot="content">物业缴费</view>
+  </cu-custom>
+
+  <view class="top-navigation bg-gray">
+    <view>
+      <text class="cuIcon-location"></text>
+      <view>天龙嘉苑 乌兰小区</view>
+    </view>
+  </view>
+
+<!-- 内容第一块 -->
+<view class="cu-list menu-avatar wxjl_content" wx:for="{{jfList}}" style="{{index == 0 ? 'margin-top:115rpx':''}};">
+    <view class="cu-item">
+      <view class="cu-avatar lg wxjl_image">
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wyjf_01.png" wx:if="{{item.state == 0}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wyjf_02.png" wx:if="{{item.state == 1}}"></image>
+      </view>
+      <!-- <view class="cu-avatar lg wxjl_image" style="background-image:url(../../../../images/images/wyjf_01.png);"></view> -->
+      <view class="content content_title">
+        <view class="text-black">
+          <text class="text-cut">{{item.payYear}}年{{item.payMonth}}{{item.title}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut">金额：￥{{item.needMoney}}</text>
+        </view>
+      </view>
+      <view class="box_btn" wx:if="{{item.state == 0}}">
+        <button class="bg-blue">缴 费</button>
+      </view>
+      <view class="box_btn02" wx:if="{{item.state == 1}}">
+        <text>已缴纳</text>
+      </view>
+    </view>
+  </view>       

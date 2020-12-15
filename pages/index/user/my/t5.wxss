@@ -1,0 +1,115 @@
+/* pages/index/t5/t5.wxss */
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+.t5{
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  
+}
+.top_fr{float:right;width:15%;}
+.seeting_img{width: 40rpx; height: 40rpx;display:block;position: relative;  float: right;}
+.my-top{
+  width: 100%;
+  display: flex;
+  padding: 85rpx 0 45rpx;
+  align-items: center;overflow: hidden;clear: both;
+  justify-content: space-between;
+}
+.my-top>image:nth-child(1){
+  width: 12rpx;
+  height: 20rpx;
+}
+.top-1{
+  height: 80rpx;float: left;width: 80%;
+  display: flex;
+}
+.top-1-1{
+  width: 80rpx;
+  height: 100%;
+  background: red;
+  border-radius: 50rpx;
+  margin-right: 13rpx;
+}
+.top-1-1 image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50rpx;
+}
+.top-1-2{
+  padding: 5rpx;
+}
+.top-1-2 view:first-child{
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: bold;
+color: #FFFFFF;
+margin-bottom: 10rpx;
+}
+.top-1-2 view:last-child{
+font-size: 20rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #FFFFFF;
+}
+.my-state{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  border-radius: 15rpx;
+}
+
+.state-for{
+  width: 25%;
+  height: 200rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+}
+.state-for image{
+  width: 72rpx;
+  height: 72rpx;
+  margin: 0 auto 20rpx;
+}
+.state-for view{
+  width: 100%;
+font-size: 20rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+}
+.my-from{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 33rpx 31rpx;
+}
+.fromImg{
+  width: 11rpx;
+  height: 20rpx;
+}
+.my-b-from{
+  border-radius: 15rpx;
+  font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+margin: 30rpx 0;
+background: #FFFFFF;
+}
+.my-p-from{
+  width: 100%;
+  padding: 0 30rpx;
+  
+}
+.bot-border{
+  width: 100%;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

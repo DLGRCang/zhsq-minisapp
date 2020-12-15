@@ -1,0 +1,171 @@
+
+
+<view class="t1">
+<!-- 第一部分 头部 -->
+<view class="head_c">
+  <swiper class="swiper_container" style="width:100%;height:100%" vertical="true" autoplay="true" circular="true" interval="3000">
+    <block wx:for="{{msgList}}" style="width:100%;height:100%">
+    <swiper-item style="width:100%;height:100%">
+      <image src="{{item.img}}" style="width:100%;height:100%"></image>
+    </swiper-item>
+    </block>
+  </swiper>
+   <!-- <image src="../../../images/t1/index_banner.png" ></image> -->
+</view>
+<view class="h-c-b">
+  <scroll-view scroll-x="true" style="width:100%" bindscroll="getleft">
+  <view class="h-c-b1">
+    <view class="c-box-nei" wx:for="{{dataItem1}}" wx:key="index" bindtap="contentClick" data-url="{{item.url}}" data-id="{{item.id}}">
+      <view class="ds-inline">
+        <image src="{{item.image}}"></image>
+        <view>{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="h-c-b1">
+    <view class="c-box-nei" wx:for="{{dataItem2}}" wx:key="index" bindtap="contentClick" data-url="{{item.url}}" data-id="{{item.id}}">
+      <view class="ds-inline">
+        <image src="{{item.image}}"></image>
+        <view>{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+</view>
+<view class="hd-head">
+  <view class="head-hua" style="width:13%">
+    <view wx:if="{{dataItem.length > 8}}" style="width:50rpx;height:100%; margin-left:{{scrollLeft/lefthua<=1 ? 0 : scrollLeft/lefthua+'%'}};background: #188BFF;border-radius: 12rpx;"></view>
+    <view style="width:100%;height:100%;background: #188BFF;border-radius: 12rpx;" wx:if="{{dataItem.length <= 8}}"></view>
+  
+  </view>
+</view>
+
+<!-- 第二部分 -->
+<view class="gg_box" bindtap="tzgg">
+  <view class="box-1"><text>通知</text><text>公告</text></view>
+  <view class="box-2">
+    <!-- <text class="tongzhi-text">紧急通知！呼和浩特市应对新型冠状病毒...</text> -->
+    <view class="box-2-for-l"></view>
+      <view class="box-2-for" wx:for="{{jianxianL}}" :key="index" style="opacity: {{item.ids}};left:{{3*index}}rpx"></view>
+            <text class="header-marquee-item1">呼和浩特市应对新型冠状病毒</text>
+            <text class="header-marquee-item2">呼和浩特市应对新型冠状病毒</text>
+      <view class="box-2-for" wx:for="{{jianxianL}}" :key="index" style="opacity: {{item.ids}};right:{{3*index}}rpx"></view>
+  </view>
+  <text class="cuIcon-right lg text-gray"></text>
+</view>
+
+<!-- 第三部分 -->
+<view class="sqhd_box" wx:if="{{rowsSQHD.length != 0}}">
+<text class="sqhd_title">社区活动</text>
+<!-- <view class="bigBox">
+    <view class="circleBox"></view>    
+    <view class="three_box">
+    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
+    <text>时间：11月12日</text>   
+    <text>地点：左右城左城南门小广场</text>   
+    <text>人数：50组家庭</text>   
+    <button class="bm_btn">报 名</button>
+  </view>   
+</view> -->
+<view class="tab_box" bindtap="xiangqing" data-id="{{rowsSQHD.constructionsActivityId}}" wx:key="index">
+      <view class="box_left">
+        <view class="cu-tag bg-huise light xtb" wx:if="{{rowsSQHD.status == 0}}">已取消</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{rowsSQHD.status == 1}}">
+          <text wx:if="{{rowsSQHD.activeStartTime > time}}">未开始</text>
+          <text wx:if="{{rowsSQHD.activeStartTime <= time && rowsSQHD.activeEndTime >= time}}">进行中</text>
+          <text wx:if="{{rowsSQHD.activeEndTime < time}}">已结束</text>
+        </view>
+        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{rowsSQHD.actPhonts}}"></image>
+      </view>
+      <view class="box_right">
+        <view class="right1">
+          <text>{{rowsSQHD.type}}</text>
+          {{rowsSQHD.actContent}}
+        </view>
+        <view class="right2">
+          <view><text class="cuIcon-dianhua" style="{{rowsSQHD.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{rowsSQHD.address}}</text></view>
+          <view><text class="cuIcon-timefill" style="{{rowsSQHD.infoStatus == 1 ? 'color:#F35854':''}}"></text><text class="padd_lf">{{rowsSQHD.time}}</text></view>
+
+        </view>
+      </view>
+    </view>
+</view>
+
+<!-- 第四部分 -->
+<view class="xqtp_box">
+<text class="sqhd_title">小区投票</text>
+<view class="body-ase" bindtap="xqvode">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>ascas</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
+</view>
+</view>
+<!-- 第五部分 -->
+<view class="xqtp_box">
+<text class="sqhd_title">小区公示</text>
+
+  <view class="body-ase">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>ascas</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
+</view>
+</view>
+
+<!-- 第六部分 -->
+<view class="xqtp_box">
+<text class="sqhd_title" wx:if="{{rowsWJ.length != 0}}">问卷调查</text>
+<view class="body-ase" wx:for="{{rowsWJ}}" bindtap="xqvode" data-id="{{item.questionnaireId}}">
+      <view class="abc"></view>
+      <view class="ase-box">
+        <view class="ase-left">
+          <view>{{item.questionnaireName}}</view>
+          <view>{{timeL}}</view>
+        </view>
+        <view class="ase-right">
+          <view class="btn">投票</view>
+        </view>
+      </view>
+
+
+</view>
+<!-- 第七部分 社区新闻-->
+<view class="sqxw_box">
+<text class="sqxw_title">社区新闻</text>
+<text class="font9 right more">查看更多<text class="cuIcon-right lg text-gray"></text></text>
+ <view class="seven_box"  bindtap="newsxq">
+   <view class="seven_left">
+      <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
+      <text>2020-10-28</text>  
+   </view>
+     <view class="seven_right">
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/componentBg.png"></image>
+     </view>
+  </view>
+  
+</view> 
+
+
+<!-- 第七部分 社区新闻二-->
+<view class="sqxw_box" style="margin-top:0rpx">
+  <view class="seven_boxtwo"  bindtap="newsxq">
+    <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！31省区市新增42例确诊,其中境外输入病例20例 战疫情</text>   
+    <text>2020-10-28</text>   
+  </view>
+
+</view>
+</view>
+</view>

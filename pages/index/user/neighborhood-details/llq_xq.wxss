@@ -1,0 +1,83 @@
+/* 公共颜色 */
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+.font9{color:#999999;}
+.right{float:right;}
+.padding{padding:15rpx 25rpx;}
+.font24{font-size: 24rpx;}
+
+/* 头部样式 */
+/* .head_content{width:100%; height:400rpx;text-align: center; color:#333;} */
+/* 頭部背景樣式 */
+.box-body{ width: 100%;height: 91%;position: relative;overflow-x: hidden;
+  /* padding: 0 30rpx; */color:#333;
+}
+.beijing{
+  width: 100%;
+  height: 412rpx;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
+}
+.text-cont{
+  width: 100%;
+  padding: 0 30rpx 20rpx;
+  
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+text-align: left;
+}
+
+.text-content{text-align: left;}
+.padding-right>text{padding-right:35rpx;}
+.fabu_btn{font-size:50rpx;right:0;bottom:5%;position: fixed;border-radius: 50%;
+width:100rpx;height:100rpx;font-weight: bold;}
+
+/* 新增详情样式 */
+/* .llq_content{
+  background: #F9F9F9;color:#333;
+} */
+.action{text-align: left;}
+.solids-top{
+  width: 93%;margin:0 auto;
+}
+.pl_title{font-size: 24rpx;}
+.cu-list.menu-avatar>.cu-item>.cu-avatar {
+  position: absolute;
+  left: 0;
+}
+.cu-list.menu-avatar.comment>.cu-item .content {
+  position: relative;
+  left: -35rpx;
+  width: auto;
+  flex: 1;
+}
+.cu-list.menu-avatar>.cu-item .content>view:first-child {
+  font-size: 24rpx;
+}
+.cu-list.menu-avatar>.cu-item .content>view:last-child {
+  font-size: 24rpx;
+}
+.cu-list.menu-avatar.comment>.cu-item {
+  padding: 25rpx 25rpx 0rpx 120rpx;
+}
+.pl_tkbtn{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.cu-card{margin-bottom: 15%;}
+.solid-bottom{
+  width: 320rpx;
+height: 55rpx;line-height: 55rpx;
+background: #F7F8FA;
+border-radius: 28px;
+padding-left: 3%;
+}
+
+.good_lg_img{
+  width: 41rpx;height: 41rpx;
+}

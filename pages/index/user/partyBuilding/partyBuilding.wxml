@@ -1,0 +1,88 @@
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="partyBranch">
+  <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
+    <view slot="content">社区党建</view>
+  </cu-custom>
+  
+  <scroll-view scroll-y="true"  style="height:91%" bindscroll="scry">
+    <view class="pos-top" wx:if="{{topPos}}">
+    <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          {{item.content}}
+        </view>
+      </scroll-view>
+    </view>
+    <view>
+  <view class="box">
+    <image src="../../../images/back2.png" class="beijing"></image>
+    
+    <view class="top-text" wx:if="{{rowsList.length != 0}}">
+      <view class="text-shang">
+        <view class="s-left"></view>
+        <view class="s-right">
+          <view>{{rowsList.name}}</view>
+          <view>
+            {{rowsList.introduce}}
+          </view>
+        </view>
+      </view>
+      <view class="text-xia">
+        <view class="x-top">
+          <view><text class="cuIcon-dianhua" style="color:#F35854"></text><text class="padd_lf">电话:{{rowsList.tel}}</text></view>
+          <view><text class="cuIcon-homefill" style="color:#F35854"></text><text class="padd_lf">面积:{{rowsList.areaCovered}}㎡</text></view>
+          <view><text class="cuIcon-timefill" style="color:#F35854"></text><text class="padd_lf">开放时间:{{rowsList.openDate}}</text></view>
+          <view>
+            <text class="cuIcon-locationfill" style="color:#F35854"></text><text class="padd_lf">地址:{{rowsList.address}}</text>
+          </view>
+        </view>
+
+        
+      </view>
+    </view>
+    <view class="fuwu">
+      <view class="fuwunei" bindtap="dangqunfw">
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/love1.png"></image>
+        <view style="width:100%">党群服务</view>
+      </view>
+      <view class="fuwunei" bindtap="changdifw">
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dqfw2.png"></image>
+        <view style="width:100%">场地服务</view>
+      </view>
+      <view class="fuwunei" bindtap="shequhd">
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dqfw3.png"></image>
+        <view style="width:100%">社区活动</view>
+      </view>
+      <view class="fuwunei" bindtap="studyyd">
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dqfw4.png"></image>
+        <view style="width:100%">学习园地</view>
+      </view>
+      <view class="fuwunei" bindtap="studysqdzb">
+        <image src="../../../images/sqdzb.png"></image>
+        <view style="width:100%">社区党支部</view>
+      </view>
+    </view>
+    <view class="top-tab">
+      <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          {{item.content}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="bot-box">
+    <view class="dang" wx:if="{{TabCur != 4}}">
+      <view class="neirong" wx:for="{{10}}">
+        <view class="nrimg"></view>
+        <view class="nrText">
+          <view>党员姓名</view>
+          <view>支部委员会委员</view>
+        </view>
+      </view>
+    </view>
+    <view class="xinwen" wx:if="{{TabCur == 4}}">
+      swfdrghbwr
+      </view>
+  </view>
+</view>
+</scroll-view>
+</view>

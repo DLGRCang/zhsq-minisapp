@@ -1,0 +1,183 @@
+/* pages/index/SJ_Goodsfabu/SJ_Goodsfabu.wxss */
+@import "../../../../colorui/animation.wxss";
+.lease{
+  width: 100%;
+  height: 100%;
+  
+}
+.lease-box{
+  width: 100%;
+  padding: 30rpx 30rpx 150rpx;
+  box-sizing: border-box;
+
+}
+.box-body{
+  width: 100%;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 50rpx;
+  box-sizing: border-box;
+}
+.body-top{
+  width: 100%;
+  text-align: center;
+font-size: 34rpx;
+font-family: Microsoft YaHei;
+font-weight: bold;
+color: #333333;
+}
+.twobiao{
+  width: 100%;
+  height: 30rpx;
+  margin: 30rpx 0 20rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.twobiao view{
+  width: 5rpx;
+  height: 100%;
+  background: blue;
+  margin-right: 10rpx;
+}
+.fzxz{
+  width: 100%;
+  padding: 30rpx 0 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.fzxz view{
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+  border-radius: 30rpx;
+  padding: 15rpx 25rpx;
+  margin-right: 10rpx;
+  font-size: 26rpx;
+}
+.neirong{
+  width: 100%;
+}
+.danhang{
+  width: 100%;
+  padding: 15rpx 0;
+}
+.biaoti{
+  
+font-size: 26rpx;
+font-family: Microsoft YaHei;
+color: #333333;
+margin-bottom: 20rpx;
+}
+.inputCss{
+height: 90rpx;
+background: #F7F8FA;
+border: 2rpx solid #E8EEF4;
+border-radius: 12rpx;
+}
+.btInput{
+  width: 100%;
+  height: 100%;
+  font-size: 30rpx;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+}
+.fwhx{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.xuanze4{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 23%;
+}
+.xuanze3{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 31%;
+}
+.xuanze3 text{
+  font-size: 24rpx;
+  color: #333;
+}
+.fwhxInput{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+}
+
+.zjxx{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.zjxxInput{
+  width: 70%;
+  height: 100%;
+  font-size: 30rpx;
+  color: #333;
+}
+.picCss{
+  width: 100%;
+  height: 100%;
+  
+  line-height: 90rpx;
+}
+.picker{
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.duoxuan{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.duoxuanNei{
+  padding: 5rpx 15rpx;
+  border: 1rpx solid #ccc;
+  border-radius: 6rpx;
+  font-size: 26rpx;
+  margin-right: 10rpx;
+}
+.dhwbk{
+  width: 100%;
+  height: 180rpx;
+background: #F7F8FA;
+border: 2rpx solid #E8EEF4;
+border-radius: 12rpx;
+}
+.dhwbk textarea{
+  width: 100%;
+  height: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}
+.bot-fb{
+  width: 100%;
+  /* position: fixed; */
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  z-index: 10;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bot-fb button{
+  width: 200rpx;
+height: 60rpx;
+background: linear-gradient(60deg, #66B7F9, #3A91F7);
+border-radius: 30rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-size: 24rpx;
+}

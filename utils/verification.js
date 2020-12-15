@@ -100,6 +100,33 @@ const success = function(data){
   })
 }
 
+//校验登录
+function checkLogin(){
+  //console.log(wx.getStorageSync('user'))
+  if(wx.getStorageSync('user') == ''){
+          wx.navigateTo({
+            url: "/pages/login/login"
+          })
+  }else{
+    return true;
+  }
+}
+
+// function ifLogin(){
+//  wx.getSetting({
+//     success:res=>{
+//      // console.log(res)
+//       if (res.authSetting['scope.userInfo']&&wx.getStorageSync('wxUser') == ''){
+//         wx.navigateTo({
+//           url: "/pages/login/login"
+//         })
+//       }else{
+//         checkLogin()
+//       }
+//     }
+//   })
+// }
+
 export default{
   checkIdCard,
   checkPhone,
@@ -107,5 +134,6 @@ export default{
   pageBack,
   imgClick,
   tips,
-  success
+  success,
+  checkLogin,
 }

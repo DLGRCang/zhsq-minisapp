@@ -167,6 +167,11 @@ function myjfApi(params){
   http('housepay/payMoneyList/'+params.data.unifiedUserId,'get',params)
 }
 
+//邻里圈标签
+function llqbqApi(params){
+  http('dictionaries/codelistofGet/000100050002','get',params)
+}
+
 
 export default { // 暴露接口
   xinwenApi,
@@ -201,5 +206,6 @@ export default { // 暴露接口
   xzfwczApi,
   xgczfwApi,
   scczfwApi,
-  myjfApi
+  myjfApi,
+  llqbqApi
 }

@@ -1,7 +1,7 @@
 <!--pages/authorization/authorization.wxml-->
 <view class="authorization">
   <view class="aut1">
-    <image src="../../images/time.jpg"></image>
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/time.jpg"></image>
   </view>
   <view class="aut2">
     成迈申请获得以下权限：

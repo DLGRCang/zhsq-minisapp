@@ -1,0 +1,12 @@
+/* pages/index/Home_myactivity/Home_myactivity.wxss */
+/*  引入社区活动样式*/
+@import "../../../index/user/community/community.wxss";
+.box-body{height:50%;}
+.beijing{    width: 100%;height: 50%;}
+
+.sqhd_box{    z-index: 999;  position: relative;}
+.ptop{margin-top: -20%;}
+
+.qxbm>button{border:none;color: #fff;width: 45%;float: left;
+  background: linear-gradient(60deg, #F44336, #E91E63);
+  border-radius: 12rpx;    font-size: 26rpx;}

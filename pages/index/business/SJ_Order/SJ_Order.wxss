@@ -1,0 +1,46 @@
+/* pages/index/SJ_Order/SJ_Order.wxss */
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+/* 内容样式 */
+.box_content{margin-bottom: 35%;height: 90%;overflow-y: auto;}
+.box_content .right-item{display: none}
+.box_content .right-item.active{display: block}
+.view_tab{width: 100%;height:87%;padding-bottom:45rpx;margin:0 auto;}
+.view_tab>.tab_bar{color: #A9B3BD;    height:100rpx;width: 100%;
+  padding-left:40rpx;padding-top: 25rpx; display: inline-flex;
+  -moz-box-shadow:2px 1px 5px #A9B3BD; 
+  -webkit-box-shadow:2px 1px 5px #A9B3BD; 
+  box-shadow:2px 1px 5px #A9B3BD;color: #A9B3BD;   
+}
+.view_tab>.tab_bar>view{height:45rpx;font-weight:bold;height: 45rpx;float: left;margin-right: 45rpx;
+  text-align: center;}
+.xtb{    z-index: 999; position: absolute;}
+.tab_bar .active{color: #188BFF;border-bottom: 1px solid #188BFF;}
+
+.tab_box{overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;
+    border-radius: 20rpx;padding: 0 35rpx 35rpx 35rpx;}
+
+    /*补充样式  */
+  .r-n1{color: #188BFF;}
+  .r-n2{ color: #A9B3BD;padding-top: 10rpx;}
+  .tj_js{overflow: hidden;clear: both;width: 100%;padding:25rpx 0 0 0 ;}
+  .tj_js>.yhm{height:50rpx;line-height: 50rpx;width: 40%;float: left;}
+  .tj_js>.yhm>image{width: 50rpx;height:50rpx;border-radius: 50rpx;margin-right: 15rpx;}
+  .tj_js>.yhm>text{    position: relative;top: -16rpx;}
+
+    /*补充样式  滑动样式*/
+.alltop{padding: 35rpx 35rpx 35rpx 0;}
+.message_boximg{ width: 100%; display:flex; overflow-y:hidden;overflow-x:scroll;flex-wrap:nowrap;}
+.message_boximg>.n3-nr{ width:22%; flex-shrink: 0;margin-right: 20rpx;}
+.message_boximg>.n3-nr>image{ width: 100%;height:100%;} 
+.message_boximg>.n3-nr>view>image{width: 100%;    height: 140rpx;}
+.message_boximg>.n3-nr>view:last-child { display: flex;align-items: flex-end;color: #333;    font-size: 20rpx;}
+.message_boximg>.tj_js{padding:25rpx 0;color: #999;font-size: 26rpx;overflow: hidden;clear: both;}  
+
+/* btn样式 */
+.allbtn>.yes{ float: right;color: #fff;margin:25rpx 0 0rpx 25rpx;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);font-size: 26rpx;
+  border-radius: 12rpx;}  
+  .allbtn>.no{ float: right;color: #fff;margin:25rpx 0 0rpx 25rpx;
+    background: #999;font-size: 26rpx;
+    border-radius: 12rpx;}   

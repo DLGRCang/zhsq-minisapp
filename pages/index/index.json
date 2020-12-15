@@ -1,18 +1,18 @@
 {
   "usingComponents": {
-    "home": "/pages/index/home-page/t1",
-    "life": "/pages/index/life/t2",
-    "onekey": "/pages/index/onekey/t3",
-    "neigh": "/pages/index/neighborhood/t4",
-    "my": "/pages/index/my/t5",
-    "t6": "/pages/index/SJ_Message/SJ_Message",
-    "t7": "/pages/index/SJ_Order/SJ_Order",
-    "t8": "/pages/index/SJ_Goods/SJ_Goods",
-    "t9": "/pages/index/SJ_Shop/SJ_Shop",
-    "t10": "/pages/index/WY_pban/WY_pban",
-    "t11": "/pages/index/WY_tzfb/WY_tzfb",
-    "t12": "/pages/index/WY_wxd/WY_wxd",
-    "t13": "/pages/index/WY_ydcx/WY_ydcx"
+    "home": "/pages/index/user/home-page/t1",
+    "life": "/pages/index/user/life/t2",
+    "onekey": "/pages/index/user/onekey/t3",
+    "neigh": "/pages/index/user/neighborhood/t4",
+    "my": "/pages/index/user/my/t5",
+    "t6": "/pages/index/business/SJ_Message/SJ_Message",
+    "t7": "/pages/index/business/SJ_Order/SJ_Order",
+    "t8": "/pages/index/business/SJ_Goods/SJ_Goods",
+    "t9": "/pages/index/business/SJ_Shop/SJ_Shop",
+    "t10": "/pages/index/property/WY_pban/WY_pban",
+    "t11": "/pages/index/property/WY_tzfb/WY_tzfb",
+    "t12": "/pages/index/property/WY_wxd/WY_wxd",
+    "t13": "/pages/index/property/WY_ydcx/WY_ydcx"
   },
   "disableScroll":true
 }

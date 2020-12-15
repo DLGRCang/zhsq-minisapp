@@ -1,0 +1,129 @@
+<view class="t5">
+  
+  <view class="my-top" wx:if="{{!ifLogin}}">
+    <view class="top-1">
+      <view class="top-1-1"><image src="{{wxUser.avatarUrl}}"></image></view>
+      <view class="top-1-2">
+        <view>{{wxUser.nickName}}</view>
+        <view>左右城左城</view>
+      </view>
+    </view>
+    <view class="top_fr" bindtap="settingClick">
+      <image class="seeting_img" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/seeting.png"></image>
+    </view>
+  </view>
+  <view class="my-top" wx:if="{{ifLogin}}" bindtap="loginClick">
+    <view class="top-1">
+      <view class="top-1-1"></view>
+      <view class="top-1-2">
+        <view>请登录{{wxUser.nickName}}</view>
+        <view>----</view>
+      </view>
+    </view>
+    <view class="top_fr" catchtap="settingClick" >
+      <image class="seeting_img" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/seeting.png"></image>
+    </view>
+  </view>
+
+  <view class="my-state">
+    <view wx:for="{{t5state}}" wx:key="index" class="state-for" bindtap="orderClick" data-url="{{item.url}}">
+      <image src="{{item.img}}"></image>
+      <view>{{item.text}}</view>
+    </view>
+  </view>
+  <!-- 第一栏 -->
+  <view class="my-b-from">
+    <view class="my-p-from" bindtap="My_appointmentClick">
+      <view class="bot-border">
+        <text>我的预约</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+
+    <!-- <view class="my-p-from" bindtap="dzbuClick">
+      <view class="bot-border">
+        <text>我的党支部</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view> -->
+  <view class="my-p-from" bindtap="My_toupiaoClick">
+    <view class="bot-border">
+        <text>我的投票</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <!-- <view class="my-from">
+        <text>我的活动</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+  </view> -->
+  </view>
+  <!-- 第二栏 -->
+  <view class="my-b-from">
+    <view class="my-p-from"  bindtap="my_dzClick">
+      <view class="bot-border">
+        <text>点赞/收藏/评论</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <!-- <view class="my-p-from">
+    <view class="bot-border">
+        <text>我的收藏</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>我的评论</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view> -->
+  </view>
+
+  <view class="my-b-from">
+    <view class="my-p-from" bindtap="jfjlClick">
+      <view class="bot-border">
+        <text>缴费记录</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-p-from" >
+    <view class="bot-border" bindtap="wxjlClick">
+        <text>维修记录</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  </view>
+  <view class="my-b-from">
+    <view class="my-p-from">
+      <view class="bot-border">
+        <text>积分商城</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border"  bindtap="Credits_LogClick">
+        <text>积分记录</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  </view>
+
+  <view class="my-b-from">
+    <view class="my-p-from" bindtap="feedbackClick">
+      <view class="bot-border">
+        <text>帮助反馈</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-p-from" bindtap="aboutMe">
+    <view class="bot-border">
+        <text>关于我们</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+      </view>
+  </view>
+  <view class="my-from" bindtap="qcClick">
+        <text>清除缓存</text>
+        <image class="fromImg" src="{{rightHui}}"></image>
+  </view>
+  </view>
+</view>
