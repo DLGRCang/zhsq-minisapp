@@ -23,7 +23,7 @@
     /*补充样式  */
   .r-n1{color: #188BFF;}
   .r-n2{ color: #A9B3BD;padding-top: 10rpx;}
-  .tj_js{overflow: hidden;clear: both;width: 100%;padding:25rpx 0 0 0 ;}
+  .tj_js{overflow: hidden;clear: both;width: 100%;padding:25rpx 0 0 0 ;color:#333;}
   .tj_js>.yhm{height:50rpx;line-height: 50rpx;width: 40%;float: left;}
   .tj_js>.yhm>image{width: 50rpx;height:50rpx;border-radius: 50rpx;margin-right: 15rpx;}
   .tj_js>.yhm>text{    position: relative;top: -16rpx;}
