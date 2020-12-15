@@ -39,12 +39,12 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
     border-radius: 20rpx;}
 
  /*内容列表样式  */
- .goods_box{width: 100%;margin:0 auto;padding: 35rpx;background-color: #fff;overflow: hidden;clear: both;}
+ .goods_box{width: 100%;margin:0 auto;padding: 35rpx;background-color: #fff;overflow: hidden;clear: both;color: #333;}
  .box_fl{float: left;width: 30%;}
  .box_fl>image{width: 100%;height: 180rpx;}
  .box_fr{float: right;width: 66%;}
  .box_fr>.fr_var{color: #999;font-size: 24rpx;}
- .box_fr>.fr_var>text{padding-right: 35rpx;line-height: 2.5;}
+ .box_fr>.fr_var>text{padding-right:20rpx;line-height: 2.5;}
  .bot_fl{float: left;width: 40%;}
  .bot_fr{float: right;width: 40%;width: 50rpx;height: 35rpx;line-height: 35rpx;text-align: center;
   background: #EEEEEE;font-weight: 400;color:#333; border-radius: 10rpx;margin-top: 15rpx;}
