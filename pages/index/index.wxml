@@ -58,12 +58,14 @@
     </view>
   </view>
 </view>
-<view class="box" wx:if="{{login == 2}}">
-<t6 wx:if="{{PageCur=='t6'}}"></t6>
-<t7 wx:if="{{PageCur=='t7'}}"></t7>
-<t8 wx:if="{{PageCur=='t8'}}"></t8>
-<t9 wx:if="{{PageCur=='t9'}}"></t9>
 
+<view class="box-2" wx:if="{{login == 2}}">
+  <view class="box-2-nei">
+    <t6 wx:if="{{PageCur=='t6'}}"></t6>
+    <t7 wx:if="{{PageCur=='t7'}}"></t7>
+    <t8 wx:if="{{PageCur=='t8'}}"></t8>
+    <t9 wx:if="{{PageCur=='t9'}}"></t9>
+  </view>
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="t6">
     <view class='cuIcon-cu-image'>

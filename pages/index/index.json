@@ -3,7 +3,7 @@
     "home": "/pages/index/user/home-page/t1",
     "life": "/pages/index/user/life/t2",
     "onekey": "/pages/index/user/onekey/t3",
-    "neigh": "/pages/index/user/neighborhood/t4",
+    "neigh": "/pages/index/user/neighborhood/t4", 
     "my": "/pages/index/user/my/t5",
     "t6": "/pages/index/business/SJ_Message/SJ_Message",
     "t7": "/pages/index/business/SJ_Order/SJ_Order",

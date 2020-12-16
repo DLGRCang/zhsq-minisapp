@@ -1,20 +1,18 @@
 <!--pages/index/SJ_Message/SJ_Message.wxml-->
-<cu-custom bgColor="bg-blue" isBack="{{false}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{false}}">
     <view slot="content">消息</view>
 </cu-custom>
 
-  <view style="height:100%;">
+  <view style="height:91%;overflow-y: auto;padding-bottom:0">
   <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
+    <image src="../../../../images/back.png" class="beijing"></image>
 <!-- <view > -->
 <!-- <view class="tab_bar" > 
   <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">交易信息</view> 
   <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">退款信息</view> 
 </view>  -->
 
-<view class="box_content"> 
+
     <!-- 第一栏目 1-->
   <!-- <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}"> -->
     <view class="tab_box" bindtap="xiangqing" wx:for="{{5}}">
@@ -37,7 +35,6 @@
 22222222222
   </view>  -->
 
-</view>
 <!-- 栏目结束 -->
 </view>
 <!-- view tab整体栏目结束 -->
