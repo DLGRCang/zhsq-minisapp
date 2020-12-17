@@ -4,7 +4,7 @@
 /* @import "../My_Order/My_Order.wxss"; */
 
 /* 頭部背景樣式 */
-.box-body{ width: 100%;position: relative;overflow-x: hidden;padding-bottom:0;
+.box-body-2{ width: 100%;position: relative;overflow-x: hidden;padding-bottom:0;
   /* padding: 0 30rpx; */color:#333;
 }
 

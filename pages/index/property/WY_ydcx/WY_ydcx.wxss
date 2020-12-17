@@ -2,7 +2,7 @@
 @import "../../../../colorui/main.wxss";
 @import "../../../../colorui/icon.wxss";
 /* 頭部背景樣式 */
-.box-body{ width: 100%;position: relative;overflow-x: hidden;
+.box-body-4{ width: 100%;position: relative;overflow-x: hidden;
   /* padding: 0 30rpx; */color:#333;
 }
 
@@ -10,16 +10,16 @@
 /* 导航样式 */
 
 .xtb{    z-index: 999; position: absolute;}
-.tab_bar .active{color: #fff;border-bottom: 1px solid #fff;}
+.tab_bar .active4{color: #fff;border-bottom: 1px solid #fff;}
 .box_content .right-item{display: none}
 .box_content .right-item.active{display: block}
 
 .bg{width: 100%;background: #0090FA;}
-.box_content{font-size: 28rpx;}
-.view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;
+.box_content-4{font-size: 28rpx;}
+.view_tab-4{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;
   border-radius: 40rpx 40rpx 0rpx 0rpx;color:#fff;}
-.view_tab>.tab_bar{color: #fff;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
-.view_tab>.tab_bar>view{height:45rpx;font-weight:bold;height: 45rpx;float: left;margin-right: 45rpx;text-align: center;}
+.view_tab-4>.tab_bar{color: #fff;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
+.view_tab-4>.tab_bar>view{height:45rpx;font-weight:bold;height: 45rpx;float: left;margin-right: 45rpx;text-align: center;}
 
 /* 内容样式 */
 .pban_box{margin:0 auto;padding:35rpx;}

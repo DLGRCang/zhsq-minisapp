@@ -3,7 +3,7 @@
     <view slot="content">物业排班</view>
   </cu-custom>
 <!-- <view class="llq_content"> -->
-  <view class="box-body">
+  <view class="box-body-3-nei">
 
   <view class="pban_box">
 <!-- da头像 -->

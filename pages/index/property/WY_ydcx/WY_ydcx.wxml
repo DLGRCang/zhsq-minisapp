@@ -3,16 +3,16 @@
     <view slot="content">移动巡查</view>
   </cu-custom>
 <!-- <view class="llq_content"> -->
-  <view class="box-body">
+  <view class="box-body-4">
  
-<view class="view_tab">
+<view class="view_tab-4">
 <view class="tab_bar" > 
-  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
-  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">已发布</view> 
-  <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">未发布</view> 
+  <view class="{{tabArr.curHdIndex=='0'? 'active4' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active4' : ''}}" id="1"  data-id="1" bindtap="tab">已发布</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active4' : ''}}" id="2"  data-id="2" bindtap="tab">未发布</view> 
 </view> 
 
-<view class="box_content"> 
+<view class="box_content-4"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <view class="pban_box" bindtap="xiangqing">

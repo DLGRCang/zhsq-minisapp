@@ -4,7 +4,7 @@
 .fl{float: left;}
 .fr{float: right;}
 /* 頭部背景樣式 */
-.box-body{ width: 100%;position: relative;overflow-x: hidden;
+.box-body-3-nei{ width: 100%;position: relative;overflow: hidden;
   /* padding: 0 30rpx; */color:#333;
 
 }

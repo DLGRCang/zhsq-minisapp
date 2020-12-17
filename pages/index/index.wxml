@@ -102,7 +102,7 @@
 <view class="box-3" wx:if="{{login == 3}}">
   <view class="box-body-3">
 
-      <image src="../../images/back.png" class="beijing"></image>
+      <image src="../../images/back.png" style="top:{{CustomBar}}px" class="beijing"></image>
         <t10 wx:if="{{PageCur=='t10'}}"></t10>
         <t11 wx:if="{{PageCur=='t11'}}"></t11>
         <t12 wx:if="{{PageCur=='t12'}}"></t12>

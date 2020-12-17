@@ -3,26 +3,26 @@
     <view slot="content">维修单</view>
   </cu-custom>
 <!-- <view class="llq_content"> -->
-  <view class="box-body">
-
-<view class="view_tab">
+  <view class="box-body-3-nei">
+   
+<view class="view_tab-3">
 <view class="tab_bar" > 
-  <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
-  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">待付款</view> 
-  <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">待发货</view> 
-  <view class="{{tabArr.curHdIndex=='3'? 'active' : ''}}" id="3"  data-id="3" bindtap="tab">待收货</view> 
+  <view class="{{tabArr.curHdIndex=='0'? 'active3' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active3' : ''}}" id="1"  data-id="1" bindtap="tab">待付款</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active3' : ''}}" id="2"  data-id="2" bindtap="tab">待发货</view> 
+  <view class="{{tabArr.curHdIndex=='3'? 'active3' : ''}}" id="3"  data-id="3" bindtap="tab">待收货</view> 
 </view> 
 
-<view class="box_content"> 
-    <!-- 第一栏目 1-->
+<view class="box_content-3"> 
+
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <view class="pban_box" bindtap="xiangqing">
       <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
 			<view class="picker">
-				{{date}} <text class="cuIcon-unfold lg "></text>
+				{{date}} <text class="cuIcon-unfold lg"></text>
 			</view>
     </picker>
-    <!-- 第一个 -->
+
     <view class="box">
         <view class="box_top">
           <view class="bor_fl">
@@ -43,7 +43,7 @@
           <button class="active">接单</button>
         </view>
     </view>
-    <!-- 复制 第一个 -->
+
     <view class="box">
         <view class="box_top">
           <view class="bor_fl">
@@ -63,7 +63,7 @@
           <button class="active">派单</button>
         </view>
     </view>
-    <!-- 复制 第一个 -->
+
     <view class="box">
         <view class="box_top">
           <view class="bor_fl">
@@ -93,7 +93,7 @@
 
     </view>
   </view> 
-  <!-- 第二栏目 -->
+
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
     <view class="pban_box">
       <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
@@ -123,7 +123,7 @@
     </view>
     </view>
   </view> 
-  <!-- 第三栏目 -->
+
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
     <view class="pban_box">
       <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
@@ -153,7 +153,7 @@
     </view>
     </view>
   </view> 
-  <!-- 第四栏目 -->
+
   <view class="right-item {{tabArr.curBdIndex=='3'? 'active' : ''}}">
     <view class="pban_box">
       <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
@@ -184,7 +184,7 @@
     </view>
   </view> 
 </view>
-<!-- 栏目结束 -->
+
 </view>
 <!-- view tab整体栏目结束 -->
 

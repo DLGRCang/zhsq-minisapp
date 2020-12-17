@@ -4,7 +4,7 @@
 </cu-custom>
 
   <view style="height:91%;overflow-y: auto;padding-bottom:0">
-  <view class="box-body">
+  <view class="box-body-2">
     <image src="../../../../images/back.png" class="beijing"></image>
 <!-- <view > -->
 <!-- <view class="tab_bar" > 
