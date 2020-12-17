@@ -44,16 +44,13 @@
         <view class="inputCss"><input type="text" class="btInput" placeholder="请输入商品销量"/></view>
       </view>
       <view class="bot-fb">
-        <button>发布</button>
+        <button wx:if="{{!hezufang}}">发布</button>
+        <button wx:if="{{hezufang}}">上架商品</button>
       </view>
   
 
     </view>
 </view>
-<view class="danhang" wx:if="{{hezufang}}">
-        <view class="bot-fb">
-          <button>上架商品</button>
-        </view>
-      </view>
 </view>
+
 

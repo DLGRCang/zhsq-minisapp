@@ -79,7 +79,7 @@ Page({
   },
   appid(){
     if(wx.getStorageSync('indexId') == ''){
-      wx.setStorageSync('indexId', 2)
+      wx.setStorageSync('indexId', 1)
     }
     var  indexId = wx.getStorageSync('indexId')
     //console.log(indexId)

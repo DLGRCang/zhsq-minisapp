@@ -1,5 +1,5 @@
 <!--pages/index/WY_tzfb/WY_tzfb.wxml-->
-<cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+<cu-custom bgColor="bg-gray-bljb">
     <view slot="content">通知发布</view>
 </cu-custom>
 

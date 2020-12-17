@@ -9,9 +9,21 @@
   height: 100%;
   
 }
+.box-3{
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
 .box-2-nei{
   width: 100%;
   height: 92.5%;
+}
+.box-body-3{
+  width: 100%;
+  height: 93%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .box-body{
   width: 100%;
