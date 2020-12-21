@@ -5,6 +5,18 @@
 .box-body-4{ width: 100%;position: relative;overflow-x: hidden;
   /* padding: 0 30rpx; */color:#333;
 }
+.pbDingwei{
+  position: fixed;
+  width: 100%;
+  left: 0;
+
+  z-index: 10;
+  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+border-radius: 0 0 15rpx 15rpx;
+}
+.pk{
+  padding: 35rpx 35rpx 20rpx;
+}
 
 /* 内容样式 */
 /* 导航样式 */
@@ -16,7 +28,7 @@
 
 .bg{width: 100%;background: #0090FA;}
 .box_content-4{font-size: 28rpx;}
-.view_tab-4{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;
+.view_tab-4{width: 100%;height:auto;margin:0 auto;
   border-radius: 40rpx 40rpx 0rpx 0rpx;color:#fff;}
 .view_tab-4>.tab_bar{color: #fff;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
 .view_tab-4>.tab_bar>view{height:45rpx;font-weight:bold;height: 45rpx;float: left;margin-right: 45rpx;text-align: center;}

@@ -1,11 +1,11 @@
-<view class="tab">
+<view class="tab" style="top:{{CustomBar}}px">
       <scroll-view scroll-x class="nav" style="color:#eee" scroll-with-animation scroll-left="{{scrollLeft}}">
         <view class="cu-item {{index==TabCur?'text-bai cur':''}}" wx:for="{{bqList}}" wx:key="index" bindtap="tabSelect" data-i="{{index}}" data-id="{{item.dictionariesId}}">
           {{item.dictionariesName}}
         </view>
       </scroll-view>
     </view>
-<view class="t4">
+<view class="t4" style="{{rows.length != 0 ? 'padding-top:100rpx':''}}">
   
 <view class="head_content">
 

@@ -1,8 +1,17 @@
 /* pages/index/WY_tzfb/WY_tzfb.wxss */
 @import "../../../../colorui/main.wxss";
 @import "../../../../colorui/icon.wxss";
+.pbDingwei{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  padding: 20rpx 30rpx;
+  z-index: 10;
+  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+border-radius: 0 0 15rpx 15rpx;
+}
 .tzfb_box{padding:35rpx;width: 100%;}
-.tzfb_box>picker{font-weight: bold;}
+picker{font-weight: bold;color: #fff;}
 .tzfb_box>.box>view:nth-child(1){line-height: 2;}
 .tzfb_box>.box{border-radius: 15rpx;background: #fff;padding:35rpx;clear: both;overflow: hidden;
   font-size: 26rpx;margin-top:35rpx;}

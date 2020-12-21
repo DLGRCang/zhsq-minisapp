@@ -17,6 +17,7 @@ Page({
     login:0,
     PageCur: '',
     topNum:0,
+    t5If:0
   },
 
   
@@ -140,5 +141,21 @@ Page({
       this.selectComponent("#tip5").showClick()
     }
     
+  },
+  scry(e){
+   //console.log(e.detail.scrollTop) 
+    if(this.data.PageCur == 't5'){
+
+      if(e.detail.scrollTop >= 30){
+        this.setData({
+          t5If:1
+        })
+      }else{
+        this.setData({
+          t5If:0
+        })
+      }
+
+    }   
   }
 })

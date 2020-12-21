@@ -7,7 +7,18 @@
 .box-body-3-nei{ width: 100%;overflow: hidden;
   /* padding: 0 30rpx; */
 }
+.pbDingwei{
+  position: fixed;
+  width: 100%;
+  left: 0;
 
+  z-index: 10;
+  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+border-radius: 0 0 15rpx 15rpx;
+}
+.pk{
+  padding: 35rpx 35rpx 20rpx;
+}
 
 
 /* 内容样式 */

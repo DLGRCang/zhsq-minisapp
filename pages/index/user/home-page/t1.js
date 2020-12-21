@@ -1,6 +1,7 @@
 // pages/index/t1/t1.js
 import http from '../../../../utils/api'
 import util from '../../../../utils/util';
+import verif from '../../../../utils/verification'
 var app = getApp();
 Component({
   /**
@@ -15,20 +16,20 @@ Component({
    */
   data: {
     dataItem:[
-      {id:1,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts1.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
-      {id:2,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts2.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
-      {id:3,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts3.png',text:"物业缴费",url:'/pages/index/user/property-payment/wyjf'},
-      {id:4,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts4.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
-      {id:5,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts5.png',text:"SOS求助",url:''},
-      {id:6,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts6.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
-      {id:7,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts7.png',text:"空中课堂",url:''},
-      {id:8,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts8.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
+      {id:1,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts1a.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
+      {id:2,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts2a.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
+      {id:3,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts3a.png',text:"物业缴费",url:'/pages/index/user/property-payment/wyjf'},
+      {id:4,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts4a.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
+      {id:5,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts5a.png',text:"SOS求助",url:''},
+      {id:6,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts6a.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
+      {id:7,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:''},
+      {id:8,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts8a.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
       //{id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:'/pages/index/partyBranch/partyBranch'},
-      {id:10,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts10.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
-      {id:11,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts11.png',text:"民情直达",url:'/pages/index/user/complaint/complaint'},
-      {id:12,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts12.png',text:"入驻小区",url:'/pages/index/user/checkIn/checkIn'},
-      {id:13,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts13.png',text:"楼栋布局",url:'/pages/index/user/floor/floor'},
-      {id:14,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts14.png',text:"活动设施",url:''}
+      {id:10,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts10a.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
+      {id:11,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts11a.png',text:"民情直达",url:'/pages/index/user/complaint/complaint'},
+      {id:12,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts12a.png',text:"入驻小区",url:'/pages/index/user/checkIn/checkIn'},
+      {id:13,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts13a.png',text:"楼栋布局",url:'/pages/index/user/floor/floor'},
+      {id:14,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts14a.png',text:"活动设施",url:''}
     ],
     msgList: [
       { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png' },
@@ -44,7 +45,8 @@ Component({
     time:'',
     timeL:0,
     rowsWJ:[],
-    rowsSQHD:[]
+    rowsSQHD:[],
+    modalName:null
   },
  
   /**
@@ -64,10 +66,18 @@ Component({
 
   contentClick(e){
     //console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id
     if(e.currentTarget.dataset.url != ''){
-      wx.navigateTo({
-        url: e.currentTarget.dataset.url
-      })
+      if(id == 2&&verif.checkLogin()){
+        wx.navigateTo({
+          url: e.currentTarget.dataset.url
+        })
+      }else{
+        wx.navigateTo({
+          url: e.currentTarget.dataset.url
+        })
+      }
+      
     }
 
     if(e.currentTarget.dataset.id == '5'){
@@ -184,7 +194,7 @@ Component({
   lifetimes: {
     //在组件实例刚刚被创建时执行
     created() {
-      
+        
     },
     
     //在组件实例进入页面节点树时执行
@@ -196,6 +206,9 @@ Component({
       this.wenjuan()
       this.timeList()
       this.sqhdList()
+      this.setData({
+        modalName:'bottomModal'
+      })
       var dataItem = this.data.dataItem
       var dataItem1 = []
       var dataItem2 = []

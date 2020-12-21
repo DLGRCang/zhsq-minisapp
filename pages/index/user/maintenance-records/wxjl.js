@@ -1,20 +1,36 @@
 // pages/my/my.js
+import http from '../../../../utils/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    rows:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.wxjlArr()
   },
-
+  wxjlArr(){
+    http.listrepairApi({
+      data:{
+        unifiedUserId:wx.getStorageSync('user').userId
+      },
+      success:res=>{
+        console.log(res)
+        this.setData({
+          rows:res.data.repairDTOList
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

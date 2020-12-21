@@ -172,6 +172,14 @@ function llqbqApi(params){
   http('dictionaries/codelistofGet/000100050002','get',params)
 }
 
+//维修单申请提交
+function saverepairApi(params){
+  http('repair/saverepair/'+params.data.unifiedUserId,'post',params)
+}
+//维修申请人查询自己的维修记录
+function listrepairApi(params){
+  http('repair/listrepair/'+params.data.unifiedUserId,'get',params)
+}
 
 export default { // 暴露接口
   xinwenApi,
@@ -207,5 +215,7 @@ export default { // 暴露接口
   xgczfwApi,
   scczfwApi,
   myjfApi,
-  llqbqApi
+  llqbqApi,
+  saverepairApi,
+  listrepairApi
 }

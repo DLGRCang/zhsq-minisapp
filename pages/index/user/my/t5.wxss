@@ -16,6 +16,18 @@
   align-items: center;overflow: hidden;clear: both;
   justify-content: space-between;
 }
+.my-top-dingwei{
+  position: fixed;
+  left: 0;
+  width: 100%;
+  display: flex;
+  padding: 20rpx 30rpx;
+  align-items: center;overflow: hidden;clear: both;
+  justify-content: space-between;
+  z-index: 20;
+background: linear-gradient(60deg, #0586F8, #1BB1FD);
+border-radius: 0 0 15rpx 15rpx;
+}
 .my-top>image:nth-child(1){
   width: 12rpx;
   height: 20rpx;

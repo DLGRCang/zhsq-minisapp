@@ -6,7 +6,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    
+    t5If:String,
+    CustomBar:String
   },
  
   /**
@@ -124,10 +125,6 @@ Component({
  //点击登录
  loginClick(){
   verif.checkLogin()
-
-   
-  
-    
   },
   logUser(){
     //console.log(wx.getStorageSync('wxUser'))
@@ -140,7 +137,7 @@ Component({
     created() {
      // 获取用户信息
     this.logUser()
-      
+   
     },
     
     //在组件实例进入页面节点树时执行

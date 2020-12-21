@@ -4,7 +4,13 @@
 .font9{color:#999999;}
 .right{float:right;}
 
-
+.tab{
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  width: 100%;
+background: linear-gradient(60deg, #0586F8, #1BB1FD);
+}
 /* 头部样式 */
 .head_content{
   width:100%;

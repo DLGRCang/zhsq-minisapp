@@ -2,8 +2,15 @@
 <cu-custom bgColor="bg-gray-bljb">
     <view slot="content">通知发布</view>
 </cu-custom>
-
+<view class="pbDingwei" style="top:{{CustomBar}}px">
+    <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+			<view class="picker">
+				{{date}} <text class="cuIcon-unfold lg text-gray"></text>
+			</view>
+    </picker>
+    </view>
 <view class="tzfb_box">
+  
   <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
 			<view class="picker">
 				{{date}} <text class="cuIcon-unfold lg text-gray"></text>

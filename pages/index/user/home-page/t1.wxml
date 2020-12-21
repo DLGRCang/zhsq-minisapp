@@ -169,3 +169,21 @@
 </view>
 </view>
 </view>
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog" style="border-radius:15rpx 15rpx 0 0">
+    <view class="padding-xl">
+      <view class="wxsq-tc">
+        <view>微信授权</view>
+        <view>
+          <image></image>
+        </view>
+        <view>智慧社区申请获得以下权限：</view>
+        <view>获得您的公开信息（昵称，头像等）</view>
+      </view>
+      <view class="sq-btn">
+        <button class="cu-btn">拒绝</button>
+        <button class="cu-btn">授权</button>
+      </view>
+    </view>
+  </view>
+</view>

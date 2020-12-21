@@ -8,6 +8,15 @@
   /* padding: 0 30rpx; */color:#333;
 
 }
+.pbDingwei{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  padding: 35rpx 35rpx 0;
+  z-index: 10;
+  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+border-radius: 0 0 15rpx 15rpx;
+}
 /* 内容样式 */
 .pban_box{margin:0 auto;padding:35rpx;}
 .datetop{color: #fff;margin:25rpx 0 25rpx 0;float: left;font-size: 32rpx;font-weight: bold;}

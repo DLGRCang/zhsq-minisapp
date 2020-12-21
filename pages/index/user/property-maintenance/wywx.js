@@ -1,69 +1,58 @@
 var dateTimePicker = require('../../../../utils/dateTimePicker.js');
+import util from '../../../../utils/util'
+import verif from '../../../../utils/verification'
+import http from '../../../../utils/api'
 Page({
   data: {
-    date: '2018-10-01',
+    picker: ['水', '电', '暖','燃气','房屋','其他'],
+    index:null,
+    time: '',
+    dateT: '',
+    textValue:'',
     imgList: [],
-    time: '12:00',
-    dateTimeArray: null,
-     imgList: [],
-    dateTime: null,
-    startYear: 2000,
-    endYear: 2050,
-    times:true,
-    picker: ['水', '电', '暖','燃气','房屋','其他']
+    imgId:[],
   },
-  PickerChange(e) {
-    console.log(e);
+  PickerChange(e){
     this.setData({
-      index: e.detail.value
+      index:e.detail.value
+    })
+  },
+  TimeChange(e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+  DateChange(e) {
+    this.setData({
+      dateT: e.detail.value
+    })
+  },
+  textareaAInput(e){
+    //console.log(e)
+    this.setData({
+      textValue:e.detail.value
     })
   },
   onLoad(){
-    // 获取完整的年月日 时分秒，以及默认显示的数组
-    var obj = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
-    var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear);
-    // 精确到分的处理，将数组的秒去掉
-    var lastArray = obj1.dateTimeArray.pop();
-    var lastTime = obj1.dateTime.pop();
-    
-    console.log(obj.dateTime)
-    console.log(obj.dateTimeArray)
-    console.log(obj.dateTimeArray)
-    console.log(obj.dateTime)
-
+    //console.log(new Date().getDate() + 2)
     this.setData({
-      dateTime: obj.dateTime,
-      dateTimeArray: obj.dateTimeArray,
-      dateTimeArray1: obj1.dateTimeArray,
-      dateTime1: obj1.dateTime
-    });
-    
-
+      dateT:util.formatTime1(new Date).split(' ')[0],
+      time:util.formatTime1(new Date).split(' ')[1]
+    })
   },
 
-  changeDateTime(e) {
-
-    this.setData({ dateTime1: e.detail.value,times:false });
-  },
  // 照片功能
  ChooseImage() {
-  wx.chooseImage({
-    count: 9, //默认9
-    sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-    sourceType: ['album'], //从相册选择
-    success: (res) => {
-      if (this.data.imgList.length != 0) {
-        this.setData({
-          imgList: this.data.imgList.concat(res.tempFilePaths)
-        })
-      } else {
-        this.setData({
-          imgList: res.tempFilePaths
-        })
-      }
-    }
-  });
+  var imgs=verif.imgClick()
+  imgs.then(res=>{
+     this.setData({
+      imgId:this.data.imgId.concat(res),
+      imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)
+    })
+  })
+ // console.log(this.data.imgList)
 },
+
 ViewImage(e) {
   wx.previewImage({
     urls: this.data.imgList,
@@ -72,62 +61,63 @@ ViewImage(e) {
 },
 DelImg(e) {
   wx.showModal({
-    title: '删除照片',
-    content: '确定要删除该照片吗？',
+    title: '删除图片',
+    content: '确定要删除该图片吗？',
     cancelText: '取消',
-    confirmText: '删除',
+    confirmText: '确认',
     success: res => {
       if (res.confirm) {
         this.data.imgList.splice(e.currentTarget.dataset.index, 1);
+        this.data.imgId.splice(e.currentTarget.dataset.index, 1);
         this.setData({
-          imgList: this.data.imgList
+          imgList: this.data.imgList,
+          imgId:this.data.imgId
         })
       }
     }
   })
-   
-  },
-  // 照片功能
-  ChooseImage() {
-    wx.chooseImage({
-      count: 9, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
-      success: (res) => {
-        if (this.data.imgList.length != 0) {
-          this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
-          })
-        } else {
-          this.setData({
-            imgList: res.tempFilePaths
-          })
-        }
+},
+  tjClick(){
+    var imgId1 = ''
+    for(var i in this.data.imgId){
+      if(imgId1 == ''){
+        imgId1=this.data.imgId[i]
+      }else{
+        imgId1=imgId1+','+this.data.imgId[i]
       }
-    });
-  },
-  ViewImage(e) {
-    wx.previewImage({
-      urls: this.data.imgList,
-      current: e.currentTarget.dataset.url
-    });
-  },
-  DelImg(e) {
-    wx.showModal({
-      title: '删除照片',
-      content: '确定要删除该照片吗？',
-      cancelText: '取消',
-      confirmText: '删除',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-          this.setData({
-            imgList: this.data.imgList
-          })
+    }
+    //console.log(this.data.picker[this.data.index])
+    if(this.data.index == null){
+      verif.tips('请选择维修分类')
+    }else if(this.data.textValue == ''){
+      verif.tips('请输入问题描述')
+    }else{
+      wx.showLoading({
+        title: '拼命加载中',
+      })
+      http.saverepairApi({
+        data:{
+          type:this.data.picker[this.data.index],
+          unifiedUserId:wx.getStorageSync('user').userId,
+          appleTime:this.data.dateT+' '+this.data.time,
+          appleContent:this.data.textValue,
+          appleFileId:imgId1
+        },
+        success:res=>{
+          //console.log(res)
+          if(res.code == 200){
+            wx.hideLoading({
+              success: (res) => {},
+            })
+            verif.tips('提交成功')
+          }
+        },
+        fail:err=>{
+          console.log(err)
         }
-      }
-    })
-     },
+      })
+    }
+  }
      
 
 })

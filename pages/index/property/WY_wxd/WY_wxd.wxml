@@ -3,14 +3,32 @@
     <view slot="content">维修单</view>
   </cu-custom>
 <!-- <view class="llq_content"> -->
+  <view class="pbDingwei" style="top:{{CustomBar}}px">
+    <view class="view_tab-3">
+      <view class="tab_bar"> 
+        <view class="{{tabArr.curHdIndex=='0'? 'active3' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
+        <view class="{{tabArr.curHdIndex=='1'? 'active3' : ''}}" id="1"  data-id="1" bindtap="tab">待接单</view> 
+        <view class="{{tabArr.curHdIndex=='2'? 'active3' : ''}}" id="2"  data-id="2" bindtap="tab">待派单</view> 
+        <view class="{{tabArr.curHdIndex=='3'? 'active3' : ''}}" id="3"  data-id="3" bindtap="tab">已拒绝</view> 
+      </view> 
+    </view>
+    <view class="pk right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
+      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+        <view class="picker">
+          {{date}} <text class="cuIcon-unfold lg"></text>
+        </view>
+      </picker>
+    </view>
+    
+  </view>
   <view class="box-body-3-nei">
    
 <view class="view_tab-3">
-<view class="tab_bar" > 
+<view class="tab_bar"> 
   <view class="{{tabArr.curHdIndex=='0'? 'active3' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
-  <view class="{{tabArr.curHdIndex=='1'? 'active3' : ''}}" id="1"  data-id="1" bindtap="tab">待付款</view> 
-  <view class="{{tabArr.curHdIndex=='2'? 'active3' : ''}}" id="2"  data-id="2" bindtap="tab">待发货</view> 
-  <view class="{{tabArr.curHdIndex=='3'? 'active3' : ''}}" id="3"  data-id="3" bindtap="tab">待收货</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active3' : ''}}" id="1"  data-id="1" bindtap="tab">待接单</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active3' : ''}}" id="2"  data-id="2" bindtap="tab">待派单</view> 
+  <view class="{{tabArr.curHdIndex=='3'? 'active3' : ''}}" id="3"  data-id="3" bindtap="tab">已拒绝</view> 
 </view> 
 
 <view class="box_content-3"> 
@@ -18,10 +36,10 @@
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <view class="pban_box" bindtap="xiangqing">
       <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
-			<view class="picker">
-				{{date}} <text class="cuIcon-unfold lg"></text>
-			</view>
-    </picker>
+        <view class="picker">
+          {{date}} <text class="cuIcon-unfold lg"></text>
+        </view>
+      </picker>
 
     <view class="box">
         <view class="box_top">
