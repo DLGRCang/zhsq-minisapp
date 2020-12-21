@@ -181,8 +181,8 @@
         <view>获得您的公开信息（昵称，头像等）</view>
       </view>
       <view class="sq-btn">
-        <button class="cu-btn">拒绝</button>
-        <button class="cu-btn">授权</button>
+        <button class="cu-btn" bindtap="wxsqjjClick">拒绝</button>
+        <button class="cu-btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">授权</button>
       </view>
     </view>
   </view>

@@ -42,7 +42,8 @@ page{
   justify-content: center;
   font-family:PingFangSC-Medium;
   font-size: 34rpx;
-  background: #1ecc9a;
+  
+background: linear-gradient(60deg, #66B7F9, #3A91F7);
   color: #fff
 }
 .aut4 view{

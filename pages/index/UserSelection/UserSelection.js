@@ -1,46 +1,49 @@
-// pages/index/SJ_Shop/SJ_Shop.js
-import verif from '../../../../utils/verification'
+// pages/index/UserSelection/UserSelection.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    sfUset:[
+      {id:0,user:"社区用户"},
+      {id:1,user:"商家"},
+      {id:2,user:"物业管理人员"},
+      {id:3,user:"物业人员"}
+    ],
+    sxId:0
+  },
 
-  },
-      // 店铺营收跳转
-  feedbackClick:function(){
-    wx.navigateTo({
-      url: '/pages/index/business/Sj_revenue/Sj_revenue'
-    })
-  },
-        // 店铺信息跳转
-        dpxx:function(){
-          wx.navigateTo({
-            url: '/pages/index/business/Sj_dpxx/Sj_dpxx'
-          })
-        },
-  // 店铺认证跳转
-  aboutMe:function(){
-    wx.navigateTo({
-      url: '/pages/index/business/Sj_dprz/Sj_dprz'
-    })
-  },
-  // 切换角色
-  qhjiaose(){
-    if(verif.checkLogin()){
-      wx.navigateTo({
-        url: '/pages/index/UserSelection/UserSelection'
-      })
-    }
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
-
+  szsfClick(e){
+    //console.log(e.currentTarget.dataset.id)
+    this.setData({
+      sxId:e.currentTarget.dataset.id
+    })
+  },
+  xybClick(){
+    if(this.data.sxId == 0){
+      wx.setStorageSync('indexId', 1)
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    }else if(this.data.sxId == 1){
+      wx.setStorageSync('indexId', 2)
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    }else if(this.data.sxId == 2||this.data.sxId == 3){
+      wx.setStorageSync('indexId', 3)
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

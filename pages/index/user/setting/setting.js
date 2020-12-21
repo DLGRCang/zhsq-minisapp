@@ -1,4 +1,5 @@
 // pages/index/setting/setting.js
+import verif from '../../../../utils/verification'
 Page({
 
   /**
@@ -15,12 +16,12 @@ Page({
   },
 
   qhjiaose(){
-  
-      wx.setStorageSync('indexId', 2)
- 
-    wx.reLaunch({
-      url: '/pages/index/index'
-    })
+    if(verif.checkLogin()){
+      wx.navigateTo({
+        url: '/pages/index/UserSelection/UserSelection'
+      })
+    }
+    
   },
   /**
    * 生命周期函数--监听页面加载

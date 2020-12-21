@@ -187,6 +187,52 @@ Component({
       url: '/pages/index/user/communityDetails/sq_hdxq?id='+id
     })
   },
+  wxsqjjClick(){
+    this.setData({
+      modalName:'null'
+    })
+    wx.setStorageSync('loginSi', true)
+  },
+  bindGetUserInfo(e) {
+    //console.log(e)
+    if (e.detail.userInfo != undefined){
+      wx.getUserInfo({
+        success: res => {
+          wx.setStorageSync('wxUser',res)
+        }
+      })
+      var user = {
+        userId:'100',
+        floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',
+        unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',
+        roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'
+      }
+
+      wx.setStorageSync('user', user)
+     // wx.setStorageSync('loginSi', true)
+      //后台授权
+      wx.showToast({
+        title: '登录成功',
+      })
+      
+      this.setData({
+        modalName:'null'
+      })
+
+      setTimeout(()=>{
+        wx.navigateTo({
+          url: '/pages/index/UserSelection/UserSelection'
+        })
+      },1000)
+      
+      
+      // setTimeout(()=>{
+      //   wx.navigateBack({
+      //     delta: 1
+      //   })
+      // },1000)
+    }
+  },
 
   },
  
@@ -203,12 +249,16 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
+      //console.log(wx.getStorageSync('loginSi'))
       this.wenjuan()
       this.timeList()
       this.sqhdList()
-      this.setData({
-        modalName:'bottomModal'
-      })
+      if(wx.getStorageSync('user') == ''&&!wx.getStorageSync('loginSi')){
+        this.setData({
+          modalName:'bottomModal'
+        })
+      }
+      
       var dataItem = this.data.dataItem
       var dataItem1 = []
       var dataItem2 = []

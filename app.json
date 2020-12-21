@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/UserSelection/UserSelection",
+    
+    
     "pages/index/user/Llq_pub/Llq_pub",
     "pages/index/user/vote/kaishi_tp",
     "pages/index/user/service/cd_fwxq",

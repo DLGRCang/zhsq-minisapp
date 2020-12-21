@@ -1,4 +1,5 @@
 // pages/index/WY_pban/WY_pban.js
+import verif from '../../../../utils/verification'
 Component({
   /**
    * 组件的属性列表
@@ -28,12 +29,12 @@ Component({
     },
   
     qhjiaose(){
-  
-        wx.setStorageSync('indexId', 1)
-     
-      wx.reLaunch({
-        url: '/pages/index/index'
-      })
+      if(verif.checkLogin()){
+        wx.navigateTo({
+          url: '/pages/index/UserSelection/UserSelection'
+        })
+      }
+      
     },
 
   },

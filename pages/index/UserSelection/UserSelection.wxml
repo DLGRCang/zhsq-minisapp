@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+    <view slot="content">选择身份</view>
+</cu-custom>
+<view class="sele">
+  <view class="sf">请选择您的身份</view>
+  <view class="sfx">您好！欢迎使用伊智家！</view>
+  <view class="sfxz" wx:for="{{sfUset}}" bindtap="szsfClick" data-id="{{item.id}}" style="{{sxId == item.id ? 'background: linear-gradient(60deg, #66B7F9, #3A91F7)':'background:#fff'}}">
+    <text style="{{sxId == item.id ? 'color: #fff;':'color: #001F42'}}">{{item.user}}</text>
+    <image src="../../../images/yhsz.png" wx:if="{{sxId == item.id}}"></image>
+    <image src="../../../images/yhwx.png" wx:if="{{sxId != item.id}}"></image>
+  </view>
+  <button class="cu-btn round btn" bindtap="xybClick">下一步</button>
+</view>
