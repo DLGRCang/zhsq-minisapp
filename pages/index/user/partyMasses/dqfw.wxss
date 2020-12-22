@@ -10,7 +10,7 @@
 .box_content .right-item{display: none}
 .box_content .right-item.active{display: block}
 
-.bg{width: 100%;padding-top:85rpx;height: 91%;
+.bg{width: 100%;padding-top:45rpx;height: 91%;
   background: linear-gradient(60deg, #e03c37, #FF7B79);overflow-y: hidden;}
 .box_content{font-size: 28rpx;overflow-y: auto;height: 97%;}
 .view_tab{width: 100%;height:100%;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}

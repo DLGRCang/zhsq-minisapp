@@ -11,7 +11,7 @@
   position: relative;
   overflow-x: hidden;
 box-shadow: 0px 3px 10px 0px rgba(239, 240, 243, 0.99);
-padding: 56rpx 30rpx 0;
+/* padding: 56rpx 30rpx 0; */
 box-sizing: border-box;
 }
 .pos-top{
@@ -55,7 +55,7 @@ box-sizing: border-box;
   line-height: 90rpx;
   margin: 0 10rpx;
   padding: 0 20rpx;
-  color: #EEEEEE !important;
+  color: #333;
 }
 
 .s-left{
@@ -113,7 +113,7 @@ font-family: Microsoft YaHei;
 font-weight: 400;
 color: #666666;
 }
-
+.nav .cu-item.cur{color:red;}
 .fuwu{
   width: 100%;
   height: 180rpx;
