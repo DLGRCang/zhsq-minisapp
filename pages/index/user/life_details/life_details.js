@@ -29,7 +29,7 @@ Page({
     // 搜索页面跳转
     Search:function(){
       wx.navigateTo({
-        url: '/pages/index/user/Search/Search'
+        url: '/pages/index/business/Search/Search'
       })
     },
     /* 点击减号 */  
