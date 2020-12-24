@@ -1,6 +1,6 @@
 <view class="checkin">
   <cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
-    <view slot="content">入住小区</view>
+    <view slot="content">入驻小区</view>
   </cu-custom>
   <view class="lease-box">
     <view class="box-body">
