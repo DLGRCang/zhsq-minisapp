@@ -4,7 +4,8 @@
   </cu-custom>
 
 <!-- 内容 -->
-<view class="wywx_content">
+<view class="wywx_content" style="height:{{windowHeight}}px">
+	<view class="wywx_content_nei">
   <navigator url="/pages/index/user/maintenance-records/wxjl" hover-class="navigator-hover">
     <view class="wxjl_title">维修记录<text class="cuIcon-right lg text-gray"></text></view>
   </navigator>
@@ -23,7 +24,7 @@
 <text class="wx_title"><text class="text-red">*</text>维修时段</text>
   <view class="wx_time" style="margin-bottom:20rpx">
     <view class="cu-form-group">
-		<view class="title">日期选择</view>
+		<view class="title">日期选择</view> 
 		<picker mode="date" value="{{dateT}}" start="{{dateT}}" bindchange="DateChange">
 			<view class="picker">
 				{{dateT}}
@@ -66,5 +67,6 @@
 		</view>
   </view>
 </form>
-  <button class="tj_btn" bindtap="tjClick">提交预约</button>
+	<button class="tj_btn" bindtap="tjClick">提交预约</button>
+</view>
 </view>

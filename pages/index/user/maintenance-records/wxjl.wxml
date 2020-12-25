@@ -3,7 +3,7 @@
     <view slot="content">维修记录</view>
   </cu-custom>
 
-  <view class="top-navigation bg-gray">
+  <view class="top-navigation bg-gray" id="tab">
     <view>
       <text class="cuIcon-location"></text>
       <view style="width:324rpx">左右城左E4 1单元1203</view>
@@ -11,7 +11,8 @@
   </view>
 
 <!--  -->
-<view class="wxjl_content" wx:for="{{rows}}" style="{{index == 0 ? 'margin-top:115rpx;':''}}">
+<view style="width:100%;height:{{windowHeight}}px;padding-top:{{tabHeight}}px;overflow-y: auto;">
+  <view class="wxjl_content" wx:for="{{rows}}">
    <view class="content_box">
      <view class="content_title">
       <text>
@@ -38,4 +39,6 @@
     </view>
     </view>
 </view>
+</view>
+
 

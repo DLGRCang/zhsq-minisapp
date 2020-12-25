@@ -1,13 +1,10 @@
 //app.js
 App({
   onShow:function(){
-
   },
 
   onLaunch: function() {
-    
-
-    
+  
     // 展示本地存储能力
     // var logs = wx.getStorageSync('logs') || []
     // logs.unshift(Date.now())
@@ -54,6 +51,9 @@ App({
         } else {
         	this.globalData.CustomBar = e.statusBarHeight + 50;
         }
+
+        this.globalData.wHeight = wx.getSystemInfoSync().windowHeight
+        this.globalData.windowHeight = wx.getSystemInfoSync().windowHeight - this.globalData.CustomBar
       }
     })
   },

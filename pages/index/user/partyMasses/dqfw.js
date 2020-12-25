@@ -58,7 +58,7 @@ xiangqing(e){
     })
     http.dqfwApi({
       success:res=>{
-      //console.log(res)
+      console.log(res)
         var rowsList = res.rows
         for(var i in rowsList){
           if(rowsList[i].activeStartTime.split(' ')[0] != rowsList[i].activeEndTime.split(' ')[0]){

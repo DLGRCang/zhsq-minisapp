@@ -10,6 +10,8 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    windowHeight:app.globalData.windowHeight,
+    wHeight:app.globalData.wHeight,
     motto: 'Hi 开发者！',
     userInfo: {},
     hasUserInfo: false,
@@ -17,7 +19,10 @@ Page({
     login:0,
     PageCur: '',
     topNum:0,
-    t5If:0
+    t5If:0,
+    tab1Height:0,
+    tab2Height:0,
+    tab3Height:0,
   },
 
   
@@ -46,7 +51,7 @@ Page({
     }
   },
   onLoad: function () {
-   
+    
     wx.showLoading({
       title: '拼命加载中',
     })
@@ -97,7 +102,7 @@ Page({
     }else if(indexId == 3){
       this.setData({
         login:3,
-        PageCur:'t10'
+        PageCur:'t12'
       })
     }
     //console.log(this.data.login)
@@ -117,6 +122,31 @@ Page({
   //监听页面显示
   onShow:function(){
     var that = this
+    var query = wx.createSelectorQuery()
+    var  indexId = wx.getStorageSync('indexId')
+    if(indexId == 1){
+      query.select('#footer1').boundingClientRect(function (res) {
+        // console.log(res);
+        that.setData({
+          tab1Height:res.height
+         })
+      }).exec();
+    }else if(indexId == 2){
+      query.select('#footer2').boundingClientRect(function (res) {
+        //console.log(res);
+       that.setData({
+         tab2Height:res.height
+        })
+     }).exec();
+    }else if(indexId == 3){
+      query.select('#footer3').boundingClientRect(function (res) {
+        // console.log(res);
+        that.setData({
+          tab3Height:res.height
+         })
+      }).exec();
+    }
+    
     wx.getStorage({
       key: 'llqfb',
       success: function(res){

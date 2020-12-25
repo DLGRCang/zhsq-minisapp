@@ -1,0 +1,4 @@
+<view style="height:{{windowHeight-CustomBar}}px;width:100%">
+
+
+</view>

@@ -83,6 +83,23 @@
           "pathName": "pages/index/my_publish/my_publish",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "社区党建",
+          "pathName": "pages/index/user/partyBuilding/partyBuilding",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "学习园地",
+          "pathName": "pages/index/user/Studyyd/Studyyd",
+          "scene": null
         }
       ]
     }

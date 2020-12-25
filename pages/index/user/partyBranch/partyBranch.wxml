@@ -14,7 +14,7 @@
     </view>
     <view>
   <view class="box">
-    <image src="../../../images/back2.png" class="beijing"></image>
+    <image src="../../../../images/back2.png" class="beijing"></image>
     
     <view class="top-text">
       <view>中共内蒙古自治区XXXX支部委员会</view>

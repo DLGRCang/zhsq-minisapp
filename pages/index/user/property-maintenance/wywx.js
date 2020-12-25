@@ -1,7 +1,8 @@
 var dateTimePicker = require('../../../../utils/dateTimePicker.js');
 import util from '../../../../utils/util'
 import verif from '../../../../utils/verification'
-import http from '../../../../utils/api'
+import http from '../../../../utils/api' 
+const app = getApp()
 Page({
   data: {
     picker: ['水', '电', '暖','燃气','房屋','其他'],
@@ -11,6 +12,7 @@ Page({
     textValue:'',
     imgList: [],
     imgId:[],
+    windowHeight:app.globalData.windowHeight,
   },
   PickerChange(e){
     this.setData({

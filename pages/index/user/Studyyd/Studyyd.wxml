@@ -5,19 +5,17 @@
     <view slot="content">学习园地</view>
   </cu-custom>
   
-  <scroll-view scroll-y="true"  style="height:91%" bindscroll="scry">
+  <scroll-view scroll-y="true" style="height:{{windowHeight}}px;" bindscrolltolower="cbott" bindscroll="scry">
     <view class="pos-top" wx:if="{{topPos}}">
     <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-code="{{item.code}}" data-id="{{index}}">
           {{item.content}}
         </view>
       </scroll-view>
     </view>
     <view>
   <view class="box">
-    <image src="../../../images/back2.png" class="beijing"></image>
-    
-
+    <image src="../../../../images/back2.png" class="beijing"></image>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
         <view class="cu-item {{index==TabCur?'text-white cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
@@ -26,29 +24,77 @@
       </scroll-view>
     </view>
   </view>
-  <view class="bot-box">
-    <view class="dang" wx:if="{{panduan}}">
-      <view class="neirong" wx:for="{{10}}">
-        <view class="nrimg"></view>
-        <view class="nrText">
-          <view>党员姓名</view>
-          <view>支部委员会委员</view>
-        </view>
-      </view>
+  <view class="bot-box" wx:if="{{TabCur == 0}}">
+    <view class="queshiye" wx:if="{{rowsXw0.length == 0}}" style="padding-top:200rpx">
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <view>暂无数据</view>
     </view>
-    <view class="xinwen" wx:if="{{!panduan}}">
-      <view class="seven_box" wx:for="{{10}}">
-
-        <view class="seven_left">
-          <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
-          <text>2020-10-28</text>  
+    <view class="xinwen" wx:for="{{rowsXw0}}" bindtap="xwDetails" data-item="{{item}}">
+      <view class="seven_box">
+        <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
+            <text>{{item.title}}</text>   
+            <text>{{item.publicTime}}</text>  
         </view>
-          <view class="seven_right">
-          <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/componentBg.png"></image>
+          <view class="seven_right" style="{{item.head == ''?'width:0':'width:25%'}}">
+            <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.head}}"></image>
           </view>
         </view>
-    
       </view>
+      <view class="cu-load {{!isLoad?'loading':'over'}}" wx:if="{{rowsXw0.length >= 12}}"></view>
+  </view>
+  <view class="bot-box" wx:if="{{TabCur == 1}}">
+    <view class="queshiye" wx:if="{{rowsXw1.length == 0}}" style="padding-top:200rpx">
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <view>暂无数据</view>
+    </view>
+    <view class="xinwen" wx:for="{{rowsXw1}}" bindtap="xwDetails" data-item="{{item}}">
+      <view class="seven_box">
+        <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
+            <text>{{item.title}}</text>   
+            <text>{{item.publicTime}}</text>  
+        </view>
+          <view class="seven_right" style="{{item.head == ''?'width:0':'width:25%'}}">
+            <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.head}}"></image>
+          </view>
+        </view>
+      </view>
+      <view class="cu-load {{!isLoad?'loading':'over'}}" wx:if="{{rowsXw1.length >= 12}}"></view>
+  </view>
+  <view class="bot-box" wx:if="{{TabCur == 2}}">
+    <view class="queshiye" wx:if="{{rowsXw2.length == 0}}" style="padding-top:200rpx">
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <view>暂无数据</view>
+    </view>
+    <view class="xinwen" wx:for="{{rowsXw2}}" bindtap="xwDetails" data-item="{{item}}">
+      <view class="seven_box">
+        <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
+            <text>{{item.title}}</text>   
+            <text>{{item.publicTime}}</text>  
+        </view>
+          <view class="seven_right" style="{{item.head == ''?'width:0':'width:25%'}}">
+            <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.head}}"></image>
+          </view>
+        </view>
+      </view>
+      <view class="cu-load {{!isLoad?'loading':'over'}}" wx:if="{{rowsXw2.length >= 12}}"></view>
+  </view>
+  <view class="bot-box" wx:if="{{TabCur == 3}}">
+    <view class="queshiye" wx:if="{{rowsXw3.length == 0}}" style="padding-top:200rpx">
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <view>暂无数据</view>
+    </view>
+    <view class="xinwen" wx:for="{{rowsXw3}}" bindtap="xwDetails" data-item="{{item}}">
+      <view class="seven_box">
+        <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
+            <text>{{item.title}}</text>   
+            <text>{{item.publicTime}}</text>  
+        </view>
+          <view class="seven_right" style="{{item.head == ''?'width:0':'width:25%'}}">
+            <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.head}}"></image>
+          </view>
+        </view>
+      </view>
+      <view class="cu-load {{!isLoad?'loading':'over'}}" wx:if="{{rowsXw3.length >= 12}}"></view>
   </view>
 </view>
 </scroll-view>

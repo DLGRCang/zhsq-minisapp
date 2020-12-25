@@ -55,18 +55,8 @@
 </view>
 
 <!-- 第三部分 -->
-<view class="sqhd_box" wx:if="{{rowsSQHD.length != 0}}">
+<!-- <view class="sqhd_box" wx:if="{{rowsSQHD.length != 0}}">
 <text class="sqhd_title">社区活动</text>
-<!-- <view class="bigBox">
-    <view class="circleBox"></view>    
-    <view class="three_box">
-    <text class="text01">汇通社区居委会举办家庭亲子活动</text>   
-    <text>时间：11月12日</text>   
-    <text>地点：左右城左城南门小广场</text>   
-    <text>人数：50组家庭</text>   
-    <button class="bm_btn">报 名</button>
-  </view>   
-</view> -->
 <view class="tab_box" bindtap="xiangqing" data-id="{{rowsSQHD.constructionsActivityId}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-huise light xtb" wx:if="{{rowsSQHD.status == 0}}">已取消</view>
@@ -89,7 +79,7 @@
         </view>
       </view>
     </view>
-</view>
+</view> -->
 
 <!-- 第四部分 -->
 <view class="xqtp_box">
@@ -98,7 +88,7 @@
       <view class="abc"></view>
       <view class="ase-box">
         <view class="ase-left">
-          <view>ascas</view>
+          <view>正在进行投票内容</view>
           <view>{{timeL}}</view>
         </view>
         <view class="ase-right">
@@ -108,7 +98,7 @@
 </view>
 </view>
 <!-- 第五部分 -->
-<view class="xqtp_box">
+<!-- <view class="xqtp_box">
 <text class="sqhd_title">小区公示</text>
 
   <view class="body-ase">
@@ -123,7 +113,7 @@
         </view>
       </view>
 </view>
-</view>
+</view> -->
 
 <!-- 第六部分 -->
 <view class="xqtp_box">

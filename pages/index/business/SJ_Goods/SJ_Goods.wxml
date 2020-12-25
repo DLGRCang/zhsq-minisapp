@@ -12,13 +12,13 @@
       </view>
 </view>     
 
-  <view class="view_tab">
+  <view class="view_tab" style="height:{{windowHeight - 60}}px">
     <view class="tab_bar" > 
       <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">出售中</view> 
       <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">未上架</view> 
     </view>
  
-<view class="box_content"> 
+<view class="box_content" style="height:{{windowHeight - 110}}px"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <view class="tab_box" bindtap="xiangqing" wx:for="{{5}}">

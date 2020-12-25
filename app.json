@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/user/airClass/airClass",
     "pages/index/UserSelection/UserSelection",
-    
     
     "pages/index/user/Llq_pub/Llq_pub",
     "pages/index/user/vote/kaishi_tp",
@@ -83,7 +83,8 @@
     "navigationBarTextStyle": "white"
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom",
+    "have-content":"/colorui/have-content/have-content"
   },
   "sitemapLocation": "sitemap.json"
 }

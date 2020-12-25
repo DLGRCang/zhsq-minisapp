@@ -5,7 +5,12 @@
 
 
 .wywx_content{
-  height:auto;width: 93%;margin:0 auto;background: #fff;margin-top:65rpx;padding:25rpx;border-radius: 25rpx;
+  width: 100%;padding:35rpx;
+}
+.wywx_content_nei{
+  background: #fff;border-radius: 25rpx;
+  padding: 35rpx 35rpx 20rpx;
+  margin-bottom: 35rpx;
 }
 .wxjl_title{float:right;color:#188BFF;line-height: 3;display: block;}
 

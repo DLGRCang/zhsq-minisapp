@@ -3,15 +3,15 @@
     <view slot="content">订单</view>
 </cu-custom>
 
-<view class="view_tab">
-<view class="tab_bar" > 
+<view class="view_tab" style="height:{{windowHeight}}px">
+<view class="tab_bar" id="tabHeight"> 
   <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
   <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">待付款</view> 
   <view class="{{tabArr.curHdIndex=='2'? 'active' : ''}}" id="2"  data-id="2" bindtap="tab">待发货</view> 
   <view class="{{tabArr.curHdIndex=='3'? 'active' : ''}}" id="3"  data-id="3" bindtap="tab">待收货</view> 
 </view> 
 
-<view class="box_content"> 
+<view class="box_content" style="height:{{windowHeight - 50}}px"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <view class="tab_box" bindtap="xiangqing">

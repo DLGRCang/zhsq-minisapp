@@ -35,14 +35,14 @@
 </view>
 
 <!-- 第三部分 -->
-<view class="my-b-from">
+<!-- <view class="my-b-from">
     <view class="my-p-from" bindtap="feedbackClick">
       <view class="bot-border">
         <text>店铺营收</text>
         <text class="cuIcon-right lg text-gray"></text>
       </view>
   </view>
-  </view>
+  </view> -->
 
 <view class="my-b-from">
     <view class="my-p-from" bindtap="dpxx">

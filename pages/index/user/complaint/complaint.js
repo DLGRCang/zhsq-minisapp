@@ -102,6 +102,11 @@ Page({
         }else{
           verif.tips(res.msg)
         }
+        setTimeout(()=>{
+          wx.navigateBack({//返回
+            delta: 1
+          })
+        },500)
       },
       fali:err=>{
         console.log(err)

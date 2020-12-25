@@ -22,7 +22,7 @@ Component({
       {id:4,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts4a.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
       {id:5,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts5a.png',text:"SOS求助",url:''},
       {id:6,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts6a.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
-      {id:7,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:''},
+      {id:7,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:'/pages/index/user/airClass/airClass'},
       {id:8,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts8a.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
       //{id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:'/pages/index/partyBranch/partyBranch'},
       {id:10,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts10a.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
@@ -45,7 +45,7 @@ Component({
     time:'',
     timeL:0,
     rowsWJ:[],
-    rowsSQHD:[],
+    //rowsSQHD:[],
     modalName:null
   },
  
@@ -252,8 +252,8 @@ Component({
       //console.log(wx.getStorageSync('loginSi'))
       this.wenjuan()
       this.timeList()
-      this.sqhdList()
-      if(wx.getStorageSync('user') == ''&&!wx.getStorageSync('loginSi')){
+      //this.sqhdList()
+      if(wx.getStorageSync('wxUser') == ''&&!wx.getStorageSync('loginSi')){
         this.setData({
           modalName:'bottomModal'
         })

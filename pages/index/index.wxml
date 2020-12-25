@@ -8,9 +8,8 @@
       </view>
       <view wx:if="{{PageCur=='t5'}}">我的</view>
     </view>
-  
     <!-- style="background: url('../../images/back.png');" -->
-  <view class="box-body">
+  <view class="box-body" style="height:{{windowHeight - tab1Height}}px;">
     <scroll-view scroll-y scroll-top="{{topNum}}" lower-threshold="100" style="height: 100%;" bindscroll="scry">
       <image src="../../images/back.png" class="beijing"></image>
     
@@ -22,7 +21,8 @@
   </scroll-view>
     
   </view>
-<view class="cu-bar tabbar bg-white foot">
+  
+<view class="cu-bar tabbar bg-white foot" id="footer1">
     <view class="action text-green" bindtap="NavChange" data-cur="t1">
       <view>
         <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/1.png" class="tabimg" wx:if="{{PageCur!='t1'}}"></image>
@@ -60,13 +60,13 @@
 </view>
 
 <view class="box-2" wx:if="{{login == 2}}">
-  <view class="box-2-nei">
-    <t6 wx:if="{{PageCur=='t6'}}"></t6>
-    <t7 wx:if="{{PageCur=='t7'}}"></t7>
-    <t8 wx:if="{{PageCur=='t8'}}"></t8>
-    <t9 wx:if="{{PageCur=='t9'}}"></t9>
+  <view class="box-2-nei" style="height:{{wHeight - tab2Height}}px;">
+    <t6 wx:if="{{PageCur=='t6'}}" windowHeight="{{windowHeight-tab2Height}}"></t6>
+    <t7 wx:if="{{PageCur=='t7'}}" windowHeight="{{windowHeight-tab2Height}}"></t7>
+    <t8 wx:if="{{PageCur=='t8'}}" windowHeight="{{windowHeight-tab2Height}}"></t8>
+    <t9 wx:if="{{PageCur=='t9'}}" windowHeight="{{windowHeight-tab2Height}}"></t9>
   </view>
-<view class="cu-bar tabbar bg-white shadow foot">
+<view class="cu-bar tabbar bg-white shadow foot" id="footer2">
   <view class="action" bindtap="NavChange" data-cur="t6">
     <view class='cuIcon-cu-image'>
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/message.png" class="tabimg" wx:if="{{PageCur!='t6'}}"></image>
@@ -100,16 +100,16 @@
 
 
 <view class="box-3" wx:if="{{login == 3}}">
-  <view class="box-body-3">
+  <view class="box-body-3" style="height:{{wHeight - tab3Height}}px;">
 
       <image src="../../images/back.png" style="top:{{CustomBar}}px" class="beijing"></image>
         <t10 wx:if="{{PageCur=='t10'}}" CustomBar="{{CustomBar}}"></t10>
         <t11 wx:if="{{PageCur=='t11'}}" CustomBar="{{CustomBar}}"></t11>
-        <t12 wx:if="{{PageCur=='t12'}}" CustomBar="{{CustomBar}}"></t12>
+        <t12 wx:if="{{PageCur=='t12'}}" CustomBar="{{CustomBar}}" windowHeight="{{windowHeight}}" wHeight="{{wHeight-tab3Height}}"></t12>
         <t13 wx:if="{{PageCur=='t13'}}"></t13>
   </view>
 
-<view class="cu-bar tabbar bg-white foot">
+<view class="cu-bar tabbar bg-white foot" id="footer3">
     <view class="action text-green" bindtap="NavChange" data-cur="t10">
       <view>
         <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy11.png" class="tabimg" wx:if="{{PageCur!='t10'}}"></image>

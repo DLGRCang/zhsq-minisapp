@@ -46,7 +46,7 @@ const imgClick = function (){
         var code1 = str.match(/\.(.*)/)[1];//取 ?id=后面所有字符串
         //http://172.16.20.81:9000
         wx.uploadFile({
-          url: 'http://172.16.20.81:9000/fileService/uploadFTP/zhsq/linliquan', //仅为示例，非真实的接口地址
+          url: 'http://172.16.20.81:9000/fileService/uploadFTP/zhsq/linliquan',
           filePath: tempFilePaths,
           name: 'file',
           formData: {

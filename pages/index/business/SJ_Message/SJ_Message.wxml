@@ -3,7 +3,7 @@
     <view slot="content">消息</view>
 </cu-custom>
 
-  <view style="height:91%;overflow-y: auto;padding-bottom:0">
+  <view style="height:{{windowHeight}}px;overflow-y: auto;padding-bottom:0">
   <view class="box-body-2">
     <image src="../../../../images/back.png" class="beijing"></image>
 <!-- <view > -->

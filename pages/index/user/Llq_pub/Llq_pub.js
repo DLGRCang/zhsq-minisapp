@@ -56,6 +56,11 @@ Page({
                 textArea:''
               })
               wx.setStorageSync('llqfb', 'true')
+              setTimeout(()=>{
+                wx.navigateBack({//返回
+                  delta: 1
+                })
+              },500)
             },
           })
         }

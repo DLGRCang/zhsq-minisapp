@@ -1,23 +1,23 @@
 
-<import src="../../../wxParse/wxParse.wxml"></import>
+<import src="../../../../wxParse/wxParse.wxml"></import> 
 <view class="details">
   <cu-custom bgColor="bg-gray-bljb" isBack="{{true}}">
     <view slot="content">详情</view>
   </cu-custom>
-  <view class="box-body">
-    <image src="../../../images/back.png" class="beijing"></image>
+  <view class="box-body" style="height:{{windowHeight}}px">
+    <image src="../../../../images/back.png" class="beijing"></image>
     <view class="box-de">
-      <view class="title">{{data.SITE_NAME}}</view>
-      <view class="title-name">发布日期{{data.PUBLISH_DATE}}</view>
-      <template is="wxParse" data="{{wxParseData:dataHtml.nodes}}" />
+      <view class="title">{{data.title}}</view>
+      <view class="title-name">发布日期{{data.publicTime}}</view>
+      <template is="wxParse" data="{{wxParseData:dataHtml.nodes}}"/>
       <!-- <web-view src="https://mp.weixin.qq.com/s/b1osD-pN5Zp9Zq2CCoaPHQ"></web-view> -->
     </view>
   </view>
 
 
   <!-- 收藏 分享 -->
-<view class="shoucang">
-  <!-- 收藏，取消收藏 -->
+<!-- <view class="shoucang">
+ 
   <view class="padd">
   <view bindtap="toStar" class="fl">
       <block wx:if="{{isStar == false}}">
@@ -27,7 +27,7 @@
         <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star_active_lg.png " class="good_lg_img"></image>
       </block>
   </view>
-      <!-- 分享  取消分享 -->
+
       <view bindtap="toCollect" class="fr">
       <block wx:if="{{isCollect == false}}">
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/share.png " class="good_lg_img"></image>
@@ -37,7 +37,7 @@
       </block>
       </view>
     </view>   
-</view>
+</view> -->
 
 
 </view>

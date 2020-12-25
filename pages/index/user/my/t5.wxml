@@ -12,6 +12,7 @@
       <image class="seeting_img" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/seeting.png"></image>
     </view>
   </view>
+  
   <view class="my-top-dingwei" wx:if="{{!ifLogin && t5If != 0}}" style="top:{{CustomBar}}px">
     <view class="top-1">
       <view class="top-1-1"><image src="{{wxUser.avatarUrl}}"></image></view>

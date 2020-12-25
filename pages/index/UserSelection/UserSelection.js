@@ -38,6 +38,7 @@ Page({
         url: '/pages/index/index'
       })
     }else if(this.data.sxId == 2||this.data.sxId == 3){
+      wx.setStorageSync('wyUser', this.data.sxId)
       wx.setStorageSync('indexId', 3)
       wx.reLaunch({
         url: '/pages/index/index'

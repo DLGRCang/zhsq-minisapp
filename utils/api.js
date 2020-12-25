@@ -176,9 +176,24 @@ function llqbqApi(params){
 function saverepairApi(params){
   http('repair/saverepair/'+params.data.unifiedUserId,'post',params)
 }
-//维修申请人查询自己的维修记录
+//维修申请人查询的维修记录
 function listrepairApi(params){
-  http('repair/listrepair/'+params.data.unifiedUserId,'get',params)
+    http('repair/listrepair/'+params.data.unifiedUserId,'get',params)
+}
+
+//物业管理人员查询维修列表
+function listpagerepairApi(params){
+    http('repair/listpagerepair','get',params)
+}
+
+//技术人员查询自己维修记录
+function selfListApi(params){
+  http('repair/selfList/'+params.data.userId,'put',params)
+}
+
+//社区党建
+function pubListNewsApi(params){
+  http('news/listpagenews/'+params.data.channelCode+'/'+params.data.curPage,'get',params)
 }
 
 export default { // 暴露接口
@@ -217,5 +232,8 @@ export default { // 暴露接口
   myjfApi,
   llqbqApi,
   saverepairApi,
-  listrepairApi
+  listrepairApi,
+  selfListApi,
+  pubListNewsApi,
+  listpagerepairApi
 }

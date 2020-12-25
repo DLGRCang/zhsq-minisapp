@@ -1,17 +1,27 @@
 // pages/index/SJ_Goods/SJ_Goods.js
-Page({
-
+Component({
   /**
-   * 页面的初始数据
+   * 组件的属性列表
+   */
+  properties: {
+    windowHeight:String
+  },
+ 
+  /**
+   * 组件的初始数据
    */
   data: {
-    // tab 切换
-    tabArr: {
-      curHdIndex: 0,
-      curBdIndex: 0
-    }, 
+   // tab 切换
+   tabArr: {
+    curHdIndex: 0,
+    curBdIndex: 0
+  }, 
   },
 
+  /**
+   * 组件的方法列表
+   */
+  methods: {
       // 发布
       fabu:function(){
         wx.navigateTo({
@@ -36,60 +46,55 @@ Page({
     })
     //console.log(e);
   },  
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
   },
+ 
+  /*组件生命周期*/ 
+  lifetimes: {
+    //在组件实例刚刚被创建时执行
+    created() {
+     // 获取用户信息
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+   
+    },
+    
+    //在组件实例进入页面节点树时执行
+    attached() { 
+   
+    },
+    //在组件在视图层布局完成后执行
+    ready() {
 
-  },
+    },
+ 
+    //在组件实例被移动到节点树另一个位置时执行
+    moved() {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    },
+    //在组件实例被从页面节点树移除时执行
+    detached() {
+  
+    },
+    //每当组件方法抛出错误时执行
+    error() {
 
-  },
+    },
+    /*组件所在页面的生命周期 */
+    pageLifetimes: {
+      show: function () {
+        
+        // 页面被展示
+        
+      },
+      hide: function () {
+        // 页面被隐藏
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      },
+      resize: function (size) {
+        // 页面尺寸变化
+   
+      }
+    }
+   
   }
+ 
 })

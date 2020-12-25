@@ -1,4 +1,4 @@
-{
+{ 
   "usingComponents": {
     "home": "/pages/index/user/home-page/t1",
     "life": "/pages/index/user/life/t2",
