@@ -1,3 +1,5 @@
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
+
 <view class="checkin">
   <cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
     <view slot="content">入驻小区</view>

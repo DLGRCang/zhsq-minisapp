@@ -1,4 +1,5 @@
 <!--pages/index/WY_wxd/WY_wxd.wxml-->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}" style="height:{{wHeight}}px;background: #f9f9f9;">
 <cu-custom bgColor="bg-gray-bljb" isBack="{{false}}">
     <view slot="content">维修单</view>
@@ -6,12 +7,12 @@
 <!-- <view class="llq_content"> -->
   <view class="pbDingwei" id="pbDingwei" style="top:{{CustomBar}}px">
     <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" wx:if="{{wyUser == 2}}">
-      <view class="cu-item {{curHdIndex==item.id? 'active3' : ''}}" wx:for="{{tabList1}}" wx:key bindtap="tab" data-id="{{item.id}}">
+      <view class="cu-item {{curHdIndex==item.id? 'active3' : ''}}" wx:for="{{tabList1}}" wx:key="index" bindtap="tab" data-id="{{item.id}}">
         {{item.tname}}
       </view>
     </scroll-view>
     <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" wx:if="{{wyUser == 3}}">
-      <view class="cu-item {{curHdIndex1==item.id? 'active3' : ''}}" wx:for="{{tabList2}}" wx:key bindtap="tab" data-id="{{item.id}}">
+      <view class="cu-item {{curHdIndex1==item.id? 'active3' : ''}}" wx:for="{{tabList2}}" wx:key="index" bindtap="tab" data-id="{{item.id}}">
         {{item.tname}}
       </view>
     </scroll-view>
@@ -19,14 +20,18 @@
   <view class="box-body-3-nei">
     <image src="../../../../images/back.png" class="beijing"></image>
     <view class="view-nei" wx:if="{{wyUser == 2}}" style="padding-top:{{CustomBar}}px">
-      <view wx:if="{{curHdIndex==0}}">
-          <picker mode="date" value="{{date0}}" start="{{dateC}}" end="{{date0}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+      <view wx:if="{{curHdIndex==0}}" class="waiBox">
+          <picker mode="date" wx:if="{{rows0.length != 0}}" value="{{date0}}" start="{{dateC}}" end="{{date0}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
             <view class="picker">
-              {{date0}} <text class="cuIcon-unfold lg "></text>
+              {{date0}} <text class="cuIcon-unfold lg"></text>
             </view>
           </picker>
         <view class="pban_box">
-          <view class="box" wx:for="{{rows0}}">
+          <view class="queshiye" wx:if="{{rows0.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows0}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
                 <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
@@ -56,17 +61,21 @@
                     <button wx:if="{{item.state == 2&&wyUser == 3}}" class="active">接单</button>
                     <button wx:if="{{item.state == 3&&wyUser == 3}}" class="active">维修完成</button>
                   </view>
-          </view>
+          </view> 
         </view>
       </view> 
       <view wx:if="{{curHdIndex==1}}">
-        <picker mode="date" value="{{date1}}" start="{{dateC}}" end="{{date1}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+        <picker mode="date" wx:if="{{rows1.length != 0}}" value="{{date1}}" start="{{dateC}}" end="{{date1}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
             <view class="picker">
               {{date1}} <text class="cuIcon-unfold lg "></text>
             </view>
           </picker>
         <view class="pban_box">
-          <view class="box" wx:for="{{rows1}}">
+          <view class="queshiye" wx:if="{{rows1.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows1}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
                 <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
@@ -98,13 +107,17 @@
         </view>
       </view> 
       <view wx:if="{{curHdIndex==2}}">
-        <picker mode="date" value="{{date2}}" start="{{dateC}}" end="{{date2}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+        <picker mode="date" wx:if="{{rows2.length != 0}}" value="{{date2}}" start="{{dateC}}" end="{{date2}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
             <view class="picker">
               {{date2}} <text class="cuIcon-unfold lg "></text>
             </view>
           </picker>
         <view class="pban_box">
-          <view class="box" wx:for="{{rows2}}">
+          <view class="queshiye" wx:if="{{rows2.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows2}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
                 <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
@@ -136,13 +149,17 @@
         </view>
       </view> 
       <view wx:if="{{curHdIndex==3}}">
-        <picker mode="date" value="{{date3}}" start="{{dateC}}" end="{{date3}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+        <picker mode="date" wx:if="{{rows3.length != 0}}" value="{{date3}}" start="{{dateC}}" end="{{date3}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
             <view class="picker">
               {{date3}} <text class="cuIcon-unfold lg "></text>
             </view>
           </picker>
         <view class="pban_box">
-          <view class="box" wx:for="{{rows3}}">
+          <view class="queshiye" wx:if="{{rows3.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows3}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
                 <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
@@ -174,13 +191,17 @@
         </view>
       </view> 
       <view wx:if="{{curHdIndex==4}}">
-        <picker mode="date" value="{{date4}}" start="{{dateC}}" end="{{date4}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+        <picker mode="date" wx:if="{{rows4.length != 0}}" value="{{date4}}" start="{{dateC}}" end="{{date4}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
             <view class="picker">
               {{date4}} <text class="cuIcon-unfold lg "></text>
             </view>
           </picker>
         <view class="pban_box">
-          <view class="box" wx:for="{{rows4}}">
+          <view class="queshiye" wx:if="{{rows4.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows4}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
                 <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
@@ -212,13 +233,17 @@
         </view>
       </view> 
       <view wx:if="{{curHdIndex==5}}">
-        <picker mode="date" value="{{date5}}" start="{{dateC}}" end="{{date5}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+        <picker mode="date" wx:if="{{rows5.length != 0}}" value="{{date5}}" start="{{dateC}}" end="{{date5}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
             <view class="picker">
               {{date5}} <text class="cuIcon-unfold lg "></text>
             </view>
           </picker>
         <view class="pban_box">
-          <view class="box" wx:for="{{rows5}}">
+          <view class="queshiye" wx:if="{{rows5.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows5}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
                 <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
@@ -250,13 +275,190 @@
         </view>
       </view> 
       <view wx:if="{{curHdIndex==6}}">
-        <picker mode="date" value="{{date6}}" start="{{dateC}}" end="{{date6}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+        <picker mode="date" wx:if="{{rows6.length != 0}}" value="{{date6}}" start="{{dateC}}" end="{{date6}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
             <view class="picker">
               {{date6}} <text class="cuIcon-unfold lg "></text>
             </view>
           </picker>
         <view class="pban_box">
-          <view class="box" wx:for="{{rows6}}">
+          <view class="queshiye" wx:if="{{rows6.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows6}}" wx:key="index">
+              <view class="box_top">
+                <view class="bor_fl">
+                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <view class="text-black">{{item.applePeopleName}}</view>
+              </view>
+                  <view class="bor_fr text-gray">
+                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
+                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 4}}">维修完成</text>
+                      <text wx:if="{{item.state == 5}}">完成</text>
+                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                  </view>
+                  </view>
+                  <view class="box_title">
+                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
+                    <view>维修类型  <text>{{item.type}}</text></view>
+                    <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
+                    <view>预约时间  <text>{{item.appleTime}}</text></view>
+                  </view>
+                  <view class="btn">
+                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
+                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
+                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                  </view>
+          </view>
+        </view>
+      </view> 
+    </view>
+
+
+    <view class="view-nei" wx:if="{{wyUser == 3}}" style="padding-top:{{CustomBar}}px">
+
+      <view wx:if="{{curHdIndex1==7}}">
+        <picker mode="date" wx:if="{{rows7.length != 0}}" value="{{date7}}" start="{{dateC}}" end="{{date7}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+            <view class="picker">
+              {{date7}} <text class="cuIcon-unfold lg "></text>
+            </view>
+          </picker>
+        <view class="pban_box">
+          <view class="queshiye" wx:if="{{rows7.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows7}}" wx:key="index">
+              <view class="box_top">
+                <view class="bor_fl">
+                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <view class="text-black">{{item.applePeopleName}}</view>
+              </view>
+                  <view class="bor_fr text-gray">
+                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
+                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 4}}">维修完成</text>
+                      <text wx:if="{{item.state == 5}}">完成</text>
+                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                  </view>
+                  </view>
+                  <view class="box_title">
+                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
+                    <view>维修类型  <text>{{item.type}}</text></view>
+                    <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
+                    <view>预约时间  <text>{{item.appleTime}}</text></view>
+                  </view>
+                  <view class="btn">
+                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
+                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
+                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                  </view>
+          </view>
+        </view>
+      </view> 
+      <view wx:if="{{curHdIndex1==8}}">
+        <picker mode="date" wx:if="{{rows8.length != 0}}" value="{{date8}}" start="{{dateC}}" end="{{date8}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+            <view class="picker">
+              {{date8}} <text class="cuIcon-unfold lg "></text>
+            </view>
+          </picker>
+        <view class="pban_box">
+          <view class="queshiye" wx:if="{{rows8.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows8}}" wx:key="index">
+              <view class="box_top">
+                <view class="bor_fl">
+                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <view class="text-black">{{item.applePeopleName}}</view>
+              </view>
+                  <view class="bor_fr text-gray">
+                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
+                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 4}}">维修完成</text>
+                      <text wx:if="{{item.state == 5}}">完成</text>
+                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                  </view>
+                  </view>
+                  <view class="box_title">
+                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
+                    <view>维修类型  <text>{{item.type}}</text></view>
+                    <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
+                    <view>预约时间  <text>{{item.appleTime}}</text></view>
+                  </view>
+                  <view class="btn">
+                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
+                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
+                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                  </view>
+          </view>
+        </view>
+      </view> 
+      <view wx:if="{{curHdIndex1==9}}">
+        <picker mode="date" wx:if="{{rows9.length != 0}}" value="{{date9}}" start="{{dateC}}" end="{{date9}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+            <view class="picker">
+              {{date9}} <text class="cuIcon-unfold lg "></text>
+            </view>
+          </picker>
+        <view class="pban_box">
+          <view class="queshiye" wx:if="{{rows9.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows9}}" wx:key="index">
+              <view class="box_top">
+                <view class="bor_fl">
+                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <view class="text-black">{{item.applePeopleName}}</view>
+              </view>
+                  <view class="bor_fr text-gray">
+                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
+                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 4}}">维修完成</text>
+                      <text wx:if="{{item.state == 5}}">完成</text>
+                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                  </view>
+                  </view>
+                  <view class="box_title">
+                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
+                    <view>维修类型  <text>{{item.type}}</text></view>
+                    <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
+                    <view>预约时间  <text>{{item.appleTime}}</text></view>
+                  </view>
+                  <view class="btn">
+                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
+                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
+                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                  </view>
+          </view>
+        </view>
+      </view> 
+      <view wx:if="{{curHdIndex1==10}}">
+        <picker mode="date" wx:if="{{rows10.length != 0}}" value="{{date10}}" start="{{dateC}}" end="{{date10}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+            <view class="picker">
+              {{date10}} <text class="cuIcon-unfold lg "></text>
+            </view>
+          </picker>
+        <view class="pban_box">
+          <view class="queshiye" wx:if="{{rows10.length == 0}}">
+            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows10}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
                 <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>

@@ -45,7 +45,9 @@ Page({
   onShow: function () {
     this.times()
   },
-
+  getAddInfo(){
+    this.selectComponent("#haveTrue").falseClick()
+  },
 //姓名
 inputName(e){
   this.setData({
@@ -210,6 +212,11 @@ inputsjh(e){
               console.log(res)
             },
             fail:err=>{
+              wx.hideLoading({
+                success: (res) => {
+                  this.selectComponent("#haveTrue").trueClick()
+                },
+              })
               console.log(err)
             }
           })

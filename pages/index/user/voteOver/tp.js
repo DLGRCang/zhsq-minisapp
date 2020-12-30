@@ -21,12 +21,20 @@ Page({
     this.xqList(options.id)
   },
   xqList(id){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     http.tpxqApi({
       data:{
         voteId:id
       },
       success:res=>{
         //console.log(res)
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
         var rows = res
           var voteOption1 = []
           voteOption1.push(rows.voteOption.split(';'))
@@ -38,6 +46,11 @@ Page({
         })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     }),
@@ -46,10 +59,23 @@ Page({
         voteId:id
       },
       success:res=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
         this.setData({
           tjRows:res
         })
         //console.log(res)
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
+        console.log(err)
       }
     })
   },
@@ -79,15 +105,14 @@ Page({
     })
   },
   tpClick(e){
-    console.log(e)
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     var time = util.formatTime(new Date)
     
         if(this.data.rowsdx == null){
           verif.tips('请选择投票内容')
         }else{
+          wx.showLoading({
+            title: '拼命加载中',
+          })
           http.tpanApi({
             data:{
               voteId:e.currentTarget.dataset.id,
@@ -99,17 +124,25 @@ Page({
             success:res=>{
               wx.hideLoading({
                 success: (res) => {
+                  this.selectComponent("#haveTrue").falseClick()
                   verif.tips('投票成功')
                 },
               })
             },
             fail:err=>{
-
+              wx.hideLoading({
+                success: (res) => {
+                  this.selectComponent("#haveTrue").trueClick()
+                },
+              })
             }
           })
        
         }
 
+  },
+  getAddInfo(){
+    this.onLoad()
   },
   showModal(e) {
     this.setData({

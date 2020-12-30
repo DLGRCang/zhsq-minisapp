@@ -1,4 +1,5 @@
-<import src="../../../wxParse/wxParse.wxml"></import>
+<import src="../../../../wxParse/wxParse.wxml"></import>
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <view class="partyBranch">
   <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
     <view slot="content">社区党支部</view>
@@ -17,8 +18,8 @@
     <image src="../../../../images/back2.png" class="beijing"></image>
     
     <view class="top-text">
-      <view>中共内蒙古自治区XXXX支部委员会</view>
-      <view>欢迎您来到中共内蒙古自治区XXXX支部委员会，中共内蒙古自治区XXXX支部委员会成立于年，共有</view>
+      <view>{{rowsList.branchName}}</view>
+      <view>{{rowsList.branchInformation}}</view>
     </view>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
@@ -30,25 +31,26 @@
   </view>
   <view class="bot-box">
     <view class="dang" wx:if="{{panduan}}">
-      <view class="neirong" wx:for="{{10}}">
-        <view class="nrimg"></view>
+      <view class="neirong" wx:for="{{data1}}" wx:key="index">
+        <view class="nrimg">
+          <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.headPortrait}}"></image>
+        </view>
         <view class="nrText">
-          <view>党员姓名</view>
-          <view>支部委员会委员</view>
+          <view>{{item.partyBranchName}}</view>
+          <view>{{item.peopleWorkName}}</view>
         </view>
       </view>
     </view>
     <view class="xinwen" wx:if="{{!panduan}}">
-      <view class="seven_box" wx:for="{{10}}">
-
-        <view class="seven_left">
-          <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
-          <text>2020-10-28</text>  
+      <view class="neirong" wx:for="{{data2}}" wx:key="index">
+        <view class="nrimg">
+          <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.headPortrait}}"></image>
         </view>
-          <view class="seven_right">
-          <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/componentBg.png"></image>
-          </view>
+        <view class="nrText">
+          <view>{{item.partyBranchName}}</view>
+          <view>{{item.peopleWorkName}}</view>
         </view>
+      </view>
     
       </view>
   </view>

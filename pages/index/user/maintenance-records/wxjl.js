@@ -18,6 +18,9 @@ Page({
   onLoad: function (options) {
     this.wxjlArr()
   },
+  getAddInfo(){
+    this.onLoad()
+  },
   wxjlArr(){
     wx.showLoading({
       title: '拼命加载中',
@@ -29,13 +32,20 @@ Page({
       success:res=>{
         //console.log(res)
         wx.hideLoading({
-          success: (res) => {},
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
         })
         this.setData({
           rows:res.data.repairDTOList
         })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

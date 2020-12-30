@@ -61,6 +61,36 @@ Component({
           url: '/pages/index/user/neighborhood-details/llq_xq'
         })
       },
+  xinwenArr(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    http.xinwenApi({
+
+      success:res=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
+        this.setData({
+          forF4:res.rows
+        })
+        //console.log(this.data.forF4)
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
+        console.log(err)
+      }
+    })
+  },
+  getAddInfo(){
+    this.xinwenArr()
+  }
   },
  
   /*组件生命周期*/ 
@@ -75,19 +105,8 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
-      http.xinwenApi({
+      this.xinwenArr()
       
-        success:res=>{
-          
-          this.setData({
-            forF4:res.rows
-          })
-          console.log(this.data.forF4)
-        },
-        fail:err=>{
-          console.log(err)
-        }
-      })
     },
  
     //在组件实例被移动到节点树另一个位置时执行

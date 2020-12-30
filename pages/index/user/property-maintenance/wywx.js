@@ -109,12 +109,19 @@ DelImg(e) {
           //console.log(res)
           if(res.code == 200){
             wx.hideLoading({
-              success: (res) => {},
+              success: (res) => {
+                this.selectComponent("#haveTrue").falseClick()
+              },
             })
             verif.tips('提交成功')
           }
         },
         fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
           console.log(err)
         }
       })

@@ -1,12 +1,12 @@
 <view class="onekey">
-  <image class="keyimg" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png"></image>
+  <!-- <image class="keyimg" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png"></image> -->
   <view class="biaoshi">
     <view class="bsnei"><view style="border: 5rpx solid #ccc;"></view>离线</view>
     <view class="bsnei"><view style="border: 5rpx solid #188BFF;"></view>蓝牙</view>
     <view class="bsnei"><view style="border: 5rpx solid #22B31E;"></view>在线</view>
   </view>
   <view class="men">
-    <view wx:for="{{4}}" class="mennei">
+    <view wx:for="{{4}}" wx:key="index" class="mennei">
       <view class="zhuangtai">
         <view>南门入口</view>
         <view></view>

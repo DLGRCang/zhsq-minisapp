@@ -1,4 +1,4 @@
-
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <cu-custom bgColor="bg-gray" isBack="{{true}}">
     <view slot="content">物业维修</view>
   </cu-custom>

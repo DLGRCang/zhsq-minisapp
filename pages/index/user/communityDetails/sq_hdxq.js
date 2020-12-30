@@ -49,6 +49,9 @@ Page({
     this.towerSwiper('swiperList');
     // 初始化towerSwiper 传已有的数组名即可
   },
+  getAddInfo(){
+    this.onLoad()
+  },
   hdDetailsArr(id){
     wx.showLoading({
       title: '拼命加载中',
@@ -62,9 +65,18 @@ Page({
        this.setData({
          rowsList:res
        })
-       wx.hideLoading()
+       wx.hideLoading({
+        success: (res) => {
+          this.selectComponent("#haveTrue").falseClick()
+        },
+      })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -92,7 +104,11 @@ Page({
       },
       success:res=>{
        //console.log(res)
-       wx.hideLoading()
+       wx.hideLoading({
+        success: (res) => {
+          this.selectComponent("#haveTrue").falseClick()
+        },
+      })
        if(res.code == 200){
         verif.success('报名成功')
        }else if(res.code == 201){
@@ -100,6 +116,11 @@ Page({
        }
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

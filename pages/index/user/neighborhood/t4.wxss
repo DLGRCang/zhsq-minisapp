@@ -1,10 +1,8 @@
 /* 公共颜色 */
 @import "../../../../colorui/main.wxss";
-@import "../../../../colorui/icon.wxss";
-.font9{color:#999999;}
-.right{float:right;}
 
-.tab{
+
+.tabllq{
   position: fixed;
   z-index: 10;
   left: 0;
@@ -19,8 +17,7 @@ background: linear-gradient(60deg, #0586F8, #1BB1FD);
   color:#333;
 }
 .text-content{text-align: left;padding-bottom: 20rpx;}
-.padding-right>text{padding-right:35rpx;}
-.fabu_btn{font-size:30rpx;right:2%;bottom:10%;position: fixed;border-radius: 50%;
+.fabu_btnLlq{font-size:30rpx;right:2%;bottom:10%;position: fixed;border-radius: 50%;
 width:70rpx;height:70rpx;font-weight: bold;display: flex;
 align-items: center;justify-content: center;}
 

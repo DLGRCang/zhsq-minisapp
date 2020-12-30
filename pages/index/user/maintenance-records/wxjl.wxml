@@ -1,4 +1,5 @@
 <!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <cu-custom bgColor="bg-gray" isBack="{{true}}">
     <view slot="content">维修记录</view>
   </cu-custom>
@@ -12,7 +13,7 @@
 
 <!--  -->
 <view style="width:100%;height:{{windowHeight}}px;padding-top:{{tabHeight}}px;overflow-y: auto;">
-  <view class="wxjl_content" wx:for="{{rows}}">
+  <view class="wxjl_content" wx:for="{{rows}}" wx:key="index">
    <view class="content_box">
      <view class="content_title">
       <text>

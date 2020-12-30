@@ -16,7 +16,9 @@ Page({
   onLoad: function (options) {
     this.wdrzList()
   },
-
+  getAddInfo(){
+    this.onLoad()
+  },
   wdrzList(){
     wx.showLoading({
       title: '拼命加载中',
@@ -30,9 +32,18 @@ Page({
           rows:res.rows
         })
         wx.hideLoading({
-          success: (res) => {},
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
         })
         console.log(res)
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
       }
     })
   },

@@ -1,6 +1,8 @@
 // pages/index/WY_pban/WY_pban.js
 import verif from '../../../../utils/verification'
 import util from '../../../../utils/util'
+import http from '../../../../utils/api'
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -13,9 +15,14 @@ Component({
    * 组件的初始数据
    */
   data: {
+    windowHeight:app.globalData.windowHeight,
     dateT: '',
     dateC:'2020-12-25',
-    names:''
+    names:'',
+    page:1,
+    rows:[],
+    botTrue:true,
+    isLoad:false
   },
 
   /**
@@ -25,8 +32,12 @@ Component({
 
     DateChange(e) {
       this.setData({
+        page:1,
+        rows:[],
         dateT: e.detail.value
       })
+      //console.log('aaa')
+      this.pbArr()
     },
   
     qhjiaose(){
@@ -37,21 +48,82 @@ Component({
       }
       
     },
-
+    getAddInfo(){
+      this.pbArr()
+    },
     pbArr(){
-      wx.request({
-        url: 'http://127.0.0.1:8083/zhsq/api/arrange/listpagearrange', // 就是拼接上前缀,此接口域名是开放接口，可访问
-        method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
-        header: {
-          'content-type': 'application/json'
+      wx.showLoading({
+        title: '拼命加载中',
+      })
+      //console.log(this.data.dateT)
+      http.listArrangeDataApi({
+        data:{
+          page:this.data.page,
+          timeDate:this.data.dateT
         },
-        success(res) {
-          console.log(res)
+        success:res=>{
+          //console.log(res)
+          
+          var rows = this.data.rows
+          var data = res.rows
+
+          if(data.length == 0){
+            this.setData({
+              isLoad:true
+            })
+          }else{
+
+            this.setData({
+              isLoad:false,
+              botTrue:true
+            })
+            for(var i in data){
+              data[i].namesA = data[i].names.split(',')
+              var namesB = []
+              var namesC = []
+              for(var m in data[i].namesA){
+                namesB.push(data[i].namesA[m].split(' ')[0])
+                namesC.push(data[i].namesA[m].split(' ')[1])
+                data[i].namesB = namesB
+                data[i].namesC = namesC
+              }
+              rows.push(data[i])
+            }
+          }
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").falseClick()
+            },
+          })
+          //console.log(rows)
+          this.setData({
+            rows:rows
+          })
         },
-        fail(err) {
-          console.log(err)
+        fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
         }
       })
+ 
+    },
+    botClick(){
+      if(this.data.botTrue){
+        this.setData({
+          page:this.data.page + 1,
+          botTrue:false
+        })
+        setTimeout(()=>{
+          this.pbArr()
+        },500)
+        
+        console.log(this.data.page)
+      }
+
+     
     }
 
   },
@@ -61,7 +133,7 @@ Component({
     //在组件实例刚刚被创建时执行
     created() {
      // 获取用户信息
-      this.pbArr()
+     
    
     },
     
@@ -84,11 +156,12 @@ Component({
         })
       }
 
-      // console.log(util.formatTime1(new Date).split(' ')[0])
+       //console.log(util.formatTime1(new Date).split(' ')[0])
       this.setData({
         dateT:util.formatTime1(new Date).split(' ')[0],
         time:util.formatTime1(new Date).split(' ')[1]
       })
+      this.pbArr()
     },
  
     //在组件实例被移动到节点树另一个位置时执行

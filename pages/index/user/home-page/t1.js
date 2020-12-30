@@ -32,8 +32,9 @@ Component({
       {id:14,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts14a.png',text:"活动设施",url:''}
     ],
     msgList: [
-      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png' },
-      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png' }
+      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/banner1.1.jpg' },
+      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/banner2.1.jpg' },
+      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/banner3.1.jpg' }
     ],
     jianxianL:[
       {ids:"1"},{ids:"0.9"},{ids:"0.8"},{ids:"0.7"},{ids:"0.6"},{ids:"0.5"},{ids:"0.4"},{ids:"0.3"},{ids:"0.2"},{ids:"0.1"}
@@ -133,12 +134,29 @@ Component({
     })
   },
   wenjuan(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     http.wjApi({
       success:res=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
+        
         //console.log(res)
         this.setData({
           rowsWJ:res.rows
         })
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
+        console.log(err)
       }
     })
   },
@@ -158,6 +176,11 @@ Component({
       http.commrmApi({
         
         success:res=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").falseClick()
+            },
+          })
           //console.log(res)
           var rowsList = res.rows
           
@@ -173,14 +196,21 @@ Component({
             rowsSQHD:res.rows[0]
           })
          // console.log(this.data.rowsSQHD)
-          wx.hideLoading()
+
         },
         fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
           console.log(err)
         }
       })
     }
+    
   },
+
   xiangqing(e){
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
@@ -194,10 +224,12 @@ Component({
     wx.setStorageSync('loginSi', true)
   },
   bindGetUserInfo(e) {
+    
     //console.log(e)
     if (e.detail.userInfo != undefined){
       wx.getUserInfo({
         success: res => {
+          
           wx.setStorageSync('wxUser',res)
         }
       })
@@ -233,7 +265,9 @@ Component({
       // },1000)
     }
   },
-
+  getAddInfo(){
+    this.wenjuan()
+  }
   },
  
   /*组件生命周期*/ 

@@ -15,7 +15,7 @@
   </view>
   <view class="life-bot">
     <view class="bot-over">
-      <view class="bot-neirong" wx:for="{{10}}" bindtap="life_details">
+      <view class="bot-neirong" wx:for="{{10}}" wx:key="index" bindtap="life_details">
         <view class="nr-left">
           <image class="nr-left-nei" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/timg.jpg"></image>
         </view>
@@ -29,7 +29,7 @@
             <view class="n2-1">距离您1.5km</view>
           </view>
           <view class="r-n3">
-            <view class="n3-nr" wx:for="{{5}}">
+            <view class="n3-nr" wx:for="{{5}}" wx:key="index">
               <view></view>
               <view>青岛 听装醇厚ascoaisn </view>
               <view>

@@ -1,6 +1,5 @@
 /* pages/index/t5/t5.wxss */
 @import "../../../../colorui/main.wxss";
-@import "../../../../colorui/icon.wxss";
 .t5{
   width: 100%;
   padding: 0 30rpx;

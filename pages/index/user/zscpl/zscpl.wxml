@@ -1,4 +1,5 @@
 <!--pages/index/zscpl/zscpl.wxml-->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <cu-custom bgColor="bg-gray-bl" isBack="{{true}}">
     <view slot="content">点赞/收藏/评论</view>
 </cu-custom>

@@ -55,7 +55,9 @@ xiangqing(e){
     })
     this.commList()
   },
-
+  getAddInfo(){
+    this.onLoad()
+  },
   commList(){
     wx.showLoading({
       title: '拼命加载中',
@@ -77,9 +79,19 @@ xiangqing(e){
         this.setData({
           rowsList:res.rows
         })
-        wx.hideLoading()
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
       },
       fail:err=>{
+        
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -107,9 +119,18 @@ xiangqing(e){
         this.setData({
           rowsList1:res.rows
         })
-        wx.hideLoading()
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -138,9 +159,18 @@ xiangqing(e){
         this.setData({
           rowsList2:res.rows
         })
-        wx.hideLoading()
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

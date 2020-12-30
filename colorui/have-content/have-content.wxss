@@ -1,1 +1,33 @@
 /* colorui/have-content/have-content.wxss */
+@import '../icon.wxss';
+.fudong{
+  width:100%;
+  position: fixed;
+  left: 0;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding-top: 200rpx;
+}
+.have-top text{
+  font-size: 200rpx;
+  color: #F35854;
+  font-weight: 900;
+}
+.have-content{
+  font-size: 30rpx;
+  color: #000;
+  font-weight: 900;
+  margin: 35rpx 0;
+}
+.have-btn{
+  width: 200rpx;
+  height: 60rpx;
+  border-radius: 50rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+background: linear-gradient(60deg, #F35854, #FF7B79);
+color: #fff;
+}

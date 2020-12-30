@@ -43,7 +43,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.fwLiist()
+  },
+  getAddInfo(){
+    this.onLoad()
   },
   fwLiist(){
     wx.showLoading({
@@ -70,9 +73,18 @@ Page({
         })
         //console.log(rows2)
         wx.hideLoading({
-          success: (res) => {},
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
         })
         //console.log(res)
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
       }
     })
   },
@@ -87,7 +99,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.fwLiist()
+    
   },
 
   /**

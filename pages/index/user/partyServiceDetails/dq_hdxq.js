@@ -53,8 +53,13 @@ Page({
     this.dqDetailsArr(options.id)
     // 初始化towerSwiper 传已有的数组名即可
   },
-
+  getAddInfo(){
+    this.onLoad()
+  },
   dqDetailsArr(id){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     https.dqDetailsApi({
       data:{
         constructionsActivityId:id
@@ -66,12 +71,22 @@ Page({
         rowsList[i].activeEndTime = rowsList[i].activeEndTime.replace('T',' ')
         rowsList[i].activeStartTime = rowsList[i].activeEndTime.replace('T',' ')
        }
+       wx.hideLoading({
+        success: (res) => {
+          this.selectComponent("#haveTrue").falseClick()
+        },
+      })
        console.log(rowsList)
       //  this.setData({
       //    rowsList:res
       //  })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

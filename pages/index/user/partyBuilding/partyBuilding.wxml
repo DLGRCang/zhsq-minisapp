@@ -1,4 +1,5 @@
-<import src="../../../wxParse/wxParse.wxml"></import>
+<import src="../../../../wxParse/wxParse.wxml"></import>
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <view class="partyBranch">
   <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
     <view slot="content">社区党建</view>
@@ -6,7 +7,7 @@
   <scroll-view scroll-y="true" style="height:{{windowHeight}}px;" bindscrolltolower="cbott" bindscroll="scry">
     <view class="pos-top" wx:if="{{topPos}}">
     <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
           {{item.content}}
         </view>
       </scroll-view>
@@ -62,7 +63,7 @@
     </view>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-code="{{item.code}}" data-id="{{index}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-code="{{item.code}}" data-id="{{index}}">
           {{item.content}}
         </view>
       </scroll-view>
@@ -73,7 +74,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="xinwen" wx:for="{{rowsXw0}}" bindtap="xwDetails" data-item="{{item}}">
+    <view class="xinwen" wx:for="{{rowsXw0}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
         <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
@@ -91,7 +92,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="xinwen" wx:for="{{rowsXw1}}" bindtap="xwDetails" data-item="{{item}}">
+    <view class="xinwen" wx:for="{{rowsXw1}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
         <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
@@ -109,7 +110,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="xinwen" wx:for="{{rowsXw2}}" bindtap="xwDetails" data-item="{{item}}">
+    <view class="xinwen" wx:for="{{rowsXw2}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
         <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
@@ -127,7 +128,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="xinwen" wx:for="{{rowsXw3}}" bindtap="xwDetails" data-item="{{item}}">
+    <view class="xinwen" wx:for="{{rowsXw3}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
         <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
@@ -145,7 +146,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="xinwen" wx:for="{{rowsXw4}}" bindtap="xwDetails" data-item="{{item}}">
+    <view class="xinwen" wx:for="{{rowsXw4}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
         <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
@@ -163,7 +164,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="xinwen" wx:for="{{rowsXw5}}" bindtap="xwDetails" data-item="{{item}}">
+    <view class="xinwen" wx:for="{{rowsXw5}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
         <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
@@ -181,7 +182,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="xinwen" wx:for="{{rowsXw6}}" bindtap="xwDetails" data-item="{{item}}">
+    <view class="xinwen" wx:for="{{rowsXw6}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
         <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
@@ -198,13 +199,3 @@
 </scroll-view>
 </view>
 
-
- <!-- <view class="dang" wx:for="{{10}}">
-      <view class="neirong">
-        <view class="nrimg"></view>
-        <view class="nrText">
-          <view>党员姓名</view>
-          <view>支部委员会委员</view>
-        </view>
-      </view>
-    </view> -->

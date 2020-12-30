@@ -34,6 +34,8 @@ Page({
     })
   },
   NavChange(e) {
+
+    wx.setStorageSync('clackTabBar', e.currentTarget.dataset.cur)
     this.setData({
       topNum:0,
       PageCur: e.currentTarget.dataset.cur
@@ -84,6 +86,7 @@ Page({
     this.appid()
   },
   appid(){
+
     if(wx.getStorageSync('indexId') == ''){
       wx.setStorageSync('indexId', 1)
     }
@@ -94,16 +97,19 @@ Page({
         login:1,
         PageCur:'t1'
       })
+      
     }else if(indexId == 2){
       this.setData({
         login:2,
         PageCur:'t6'
       })
     }else if(indexId == 3){
-      this.setData({
+      this.setData({ 
         login:3,
-        PageCur:'t12'
+        PageCur:'t10'
       })
+      
+
     }
     //console.log(this.data.login)
    
@@ -117,16 +123,22 @@ Page({
     })
   },
 
- 
+  wyhdBot(){
+    this.selectComponent("#bot10").botClick()
+  },
+  
+  
 
   //监听页面显示
   onShow:function(){
+    
     var that = this
     var query = wx.createSelectorQuery()
     var  indexId = wx.getStorageSync('indexId')
     if(indexId == 1){
       query.select('#footer1').boundingClientRect(function (res) {
         // console.log(res);
+
         that.setData({
           tab1Height:res.height
          })

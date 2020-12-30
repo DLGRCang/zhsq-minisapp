@@ -108,9 +108,18 @@ Page({
           rows:res.rows
           //rowsdx:rowsdx
         })
-        wx.hideLoading()
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -130,9 +139,18 @@ Page({
         this.setData({
           rows:res.rows
         })
-        wx.hideLoading()
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -167,9 +185,7 @@ Page({
    // console.log(rowsdx)
   },
   tpClick(e){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+    
     var time = util.formatTime(new Date)
     
     var rowsdx = this.data.rowsdx
@@ -179,6 +195,9 @@ Page({
         if(rowsdx[i] == null){
           verif.tips('请选择投票内容')
         }else{
+          wx.showLoading({
+            title: '拼命加载中',
+          })
           http.tpanApi({
             data:{
               voteId:e.currentTarget.dataset.voteid,
@@ -207,6 +226,9 @@ Page({
     wx.navigateBack({
       delta: 1
     })
+  },
+  getAddInfo(){
+    this.onLoad()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

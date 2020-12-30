@@ -39,8 +39,8 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.4.2",
-  "appid": "wxab288f962df834dd",
+  "libVersion": "2.12.2",
+  "appid": "wx6bd0fa14c2a2fe2d",
   "projectname": "%E6%99%BA%E6%85%A7%E7%A4%BE%E5%8C%BA",
   "debugOptions": {
     "hidedInDevtools": []
@@ -99,6 +99,12 @@
         {
           "name": "学习园地",
           "pathName": "pages/index/user/Studyyd/Studyyd",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "dang",
+          "pathName": "pages/index/user/partyBranch/partyBranch",
           "scene": null
         }
       ]

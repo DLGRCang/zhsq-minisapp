@@ -1,4 +1,5 @@
 <!--pages/tp/tp.wxml-->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <view class="details">
   <cu-custom bgColor="bg-gray-bljb" isBack="{{true}}">
     <view slot="content">详情</view>
@@ -10,7 +11,7 @@
         <!-- 第一条事项 -->
         <view class="tp_xx" style="margin-top:0;">
 
-          <view class="flex_tp margin-top" style="display:block" wx:for="{{tjRows}}">
+          <view class="flex_tp margin-top" style="display:block" wx:for="{{tjRows}}" wx:key="index">
             <view style="text-align: left;margin-bottom:10rpx;width:100%">{{item.name}} /
               <text wx:if="{{item.number <= 20}}">{{item.number}}票</text>
             </view>
@@ -20,7 +21,7 @@
           </view>
         </view>
         <radio-group class="radio-group" bindchange="radioChange">
-               <label class="radio" wx:for="{{rows.voteOption1[0]}}" wx:for-item="items" catchtap="dxClick" data-indexa="{{index}}" data-item="{{items}}">
+               <label class="radio" wx:for="{{rows.voteOption1[0]}}" wx:key="index" wx:for-item="items" catchtap="dxClick" data-indexa="{{index}}" data-item="{{items}}">
                    <view class="tui-menu-list"><radio class="blue"/> {{items}}</view>
               </label>
             </radio-group>

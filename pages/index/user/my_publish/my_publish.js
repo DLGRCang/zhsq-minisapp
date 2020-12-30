@@ -90,6 +90,9 @@ hideModal(e) {
   })
 },
 delete(){
+  wx.showLoading({
+    title: '拼命加载中',
+  })
   http.scczfwApi({
     data:{
       residentsId:wx.getStorageSync('user').userId,
@@ -98,6 +101,11 @@ delete(){
     },
     success:res=>{
       console.log(res)
+      wx.hideLoading({
+        success: (res) => {
+          this.selectComponent("#haveTrue").falseClick()
+        },
+      })
       if(res.code == 200){
         verif.tips('关闭成功')
         this.setData({
@@ -107,6 +115,11 @@ delete(){
       }
     },
     fail:err=>{
+      wx.hideLoading({
+        success: (res) => {
+          this.selectComponent("#haveTrue").trueClick()
+        },
+      })
       console.log(err)
     }
   })
@@ -159,7 +172,9 @@ lljClick:function(e){
     this.llqList()
     this.fwList()
   },
-
+  getAddInfo(){
+    this.onLoad()
+  },
   llqList(){
     wx.showLoading({
       title: '拼命加载中',
@@ -192,10 +207,17 @@ lljClick:function(e){
           rows:rows
         })
         wx.hideLoading({
-          success: (res) => {},
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
         })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -223,11 +245,18 @@ lljClick:function(e){
           rows1:rows
         })
         wx.hideLoading({
-          success: (res) => {},
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
         })
         
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

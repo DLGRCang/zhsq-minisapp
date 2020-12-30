@@ -1,7 +1,6 @@
 /* pages/index/SJ_Goods/SJ_Goods.wxss */
 /* 公共颜色 */
 @import "../../../../colorui/main.wxss";
-@import "../../../../colorui/icon.wxss";
 /* 搜索样式 */
 .sousuo{width: 100%;height: 70rpx;background: #fff;
   border-radius: 35rpx; margin-bottom: 20rpx;display: flex;align-items: center;

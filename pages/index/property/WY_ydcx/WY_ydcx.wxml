@@ -5,13 +5,13 @@
   <view class="pbDingwei" style="top:{{CustomBar}}px">
     <view class="view_tab-4">
       <view class="tab_bar" > 
-        <view class="{{tabArr.curHdIndex=='0'? 'active4' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
-        <view class="{{tabArr.curHdIndex=='1'? 'active4' : ''}}" id="1"  data-id="1" bindtap="tab">已发布</view> 
-        <view class="{{tabArr.curHdIndex=='2'? 'active4' : ''}}" id="2"  data-id="2" bindtap="tab">未发布</view> 
+        <view class="{{tabArr.curHdIndex=='0'? 'active4' : ''}} tab_barnei" id="0"  data-id="0" bindtap="tab">全部</view> 
+        <view class="{{tabArr.curHdIndex=='1'? 'active4' : ''}} tab_barnei" id="1"  data-id="1" bindtap="tab">已发布</view> 
+        <view class="{{tabArr.curHdIndex=='2'? 'active4' : ''}} tab_barnei" id="2"  data-id="2" bindtap="tab">未发布</view> 
       </view> 
     </view>
     <view class="pk right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+      <picker mode="date" value="{{date}}" fields="month" class="pickers" start="2020年09月" end="2260年09月" bindchange="DateChange">
         <view class="picker">
           {{date}} <text class="cuIcon-unfold lg"></text>
         </view>
@@ -23,16 +23,16 @@
  
 <view class="view_tab-4">
 <view class="tab_bar" > 
-  <view class="{{tabArr.curHdIndex=='0'? 'active4' : ''}}" id="0"  data-id="0" bindtap="tab">全部</view> 
-  <view class="{{tabArr.curHdIndex=='1'? 'active4' : ''}}" id="1"  data-id="1" bindtap="tab">已发布</view> 
-  <view class="{{tabArr.curHdIndex=='2'? 'active4' : ''}}" id="2"  data-id="2" bindtap="tab">未发布</view> 
+  <view class="{{tabArr.curHdIndex=='0'? 'active4' : ''}} tab_barnei" id="0"  data-id="0" bindtap="tab">全部</view> 
+  <view class="{{tabArr.curHdIndex=='1'? 'active4' : ''}} tab_barnei" id="1"  data-id="1" bindtap="tab">已发布</view> 
+  <view class="{{tabArr.curHdIndex=='2'? 'active4' : ''}} tab_barnei" id="2"  data-id="2" bindtap="tab">未发布</view> 
 </view> 
 
 <view class="box_content-4"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <view class="pban_box" bindtap="xiangqing">
-      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+      <picker mode="date" value="{{date}}" fields="month" class="pickers" start="2020年09月" end="2260年09月" bindchange="DateChange">
 			<view class="picker">
 				{{date}} <text class="cuIcon-unfold lg "></text>
 			</view>
@@ -47,10 +47,10 @@
         <view class="bor_fr text-gray fr">2020-11-23</view>
         </view>
         <view class="box_title">
-        <view>工作状态  <text>巡查中</text></view>
-        <view>巡查时间  <text>2020-11-23  9:00-10:00 拷贝</text></view>
-        <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
-        <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
+        <view class="tit1">工作状态  <text class="texta">巡查中</text></view>
+        <view class="tit1">巡查时间  <text class="texta">2020-11-23  9:00-10:00 拷贝</text></view>
+        <view class="tit2">巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
+        <view class="tit3">巡查视频  <video class="shipin" src=""></video></view>
         </view>
         <!-- <view class="bot_fr">···</view> -->
           <!-- 编辑修改删除 -->
@@ -64,7 +64,7 @@
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
     <view class="pban_box">
-      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+      <picker mode="date" value="{{date}}" fields="month" class="pickers" start="2020年09月" end="2260年09月" bindchange="DateChange">
 			<view class="picker">
 				{{date}} <text class="cuIcon-unfold lg "></text>
 			</view>
@@ -82,7 +82,7 @@
         <view>工作状态  <text>巡查中</text></view>
         <view>巡查时间  <text>2020-11-23  9:00-10:00 拷贝</text></view>
         <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
-        <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
+        <view>巡查视频  <video class="shipin" src=""></video></view>
         </view>
         <!-- <view class="bot_fr">···</view> -->
                  <!-- 编辑修改删除 -->
@@ -96,7 +96,7 @@
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
     <view class="pban_box">
-      <picker mode="date" value="{{date}}" fields="month" start="2020年09月" end="2260年09月" bindchange="DateChange">
+      <picker mode="date" value="{{date}}" fields="month" class="pickers" start="2020年09月" end="2260年09月" bindchange="DateChange">
 			<view class="picker">
 				{{date}} <text class="cuIcon-unfold lg "></text>
 			</view>
@@ -114,7 +114,7 @@
         <view>工作状态  <text>巡查中</text></view>
         <view>巡查时间  <text>2020-11-23  9:00-10:00 拷贝</text></view>
         <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
-        <view>巡查视频  <video class="shipin" src="https://qcloudbbs-10019892.cos.ap-shanghai.myqcloud.com/Donald%20Duck.mp4"></video></view>
+        <view>巡查视频  <video class="shipin" src=""></video></view>
         </view>
         <!-- <view class="bot_fr">···</view> -->
                  <!-- 编辑修改删除 -->

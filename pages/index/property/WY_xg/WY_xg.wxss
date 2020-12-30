@@ -1,0 +1,34 @@
+/* pages/index/property/WY_xg/WY_xg.wxss */
+
+.wy_xg{
+  width: 100%;
+  padding: 30rpx;
+}
+.xg-box{
+  width: 100%;
+  border-radius: 15rpx;
+  background: #fff;
+  padding: 30rpx;
+}
+.xg-box view{
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.xg-box view:last-child{
+  margin-bottom: 0;
+}
+.jilu{
+  background: rgba(0,0,0,0.2);
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.jilu view:first-child{
+  width: 80%;
+  
+}
+.jilu view:last-child{
+  width: 20%;
+  padding: 35rpx 0;
+}

@@ -9,7 +9,9 @@ Component({
   properties: {
     
   },
- 
+  options: {
+    addGlobalClass: true,
+  },
   /**
    * 组件的初始数据
    */
@@ -147,10 +149,17 @@ Component({
             })
           }
           wx.hideLoading({
-            success: (res) => {},
+            success: (res) => {
+              this.selectComponent("#haveTrue").falseClick()
+            },
           })
         },
         fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
           console.log(err)
         }
       })
@@ -168,13 +177,20 @@ Component({
           }
           //console.log(bqList)
           wx.hideLoading({
-            success: (res) => {},
+            success: (res) => {
+              this.selectComponent("#haveTrue").falseClick()
+            },
           })
           this.setData({
             bqList:bqList
           })
         },
         fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
           console.log(err)
         }
       })
@@ -183,7 +199,10 @@ Component({
       console.log(e)
     }
   },
- 
+  getAddInfo(){
+    this.llqList()
+      this.llqbqArr()
+  },
   /*组件生命周期*/ 
   lifetimes: {
     //在组件实例刚刚被创建时执行

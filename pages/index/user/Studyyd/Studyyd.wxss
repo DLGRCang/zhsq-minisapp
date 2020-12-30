@@ -114,7 +114,7 @@ font-family: Microsoft YaHei;
 font-weight: 400;
 color: #666666;
 }
-.nav .cu-item.cur{color:red;}
+.nav .cu-item.cur{color:#fff;}
 .fuwu{
   width: 100%;
   height: 180rpx;

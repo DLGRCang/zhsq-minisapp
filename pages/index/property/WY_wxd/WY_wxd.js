@@ -22,6 +22,7 @@ Component({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     tCustomBar:app.globalData.CustomBar+60,
+    pCustomBar:app.globalData.CustomBar+30,
     TabCur: 1,
     scrollLeft: 0 ,
     dateC: '2020-1-1',
@@ -86,10 +87,18 @@ Component({
   // tab切换
   tab: function (e) {
     //console.log(e)
-    this.setData({
-      curHdIndex:e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
-    })
+    if(this.data.wyUser == 2){
+      this.setData({
+        curHdIndex:e.currentTarget.dataset.id,
+        scrollLeft: (e.currentTarget.dataset.id-1)*60
+      })
+    }else if(this.data.wyUser == 3){
+      this.setData({
+        curHdIndex1:e.currentTarget.dataset.id,
+        scrollLeft: (e.currentTarget.dataset.id-1)*60
+      })
+    }
+    
     //console.log(e);
   },  
   tab1: function (e) {
@@ -152,14 +161,24 @@ Component({
     }
     
   },
+  getAddInfo(){
+    this.xgArr()
+  },
   wxdArr(){
-    
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     if(wx.getStorageSync('wyUser') == 2){
       http.listpagerepairApi({
         data:{
           page:1
         },
         success:res=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").falseClick()
+            },
+          })
           this.setData({ 
             rows0:res.rows
           })
@@ -204,6 +223,13 @@ Component({
               })
             }
           }
+        },
+        fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
         }
       })
     }else if(wx.getStorageSync('wyUser') == 3){
@@ -213,6 +239,46 @@ Component({
         },
         success:res=>{
           console.log(res)
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").falseClick()
+            },
+          })
+          this.setData({ 
+            rows7:res.data.repairList
+          })
+    
+
+          var rows8 = this.data.rows8
+          var rows9 = this.data.rows9
+          var rows10 = this.data.rows10
+          
+          var data = res.data.repairList
+          for(var i in data){
+            if(data[i].state == 2){
+              rows8.push(data[i])
+              this.setData({
+                rows8: rows8
+              })
+            }else if(data[i].state == 3){
+              rows9.push(data[i])
+              this.setData({
+                rows9: rows9
+              })
+            }else if(data[i].state == 5){
+              rows10.push(data[i])
+              this.setData({
+                rows10: rows10
+              })
+            }
+          }
+        },
+        fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
         }
       })
     }

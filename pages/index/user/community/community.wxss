@@ -65,7 +65,7 @@ color: #666666;
 overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
 }
 .box_right>text{width:100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;display: block;color: #A9B3BD;line-height:1.8;}
-.box_right>text:first-child{color: #333333;}
+
 
 .text-bold{font-size: 32rpx;}
     .yy_title{color:#A9B3BD;font-size:28rpx !important;font-weight: normal;}

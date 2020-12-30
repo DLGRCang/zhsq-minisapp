@@ -1,0 +1,18 @@
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
+
+<scroll-view scroll-y style="height:{{wHeight}}px;witdh:100%">
+<cu-custom bgColor="bg-gray-bljb" isBack="{{false}}">
+    <view slot="content">安防巡更</view>
+  </cu-custom>
+  <view class="wy_xg">
+    <view class="xg-box">
+      <view>巡更计划： 啊啊啊啊</view>
+      <view>开始时间：2020-12-29 12:00</view>
+      <view>结束时间：2020-12-29 12:00</view>
+      <view class="jilu" wx:for="{{3}}" wx:key="index">
+        <view></view>
+        <view>打卡</view>
+      </view>
+    </view>
+  </view>
+  </scroll-view>

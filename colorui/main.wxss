@@ -4039,3 +4039,12 @@ font-weight: 400;
 color: #999999;
 	text-align: center;
 }
+.queshiye .wenzi{
+	margin-top: 50rpx;
+	width: 100%;
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #999999;
+	text-align: center;
+}

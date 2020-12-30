@@ -22,7 +22,8 @@ Page({
     rowsXw1:[],
     rowsXw2:[],
     rowsXw3:[],
-    isLoad:false
+    isLoad:false,
+    botTrue:true
   },
 
   /**
@@ -32,6 +33,9 @@ Page({
 
     //this.partyArr()
     this.next()
+  },
+  getAddInfo(){
+    this.onLoad()
   },
   partyArr(){
     wx.showLoading({
@@ -108,7 +112,9 @@ Page({
       }
     }
     //console.log(code)
-
+    wx.showLoading({
+      title: '拼命加载中',
+    })
       wx.request({
         url: 'http://172.16.20.82:8083/zhsq/api/news/pubListNews/' +code+'/'+cur, // 就是拼接上前缀,此接口域名是开放接口，可访问
         method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
@@ -127,7 +133,8 @@ Page({
                 })
               }else{
                 that.setData({
-                  isLoad:false
+                  isLoad:false,
+                  botTrue:true
                 })
                 for(var i in res.data.rows){
                   rowsXw0.push(res.data.rows[i])
@@ -144,7 +151,8 @@ Page({
                 })
               }else{
                 that.setData({
-                  isLoad:false
+                  isLoad:false,
+                  botTrue:true
                 })
                 for(var i in res.data.rows){
                   rowsXw1.push(res.data.rows[i])
@@ -161,7 +169,8 @@ Page({
                 })
               }else{
                 that.setData({
-                  isLoad:false
+                  isLoad:false,
+                  botTrue:true
                 })
                 for(var i in res.data.rows){
                   rowsXw2.push(res.data.rows[i])
@@ -178,7 +187,8 @@ Page({
                 })
               }else{
                 that.setData({
-                  isLoad:false
+                  isLoad:false,
+                  botTrue:true
                 })
                 for(var i in res.data.rows){
                   rowsXw3.push(res.data.rows[i])
@@ -199,7 +209,8 @@ Page({
               })
             }else{
               that.setData({
-                isLoad:false
+                isLoad:false,
+                botTrue:true
               })
               for(var i in res.data.rows){
                 rowsXw0.push(res.data.rows[i])
@@ -216,7 +227,8 @@ Page({
               })
             }else{
               that.setData({
-                isLoad:false
+                isLoad:false,
+                botTrue:true
               })
               for(var i in res.data.rows){
                 rowsXw1.push(res.data.rows[i])
@@ -233,7 +245,8 @@ Page({
               })
             }else{
               that.setData({
-                isLoad:false
+                isLoad:false,
+                botTrue:true
               })
               for(var i in res.data.rows){
                 rowsXw2.push(res.data.rows[i])
@@ -250,7 +263,8 @@ Page({
               })
             }else{
               that.setData({
-                isLoad:false
+                isLoad:false,
+                botTrue:true
               })
               for(var i in res.data.rows){
                 rowsXw3.push(res.data.rows[i])
@@ -261,8 +275,18 @@ Page({
             })
           }
         }
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
         },
         fail(err) {
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
           console.log(err)
         }
       })
@@ -272,6 +296,7 @@ Page({
 
   cbott(e){
     //console.log(e)
+    if(this.data.botTrue){
     var dataTab = this.data.dataTab
     for(var i in dataTab){
       if(dataTab[i].id == this.data.TabCur){
@@ -284,6 +309,7 @@ Page({
     //console.log(this.data.dataTab)
     var v = true
     this.next(v)
+  }
   },
   /**
    * 生命周期函数--监听页面隐藏

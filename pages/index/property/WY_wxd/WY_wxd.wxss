@@ -27,8 +27,11 @@
 .pk{
   padding: 35rpx 35rpx 20rpx;
 }
-.tpack{
+.waiBox{
   width: 100%;
+}
+.tpack{
+  width: 100vw;
   height: 30px;
   position: fixed;
   left: 0;
@@ -36,10 +39,10 @@
   z-index: 10;
   background: linear-gradient(60deg, #0586F8, #1BB1FD);
   padding-left: 20rpx;
+  box-sizing: border-box;
 }
 .view-nei{
   width: 100%;
-  min-height: 100%;
 }
 
 /* 内容样式 */
@@ -52,10 +55,13 @@
 .box_content-3{font-size: 28rpx;}
 
 /* 内容样式 */
-.pban_box{margin:0 auto;padding:35rpx;}
+.pban_box{margin:0 auto;padding:0 35rpx 35rpx;}
 .pban_box>picker{font-weight: bold;color: #fff;}
 .pban_box>.box{border-radius: 15rpx;background: #fff;padding:35rpx;clear: both;overflow: hidden;
   font-size: 26rpx;margin-top:35rpx;}
+  .pban_box>.box:first-child{
+    margin-top:90rpx;
+  }
 .pban_box>.box>.box_top>.bor_fl{float: left;width: 60%;display: block;} 
 .pban_box>.box>.box_top{height:45rpx;line-height: 45rpx;display: flex;align-items: center;justify-content: space-between;}
 .pban_box>.box>.box_top>.bor_fl>image{width:45rpx;height: 45rpx;border-radius: 50%;margin-right: 15rpx;} 

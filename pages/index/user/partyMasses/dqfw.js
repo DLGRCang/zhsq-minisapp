@@ -71,14 +71,25 @@ xiangqing(e){
         this.setData({
           rowsList:rowsList
         })
-        wx.hideLoading()
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
   } ,
-
+  getAddInfo(){
+    this.onLoad()
+  },
   dqfw1Arr(){
     
     if(this.data.rowsList1.length == 0){

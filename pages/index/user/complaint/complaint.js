@@ -67,7 +67,9 @@ Page({
       title:e.detail.value
     })
   },
-
+  getAddInfo(){
+    this.selectComponent("#haveTrue").falseClick()
+  },
   tsjyList(){
     var time = util.formatTime(new Date)
     //console.log(this.data.title)
@@ -95,7 +97,9 @@ Page({
       success:res=>{
         //console.log(res)
         wx.hideLoading({
-          success: (res) => {},
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
         })
         if(res.code == 200){
           verif.tips('提交成功')
@@ -109,6 +113,11 @@ Page({
         },500)
       },
       fali:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

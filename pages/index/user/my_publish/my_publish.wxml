@@ -1,4 +1,5 @@
 <!--pages/index/my_publish/my_publish.wxml-->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">我的发布</view>
 </cu-custom>
@@ -47,7 +48,7 @@
     <!-- <view wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items">{{items}}</view> -->
     <view class="bg-white padding" style="background:#fff">
     <view class="grid col-3 grid-square">
-      <view class="bg-img" wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" wx:key style="background-image:url(http://172.16.20.81:9000/fileService/downloadFTP/public/{{items}});"></view>
+      <view class="bg-img" wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" wx:key="index" style="background-image:url(http://172.16.20.81:9000/fileService/downloadFTP/public/{{items}});"></view>
     </view>
   </view>
     <!-- <view class="text-gray text-sm text-left padding padding-right">
@@ -109,7 +110,7 @@
     <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
     <view>暂无数据</view>
   </view>
-    <view class="tab_box" bindtap="xiangqing" data-id="{{item}}" wx:for="{{rows1}}">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item}}" wx:for="{{rows1}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>

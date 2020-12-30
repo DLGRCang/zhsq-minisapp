@@ -29,16 +29,19 @@ Page({
   xybClick(){
     if(this.data.sxId == 0){
       wx.setStorageSync('indexId', 1)
+ 
       wx.reLaunch({
         url: '/pages/index/index'
       })
     }else if(this.data.sxId == 1){
       wx.setStorageSync('indexId', 2)
+
       wx.reLaunch({
         url: '/pages/index/index'
       })
     }else if(this.data.sxId == 2||this.data.sxId == 3){
       wx.setStorageSync('wyUser', this.data.sxId)
+
       wx.setStorageSync('indexId', 3)
       wx.reLaunch({
         url: '/pages/index/index'

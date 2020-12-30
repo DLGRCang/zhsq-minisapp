@@ -29,7 +29,8 @@ Page({
     rowsXw4:[],
     rowsXw5:[],
     rowsXw6:[],
-    isLoad:false
+    isLoad:false,
+    botTrue:true
   },
 
   /**
@@ -39,6 +40,9 @@ Page({
 
     //this.partyArr()
     this.next()
+  },
+  getAddInfo(){
+    this.onLoad()
   },
   partyArr(){
     wx.showLoading({
@@ -51,9 +55,18 @@ Page({
           rowsList:res.rows[0]
         })
         //console.log(this.data.rowsList)
-        wx.hideLoading()
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -102,7 +115,9 @@ Page({
       }
     }
     //console.log(code)
-
+    wx.showLoading({
+      title: '拼命加载中',
+    })
       wx.request({
         url: 'http://127.0.0.1:8083/zhsq/api/news/pubListNews/' +code+'/'+cur, // 就是拼接上前缀,此接口域名是开放接口，可访问
         method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
@@ -110,7 +125,11 @@ Page({
           'content-type': 'application/json'
         },
         success(res) {
-     
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").falseClick()
+            },
+          })
         if(v){
           setTimeout(()=>{
             if(that.data.TabCur == 0){
@@ -121,6 +140,7 @@ Page({
                 })
               }else{
                 that.setData({
+                  botTrue:true,
                   isLoad:false
                 })
                 for(var i in res.data.rows){
@@ -138,6 +158,7 @@ Page({
                 })
               }else{
                 that.setData({
+                  botTrue:true,
                   isLoad:false
                 })
                 for(var i in res.data.rows){
@@ -155,6 +176,7 @@ Page({
                 })
               }else{
                 that.setData({
+                  botTrue:true,
                   isLoad:false
                 })
                 for(var i in res.data.rows){
@@ -172,6 +194,7 @@ Page({
                 })
               }else{
                 that.setData({
+                  botTrue:true,
                   isLoad:false
                 })
                 for(var i in res.data.rows){
@@ -189,6 +212,7 @@ Page({
                 })
               }else{
                 that.setData({
+                  botTrue:true,
                   isLoad:false
                 })
                 for(var i in res.data.rows){
@@ -206,6 +230,7 @@ Page({
                 })
               }else{
                 that.setData({
+                  botTrue:true,
                   isLoad:false
                 })
                 for(var i in res.data.rows){
@@ -223,6 +248,7 @@ Page({
                 })
               }else{
                 that.setData({
+                  botTrue:true,
                   isLoad:false
                 })
                 for(var i in res.data.rows){
@@ -244,6 +270,7 @@ Page({
               })
             }else{
               that.setData({
+                botTrue:true,
                 isLoad:false
               })
               for(var i in res.data.rows){
@@ -261,6 +288,7 @@ Page({
               })
             }else{
               that.setData({
+                botTrue:true,
                 isLoad:false
               })
               for(var i in res.data.rows){
@@ -278,6 +306,7 @@ Page({
               })
             }else{
               that.setData({
+                botTrue:true,
                 isLoad:false
               })
               for(var i in res.data.rows){
@@ -295,6 +324,7 @@ Page({
               })
             }else{
               that.setData({
+                botTrue:true,
                 isLoad:false
               })
               for(var i in res.data.rows){
@@ -312,6 +342,7 @@ Page({
               })
             }else{
               that.setData({
+                botTrue:true,
                 isLoad:false
               })
               for(var i in res.data.rows){
@@ -329,6 +360,7 @@ Page({
               })
             }else{
               that.setData({
+                botTrue:true,
                 isLoad:false
               })
               for(var i in res.data.rows){
@@ -346,6 +378,7 @@ Page({
               })
             }else{
               that.setData({
+                botTrue:true,
                 isLoad:false
               })
               for(var i in res.data.rows){
@@ -359,6 +392,11 @@ Page({
         }
         },
         fail(err) {
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
           console.log(err)
         }
       })
@@ -368,6 +406,7 @@ Page({
 
   cbott(e){
     //console.log(e)
+    if(this.data.botTrue){
     var dataTab = this.data.dataTab
     for(var i in dataTab){
       if(dataTab[i].id == this.data.TabCur){
@@ -380,6 +419,7 @@ Page({
     //console.log(this.data.dataTab)
     var v = true
     this.next(v)
+  }
   },
 
   xuexiList(){

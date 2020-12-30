@@ -44,12 +44,6 @@
   </view>
   <view class="my-p-from">
     <view class="bot-border">
-        <text>姓名</text>
-        <view class="fr text-gray">张三<text class="cuIcon-right lg text-gray"></text></view>
-      </view>
-  </view>
-  <view class="my-p-from">
-    <view class="bot-border">
         <text>手机号码</text>
         <view class="fr text-gray">176********<text class="cuIcon-right lg text-gray"></text></view>
       </view>

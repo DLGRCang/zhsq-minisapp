@@ -16,7 +16,9 @@ Page({
   onLoad: function (options) {
     this.jfArr()
   },
-
+  getAddInfo(){
+    this.onLoad()
+  },
   jfArr(){
     wx.showLoading({
       title: '拼命加载中',
@@ -30,7 +32,7 @@ Page({
         if(res.code == 200){
           wx.hideLoading({
             success: (res) => {
-            
+              this.selectComponent("#haveTrue").falseClick()
             },
           })
           this.setData({
@@ -39,6 +41,11 @@ Page({
         }
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

@@ -1,4 +1,12 @@
-<view style="height:{{windowHeight-CustomBar}}px;width:100%">
-
+<view style="height:{{windowHeight}}px;top:{{CustomBar}}px" class="fudong" wx:if="{{fudong}}">
+<view class="have-top">
+  <text class="cuIcon-subscription lg text-gray"></text>
+</view>
+<view class="have-content">
+  您的页面丢了，请稍后或者刷新试试
+</view>
+<button class="have-btn" bindtap="addInfo">
+    <text class="cuIcon-loading2 iconfont-spin" wx:if="{{shuaxin}}"></text>  <text wx:if="{{!shuaxin}}">刷新</text><text wx:if="{{shuaxin}}">刷新中</text></button>
+<!-- <view bindtap="addInfo" class="have-btn">刷新</view> -->
 
 </view>

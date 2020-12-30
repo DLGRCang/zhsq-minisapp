@@ -1,4 +1,5 @@
 <!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
     <view slot="content">场地服务</view>
 </cu-custom>
@@ -22,7 +23,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList}}" :key="index">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>
@@ -53,7 +54,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList1}}" :key="index">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList1}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>
@@ -82,7 +83,7 @@
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
-    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList2}}" :key="index">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList2}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>

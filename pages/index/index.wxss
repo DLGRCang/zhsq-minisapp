@@ -19,7 +19,7 @@
 }
 .box-body-3{
   width: 100%;
-  position: relative;
+  
   overflow-x: hidden;
   overflow-y: auto;
 

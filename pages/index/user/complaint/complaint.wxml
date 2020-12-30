@@ -1,3 +1,4 @@
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <view class="complaint">
   <cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
     <view slot="content">投诉建议</view>

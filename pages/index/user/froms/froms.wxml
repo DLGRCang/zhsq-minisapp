@@ -1,6 +1,6 @@
 
 <view class="box">
-  <view wx:for="{{dataFrom}}" wx:key="{{index}}" wx:for-index="indexF">
+  <view wx:for="{{dataFrom}}" wx:key="index" wx:for-index="indexF">
     <input type="text" wx:if="{{item.state == 1}}" placeholder="{{item.ch_name}}" bindinput="inputClick" data-in="{{item.en_name}}"/>
     <view class="select" wx:if="{{item.state == 2}}" bindtap="selectClick" data-id="{{item.application_formId}}">
         <view class="select-nei">
@@ -9,18 +9,18 @@
           <text>></text>
         </view>
         <view class="select-option" wx:if="{{item.application_formId == selectTrue}}">
-          <view wx:for="{{item.zTreeDTOList}}" wx:for-item="itema" bindtap="optionClick" data-in="{{item.en_name}}" data-value="{{itema.name}}" data-index="{{indexF}}">{{itema.name}}</view>
+          <view wx:for="{{item.zTreeDTOList}}" wx:key="index" wx:for-item="itema" bindtap="optionClick" data-in="{{item.en_name}}" data-value="{{itema.name}}" data-index="{{indexF}}">{{itema.name}}</view>
         </view>
     </view>
     <radio-group class="block" wx:if="{{item.state == 3}}">
-        <view wx:for="{{item.zTreeDTOList}}" wx:for-item="items" bindtap="dxClick" data-in="{{item.en_name}}" data-value="{{items.name}}">
+        <view wx:for="{{item.zTreeDTOList}}" wx:key="index" wx:for-item="items" bindtap="dxClick" data-in="{{item.en_name}}" data-value="{{items.name}}">
           {{items.name}}
           <radio></radio>
         </view>
     </radio-group>
     <view class="" wx:if="{{item.state == 4}}">
       <view>{{item.ch_name}}</view>
-      <view wx:for="{{item.zTreeDTOList}}" wx:for-item="itemb" bindtap="duoxClick" data-in="{{item.en_name}}" data-value="{{itemb.name}}">
+      <view wx:for="{{item.zTreeDTOList}}" wx:key="index" wx:for-item="itemb" bindtap="duoxClick" data-in="{{item.en_name}}" data-value="{{itemb.name}}">
         <text class="title">{{itemb.name}}</text>
         <checkbox></checkbox>
       </view>

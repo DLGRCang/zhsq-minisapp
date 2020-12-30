@@ -196,6 +196,17 @@ function pubListNewsApi(params){
   http('news/listpagenews/'+params.data.channelCode+'/'+params.data.curPage,'get',params)
 }
 
+//物业排版
+function listArrangeDataApi(params){
+  http('arrange/listArrangeData/'+params.data.page,'post',params)
+}
+
+
+//安防巡更
+function selfPlanApi(params){
+  http('propertypatrollingplan/selfPlan/'+params.data.unifiedUserId,'get',params)
+}
+
 export default { // 暴露接口
   xinwenApi,
   llqfbApi,
@@ -235,5 +246,7 @@ export default { // 暴露接口
   listrepairApi,
   selfListApi,
   pubListNewsApi,
-  listpagerepairApi
+  listpagerepairApi,
+  listArrangeDataApi,
+  selfPlanApi
 }

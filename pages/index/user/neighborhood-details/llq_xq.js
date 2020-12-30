@@ -42,7 +42,13 @@ toCollect () {
       this.lllList()
       console.log(this.data.rows)
   },
+  getAddInfo(){
+    this.onLoad()
+  },
   lllList(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
     http.llqlllzjApi({
       data:{
         neighborId:this.data.rows.neighborId,
@@ -50,10 +56,19 @@ toCollect () {
         loginId:this.data.rows.loginId
       },
       success:res=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
         console.log(res)
       },
       fail:err=>{
-
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
       }
     })
   },

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/user/home-page/t1",
     "pages/index/user/airClass/airClass",
     "pages/index/UserSelection/UserSelection",
     
@@ -69,6 +70,7 @@
 
     
     "pages/index/property/WY_pj/WY_pj",
+    "pages/index/property/WY_xg/WY_xg",
     "pages/index/property/WY_pban/WY_pban",
     "pages/index/property/WY_ydcx/WY_ydcx",
     "pages/index/property/WY_wxd/WY_wxd",

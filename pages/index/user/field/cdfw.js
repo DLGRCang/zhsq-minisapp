@@ -47,6 +47,9 @@ xiangqing(e){
   onLoad: function (options) {
     this.cdArr()
   },
+  getAddInfo(){
+    this.onLoad()
+  },
   cdArr(){
     wx.showLoading({
       title: '拼命加载中',
@@ -54,12 +57,22 @@ xiangqing(e){
     http.cdApi({
       success:res=>{
         //console.log(res)
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
         this.setData({
           rowsList:res.rows
         })
-        wx.hideLoading()
+
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -71,13 +84,23 @@ xiangqing(e){
     })
     http.cdrmApi({
       success:res=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
         //console.log(res)
         this.setData({
           rowsList1:res.rows
         })
-        wx.hideLoading()
+
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })
@@ -90,13 +113,22 @@ xiangqing(e){
     })
     http.cdpfApi({
       success:res=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
         console.log(res)
         this.setData({
           rowsList2:res.rows
         })
-        wx.hideLoading()
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

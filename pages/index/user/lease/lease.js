@@ -110,7 +110,11 @@ Page({
       xzzhuangtai:xzzhuangtai
     })
   },
+  getAddInfo(){
+    this.onLoad()
+  },
   onLoad: function (options) {
+    this.selectComponent("#haveTrue").falseClick()
     console.log(options.item)
     if(options.item == undefined){
         this.setData({
@@ -349,6 +353,9 @@ pmClick(e){
     }else if(verif.checkPhone(this.data.phone)){
       //console.log('aaa')
       if(this.data.rentRoomId == null){
+        wx.showLoading({
+          title: '拼命加载中',
+        })
         http.xzfwczApi({
           data:{
             floorId:this.data.fyxxId[this.data.fangyuan1].floorId,
@@ -370,16 +377,27 @@ pmClick(e){
           },
           success:res=>{
             //console.log(res)
+            wx.hideLoading({
+              success: (res) => {},
+            })
             if(res.code == 200){
               verif.tips('发布成功')
             }
 
           },
           fail:err=>{
+            wx.hideLoading({
+              success: (res) => {
+                this.selectComponent("#haveTrue").trueClick()
+              },
+            })
             console.log(err)
           }
         })
       }else{
+        wx.showLoading({
+          title: '拼命加载中',
+        })
         http.xgczfwApi({
           data:{
             rentRoomIds:this.data.rentRoomId,
@@ -402,11 +420,19 @@ pmClick(e){
           },
           success:res=>{
             //console.log(res)
+            wx.hideLoading({
+              success: (res) => {},
+            })
             if(res.code == 200){
               verif.tips('修改成功')
             }
           },
           fail:err=>{
+            wx.hideLoading({
+              success: (res) => {
+                this.selectComponent("#haveTrue").trueClick()
+              },
+            })
             console.log(err)
           }
         })

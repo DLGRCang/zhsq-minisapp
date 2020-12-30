@@ -78,13 +78,13 @@
       <view class="times">
         <view class="times-s">上午</view>
         <view class="times-f">
-          <view wx:for="{{timeList}}" wx:if="{{item.id < 6}}" :key="index" class="{{item.timeCss}}" bindtap="ctimes" data-id="{{item.id}}">{{item.time}}</view>
+          <view wx:for="{{timeList}}" wx:if="{{item.id < 6}}" wx:key="index" class="{{item.timeCss}}" bindtap="ctimes" data-id="{{item.id}}">{{item.time}}</view>
         </view>
       </view>
       <view class="times">
         <view class="times-s">下午</view>
         <view class="times-f">
-          <view wx:for="{{timeList}}" wx:if="{{item.id > 5}}" :key="index" class="{{item.timeCss}}" bindtap="ctimes" data-id="{{item.id}}">{{item.time}}</view>
+          <view wx:for="{{timeList}}" wx:if="{{item.id > 5}}" wx:key="index" class="{{item.timeCss}}" bindtap="ctimes" data-id="{{item.id}}">{{item.time}}</view>
         </view>
       </view>
     </view>

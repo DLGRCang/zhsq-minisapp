@@ -1,4 +1,5 @@
 <!--pages/index/My_Settled/My_Settled.wxml-->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">我的入驻</view>
 </cu-custom>

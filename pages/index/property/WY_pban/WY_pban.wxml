@@ -1,13 +1,10 @@
 <!--pages/index/WY_pban/WY_pban.wxml-->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <cu-custom bgColor="bg-gray-bljb" isBack="{{false}}">
     <view slot="content">物业排班</view>
   </cu-custom>
 <!-- <view class="llq_content"> -->
-  <view class="box-body-3-nei">
-
-  <view class="pban_box">
-<!-- da头像 -->
-<view class="pbDingwei" style="top:{{CustomBar}}px">
+  <view class="pbDingwei" style="top:{{CustomBar}}px">
   <view class="dbox_top" bindtap="qhjiaose">
           <view class="bor_fl">
           <image class="fl" src="{{wxUser.avatarUrl}}" bindtap="qhjiaose"></image>
@@ -18,13 +15,20 @@
     </view>
 
   <view class="datetop">
-    <picker mode="date" value="{{dateT}}" start="{{dateT}}" bindchange="DateChange">
+    <picker mode="date" value="{{dateT}}" bindchange="DateChange">
 			<view class="picker">
-				{{dateT}} <text class="cuIcon-unfold lg "></text>
+				{{dateT}} <text class="cuIcon-unfold lg"></text>
 			</view>
 		</picker>
   </view>  
 </view>
+
+  <view class="box-body-3-nei">
+
+  <view class="pban_box">
+<!-- da头像 -->
+
+
     <view class="dbox_top" bindtap="qhjiaose">
           <view class="bor_fl">
           <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg" bindtap="qhjiaose"></image>
@@ -41,27 +45,28 @@
 			</view>
 		</picker>
   </view>   
-    <view class="box" wx:for="{{4}}" style="display:block;">
-        <view class="box_top">
+    <view class="box" wx:for="{{rows}}" wx:key="index">
+        <!-- <view class="box_top">
           <view class="bor_fl">
           <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
           <view >物业人员姓名</view>
         </view>
-        <view class="bor_fr text-gray">2020-11-23 星期一</view>
+        </view> -->
+        <view class="box_title" wx:for="{{item.namesA}}" wx:for-item="items" wx:for-index="i" wx:key="index">
+          <view>值班人员 <text>{{item.namesB[i]}}</text></view>
+          <view>手机号 <text>{{item.namesC[i]}}</text></view>
+          <view>地点  <text>{{item.workAddress}}</text></view>
+          <view>班次  <text>{{item.workStartTime}} - {{item.workEndTime}}</text></view>
         </view>
-        <view class="box_title">
-        <view>岗位  <text>物业管理人员</text></view>
-        <view>地点  <text>乌兰小区物业</text></view>
-        <view>班次  <text>上午班（9:00-12:00）</text></view>
-        <view>电话  <text>18247141111</text></view>
-        </view>
-       
+        <view class="gly">值班组长：{{item.managerName}}</view>
+        <view class="glys">手机号：{{item.managerPhone}}</view>
     </view>
-
-    <view style="display:none;" class="zwsj">
+    <view class="cu-load {{!isLoad?'loading':'over'}}" wx:if="{{rows.length >= 20}}"></view>
+    <view wx:if="{{rows.length == 0}}" class="zwsj">
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
+
   </view>
   
   

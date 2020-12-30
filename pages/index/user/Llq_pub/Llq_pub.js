@@ -47,8 +47,10 @@ Page({
         },
         success:res=>{
           console.log(res)
+
           wx.hideLoading({
             success: (res) => {
+              this.selectComponent("#haveTrue").falseClick()
               verif.tips('发布成功')
               this.setData({
                 imgList: [],
@@ -61,6 +63,13 @@ Page({
                   delta: 1
                 })
               },500)
+            },
+          })
+        },
+        fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
             },
           })
         }
@@ -138,6 +147,9 @@ Page({
     this.llqbqArr()
   },
 
+  getAddInfo(){
+    this.onLoad()
+  },
   llqbqArr(){
     wx.showLoading({
       title: '拼命加载中',
@@ -150,13 +162,20 @@ Page({
           bqList[i].yangshi = 'wys'
         }
         wx.hideLoading({
-          success: (res) => {},
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
         })
         this.setData({
           bqList:bqList
         })
       },
       fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
         console.log(err)
       }
     })

@@ -1,4 +1,5 @@
 <!--pages/tp/tp.wxml-->
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <view class="details">
   <cu-custom bgColor="bg-gray-bljb" isBack="{{true}}">
     <view slot="content">详情</view>
