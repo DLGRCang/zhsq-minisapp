@@ -1,36 +1,18 @@
-// pages/index/setting/setting.js
-import verif from '../../../../utils/verification'
+// pages/index/user/myPerfect/myPerfect.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    myList:[]
-  },
-   //收货地址-跳转
-   addressClick:function(){
-    wx.navigateTo({
-      url: '/pages/index/user/setting_address/setting_address'
-    })
+
   },
 
-  qhjiaose(){
-    if(verif.checkLogin()){
-      wx.navigateTo({
-        url: '/pages/index/UserSelection/UserSelection'
-      })
-    }
-    
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      myList:wx.getStorageSync('xzvillage')[0]
-    })
-    console.log(wx.getStorageSync('xzvillage')[0])
+
   },
 
   /**

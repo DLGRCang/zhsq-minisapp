@@ -62,7 +62,7 @@ Page({
     if(this.data.xzjihe.isMaster == 1){
       this.hzList(this.data.xzjihe.roomId)
     }else{
-      this.nohzList()
+      this.nohzList(this.data.xzjihe.roomId)
     }
     
     
@@ -104,6 +104,7 @@ Page({
   },
 
   nohzList(id){
+
     wx.showLoading({
       title: '拼命加载中',
     })
@@ -121,7 +122,7 @@ Page({
             this.selectComponent("#haveTrue").falseClick()
           },
         })
-        //console.log(res)
+        console.log(res)
       },
       fail:err=>{
         wx.hideLoading({

@@ -167,7 +167,11 @@ Component({
           if(id == 6||id == 12){
             var id = 0
             for(var i in wx.getStorageSync('xzvillage')){
-              id = wx.getStorageSync('xzvillage')[i].isMaster
+              
+              if(wx.getStorageSync('xzvillage')[i].isMaster == 1){
+                id = wx.getStorageSync('xzvillage')[i].isMaster
+                break;
+              }
             }
 
             if(id == 0){
@@ -384,9 +388,11 @@ Component({
     wx.showLoading({
       title: '授权中...',
     })
+    
         //console.log(e)
         wx.login({
           success: resa => {
+            verif.tips('aaaa')
             http.loginApi({
               data:{
                 code:resa.code,
@@ -394,7 +400,8 @@ Component({
                 iv:e.detail.iv
               },
               success(data) {
-                 console.log(data)
+                verif.tips('bbb')
+                // console.log(data)
                  if(data.code == 200){
       //                  var user = {
       //   userId:'100',
@@ -413,6 +420,7 @@ Component({
                 
                    wx.hideLoading({
                      success: (res) => {
+                       that.messageList()
                        verif.tips('授权成功')
                        that.setData({
                          modalName:'null'
@@ -420,12 +428,14 @@ Component({
                      },
                    })
                  }else{
+                   verif.tips('ccc')
                      wx.navigateTo({
                          url: '/pages/Login-on/Login'
                      })
                  }
                },
                fail(err) {
+                verif.tips('dddd')
                  console.log(err)
                }
             })
@@ -518,7 +528,7 @@ Component({
     this.wenjuan()
   },
   renlian(){
-    console.log('aa')
+   // console.log('aa')
     wx.checkIsSupportSoterAuthentication({
       success(res) {
         console.log(res)
@@ -531,6 +541,24 @@ Component({
         console.log(err)
       }
     })
+  },
+  messageList(){
+      http.messageApi({
+        data:{
+          userId:wx.getStorageSync('wxUser').id
+        },
+        success:res=>{
+          //console.log(res)
+            if(res.length != 0){
+              wx.setStorageSync('village', res)
+            }
+            
+          
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
   }
   },
  
@@ -549,21 +577,10 @@ Component({
     ready() {
      // console.log(wx.getStorageSync('wxUser').id)
      //console.log('aaa')
-      // http.messageApi({
-      //   data:{
-      //     userId:wx.getStorageSync('wxUser').id
-      //   },
-      //   success:res=>{
-      //     console.log(res)
-      //     wx.setStorageSync('village', res)
-      //   },
-      //   fail:err=>{
-      //     console.log(err)
-      //   }
-      // })
       this.wenjuan()
       this.timeList()
       this.xinwenList()
+
       //this.sqhdList()
       if(wx.getStorageSync('wxUser') == ''&&!wx.getStorageSync('loginSi')){
         this.setData({

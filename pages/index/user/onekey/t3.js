@@ -11,13 +11,35 @@ Component({
    */
   data: {
     tanch:false,
-    tupian:true
+    tupian:true,
+    anniu:[
+      {id:0,name:'蓝牙开门',xz:false},
+      {id:1,name:'一键开门',xz:true},
+      {id:2,name:'二维码开门',xz:false}
+    ],
+    xzId:1
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    djqiehuan(e){
+      //console.log(e.currentTarget.dataset.id)
+      var anniu = this.data.anniu
+      for(var i in anniu){
+        if(anniu[i].id == e.currentTarget.dataset.id){
+          anniu[i].xz = true
+        }else{
+          anniu[i].xz = false
+        }
+      }
+      
+      this.setData({
+        xzId:e.currentTarget.dataset.id,
+        anniu:anniu
+      })
+    },
     tcClick(){
       this.setData({
         tanch:true

@@ -130,7 +130,7 @@ function tsjyApi(params){
 
 //入住小区
 function rzxqApi(params){
-  http('zhsq/app/release/api/residentsInfo/saveresidentsinfo','post',params)
+  http('zhsq/app/release/api/residentsInfo/saveresidentsinfo/1','post',params)
 }
 
 //我的发布——邻里圈
@@ -244,6 +244,10 @@ function codelistApi(params){
   http('zhsq/app/release/api/dictionaries/codelistofGet/000100050001','get',params)
 }
 
+//入住小区生成id
+function saveZhsqUserInfoApi(params){
+  http('app/sign/saveZhsqUserInfo','post',params)
+}
 
 export default { // 暴露接口
   xinwenApi,
@@ -293,5 +297,6 @@ export default { // 暴露接口
   newsApi,
   messageApi,
   codelistApi,
-  wdrzhzApi
+  wdrzhzApi,
+  saveZhsqUserInfoApi
 }

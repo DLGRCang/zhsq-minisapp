@@ -22,7 +22,8 @@ Component({
     ],
     rightHui:'https://yiqi.sucstep.com/zhsq/assets/images/applets/right-hui.png',
     ifLogin:true,
-    wxUser:[]
+    wxUser:[],
+    xzvillage:[]
   },
 
   /**
@@ -115,10 +116,11 @@ Component({
         ifLogin:true
       })
     }else{
-      console.log(wx.getStorageSync('wxUser'))
+      console.log(wx.getStorageSync('xzvillage'))
       this.setData({
         ifLogin:false,
-        wxUser:wx.getStorageSync('wxUser')
+        wxUser:wx.getStorageSync('wxUser'),
+        xzvillage:wx.getStorageSync('xzvillage')
        })
     }
   },

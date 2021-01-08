@@ -259,7 +259,7 @@ guanbi(){
             title: '拼命加载中',
           })
             wx.request({
-              url: 'http://172.16.20.65:8003/app/sign/saveZhsqUserInfo', // 就是拼接上前缀,此接口域名是开放接口，可访问
+              url: 'https://yiqi.sucstep.com/app/sign/saveZhsqUserInfo', // 就是拼接上前缀,此接口域名是开放接口，可访问
               method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
               data:{
                 name:that.data.name,
@@ -271,7 +271,7 @@ guanbi(){
                 'token':wx.getStorageSync('token')
               },
               success(resm) {
-                //console.log(resm.data.result)
+                //console.log(resm)
                   http.rzxqApi({
                     data:{
                       villageId:user.villageId,
@@ -297,24 +297,30 @@ guanbi(){
                       facePhoto:that.data.imgId[0]
                     },
                     success:res=>{
-                      wx.hideLoading({
-                        success: (resm) => {
-                          if(res.code == 40102){
-                            verif.tips(res.msg)
-                          }else{
-                            verif.tips('提交成功')
-                            setTimeout(()=>{
-                              wx.navigateBack({
-                                delta: 1
-                              })
-                            },800)
-                          }
-                        },
-                      })
-                      
-                      console.log(res)
+                      //console.log(res.status)
+                      if(res.status == 500){
+                        wx.hideLoading()
+                        verif.tips('提交失败')
+                      }else{
+                        wx.hideLoading({
+                          success: (resm) => {
+                            if(res.code == 40102){
+                              verif.tips(res.msg)
+                            }else{
+                              verif.tips('提交成功')
+                              setTimeout(()=>{
+                                wx.navigateBack({
+                                  delta: 1
+                                })
+                              },800)
+                            }
+                          },
+                        })
+                      }
+  
                     },
                     fail:err=>{
+        
                       wx.hideLoading({
                         success: (res) => {
                           that.selectComponent("#haveTrue").trueClick()

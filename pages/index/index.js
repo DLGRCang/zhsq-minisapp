@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import https from '../../utils/api'
+import http from '../../utils/api'
 // import apidata from '../../utils/dataApi'
 // import common from '../../utils/common'
 import verif from '../../utils/verification'
@@ -47,7 +47,7 @@ Page({
   },
   gbtchaung(){
     this.setData({
-      xzvillage:[],
+      xzvillage:wx.getStorageSync('xzvillage'),
       xuanzexiaoqu:false
     })
   },
@@ -144,7 +144,24 @@ Page({
       })
     }
     this.appid()
+    this.messageList()
   },
+  messageList(){
+    http.messageApi({
+      data:{
+        userId:wx.getStorageSync('wxUser').id
+      },
+      success:res=>{
+        console.log(res)
+          if(res.length != 0){
+            wx.setStorageSync('village', res)
+          }
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+},
   sxLogin(){
     this.selectComponent("#dlFalse").loginClick()
   },
@@ -169,7 +186,7 @@ Page({
     }else if(indexId == 3){
       this.setData({ 
         login:3,
-        PageCur:'t13'
+        PageCur:'t10'
       })
       
 

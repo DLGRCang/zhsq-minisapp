@@ -26,32 +26,38 @@
     <view class="my-p-from">
       <view class="bot-border">
         <text>人像照片</text>
-        <image class="tx_img" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg"> </image>
+        <image class="tx_img" src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{myList.facePhoto}}"> </image>
         <!-- <text class="cuIcon-right lg text-gray"></text> -->
       </view>
   </view>
   <view class="my-p-from">
     <view class="bot-border">
         <text>姓名</text>
-        <view class="fr text-gray">张三<text class="cuIcon-right lg text-gray"></text></view>
+        <view class="fr text-gray">{{myList.name}}<text class="cuIcon-right lg text-gray"></text></view>
       </view>
   </view>
   <view class="my-p-from">
     <view class="bot-border">
         <text>性别</text>
-        <view class="fr text-gray">男<text class="cuIcon-right lg text-gray"></text></view>
+        <view class="fr text-gray">{{myList.sex == 0 ? '女':'男'}}
+          <!-- <text class="cuIcon-right lg text-gray"></text> -->
+        </view>
       </view>
   </view>
   <view class="my-p-from">
     <view class="bot-border">
         <text>手机号码</text>
-        <view class="fr text-gray">176********<text class="cuIcon-right lg text-gray"></text></view>
+        <view class="fr text-gray">{{myList.phone}}
+          <!-- <text class="cuIcon-right lg text-gray"></text> -->
+        </view>
       </view>
   </view>
   <view class="my-p-from">
     <view class="bot-border">
         <text>证件号码</text>
-        <view class="fr text-gray">1****************9<text class="cuIcon-right lg text-gray"></text></view>
+        <view class="fr text-gray">{{myList.idCard}}
+          <!-- <text class="cuIcon-right lg text-gray"></text> -->
+        </view>
       </view>
   </view>
   </view>
@@ -59,7 +65,7 @@
       <view class="my-b-from">
     <view class="my-p-from">
       <view class="bot-border" bindtap="addressClick">
-        <text>收货地址</text>
+        <text>完善个人信息</text>
         <text class="cuIcon-right lg text-gray"></text>
       </view>
   </view>
@@ -75,7 +81,7 @@
     <view class="my-p-from">
       <view class="bot-border" bindtap="qhjiaose">
         <text>切换角色</text>
-        <text class="cuIcon-right lg text-gray"></text>
+        <!-- <text class="cuIcon-right lg text-gray"></text> -->
       </view>
   </view>
   </view>

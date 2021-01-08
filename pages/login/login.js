@@ -51,6 +51,18 @@ Page({
                   wx.setStorageSync('loginSi', true)
                   wx.hideLoading({
                     success: (res) => {
+                      http.messageApi({
+                        data:{
+                          userId:wx.getStorageSync('wxUser').id
+                        },
+                        success:res=>{
+                          console.log(res)
+                          wx.setStorageSync('village', res)
+                        },
+                        fail:err=>{
+                          console.log(err)
+                        }
+                      })
                       verif.tips('授权成功')
                       setTimeout(()=>{
                         wx.navigateBack({
