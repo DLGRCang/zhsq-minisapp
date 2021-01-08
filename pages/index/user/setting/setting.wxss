@@ -3,7 +3,7 @@
 @import "../../../colorui/icon.wxss"; */
 .fr{float: right;}
 /* 内容样式 */
-.setting_box{width: 100%;margin:30rpx auto;
+.setting_box{width: 100%;margin:50rpx auto;
   padding: 0 30rpx;box-sizing: border-box;
 }
 .my-b-from{border-radius: 15rpx;font-size: 26rpx;
@@ -15,3 +15,7 @@ margin: 30rpx 0;background: #FFFFFF;}
   display: flex;align-items: center;justify-content: space-between;
 }
 .tx_img{width:50rpx;height:50rpx;border-radius: 50%;position: absolute;right:10%;}
+
+.my-p-out{
+  padding:30rpx 0;
+}

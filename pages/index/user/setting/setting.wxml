@@ -81,7 +81,7 @@
   </view>
   <!-- 第五栏 -->
 <view> 
-  <view class="my-p-from">
+  <view class="my-p-out">
     <button class="cu-btn block bg-blue margin-tb-sm lg" disabled type="">退出登录</button>
   </view>
 </view>

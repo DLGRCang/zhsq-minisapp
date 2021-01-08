@@ -571,6 +571,9 @@ Component({
         })
       }
       
+      this.setData({
+        modalName:'null'
+      })
       var dataItem = this.data.dataItem
       var dataItem1 = []
       var dataItem2 = []

@@ -131,7 +131,8 @@
       <view class="abc"></view>
       <view class="ase-box">
         <view class="ase-left">
-          <view>正在进行投票内容</view>
+          <view>汇通社区居委会举办家庭亲子活动</view>
+
           <view>{{timeL}}</view>
         </view>
         <view class="ase-right">
@@ -180,6 +181,7 @@
 <text class="sqxw_title">社区新闻</text>
 <text class="font9 right more">查看更多<text class="cuIcon-right lg text-gray"></text></text>
 
+
 <view class="xinwen" wx:for="{{xwrows}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
         <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
@@ -192,6 +194,17 @@
         </view>
       </view>  
 </view> 
+
+ <view class="seven_box"  bindtap="newsxq">
+   <view class="seven_left">
+      <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
+      <text class="xwrq">2020-10-28</text>  
+   </view>
+     <view class="seven_right">
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/componentBg.png"></image>
+     </view>
+  </view>
+  
 </view> 
 
 <view class="gddhnrbj" bindtap="gdnrtcClick" wx:if="{{gddh}}" style="top:{{CustomBar}}px;background: rgba(0, 0, 0,0.3);"></view>
@@ -200,6 +213,11 @@
   <view class="dhnr" wx:for="{{gdItem}}" wx:key="index" catchtap="contentClick" data-url="{{item.url}}" data-id="{{item.id}}">
     <image src="{{item.image}}"></image>
     <view>{{item.text}}</view>
+<!-- 第七部分 社区新闻二-->
+<view class="sqxw_box" style="margin-top:0rpx">
+  <view class="seven_boxtwo"  bindtap="newsxq">
+    <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！31省区市新增42例确诊,其中境外输入病例20例 战疫情</text>   
+    <text class="xwrq">2020-10-28</text>   
   </view>
 </view>
 

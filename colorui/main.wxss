@@ -3178,10 +3178,10 @@ scroll-view.cu-steps .cu-item {
 	margin-bottom: 10rpx;
 }
 
-.margin-tb-sm {
+/* .margin-tb-sm {
 	margin-top: 20rpx;
 	margin-bottom: 20rpx;
-}
+} */
 
 .margin-tb {
 	margin-top: 30rpx;
@@ -3518,7 +3518,7 @@ scroll-view.cu-steps .cu-item {
 
 
 .bg-gray {
-	background-color: #f0f0f0;
+	background-color: #f9f9f9;
 	color: var(--black);
 }
 
