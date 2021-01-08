@@ -1,5 +1,6 @@
 /* 公共颜色 */
 @import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
 
 
 .tabllq{
@@ -44,3 +45,146 @@ text-align: left;
    align-items: center;
    
  }
+.pinglun{
+  width: 100%;
+  height: 90rpx;
+  padding: 0 20rpx 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pinglun-right{
+  display: flex;
+  align-items: center;
+  flex-direction:row-reverse;
+}
+.pinglun-right view{
+  margin-left: 16rpx;
+  font-size: 26rpx;
+}
+.pinglun-right view text:last-child{
+  margin-left: 6rpx;
+}
+.pinglunnr{
+  width: 100%;
+  padding: 30rpx;
+  border-top: 1px solid #ccc;
+}
+.pinglunlb{
+  margin-bottom: 20rpx;
+}
+.nr-top{
+  width: 100%;
+  margin-bottom: 12rpx;
+}
+.nr-name{
+  width: 100%;
+  text-align: left;
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: center;
+}
+.nr-name text:first-child{
+  font-size: 24rpx;
+  font-weight: 900;
+}
+.nr-name view:last-child{
+  font-size: 20rpx;
+  color: #ccc;
+}
+.nr-box{
+  width: 100%;
+  font-size: 22rpx;
+  text-align: left;
+  padding: 15rpx;
+  background: #f1f1f1;
+}
+
+
+.nr-bot{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.nr-bot view:first-child{
+  font-size: 20rpx;
+}
+.bot-last{
+  display: flex;
+  align-items: center;
+}
+.bot-last view:first-child{
+  display: flex;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.bot-last view:first-child text:first-child{
+  margin-right: 5rpx;
+}
+
+.plkuang{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.inputkuang{
+  width: 0;
+  height: 0;
+  outline: none;
+}
+.fdpl{
+  left: 0;
+  top: -30rpx;
+  width: 80%;
+  padding: 16rpx;
+  background: #f1f1f1;
+  border-radius: 5rpx;
+  text-align: left;
+  display: block;
+  word-break: break-all;
+  font-size: 22rpx;
+}
+.zplan{
+  width: 19%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  background: #ccc;
+  color: #fff;
+}
+
+.plzpl{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 40rpx;
+  background: #ccc;
+  padding: 16rpx;
+  border-radius: 5rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 1;
+}
+.plzplnr{
+  width: 80%;
+  padding: 16rpx;
+  background: #fff;
+  border-radius: 5rpx;
+  text-align: left;
+  word-break: break-all;
+  font-size: 22rpx;
+}
+.plzplan{
+  width: 18%;
+  background: #fff;
+  height: 55rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5rpx;
+}

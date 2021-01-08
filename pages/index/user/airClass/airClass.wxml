@@ -3,7 +3,7 @@
     <view slot="content">空中课堂</view>
   </cu-custom>
   <view class="box-body">
-    <image src="../../../images/back.png" class="beijing"></image>
+    <image src="../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     <view class="home-con">
       <view class="box-home" wx:for="{{10}}" bindtap="openXyLink">
         <view class="con">

@@ -10,9 +10,12 @@
       <view>天龙嘉苑 乌兰小区</view>
     </view>
   </view>
-
+  
+  <defect topPadding="{{350}}"><view slot="content">暂无数据</view></defect>
 <!-- 内容第一块 -->
+
 <view class="cu-list menu-avatar wxjl_content" wx:for="{{jfList}}" wx:key="index" style="{{index == 0 ? 'margin-top:115rpx':''}};">
+  
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">
         <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wyjf_01.png" wx:if="{{item.state == 0}}"></image>
@@ -35,3 +38,4 @@
       </view>
     </view>
   </view>       
+ 

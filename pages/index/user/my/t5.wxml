@@ -4,8 +4,8 @@
     <view class="top-1">
       <view class="top-1-1"><image src="{{wxUser.avatarUrl}}"></image></view>
       <view class="top-1-2">
-        <view>{{wxUser.nickName}}</view>
-        <view>左右城左城</view>
+        <view>{{wxUser.name}}</view>
+        <view>暂无入住小区</view>
       </view>
     </view>
     <view class="top_fr" bindtap="settingClick">

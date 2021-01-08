@@ -1,31 +1,48 @@
 
 <view class="box" wx:if="{{login == 1}}">
+  <view class="xuanzexiaoqu" style="top:{{CustomBar}}px" bindtap="gbtchaung" wx:if="{{xuanzexiaoqu}}">
+    <view class="xzxq">
+      <view class="xzxqTop">选择小区</view>
+      <view wx:for="{{village}}" class="xqxuanze {{xzvillage[0].villageId == item[0].villageId ? ''+xzyys:''+xzwys}}" wx:key="index" catchtap="xuzneXq" data-item="{{item}}">
+        <text class="cuIcon-home"></text>
+        <text>{{item[0].villageName}}</text>
+      </view>
+      <view class="xzxqBtn">
+        <button catchtap="qrxzxqClick">确认</button>
+      </view>
+    </view>
+  </view>
     <view class="top-navigation" style="height:{{CustomBar}}px">
-      <!-- <view wx:if="{{PageCur=='t1'||PageCur=='t2'||PageCur=='t3'||PageCur=='t4'}}">
-        <text class="cuIcon-location"></text>
-        <view>天龙嘉苑 乌兰小区</view>
-        <text class="cuIcon-right lg" style="font-size:20rpx"></text>5454422/*
-      </view> -->
-      <view wx:if="{{PageCur=='t1'}}">
-        <view>首页</view>
+     
+      <view wx:if="{{village.length == 0}}">
+        <view wx:if="{{PageCur=='t1'}}">
+          <view>首页</view>
+        </view>
+        <view wx:if="{{PageCur=='t2'}}">
+          <view>商城</view>
+        </view>
+        <view wx:if="{{PageCur=='t3'}}">
+          <view>一键开门</view>
+        </view>
+        <view wx:if="{{PageCur=='t4'}}">
+          <view>邻里圈</view>
+        </view>
       </view>
-      <view wx:if="{{PageCur=='t2'}}">
-        <view>商城</view>
-      </view>
-      <view wx:if="{{PageCur=='t3'}}">
-        <view>一键开门</view>
-      </view>
-      <view wx:if="{{PageCur=='t4'}}">
-        <view>邻里圈</view>
+      <view wx:if="{{village.length != 0}}">
+        <view wx:if="{{PageCur=='t1'||PageCur=='t2'||PageCur=='t3'||PageCur=='t4'}}" bindtap="xunzexq">
+          <text class="cuIcon-location"></text>
+          <view>{{xzvillage.length == 0 ? "选择小区":""+xzvillage[0].villageName}}</view>
+          <text class="cuIcon-right lg" style="font-size:20rpx"></text>
+        </view>
       </view>
       <view wx:if="{{PageCur=='t5'}}">我的</view>
     </view>
-    <!-- style="background: url('../../images/back.png');" -->
+    <!-- style="background: url('https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png');" -->
   <view class="box-body" style="height:{{windowHeight - tab1Height}}px;">
     <scroll-view scroll-y scroll-top="{{topNum}}" lower-threshold="100" style="height: 100%;" bindscroll="scry">
-      <image src="../../images/back.png" class="beijing"></image>
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     
-      <home wx:if="{{PageCur == 't1'}}"></home>
+      <home wx:if="{{PageCur == 't1'}}" id="dlFalse" bind:xunzexq="xunzexq"></home>
       <life wx:if="{{PageCur == 't2'}}"></life>
       <onekey wx:if="{{PageCur == 't3'}}"></onekey>
       <neigh wx:if="{{PageCur == 't4'}}" id="tip4"></neigh>
@@ -114,7 +131,7 @@
   <scroll-view scroll-y="true" style="height:{{wHeight - tab3Height}}px;position: relative;" bindscrolltolower="wyhdBot">
 
   
-      <image src="../../images/back.png" style="top:{{CustomBar}}px" class="beijing"></image>
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" style="top:{{CustomBar}}px" class="beijing"></image>
         <t10 wx:if="{{PageCur=='t10'}}" CustomBar="{{CustomBar}}" id="bot10"></t10>
         <t11 wx:if="{{PageCur=='t11'}}" CustomBar="{{CustomBar}}"></t11>
         <t12 wx:if="{{PageCur=='t12'}}" CustomBar="{{CustomBar}}" windowHeight="{{windowHeight}}" wHeight="{{wHeight-tab3Height}}"></t12>

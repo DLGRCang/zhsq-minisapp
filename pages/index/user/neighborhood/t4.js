@@ -33,7 +33,14 @@ Component({
       {dictionariesName:'全部',dictionariesId:null}
     ],
     bqId:null,
-    tabTrue:false
+    tabTrue:false,
+    inputtrue:null,
+    contentpl:'填写评论内容',
+    plzplnrContent:'评论此内容',
+    plInputTrue:null,
+    plInputTrueL:null,
+    zhezhao:false,
+    plkuang:null
   },
 
 
@@ -41,7 +48,69 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    inputClick(e){
+     // console.log(e)
+      //console.log(e.detail.value)
+      if(e.detail.cursor == 0){
+        this.setData({
+          contentpl:'填写评论内容'
+        })
+      }else{
+        this.setData({
+          contentpl:e.detail.value
+        })
+      }
+      
+    },
+    inputClick1(e){
+      if(e.detail.cursor == 0){
+        this.setData({
+          plzplnrContent:'评论此内容',
+        })
+      }else{
+        this.setData({
+          plzplnrContent:e.detail.value
+        })
+      }
+    },
+
+    tianxie(e){
+      this.setData({
+        inputtrue:e.currentTarget.dataset.index
+      })
+    },
+    plzplClick(e){
+      this.setData({
+        plzplnrContent:'评论此内容'
+      })
+      if(this.data.plInputTrue == e.currentTarget.dataset.index && this.data.plInputTrueL ==e.currentTarget.dataset.indexd){
+        this.setData({
+          plInputTrue:null,
+          plInputTrueL:null
+        })
+      }else{
+        this.setData({
+          plInputTrue:e.currentTarget.dataset.index,
+          plInputTrueL:e.currentTarget.dataset.indexd
+        })
+      }
+      
+    },
+    plzplClick1(e){
+        this.setData({
+          plInputTrue:e.currentTarget.dataset.index,
+          plInputTrueL:e.currentTarget.dataset.indexd
+        })
+    },
+
+    gbzezhao(){
+      this.setData({
+        plInputTrue:null,
+        plInputTrueL:null
+      })
+    },
           // 邻里圈分类功能tab
+          
   tabSelect(e) {
     
     this.setData({
@@ -63,7 +132,10 @@ Component({
     },
 
     lljClick:function(e){
- 
+      this.setData({
+        plInputTrue:null,
+        plInputTrueL:null
+      })
       wx.navigateTo({
         url: '/pages/index/user/neighborhood-details/llq_xq?rows='+JSON.stringify(e.currentTarget.dataset.rows)
       })
@@ -105,6 +177,47 @@ Component({
         rows:rows
       })
     },
+
+    dzClick(e){
+      //console.log(e.currentTarget.dataset.i)
+      var i = e.currentTarget.dataset.i
+      var rows = this.data.rows
+      if(rows[i].dianzan){
+        rows[i].dianzan = false
+        rows[i].dianzanshu--
+      }else{
+        rows[i].dianzan = true
+        rows[i].dianzanshu++
+      }
+      this.setData({
+        rows:rows
+      })
+    },  
+    scClick(e){
+      var i = e.currentTarget.dataset.i
+      var rows = this.data.rows
+      if(rows[i].shoucang){
+        rows[i].shoucang = false
+      }else{
+        rows[i].shoucang = true
+      }
+      this.setData({
+        rows:rows
+      })
+    },
+    plClick(e){
+      var i = e.currentTarget.dataset.i
+      var rows = this.data.rows
+      if(rows[i].pinglun){
+        rows[i].pinglun = false
+      }else{
+        rows[i].pinglun = true
+      }
+      this.setData({
+        rows:rows
+      })
+    },
+
     llqList(){
       wx.showLoading({
         title: '拼命加载中',
@@ -112,12 +225,15 @@ Component({
       http.xinwenApi({
       
         success:res=>{
-          
           //console.log(res)
           var rows = res.rows
           var message1 = ''
           
           for(var i in rows){
+            rows[i].dianzan = false
+            rows[i].pinglun = false
+            rows[i].dianzanshu = "99"
+            rows[i].shoucang = false
             rows[i].img = rows[i].file.split(',')
             if(rows[i].message.length > 100){
               message1 = rows[i].message.slice(0,100)
@@ -131,7 +247,7 @@ Component({
             }
             
           }
-          //console.log(rows)
+          console.log(rows)
           if(this.data.bqId == null){
             this.setData({
               rows:rows

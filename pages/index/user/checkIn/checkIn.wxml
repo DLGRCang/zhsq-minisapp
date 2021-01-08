@@ -6,10 +6,10 @@
   </cu-custom>
   <view class="lease-box">
     <view class="box-body">
-      <view class="body-top">发布房源:</view>
+      <view class="body-top">入住小区:</view>
       <view class="danhang">
         <view class="biaoti">姓名</view>
-        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入姓名" value="{{name}}" bindinput="inputName"/></view>
+        <view class="inputCss"><input type="text" class="btInput" placeholder="请输入入住人姓名" value="{{name}}" bindinput="inputName"/></view>
       </view>
       <view class="danhang">
         <view class="biaoti">性别</view>
@@ -19,18 +19,18 @@
         <view class="biaoti">身份证号</view>
         <view class="inputCss"><input type="text" class="btInput" placeholder="请输入您的身份证号" bindinput="inputsfzh" value="{{sfzh}}"/></view>
       </view>
-      <view class="danhang">
+      <!-- <view class="danhang">
         <view class="biaoti">民族</view>
         <view class="inputCss"><input type="text" class="btInput" placeholder="请输入您的民族" bindinput="inputmz" value="{{mz}}"/></view>
-      </view>
-      <view class="danhang">
+      </view> -->
+      <!-- <view class="danhang">
         <view class="biaoti">籍贯</view>
         <view class="inputCss"><input type="text" class="btInput" placeholder="请输入您的户籍地址" bindinput="inputjg" value="{{jg}}"/></view>
-      </view>
-      <view class="danhang">
+      </view> -->
+      <!-- <view class="danhang">
         <view class="biaoti">职业</view>
         <view class="inputCss"><input type="text" class="btInput" placeholder="请输入您的职业" bindinput="inputzy" value="{{zy}}"/></view>
-      </view>
+      </view> -->
       <view class="danhang">
         <view class="biaoti">手机号</view>
         <view class="inputCss"><input type="text" class="btInput" placeholder="请输入手机号" bindinput="inputsjh" value="{{sjh}}"/></view>
@@ -46,6 +46,18 @@
               </view>
               </picker>
       </view>
+      <view class="danhang" wx:if="{{fangyuannr.length > 1}}">
+          <view class="biaoti">房屋地址</view>
+            <picker class="picCss" bindchange="fangyuanxc" value="{{fangyuan1}}" range="{{fangyuan}}">
+              <view class="inputCss">
+                <view class="picker">
+                  {{fangyuan1?fangyuan[fangyuan1]:'请选择'}}
+                  <text style="float:right" class="cuIcon-right"></text>
+                </view>
+              </view>
+            </picker>
+          
+        </view>
       <view class="danhang">
         <view class="biaoti">入住是时间</view>
             <picker mode="date" value="{{date}}" start="{{date}}" bindchange="DateChange">
@@ -57,7 +69,7 @@
             </view>
             </picker>
       </view>
-      <view class="danhang">
+      <!-- <view class="danhang">
         <view class="biaoti">状态</view>
             <picker value="{{status1}}" range="{{status}}" bindchange="statusChange">
               <view class="inputCss">
@@ -67,7 +79,7 @@
                 </view>
             </view>
             </picker>
-      </view>
+      </view> -->
       <view class="danhang">
         <view class="biaoti">是否常驻</view>
         <view class="xingbie"><view class="{{sfcz == '1'?'yxg':'wxg'}}" bindtap="sfczClick" data-sfcz="{{1}}">是</view><view class="{{sfcz == '0'?'yxg':'wxg'}}" bindtap="sfczClick" data-sfcz="{{0}}">否</view></view>
@@ -76,21 +88,20 @@
         <view class="biaoti">是否户主</view>
         <view class="xingbie"><view class="{{sfhz == '0'?'yxg':'wxg'}}" bindtap="sfhzClick" data-sfhz="{{0}}">是</view><view class="{{sfhz == '1'?'yxg':'wxg'}}" bindtap="sfhzClick" data-sfhz="{{1}}">否</view></view>
       </view> -->
-      <!-- <view class="danhang">
+      <view class="danhang">
         <view class="biaoti">人脸照片</view>
-
-		<view class="grid col-4 grid-square flex-sub">
-			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-				<image src='{{imgList[index]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-					<text class="cuIcon-close"></text>
-				</view>
-			</view>
-			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
-				<text class="cuIcon-cameraadd"></text>
-			</view>
-	</view>
-      </view> -->
+        <view class="grid col-4 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+            <image src='{{imgList[index]}}' mode='aspectFill'></image>
+            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+              <text class="cuIcon-close"></text>
+            </view>
+          </view>
+          <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+            <text class="cuIcon-cameraadd"></text>
+          </view>
+	       </view>
+      </view>
       <!-- <view class="body-top">住房信息:</view>
       <view class="danhang">
         <view class="biaoti">住房信息</view>
@@ -113,6 +124,22 @@
 
           </view>
       </view> -->
+    </view>
+  </view>
+  <view class="tanchaung" wx:if="{{zishitc}}" bindtap="guanbi" style="top:{{CustomBar}}px;height:{{windowHeight}}px">
+    <view class="zishi" catchtap>
+        <view class="zishiTop">
+          <text class="cuIcon-roundclose"></text>
+          <text>人脸照片</text>
+          <text class="cuIcon-roundclose" catchtap="guanbi"></text>
+        </view>
+        <image src="../../../../images/renlian.jpeg"></image>
+        <view class="tishi">
+          ！（ 请以上图实例拍照或者上传图片 ）
+        </view>
+        <view class="anniu">
+          <button catchtap="quedingsc">确定</button>
+        </view>
     </view>
   </view>
   <view class="bot-fb">

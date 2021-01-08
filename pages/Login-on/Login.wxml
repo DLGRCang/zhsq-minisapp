@@ -1,0 +1,37 @@
+ <!--pages/index/Login/Login.wxml-->
+ <!-- 注册页面 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+    <view slot="content">登录</view>
+  </cu-custom>
+
+  <view class="login_box">
+    <view class="login_top">
+          <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/zc.png" class="fr"></image>
+          <view class="hello">
+            <view>Hello</view>
+            <view>开启智慧生活</view>
+          </view>
+        
+    </view>
+  
+
+<view class="login_input">
+    <view>
+      <text class="tubiao cuIcon-profile lg text-gray"></text>
+      <input type="text" placeholder="请输入您身份证号" bindinput="fileClick" value="{{file}}"></input>
+    </view>
+    <view>
+      <text class="tubiao cuIcon-mobilefill lg text-gray"></text>
+      <input type="text" placeholder="请输入您的手机号" bindinput="phoneClick" value="{{phone}}"></input>
+    </view>
+    <!-- <view>
+      <text class="tubiao cuIcon-mail lg text-gray"></text>
+      <input type="text" placeholder="请输入您的验证码"></input>
+      <text class="text-blue yzm">验证码</text>
+    </view> -->
+    
+    <button class="btn" bindtap="register">进入</button>
+    <!-- <view class="center" bindtap="register">已有账号，去登录</view> -->
+</view>
+
+  </view>

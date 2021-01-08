@@ -4,9 +4,11 @@
     <view slot="content">我的入驻</view>
 </cu-custom>
 
-<view style="height:91%;overflow: hidden">
+<view style="height:{{windowHeight}}px;overflow: hidden">
+  
   <view class="box-body">
-    <image src="../../../images/back.png" class="beijing"></image>
+   
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     <!-- 第一部分 头部 -->
     <view class="queshiye" wx:if="{{rows.length == 0}}" style="padding-top:600rpx">
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
@@ -19,11 +21,19 @@
               <view class="fr">
                 <view>
                   {{item.name}}
-                  <text class="cu-tag bg-blue light" style="float: right">待审核</text>
+                  <text class="cu-tag bg-blue light" style="float: right" wx:if="{{item.checkStatus == 0}}">待审核</text>
+                  <text class="cu-tag bg-blue light" style="float: right" wx:if="{{item.checkStatus == 1}}">已通过</text>
+                  <text class="cu-tag bg-blue light" style="float: right" wx:if="{{item.checkStatus == 2}}">未通过</text>
                 </view>
                  <view>证件号码：{{item.idCard}}</view>
                  <view>手机号码：{{item.phone}}</view>
                  <view>住房信息：{{item.floorName}}{{item.unitName}}{{item.roomName}}</view>
+                 <view class="wtg" wx:if="{{item.checkStatus == 2}}">
+                  <view>未通过原因：</view>
+                  <view>
+                    {{item.cause}}
+                  </view>
+                 </view>
               </view>
       </view>
 
@@ -34,4 +44,9 @@
             <!-- <view class="cu-tag bg-blue light">待审核</view> -->
 
     </view>
+</view>
+<view class="xuanzefz" style="top:{{CustomBar}}px;height:{{windowHeight}}px" wx:if="{{xzvillageFalse}}" bindtap="gbClick">
+  <view wx:for="{{xzvillage}}" class="xzxqnr {{index == xzIndex ? 'yys':''}}" wx:key="index" catchtap="xzClick" data-index="{{index}}">
+    <text>{{item.villageName}}：{{item.floorName}}{{item.unitName}}{{item.roomName}}</text><text style="color:red">{{item.isMaster == 1 ? '（户主）':''}}</text>
+  </view>
 </view>

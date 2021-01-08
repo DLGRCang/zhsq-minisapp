@@ -19,6 +19,7 @@ Page({
   getAddInfo(){
     this.onLoad()
   },
+  
   jfArr(){
     wx.showLoading({
       title: '拼命加载中',

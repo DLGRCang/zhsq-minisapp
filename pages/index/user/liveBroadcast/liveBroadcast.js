@@ -6,22 +6,35 @@ Page({
    */
   data: {
     imgList: [],
+    rowsList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.openXyLink()
   },
 
-  openXyLink:function(){
-      wx.navigateToMiniProgram({
-                  appId: 'wx5a161b9b42305c0a',
-                  path: 'pages/index/main?number=188188',
-                  success: function (res) { },
-                  fail: function (res) { }
-                })
+//   openXyLink:function(){
+//       wx.navigateToMiniProgram({
+//                   appId: 'wx5a161b9b42305c0a',
+//                   path: 'pages/index/main?number=188188',
+//                   success: function (res) {
+//               console.log(res)
+//              },
+//                   fail: function (res) { }
+//         })
+// },
+chuangjian(){
+  wx.navigateToMiniProgram({
+          appId: 'wx5a161b9b42305c0a',
+          path: 'pages/index/main?number=9012632071',
+          success: function (res) {
+      //console.log(res)
+     },
+          fail: function (res) { }
+})
 },
 
   /**

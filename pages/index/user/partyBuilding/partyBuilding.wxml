@@ -14,7 +14,7 @@
     </view>
     <view>
   <view class="box">
-    <image src="../../../../images/back2.png" class="beijing"></image>
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
     
     <view class="top-text" wx:if="{{rowsList.length != 0}}">
       <view class="text-shang">

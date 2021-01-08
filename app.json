@@ -4,7 +4,6 @@
     "pages/index/user/home-page/t1",
     "pages/index/user/airClass/airClass",
     "pages/index/UserSelection/UserSelection",
-    
     "pages/index/user/Llq_pub/Llq_pub",
     "pages/index/user/vote/kaishi_tp",
     "pages/index/user/service/cd_fwxq",
@@ -28,6 +27,7 @@
     "pages/index/user/property-payment/wyjf",
     "pages/index/user/maintenance-records/wxjl",
     "pages/login/login",
+    "pages/Login-on/Login",
     "pages/index/user/floor/floor",
     "pages/index/user/neighborhood-details/neighborhood-details",
     "pages/index/user/communityDetails/sq_hdxq",
@@ -46,7 +46,7 @@
     "pages/index/user/Credits_Log/Credits_Log",
     "pages/index/user/My_Settled/My_Settled",
     "pages/index/user/Register/Register",
-    "pages/index/user/Login/Login",
+    
     "pages/index/user/zscpl/zscpl",
     "pages/index/user/Home_jfjl/Home_jfjl",
     "pages/index/user/Home_myactivity/Home_myactivity",
@@ -76,6 +76,7 @@
     "pages/index/property/WY_wxd/WY_wxd",
     "pages/index/property/WY_tzfb/WY_tzfb",
     "pages/index/property/MY_ydxcCreate/MY_ydxcCreate"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -86,7 +87,8 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",
-    "have-content":"/colorui/have-content/have-content"
+    "have-content":"/colorui/have-content/have-content",
+    "defect":"/colorui/defect/defect"
   },
   "sitemapLocation": "sitemap.json"
 }

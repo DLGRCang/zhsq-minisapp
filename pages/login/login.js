@@ -1,4 +1,6 @@
 // pages/login/login.js
+import verif from '../../utils/verification'
+import http from '../../utils/api'
 Page({
 
   /**
@@ -27,33 +29,49 @@ Page({
     })
   },
   bindGetUserInfo(e) {
-    //console.log(e)
-    if (e.detail.userInfo != undefined){
-      wx.getUserInfo({
-        success: res => {
-          wx.setStorageSync('wxUser',res)
-        }
-      })
-      var user = {
-        userId:'100',
-        floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',
-        unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',
-        roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'
-      }
-
-      wx.setStorageSync('user', user)
-      //后台授权
-      wx.showToast({
-        title: '登录成功',
-      })
-      
-      
-      setTimeout(()=>{
-        wx.navigateBack({
-          delta: 1
+    wx.showLoading({
+      title: '授权中...',
+    })
+        //console.log(e)
+        wx.login({
+          success: resa => {
+            http.loginApi({
+              data:{
+                code:resa.code,
+                encryptedData:e.detail.encryptedData,
+                iv:e.detail.iv
+              },
+              success(data) {
+                // console.log(data)
+                if(data.code == 200){
+                  var userInfo = data.result.data.userInfo;
+                  userInfo.avatarUrl = e.detail.userInfo.avatarUrl
+                  wx.setStorageSync('wxUser',userInfo)
+                  wx.setStorageSync('token',data.result.data.token)
+                  wx.setStorageSync('loginSi', true)
+                  wx.hideLoading({
+                    success: (res) => {
+                      verif.tips('授权成功')
+                      setTimeout(()=>{
+                        wx.navigateBack({
+                          delta: 1
+                        })
+                      },800)
+                    },
+                  })
+                }else{
+                    wx.navigateTo({
+                        url: '/pages/Login-on/Login'
+                    })
+                }
+               },
+               fail(err) {
+                 console.log(err)
+               }
+            })
+           // console.log(res)
+          }
         })
-      },1000)
-    }
   },
     /**
    * 生命周期函数--监听页面显示

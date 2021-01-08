@@ -1094,6 +1094,15 @@ button.icon.lg {
 	content: "加载中...";
 }
 
+.cu-load.loading1::before {
+	content: "\e67a";
+	animation: cuIcon-spin 2s infinite linear;
+}
+
+.cu-load.loading1::after {
+	/* content: "加载中..."; */
+}
+
 .cu-load.over::before {
 	content: "\e64a";
 }

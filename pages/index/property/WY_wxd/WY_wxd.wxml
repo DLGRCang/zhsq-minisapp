@@ -18,7 +18,7 @@
     </scroll-view>
   </view>
   <view class="box-body-3-nei">
-    <image src="../../../../images/back.png" class="beijing"></image>
+    <image src="../../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     <view class="view-nei" wx:if="{{wyUser == 2}}" style="padding-top:{{CustomBar}}px">
       <view wx:if="{{curHdIndex==0}}" class="waiBox">
           <picker mode="date" wx:if="{{rows0.length != 0}}" value="{{date0}}" start="{{dateC}}" end="{{date0}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
@@ -48,7 +48,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -92,7 +92,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -134,7 +134,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -176,7 +176,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -218,7 +218,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -260,7 +260,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -302,7 +302,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -349,7 +349,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -391,7 +391,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -433,7 +433,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
@@ -475,7 +475,7 @@
                   </view>
                   </view>
                   <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName}}{{item.unitName}}{{item.roomName}}</text></view>
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
                     <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
                     <view>维修类型  <text>{{item.type}}</text></view>
                     <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>

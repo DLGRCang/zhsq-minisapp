@@ -1,4 +1,6 @@
 // pages/index/WY_ydcx/WY_ydcx.js
+import util from '../../../../utils/util'
+import http from '../../../../utils/api'
 Component({
   /**
    * 组件的属性列表
@@ -11,12 +13,14 @@ Component({
    * 组件的初始数据
    */
   data: {
-    date: '2018年12月',
+    indexId:2,
+    date: '',
     // tab 切换
     tabArr: {
      curHdIndex: 0,
      curBdIndex: 0
    }, 
+   xgList:[]
   },
 
   /**
@@ -42,12 +46,55 @@ Component({
        //console.log(e);
      },  
      DateChange(e) {
-       let datemonth = e.detail.value
        this.setData({
-         date: datemonth.replace("-","年")+"月"
+         date: e.detail.value
        })
+       this.xgArr()
       },
-
+      DateChange1(e) {
+        this.setData({
+          date: e.detail.value
+        })
+        this.xgArr()
+      },
+      xgArr(){
+        http.listpropertypatrollingplanApi({
+          data:{
+            curDate:this.data.date
+          },
+          success:res=>{
+            //propertyPatrollingPlanId
+            var res = res
+            for(var i in res){
+              //res[i].time = res[i].startTime.split('')[0]
+              this.xgdArr(res[i])
+            }
+            // this.setData({
+            //   xgList:res
+            // })
+          }
+        })
+      },
+      xgdArr(item){
+        var xgList = this.data.xgList
+        var item = item
+        http.compareRecordApi({
+          data:{
+           propertyPatrollingPlanId:item.propertyPatrollingPlanId
+          },
+          success:res=>{
+            item.spotList = res
+            xgList.push(item)
+            this.setData({
+              xgList:xgList
+            })
+            console.log(this.data.xgList)
+          },
+          fail:err=>{
+            console.log(err)
+          }
+        })
+      }
   },
  
   /*组件生命周期*/ 
@@ -65,7 +112,20 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
-
+      this.setData({
+        indexId:wx.getStorageSync('wyUser')
+      })
+      //console.log(wx.getStorageSync('wyUser'))
+      if(wx.getStorageSync('wyUser') == 2){
+        this.setData({
+          date:"2020-12"//util.formatTimeyue(new Date)
+        })
+      }else if(wx.getStorageSync('wyUser') == 3){
+        this.setData({
+          date:util.formatTime1(new Date).split(' ')[0],
+        })
+      }
+      this.xgArr()
     },
  
     //在组件实例被移动到节点树另一个位置时执行

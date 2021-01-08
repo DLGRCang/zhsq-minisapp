@@ -23,10 +23,43 @@ Page({
     tab1Height:0,
     tab2Height:0,
     tab3Height:0,
+    village:[],
+    xzvillage:[],
+    xzwys:"wys",
+    xzyys:"yys",
+    xuanzexiaoqu:false
   },
 
   
 
+  xuzneXq(e){
+    //console.log(e)
+    this.setData({
+      xzvillage:e.currentTarget.dataset.item
+    })
+  },
+  qrxzxqClick(){
+    wx.setStorageSync('xzvillage', this.data.xzvillage)
+    
+    this.setData({
+      xuanzexiaoqu:false
+    })
+  },
+  gbtchaung(){
+    this.setData({
+      xzvillage:[],
+      xuanzexiaoqu:false
+    })
+  },
+  xunzexq(){
+
+    if(this.data.village.length > 1){
+      this.setData({
+        xuanzexiaoqu:true
+      })
+    }
+    
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -52,8 +85,35 @@ Page({
       path: '/pages/index/index'
     }
   },
+
+ 
+
   onLoad: function () {
+    //console.log(wx.getStorageSync('village'))
     
+    var village = []
+    for(var i in wx.getStorageSync('village')){
+      village.push(wx.getStorageSync('village')[i])
+    }
+    
+    if(village.length == 1){
+      var xzvillage = []
+      for(var i in village[0]){
+        xzvillage.push(village[0][i])
+      }
+      //console.log(xzvillage)
+      this.setData({
+        village:village,
+        xzvillage:xzvillage
+      })
+      wx.setStorageSync('xzvillage', xzvillage)
+    }else{
+      this.setData({
+        village:village,
+        xzvillage:wx.getStorageSync('xzvillage')
+      })
+    }
+    //console.log(this.data.xzvillage)
     wx.showLoading({
       title: '拼命加载中',
     })
@@ -85,6 +145,9 @@ Page({
     }
     this.appid()
   },
+  sxLogin(){
+    this.selectComponent("#dlFalse").loginClick()
+  },
   appid(){
 
     if(wx.getStorageSync('indexId') == ''){
@@ -95,7 +158,7 @@ Page({
     if(indexId == 1){
       this.setData({
         login:1,
-        PageCur:'t1'
+        PageCur:'t4'
       })
       
     }else if(indexId == 2){
@@ -106,7 +169,7 @@ Page({
     }else if(indexId == 3){
       this.setData({ 
         login:3,
-        PageCur:'t10'
+        PageCur:'t13'
       })
       
 
@@ -124,7 +187,9 @@ Page({
   },
 
   wyhdBot(){
+    if(this.data.PageCur == 't10'){
     this.selectComponent("#bot10").botClick()
+    }
   },
   
   
@@ -136,7 +201,7 @@ Page({
     var query = wx.createSelectorQuery()
     var  indexId = wx.getStorageSync('indexId')
     if(indexId == 1){
-      query.select('#footer1').boundingClientRect(function (res) {
+      query.select('#footer1').boundingClientRect(function (res) { 
         // console.log(res);
 
         that.setData({

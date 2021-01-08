@@ -1,0 +1,20 @@
+/* colorui/defect/defect.wxss */
+.defect{
+  width: 100%;
+  text-align: center;
+}
+.defect .imgs{
+  margin: 0 auto;
+  width: 350rpx;
+  height: 274rpx;
+}
+.wenzi{
+  margin: 50rpx 0;
+font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #999999;
+}
+.btn-defe{
+  
+}

@@ -126,3 +126,65 @@ margin-bottom: 20rpx;
     .wxg{
       background: #ccc;
     }
+    .tanchaung{
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      position: fixed;
+      left: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50rpx 30rpx;
+    }
+    .zishi{
+      width: 100%;
+      background: #fff;
+      border-radius: 15rpx;
+      padding: 30rpx;
+    }
+    .zishi image{
+      width: 100%;
+      height: 600rpx;
+      border-radius: 15rpx;
+      margin: 30rpx 0;
+    }
+    .tishi{
+      width: 100%;
+      text-align: center;
+      font-size: 30rpx;
+      font-weight: 900;
+      color: red;
+    }
+    .zishiTop{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .zishiTop text:first-child{
+      font-size: 50rpx;
+      color: #fff;
+    }
+    .zishiTop text:nth-child(2){
+      font-size: 30rpx;
+      font-weight: 900;
+    }
+    .zishiTop text:last-child{
+      font-size: 50rpx;
+      color: #ccc;
+    }
+    .anniu{
+      margin-top: 50rpx;
+      width: 100%;
+      text-align: center;
+    }
+    .anniu button{
+      display: inline-block;
+      border-radius: 35rpx;
+      height: 70rpx;
+      font-size: 30rpx;
+      color: #fff;
+      padding: 0 80rpx;
+      margin: 0 auto;
+      background: linear-gradient(60deg, #66B7F9, #3A91F7);
+    }

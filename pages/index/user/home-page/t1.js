@@ -15,6 +15,24 @@ Component({
    * 组件的初始数据
    */
   data: {
+    CustomBar: app.globalData.CustomBar,
+    topItem:[
+      {id:1,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts1a.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
+      {id:2,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts2a.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
+      {id:3,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts3a.png',text:"物业缴费",url:'/pages/index/user/property-payment/wyjf'},
+      {id:4,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts4a.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
+      {id:5,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts5a.png',text:"SOS求助",url:''},
+      {id:6,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts6a.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
+      {id:10,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts10a.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
+      {id:11,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts11a.png',text:"民情直达",url:'/pages/index/user/complaint/complaint'},
+      {id:12,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts12a.png',text:"入驻小区",url:'/pages/index/user/checkIn/checkIn'},
+      {id:13,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts13a.png',text:"楼栋布局",url:'/pages/index/user/floor/floor'},
+    ],
+    gdItem:[
+      {id:7,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:'/pages/index/user/airClass/airClass'},
+      {id:8,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts8a.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
+      {id:14,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts14a.png',text:"活动设施",url:''}
+    ],
     dataItem:[
       {id:1,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts1a.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
       {id:2,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts2a.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
@@ -47,7 +65,39 @@ Component({
     timeL:0,
     rowsWJ:[],
     //rowsSQHD:[],
-    modalName:null
+    modalName:null,
+    xwrows:[],
+    gddh:false,
+    gddhchu:'100',
+    swiperList: [{
+      id: 0,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+    }, {
+      id: 1,
+        type: 'image',
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+    }, {
+      id: 2,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+    }, {
+      id: 3,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
+    }, {
+      id: 4,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
+    }, {
+      id: 5,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
+    }, {
+      id: 6,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
+    }],
   },
  
   /**
@@ -56,6 +106,35 @@ Component({
 
 
   methods: {
+    gddhClick(){
+      this.setData({
+        gddh:true
+      })
+      var timer = setInterval(()=>{
+        //console.log(this.data.gddhchu)
+        this.setData({
+          gddhchu:this.data.gddhchu - 10
+        })
+        if(this.data.gddhchu == 0){
+          clearInterval(timer)
+        }
+      },10)
+      
+    },
+    gdnrtcClick(){
+      this.setData({
+        gddh:false
+      })
+      var timer = setInterval(()=>{
+        //console.log(this.data.gddhchu)
+        this.setData({
+          gddhchu:this.data.gddhchu + 10
+        })
+        if(this.data.gddhchu == 100){
+          clearInterval(timer)
+        }
+      },10)
+    },
     // 社区活动跳转详情页
   sqhd_xq(e){
     //console.log(e)
@@ -69,15 +148,54 @@ Component({
     //console.log(e.currentTarget.dataset.id)
     var id = e.currentTarget.dataset.id
     if(e.currentTarget.dataset.url != ''){
-      if(id == 2&&verif.checkLogin()){
-        wx.navigateTo({
-          url: e.currentTarget.dataset.url
-        })
-      }else{
-        wx.navigateTo({
-          url: e.currentTarget.dataset.url
-        })
+      if(id == 5){
+          wx.navigateTo({
+            url: e.currentTarget.dataset.url
+          }) 
+      }else if(verif.checkLogin()){
+       // wx.removeStorageSync('xzvillage')
+        //console.log(wx.getStorageSync('xzvillage'))
+        if(wx.getStorageSync('village') == ''){
+          verif.tips('您不是小区人员，不能操作该功能')
+        }else if(wx.getStorageSync('xzvillage') == ''){
+          verif.tips('请先选择您的小区')
+          setTimeout(()=>{
+            this.triggerEvent('xunzexq')
+          },2000)
+          
+        }else{
+          if(id == 6||id == 12){
+            var id = 0
+            for(var i in wx.getStorageSync('xzvillage')){
+              id = wx.getStorageSync('xzvillage')[i].isMaster
+            }
+
+            if(id == 0){
+              verif.tips('您不是户主不可操作此功能')
+            }else if(id == 1){
+              wx.navigateTo({
+                url: e.currentTarget.dataset.url
+              }) 
+            }
+          }else{
+            wx.navigateTo({
+              url: e.currentTarget.dataset.url
+            }) 
+          }
+        }
+        // wx.navigateTo({
+        //   url: e.currentTarget.dataset.url
+        // }) 
       }
+      // if(id == 2&&verif.checkLogin()){
+      //   wx.navigateTo({
+      //     url: e.currentTarget.dataset.url
+      //   })
+      // }else{
+      //   wx.navigateTo({
+      //     url: e.currentTarget.dataset.url
+      //   })
+      // }
       
     }
 
@@ -223,50 +341,196 @@ Component({
     })
     wx.setStorageSync('loginSi', true)
   },
-  bindGetUserInfo(e) {
-    
-    //console.log(e)
-    if (e.detail.userInfo != undefined){
-      wx.getUserInfo({
-        success: res => {
-          
-          wx.setStorageSync('wxUser',res)
-        }
-      })
-      var user = {
-        userId:'100',
-        floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',
-        unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',
-        roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'
-      }
+  loginClick(){
+    this.setData({
+      modalName:'null'
+    })
+  },
 
-      wx.setStorageSync('user', user)
-     // wx.setStorageSync('loginSi', true)
-      //后台授权
-      wx.showToast({
-        title: '登录成功',
-      })
-      
-      this.setData({
-        modalName:'null'
-      })
-
-      setTimeout(()=>{
-        wx.navigateTo({
-          url: '/pages/index/UserSelection/UserSelection'
+  xinwenList(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    http.newsApi({
+      data:{
+        code:'sqxw',
+        cur:'1'
+      },
+      success:res=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
         })
-      },1000)
+        this.setData({
+          xwrows:res.rows
+        })
+        //console.log(res)
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
+        console.log(err)
+      }
+    })
+  },
+
+  bindGetUserInfo(e) {
+   // console.log(e)
+    var that = this
+    wx.showLoading({
+      title: '授权中...',
+    })
+        //console.log(e)
+        wx.login({
+          success: resa => {
+            http.loginApi({
+              data:{
+                code:resa.code,
+                encryptedData:e.detail.encryptedData,
+                iv:e.detail.iv
+              },
+              success(data) {
+                 console.log(data)
+                 if(data.code == 200){
+      //                  var user = {
+      //   userId:'100',
+      //   floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',
+      //   unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',
+      //   roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'
+      // }
+
+      // wx.setStorageSync('user', user)
+                  
+                   var userInfo = data.result.data.userInfo;
+                   userInfo.avatarUrl = e.detail.userInfo.avatarUrl
+                   wx.setStorageSync('wxUser',userInfo)
+                   wx.setStorageSync('token',data.result.data.token)
+                   wx.setStorageSync('loginSi', true)
+                
+                   wx.hideLoading({
+                     success: (res) => {
+                       verif.tips('授权成功')
+                       that.setData({
+                         modalName:'null'
+                       })
+                     },
+                   })
+                 }else{
+                     wx.navigateTo({
+                         url: '/pages/Login-on/Login'
+                     })
+                 }
+               },
+               fail(err) {
+                 console.log(err)
+               }
+            })
+            // wx.request({
+            //   url: 'https://yiqi.sucstep.com/app/sign/checkCodeZHSQrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
+            //   method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
+            //   data:{
+            //     code:resa.code,
+            //     encryptedData:e.detail.encryptedData,
+            //     iv:e.detail.iv
+            //   },
+            //   header: {
+            //     'content-type': 'application/json'
+            //   },
+            //   success(data) {
+            //    // console.log(data)
+            //     if(data.data.code == 200){
+                  
+            //       var userInfo = data.data.result.data.userInfo;
+            //       userInfo.avatarUrl = e.detail.userInfo.avatarUrl
+            //       wx.setStorageSync('wxUser',userInfo)
+            //       wx.setStorageSync('token',data.data.result.data.token)
+            //       wx.setStorageSync('loginSi', true)
+               
+            //       wx.hideLoading({
+            //         success: (res) => {
+            //           verif.tips('授权成功')
+            //           that.setData({
+            //             modalName:'null'
+            //           })
+            //         },
+            //       })
+            //     }else{
+            //         wx.navigateTo({
+            //             url: '/pages/Login-on/Login'
+            //         })
+            //     }
+            //   },
+            //   fail(err) {
+            //     console.log(err)
+            //   }
+            // })
+           // console.log(res)
+          }
+        })
+
+
+
+    // if (e.detail.userInfo != undefined){
+    
+    //   // wx.getUserInfo({
+    //   //   success: res => {
+    //   //     wx.setStorageSync('wxUser',res)
+
+    //   //   }
+    //   // })
+    //   // var user = {
+    //   //   userId:'100',
+    //   //   floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',
+    //   //   unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',
+    //   //   roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'
+    //   // }
+
+    //   // wx.setStorageSync('user', user)
+    //  // wx.setStorageSync('loginSi', true)
+    //   //后台授权
+    //   // wx.showToast({
+    //   //   title: '登录成功',
+    //   // })
+      
+    //   // this.setData({
+    //   //   modalName:'null'
+    //   // })
+
+    //   // setTimeout(()=>{
+    //   //   wx.navigateTo({
+    //   //     url: '/pages/index/UserSelection/UserSelection'
+    //   //   })
+    //   // },1000)
       
       
-      // setTimeout(()=>{
-      //   wx.navigateBack({
-      //     delta: 1
-      //   })
-      // },1000)
-    }
+    //   // setTimeout(()=>{
+    //   //   wx.navigateBack({
+    //   //     delta: 1
+    //   //   })
+    //   // },1000)
+    // }
   },
   getAddInfo(){
     this.wenjuan()
+  },
+  renlian(){
+    console.log('aa')
+    wx.checkIsSupportSoterAuthentication({
+      success(res) {
+        console.log(res)
+        wx.setStorageSync('user', res)
+        // res.supportMode = [] 不具备任何被SOTER支持的生物识别方式
+        // res.supportMode = ['fingerPrint'] 只支持指纹识别
+        // res.supportMode = ['fingerPrint', 'facial'] 支持指纹识别和人脸识别
+      },
+      fail(err){
+        console.log(err)
+      }
+    })
   }
   },
  
@@ -283,9 +547,23 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
-      //console.log(wx.getStorageSync('loginSi'))
+     // console.log(wx.getStorageSync('wxUser').id)
+     //console.log('aaa')
+      // http.messageApi({
+      //   data:{
+      //     userId:wx.getStorageSync('wxUser').id
+      //   },
+      //   success:res=>{
+      //     console.log(res)
+      //     wx.setStorageSync('village', res)
+      //   },
+      //   fail:err=>{
+      //     console.log(err)
+      //   }
+      // })
       this.wenjuan()
       this.timeList()
+      this.xinwenList()
       //this.sqhdList()
       if(wx.getStorageSync('wxUser') == ''&&!wx.getStorageSync('loginSi')){
         this.setData({

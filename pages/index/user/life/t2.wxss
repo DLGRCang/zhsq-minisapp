@@ -55,7 +55,7 @@ color: #FFFFFF;
   height: 100%;
   overflow-y: auto;
 }
-.bot-neirong{
+.bot-neirong{ 
   width: 100%;
   margin-bottom: 30rpx;
   background: #fff;

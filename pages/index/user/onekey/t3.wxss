@@ -1,3 +1,5 @@
+@import '../../../../colorui/icon.wxss';
+@import '../../../../colorui//main.wxss';
 .onekey{
   width: 100%;
   height: 85%;
@@ -6,7 +8,7 @@
   bottom: 0;
   left: 0;
   border-radius: 30rpx 30rpx 0 0;
-  padding: 50rpx 30rpx;
+
   box-sizing: border-box;
 }
 .keyimg{
@@ -71,4 +73,38 @@ margin-bottom: 30rpx;
   border:5rpx solid #22B31E;
   border-radius: 50%;
   margin: 0 auto;
+}
+.erweima{
+  width: 100vw;
+  height: 100vw;
+  padding: 30rpx;
+  
+}
+
+.ewmnei{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.tanchaung{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ewmnei image{
+  width: 100%;
+  height: 100%;
+  border-radius: 15rpx;
+}
+.donghua{
+  width: 100%;
+  display: flex;justify-content: center;
 }

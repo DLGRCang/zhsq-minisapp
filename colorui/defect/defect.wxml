@@ -1,0 +1,30 @@
+<view class="defect" style="padding-top:{{topPadding}}rpx">
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png" class="imgs"></image>
+    <view class="wenzi">
+      
+      <slot name="content"></slot>
+    </view>
+    <button wx:if="{{btntrue}}" class="cu-btn round btn-defe" bindtap="clickH">
+      <slot name="btnNmae"></slot>
+    </button>
+</view>
+
+
+<!-- 
+  btntrue//显示按钮
+  defectClick//点击按钮触发
+  <text slot="btnNmae">点击</text> // 按钮内容
+  <view slot="content">暂无数据</view> // 文字内容
+
+  页面使用方法
+  <defect bind:defectClick="defectClick"  btntrue="{{true}}">
+    <view slot="content">暂无数据</view>
+    <text slot="btnNmae">点击</text>
+  </defect>
+
+
+  使用页面点击方法
+  defectClick(){
+    //console.log('aaa')
+  },
+ -->

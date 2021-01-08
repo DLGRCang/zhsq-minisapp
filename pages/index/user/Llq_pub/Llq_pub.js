@@ -80,6 +80,7 @@ Page({
   ChooseImage() {
     var imgs=verif.imgClick()
     imgs.then(res=>{
+      
        this.setData({
         imgId:this.data.imgId.concat(res),
         imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)

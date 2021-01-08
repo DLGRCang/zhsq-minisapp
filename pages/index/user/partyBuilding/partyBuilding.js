@@ -118,153 +118,23 @@ Page({
     wx.showLoading({
       title: '拼命加载中',
     })
-      wx.request({
-        url: 'http://127.0.0.1:8083/zhsq/api/news/pubListNews/' +code+'/'+cur, // 就是拼接上前缀,此接口域名是开放接口，可访问
-        method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
-        header: {
-          'content-type': 'application/json'
-        },
-        success(res) {
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
-        if(v){
-          setTimeout(()=>{
-            if(that.data.TabCur == 0){
-              var rowsXw0 = that.data.rowsXw0
-              if(res.data.rows.length == 0){
-                that.setData({
-                  isLoad:true
-                })
-              }else{
-                that.setData({
-                  botTrue:true,
-                  isLoad:false
-                })
-                for(var i in res.data.rows){
-                  rowsXw0.push(res.data.rows[i])
-                }
-              }
-              that.setData({
-                rowsXw0:rowsXw0
-              })
-            }else if(that.data.TabCur == 1){
-              var rowsXw1 = that.data.rowsXw1
-              if(res.data.rows.length == 0){
-                that.setData({
-                  isLoad:true
-                })
-              }else{
-                that.setData({
-                  botTrue:true,
-                  isLoad:false
-                })
-                for(var i in res.data.rows){
-                  rowsXw1.push(res.data.rows[i])
-                }
-              }
-              that.setData({
-                rowsXw1:rowsXw1
-              })
-            }else if(that.data.TabCur == 2){
-              var rowsXw2 = that.data.rowsXw2
-              if(res.data.rows.length == 0){
-                that.setData({
-                  isLoad:true
-                })
-              }else{
-                that.setData({
-                  botTrue:true,
-                  isLoad:false
-                })
-                for(var i in res.data.rows){
-                  rowsXw2.push(res.data.rows[i])
-                }
-              }
-              that.setData({
-                rowsXw2:rowsXw2
-              })
-            }else if(that.data.TabCur == 3){
-              var rowsXw3 = that.data.rowsXw3
-              if(res.data.rows.length == 0){
-                that.setData({
-                  isLoad:true
-                })
-              }else{
-                that.setData({
-                  botTrue:true,
-                  isLoad:false
-                })
-                for(var i in res.data.rows){
-                  rowsXw3.push(res.data.rows[i])
-                }
-              }
-              that.setData({
-                rowsXw3:rowsXw3
-              })
-            }else if(that.data.TabCur == 4){
-              var rowsXw4 = that.data.rowsXw4
-              if(res.data.rows.length == 0){
-                that.setData({
-                  isLoad:true
-                })
-              }else{
-                that.setData({
-                  botTrue:true,
-                  isLoad:false
-                })
-                for(var i in res.data.rows){
-                  rowsXw4.push(res.data.rows[i])
-                }
-              }
-              that.setData({
-                rowsXw4:rowsXw4
-              })
-            }else if(that.data.TabCur == 5){
-              var rowsXw5 = that.data.rowsXw5
-              if(res.data.rows.length == 0){
-                that.setData({
-                  isLoad:true
-                })
-              }else{
-                that.setData({
-                  botTrue:true,
-                  isLoad:false
-                })
-                for(var i in res.data.rows){
-                  rowsXw5.push(res.data.rows[i])
-                }
-              }
-              that.setData({
-                rowsXw5:rowsXw5
-              })
-            }else if(that.data.TabCur == 6){
-              var rowsXw6 = that.data.rowsXw6
-              if(res.data.rows.length == 0){
-                that.setData({
-                  isLoad:true
-                })
-              }else{
-                that.setData({
-                  botTrue:true,
-                  isLoad:false
-                })
-                for(var i in res.data.rows){
-                  rowsXw6.push(res.data.rows[i])
-                }
-              }
-              that.setData({
-                rowsXw6:rowsXw6
-              })
-            }
-          },1000)
-        }else{
-
-          if(that.data.TabCur == 0&&that.data.rowsXw0.length == 0){
+    http.newsApi({
+      data:{
+        code:code,
+        cur:cur
+      },
+      success:res=>{
+        //console.log(res)
+        wx.hideLoading({
+          success: (res) => {
+            that.selectComponent("#haveTrue").falseClick()
+          },
+        })
+      if(v){
+        setTimeout(()=>{
+          if(that.data.TabCur == 0){
             var rowsXw0 = that.data.rowsXw0
-            if(res.data.rows.length == 0){
+            if(res.rows.length == 0){
               that.setData({
                 isLoad:true
               })
@@ -273,16 +143,16 @@ Page({
                 botTrue:true,
                 isLoad:false
               })
-              for(var i in res.data.rows){
-                rowsXw0.push(res.data.rows[i])
+              for(var i in res.rows){
+                rowsXw0.push(res.rows[i])
               }
             }
             that.setData({
               rowsXw0:rowsXw0
             })
-          }else if(that.data.TabCur == 1&&that.data.rowsXw1.length == 0){
+          }else if(that.data.TabCur == 1){
             var rowsXw1 = that.data.rowsXw1
-            if(res.data.rows.length == 0){
+            if(res.rows.length == 0){
               that.setData({
                 isLoad:true
               })
@@ -291,16 +161,16 @@ Page({
                 botTrue:true,
                 isLoad:false
               })
-              for(var i in res.data.rows){
-                rowsXw1.push(res.data.rows[i])
+              for(var i in res.rows){
+                rowsXw1.push(res.rows[i])
               }
             }
             that.setData({
               rowsXw1:rowsXw1
             })
-          }else if(that.data.TabCur == 2&&that.data.rowsXw2.length == 0){
+          }else if(that.data.TabCur == 2){
             var rowsXw2 = that.data.rowsXw2
-            if(res.data.rows.length == 0){
+            if(res.rows.length == 0){
               that.setData({
                 isLoad:true
               })
@@ -309,16 +179,16 @@ Page({
                 botTrue:true,
                 isLoad:false
               })
-              for(var i in res.data.rows){
-                rowsXw2.push(res.data.rows[i])
+              for(var i in res.rows){
+                rowsXw2.push(res.rows[i])
               }
             }
             that.setData({
               rowsXw2:rowsXw2
             })
-          }else if(that.data.TabCur == 3&&that.data.rowsXw3.length == 0){
+          }else if(that.data.TabCur == 3){
             var rowsXw3 = that.data.rowsXw3
-            if(res.data.rows.length == 0){
+            if(res.rows.length == 0){
               that.setData({
                 isLoad:true
               })
@@ -327,16 +197,16 @@ Page({
                 botTrue:true,
                 isLoad:false
               })
-              for(var i in res.data.rows){
-                rowsXw3.push(res.data.rows[i])
+              for(var i in res.rows){
+                rowsXw3.push(res.rows[i])
               }
             }
             that.setData({
               rowsXw3:rowsXw3
             })
-          }else if(that.data.TabCur == 4&&that.data.rowsXw4.length == 0){
+          }else if(that.data.TabCur == 4){
             var rowsXw4 = that.data.rowsXw4
-            if(res.data.rows.length == 0){
+            if(res.rows.length == 0){
               that.setData({
                 isLoad:true
               })
@@ -345,16 +215,16 @@ Page({
                 botTrue:true,
                 isLoad:false
               })
-              for(var i in res.data.rows){
-                rowsXw4.push(res.data.rows[i])
+              for(var i in res.rows){
+                rowsXw4.push(res.rows[i])
               }
             }
             that.setData({
               rowsXw4:rowsXw4
             })
-          }else if(that.data.TabCur == 5&&that.data.rowsXw5.length == 0){
+          }else if(that.data.TabCur == 5){
             var rowsXw5 = that.data.rowsXw5
-            if(res.data.rows.length == 0){
+            if(res.rows.length == 0){
               that.setData({
                 isLoad:true
               })
@@ -363,16 +233,16 @@ Page({
                 botTrue:true,
                 isLoad:false
               })
-              for(var i in res.data.rows){
-                rowsXw5.push(res.data.rows[i])
+              for(var i in res.rows){
+                rowsXw5.push(res.rows[i])
               }
             }
             that.setData({
               rowsXw5:rowsXw5
             })
-          }else if(that.data.TabCur == 6&&that.data.rowsXw6.length == 0){
+          }else if(that.data.TabCur == 6){
             var rowsXw6 = that.data.rowsXw6
-            if(res.data.rows.length == 0){
+            if(res.rows.length == 0){
               that.setData({
                 isLoad:true
               })
@@ -381,27 +251,156 @@ Page({
                 botTrue:true,
                 isLoad:false
               })
-              for(var i in res.data.rows){
-                rowsXw6.push(res.data.rows[i])
+              for(var i in res.rows){
+                rowsXw6.push(res.rows[i])
               }
             }
             that.setData({
               rowsXw6:rowsXw6
             })
           }
-        }
-        },
-        fail(err) {
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
+        },1000)
+      }else{
+
+        if(that.data.TabCur == 0&&that.data.rowsXw0.length == 0){
+          var rowsXw0 = that.data.rowsXw0
+          if(res.rows.length == 0){
+            that.setData({
+              isLoad:true
+            })
+          }else{
+            that.setData({
+              botTrue:true,
+              isLoad:false
+            })
+            for(var i in res.rows){
+              rowsXw0.push(res.rows[i])
+            }
+          }
+          that.setData({
+            rowsXw0:rowsXw0
           })
-          console.log(err)
+        }else if(that.data.TabCur == 1&&that.data.rowsXw1.length == 0){
+          var rowsXw1 = that.data.rowsXw1
+          if(res.rows.length == 0){
+            that.setData({
+              isLoad:true
+            })
+          }else{
+            that.setData({
+              botTrue:true,
+              isLoad:false
+            })
+            for(var i in res.rows){
+              rowsXw1.push(res.rows[i])
+            }
+          }
+          that.setData({
+            rowsXw1:rowsXw1
+          })
+        }else if(that.data.TabCur == 2&&that.data.rowsXw2.length == 0){
+          var rowsXw2 = that.data.rowsXw2
+          if(res.rows.length == 0){
+            that.setData({
+              isLoad:true
+            })
+          }else{
+            that.setData({
+              botTrue:true,
+              isLoad:false
+            })
+            for(var i in res.rows){
+              rowsXw2.push(res.rows[i])
+            }
+          }
+          that.setData({
+            rowsXw2:rowsXw2
+          })
+        }else if(that.data.TabCur == 3&&that.data.rowsXw3.length == 0){
+          var rowsXw3 = that.data.rowsXw3
+          if(res.rows.length == 0){
+            that.setData({
+              isLoad:true
+            })
+          }else{
+            that.setData({
+              botTrue:true,
+              isLoad:false
+            })
+            for(var i in res.rows){
+              rowsXw3.push(res.rows[i])
+            }
+          }
+          that.setData({
+            rowsXw3:rowsXw3
+          })
+        }else if(that.data.TabCur == 4&&that.data.rowsXw4.length == 0){
+          var rowsXw4 = that.data.rowsXw4
+          if(res.rows.length == 0){
+            that.setData({
+              isLoad:true
+            })
+          }else{
+            that.setData({
+              botTrue:true,
+              isLoad:false
+            })
+            for(var i in res.rows){
+              rowsXw4.push(res.rows[i])
+            }
+          }
+          that.setData({
+            rowsXw4:rowsXw4
+          })
+        }else if(that.data.TabCur == 5&&that.data.rowsXw5.length == 0){
+          var rowsXw5 = that.data.rowsXw5
+          if(res.rows.length == 0){
+            that.setData({
+              isLoad:true
+            })
+          }else{
+            that.setData({
+              botTrue:true,
+              isLoad:false
+            })
+            for(var i in res.rows){
+              rowsXw5.push(res.rows[i])
+            }
+          }
+          that.setData({
+            rowsXw5:rowsXw5
+          })
+        }else if(that.data.TabCur == 6&&that.data.rowsXw6.length == 0){
+          var rowsXw6 = that.data.rowsXw6
+          if(res.rows.length == 0){
+            that.setData({
+              isLoad:true
+            })
+          }else{
+            that.setData({
+              botTrue:true,
+              isLoad:false
+            })
+            for(var i in res.rows){
+              rowsXw6.push(res.rows[i])
+            }
+          }
+          that.setData({
+            rowsXw6:rowsXw6
+          })
         }
-      })
-    
-    
+      }
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            that.selectComponent("#haveTrue").trueClick()
+          },
+        })
+        console.log(err)
+      }
+    })
+
   },
 
   cbott(e){

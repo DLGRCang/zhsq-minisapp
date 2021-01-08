@@ -37,13 +37,16 @@ const checkEmail = function (data) {
 
 //上传附件
 const imgClick = function (){
+
   return new Promise((resolve, reject) => {
     wx.chooseImage({
       success (res) {
+        
         //console.log(res)
         const tempFilePaths = res.tempFilePaths[0]
         var str = tempFilePaths.substring(tempFilePaths.length-6)
         var code1 = str.match(/\.(.*)/)[1];//取 ?id=后面所有字符串
+        //console.log(tempFilePaths)
         //http://172.16.20.81:9000
         wx.uploadFile({
           url: 'http://172.16.20.81:9000/fileService/uploadFTP/zhsq/linliquan',
@@ -55,13 +58,16 @@ const imgClick = function (){
             //'fileGrant':code1
           },
           success (resd){
-            //console.log(resd)
+            console.log(resd)
             var data = JSON.parse(resd.data)
         
             var imgs = data.data[0].fileID
           
             resolve(imgs)
        
+          },
+          fail (err){
+            console.log(err)
           }
         })
        
@@ -103,7 +109,7 @@ const success = function(data){
 //校验登录
 function checkLogin(){
   //console.log(wx.getStorageSync('user'))
-  if(wx.getStorageSync('user') == ''){
+  if(wx.getStorageSync('wxUser') == ''){
           wx.navigateTo({
             url: "/pages/login/login"
           })

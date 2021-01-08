@@ -8,7 +8,7 @@
   <view class="dbox_top" bindtap="qhjiaose">
           <view class="bor_fl">
           <image class="fl" src="{{wxUser.avatarUrl}}" bindtap="qhjiaose"></image>
-          <view >{{wxUser.nickName}}</view>
+          <view >{{wxUser.name}}</view>
           <view class="wxgr">职位：{{names}}</view>
         </view>
         <text class="cuIcon-right fr lg"></text>

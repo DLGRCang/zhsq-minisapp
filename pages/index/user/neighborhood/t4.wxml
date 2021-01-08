@@ -49,29 +49,89 @@
    
       <view  class="download" bindtap="toStar" style="margin-left:0;">
       <block wx:if="{{isStar == false}}">
-        <image src="../../../images/images/star_active.png " class="star_img">  </image><text class="text-gray"> 已收藏</text> 
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star_active.png " class="star_img">  </image><text class="text-gray"> 已收藏</text> 
       </block>
       <block wx:elif="{{isStar == true}}" >
-        <image src="../../../images/images/star.png " class="star_img">  </image><text class="text-gray"> 收藏</text> 
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star.png " class="star_img">  </image><text class="text-gray"> 收藏</text> 
       </block>
       </view>
       
     
     <view class="download" bindtap="toShare">
       <block wx:if="{{isShare == false}}">
-        <image src="../../../images/images/share.png " class="share_img">  </image><text class="text-gray"> 分享</text> 
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/share.png " class="share_img">  </image><text class="text-gray"> 分享</text> 
       </block>
       <block wx:elif="{{isShare == true}}" >
-        <image src="../../../images/images/share.png " class="share_img">  </image><text class="text-gray"> 已分享</text> 
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/share.png " class="share_img">  </image><text class="text-gray"> 已分享</text> 
       </block>
       </view>
-     
-      <image src="../../../images/images/message.png " class="message_img" style="margin-left:25rpx;"></image><text class="text-gray"> 30</text> 
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/message.png " class="message_img" style="margin-left:25rpx;"></image><text class="text-gray"> 30</text> 
             
-   
-      <image src="../../../images/images/good_active.png " class="good_img"></image><text class="right" style="padding-right:0;"> 15</text> 
+      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/good_active.png " class="good_img"></image><text class="right" style="padding-right:0;"> 15</text> 
     </view> -->
-    
+    <view class="pinglun">
+        <view></view>
+  
+      <view class="pinglun-right" catchtap>
+        <view catchtap="dzClick" data-i="{{index}}">
+          <text class="cuIcon-like" wx:if="{{!item.dianzan}}"></text>
+          <text class="cuIcon-likefill" style="color:red" wx:if="{{item.dianzan}}"></text>
+          <text>{{item.dianzanshu > 99 ? '99+':''+item.dianzanshu}}</text>
+        </view>
+        
+        <view catchtap="plClick" data-i="{{index}}">
+          <text class="cuIcon-comment"></text>
+          <text>30</text>
+        </view>
+        
+        <view catchtap="scClick" data-i="{{index}}">
+          <text class="cuIcon-favor" wx:if="{{!item.shoucang}}"></text>
+          <text class="cuIcon-favorfill" style="color:yellow" wx:if="{{item.shoucang}}"></text>
+          <text>{{item.shoucang ? '已收藏':'收藏'}}</text>
+        </view>
+      </view>
+      
+
+      
+    </view>
+    <view class="pinglunnr" catchtap wx:if="{{item.pinglun}}">
+      <view wx:for="{{3}}" wx:for-index="indexD" class="pinglunlb" bindtap="gbzezhao">
+        <view class="nr-top">
+          <view class="nr-name">
+            <text>德力格日仓</text>
+
+          </view>
+          <view class="nr-box" catchtap="plzplClick" data-index="{{index}}" data-indexd="{{indexD}}">
+              评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容
+          </view>
+        </view>
+        <view class="nr-bot">
+          <view>2020年10月12日</view>
+          <view class="bot-last">
+            <view catchtap="plzplClick" data-index="{{index}}" data-indexd="{{indexD}}">
+              <text class="cuIcon-comment"></text>
+              <text>评论</text>
+            </view>
+            
+            <text class="cuIcon-likefill" style="color:red"></text>
+          </view>
+          <view class="plzpl" catchtap wx:if="{{index == plInputTrue && indexD == plInputTrueL}}">
+            <input type="text" class="inputkuang" focus="{{index == plInputTrue && indexD == plInputTrueL ? 'auto':''}}" bindinput="inputClick1"/>
+            <view class="plzplnr" catchtap="plzplClick1" data-index="{{index}}" data-indexd="{{indexD}}">
+              {{plzplnrContent}}
+            </view>
+            <view class="plzplan">评论</view>
+          </view>
+        </view>
+      </view>
+      <input type="text" class="inputkuang" focus="{{index == inputtrue ? 'auto':''}}" bindinput="inputClick"/>
+        <view class="plkuang" catchtap>
+          <view class="fdpl" bindtap="tianxie" data-index="{{index}}">
+            {{contentpl}}
+          </view>
+          <view class="zplan">评论</view>
+        </view>
+    </view>
  </view>
 </view>
 </view>

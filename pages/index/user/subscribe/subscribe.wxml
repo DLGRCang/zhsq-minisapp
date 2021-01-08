@@ -7,7 +7,7 @@
     <view class="text_1">访客预约信息</view>
     <view class="text_2">请确保您添加的访客信息为真实信息。并且征得其本人同意</view>
     <!-- 输入框 -->
-    <input name="userName" placeholder="真实姓名" class="inputBox" wx:for="{{5}}" value="{{name}}"></input>
+    <input name="userName" placeholder="真实姓名" class="inputBox" value="{{name}}"></input>
     <input name="id" placeholder="身份证号" class="inputBox" bindinput='enterId'></input>
     <input name="userPhone" placeholder="手机号码" class="inputBox" bindinput="enterPhone"></input>
     <view class="cu-form-group inputBox">

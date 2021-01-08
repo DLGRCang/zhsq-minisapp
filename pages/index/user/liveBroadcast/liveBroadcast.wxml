@@ -3,9 +3,11 @@
     <view slot="content">直播</view>
   </cu-custom>
   <view class="box-body">
-    <image src="../../../images/back.png" class="beijing"></image>
+    <image src="../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    
+    <defect topPadding="{{350}}" wx:if="{{rowsList.length == 0}}"><view slot="content">暂无创建的直播间</view></defect>
     <view class="home-con">
-      <view class="box-home" wx:for="{{10}}" bindtap="openXyLink">
+      <view class="box-home" wx:for="{{rowsList}}" bindtap="openXyLink">
         <view class="con">
           <view class="con-img">
             
@@ -35,7 +37,7 @@
       <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
                 <text class="cuIcon-add"></text>请选择封面图
       </view>
-      <view class="btn">创建</view>
+      <view class="btn" bindtap="chaugjian">创建</view>
 
     </view>
   </view>

@@ -285,7 +285,7 @@ hideModal(e) {
     
     http.cdDetailsApi({
       data:{
-        constructionsActivityId:'b5fb1159-1fa2-443f-a1a4-53d18721b4e0'
+        constructionsActivityId:id
       },
       success:res=>{
         console.log(res)
@@ -299,21 +299,21 @@ hideModal(e) {
         
         // var a = new Date('2020-01-01 9:00')
         // var b = new Date('2020-01-01 11:00')
-        var timea = res.amopenTime.split('-')[0]
-        var timeb = res.amopenTime.split('-')[1]
-        var timesA = timea.split(":")[1]
-        var timesB = timeb.split(":")[1]
-        console.log(timesA)
-        if(timesA){
+        // var timea = res.amopenTime.split('-')[0]
+        // var timeb = res.amopenTime.split('-')[1]
+        // var timesA = timea.split(":")[1]
+        // var timesB = timeb.split(":")[1]
+        // console.log(timesA)
+        // if(timesA){
 
-        }
+        // }
        
         
-        
+        console.log(res.openTime)
         this.setData({
           rowsList:res,
           pickers:pickersM,
-          pickerx:res.openTime.split(' 至 ')[1],
+          //pickerx:res.openTime.split(' 至 ')[1],
         })
         wx.hideLoading()
       },

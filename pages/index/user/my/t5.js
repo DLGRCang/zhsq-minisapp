@@ -115,9 +115,10 @@ Component({
         ifLogin:true
       })
     }else{
+      console.log(wx.getStorageSync('wxUser'))
       this.setData({
         ifLogin:false,
-        wxUser:wx.getStorageSync('wxUser').userInfo
+        wxUser:wx.getStorageSync('wxUser')
        })
     }
   },

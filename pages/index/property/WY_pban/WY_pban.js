@@ -144,7 +144,7 @@ Component({
     //在组件在视图层布局完成后执行
     ready() {
       this.setData({
-        wxUser:wx.getStorageSync('wxUser').userInfo
+        wxUser:wx.getStorageSync('wxUser')
       })
       if(wx.getStorageSync('wyUser') == 2){
         this.setData({
@@ -153,7 +153,7 @@ Component({
       }else if(wx.getStorageSync('wyUser') == 3){
         this.setData({
           names : '物业技术人员'
-        })
+        }) 
       }
 
        //console.log(util.formatTime1(new Date).split(' ')[0])

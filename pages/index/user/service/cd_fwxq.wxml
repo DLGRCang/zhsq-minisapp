@@ -5,7 +5,7 @@
 
 <view style="height:91%;overflow-y: auto;">
   <view class="box-body">
-    <image src="../../../images/back2.png" class="beijing"></image>
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
 <!-- <view class="bg"></view> -->
 <!-- 第一部分 头部 -->
 <!-- <view class="bg-blue head_content"> -->
@@ -29,7 +29,7 @@
       <text class="{{rowsList.score == 10 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
  
       <text style="padding-left:10rpx;">评分：{{rowsList.score}}</text>
-      <view class="cu-tag bg-lvse light jnpx">{{rowsList.type}}</view>
+      <view class="cu-tag bg-lvse light jnpx">{{rowsList.typeMessage}}</view>
     </view>
 </view>
     

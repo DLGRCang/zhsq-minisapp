@@ -2,16 +2,22 @@
 var dateTimePicker = require('../../../../utils/dateTimePicker.js');
 import verif from '../../../../utils/verification'
 import http from '../../../../utils/api'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    CustomBar: app.globalData.CustomBar,
+    windowHeight:app.globalData.windowHeight,
     imgList: [],
     sex:1,
-    picker:['夫妻','父子','父女','母子','母女','其他'],
+    picker:[],
+    fangyuan:[], 
+    fangyuan1:null,
     status:['正常','死亡'],
+    fangyuannr:[],
     pickerIndex:null,
     status1:null,
     date: '',
@@ -22,16 +28,57 @@ Page({
     jg:'',
     mz:'',
     zy:'',
-    sjh:''
+    sjh:'',
+    guanxi:[],
+    zishitc:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //console.log(wx.getStorageSync('xzvillage'))
+    this.codelistArr()
+    
+    var fangyuan = []
+    var fangyuan1 = []
+    for(var i in wx.getStorageSync('xzvillage')){
+      if(wx.getStorageSync('xzvillage')[i].isMaster == 1){
+        fangyuan.push(wx.getStorageSync('xzvillage')[i])
+      }
+    }
+    //console.log(fangyuan)
+    for(var i in fangyuan){
+      var name = fangyuan[i].floorName + fangyuan[i].unitName + fangyuan[i].roomName
+      fangyuan1.push(name)
+    }
+    this.setData({
+      fangyuan:fangyuan1,
+      fangyuannr:fangyuan
+    })
+   // console.log(this.data.fangyuannr)
   },
 
+  codelistArr(){
+    http.codelistApi({
+
+      success:res=>{
+        //console.log(res)
+        var picker = this.data.picker
+        var guanxi = this.data.guanxi
+        for(var i in res){
+          if(res[i].dictionariesName != '本人'){
+            picker.push(res[i].dictionariesName)
+            guanxi.push(res[i])
+          }
+        }
+        this.setData({
+          picker:picker,
+          guanxi:guanxi
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -52,6 +99,12 @@ Page({
 inputName(e){
   this.setData({
     name:e.detail.value
+  })
+},
+fangyuanxc(e){
+  //console.log(e)
+  this.setData({
+    fangyuan1: e.detail.value
   })
 },
 
@@ -87,15 +140,29 @@ inputsjh(e){
   })
 },
 
+guanbi(){
+  this.setData({
+    zishitc:false
+  })
+},
+
   ChooseImage() {
-    var imgs=verif.imgClick()
+    this.setData({
+      zishitc:true
+    })
+    
+  },
+  quedingsc(){
+  var imgs=verif.imgClick()
     imgs.then(res=>{
        this.setData({
         imgId:this.data.imgId.concat(res),
-        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)
+        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res),
+        zishitc:false
       })
     })
   },
+
   ViewImage(e) {
     wx.previewImage({
       urls: this.data.imgList,
@@ -164,62 +231,112 @@ inputsjh(e){
     })
   },
   tjshClick(){
+    //console.log(wx.getStorageSync('wxUser'))
+    var that = this
+    if(this.data.fangyuannr.length == 1){
+      var user = this.data.fangyuannr[0]
+    }else{
+      var user = this.data.fangyuannr[this.data.fangyuan1]
+    }
+    //console.log(user)
     if(this.data.name == ''){
-      verif.tips('请输入姓名')
+      verif.tips('请输入入住人姓名')
     }else if(this.data.sjh == ''){
       verif.tips('请输入手机号')
     }else if(this.data.sfzh == ''){
       verif.tips('请输入身份证号')
+    }else if(this.data.pickerIndex == null){
+      verif.tips('请选择与户主的关系')
+    }else if(user == undefined){
+      verif.tips('请选择房屋地址')
     }else{
-      if(verif.checkIdCard(this.data.sfzh)){
+      if(verif.checkIdCard(this.data.sfzh)){//61d91bdc-739d-47c5-adc7-12f3231678d1
         if(verif.checkPhone(this.data.sjh)){
-          wx.showLoading({
+          if(wx.getStorageSync('wxUser').phone == this.data.sjh){
+            verif.tips('请勿录入当前登录人')
+          }else{
+            wx.showLoading({
             title: '拼命加载中',
           })
-          http.rzxqApi({
-            data:{
-              floorId:wx.getStorageSync('user').floorId,
-              unitId:wx.getStorageSync('user').unitId,
-              roomId:wx.getStorageSync('user').roomId,
-              doorNo:'0',
-              type:'123',
-              isMaster:'0',
-              name:this.data.name,
-              sex:this.data.sex,
-              national:this.data.mz,
-              nativePlace:this.data.jg,
-              idCard:this.data.sfzh,
-              professional:this.data.zy,
-              phone:this.data.sjh,
-              relationship:this.data.pickerIndex,
-              homeTime:this.data.date,
-              status:this.data.status1,
-              isStay:this.data.sfcz,
-              unifiedUserId:wx.getStorageSync('user').userId,
-              work:''
-            },
-            success:res=>{
-              wx.hideLoading({
-                success: (resm) => {
-                  if(res.code == 40102){
-                    verif.tips(res.msg)
-                  }else{
-                    verif.tips('提交成功')
-                  }
-                },
-              })
-              
-              console.log(res)
-            },
-            fail:err=>{
-              wx.hideLoading({
-                success: (res) => {
-                  this.selectComponent("#haveTrue").trueClick()
-                },
-              })
-              console.log(err)
-            }
-          })
+            wx.request({
+              url: 'http://172.16.20.65:8003/app/sign/saveZhsqUserInfo', // 就是拼接上前缀,此接口域名是开放接口，可访问
+              method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
+              data:{
+                name:that.data.name,
+                idcard:that.data.sfzh,
+                phone:that.data.sjh
+              },
+              header: {
+                'content-type': 'application/json',
+                'token':wx.getStorageSync('token')
+              },
+              success(resm) {
+                //console.log(resm.data.result)
+                  http.rzxqApi({
+                    data:{
+                      villageId:user.villageId,
+                      floorId:user.floorId,
+                      unitId:user.unitId,
+                      roomId:user.roomId,
+                      doorNo:user.doorNo,
+                      type:'123',
+                      isMaster:'0',
+                      name:that.data.name,
+                      sex:that.data.sex,
+                      national:that.data.mz,
+                      nativePlace:that.data.jg,
+                      idCard:that.data.sfzh,
+                      professional:that.data.zy,
+                      phone:that.data.sjh,
+                      relationship:that.data.guanxi[that.data.pickerIndex].dictionariesId,
+                      homeTime:that.data.date,
+                      status:that.data.status1,
+                      isStay:that.data.sfcz,
+                      unifiedUserId:resm.data.result,
+                      work:'',
+                      facePhoto:that.data.imgId[0]
+                    },
+                    success:res=>{
+                      wx.hideLoading({
+                        success: (resm) => {
+                          if(res.code == 40102){
+                            verif.tips(res.msg)
+                          }else{
+                            verif.tips('提交成功')
+                            setTimeout(()=>{
+                              wx.navigateBack({
+                                delta: 1
+                              })
+                            },800)
+                          }
+                        },
+                      })
+                      
+                      console.log(res)
+                    },
+                    fail:err=>{
+                      wx.hideLoading({
+                        success: (res) => {
+                          that.selectComponent("#haveTrue").trueClick()
+                        },
+                      })
+                      console.log(err)
+                    }
+                  })
+              },
+              fail(err) {
+                wx.hideLoading({
+                  success: (res) => {
+                    that.selectComponent("#haveTrue").trueClick()
+                  },
+                })
+                console.log(err)
+              }
+            })
+          }
+          
+          
+         
         }
       }
     }

@@ -5,7 +5,7 @@
     <view slot="content">详情</view>
   </cu-custom>
   <view class="box-body" style="height:{{windowHeight}}px">
-    <image src="../../../../images/back.png" class="beijing"></image>
+    <image src="../../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     <view class="box-de">
       <view class="title">{{data.title}}</view>
       <view class="title-name">发布日期{{data.publicTime}}</view>

@@ -21,14 +21,13 @@
     "checkSiteMap": false,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
@@ -36,7 +35,8 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "useApiHostProcess": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.12.2",
@@ -105,6 +105,48 @@
         {
           "name": "dang",
           "pathName": "pages/index/user/partyBranch/partyBranch",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/notice-details/notice-details",
+          "pathName": "pages/index/user/notice-details/notice-details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Login-on/Login",
+          "pathName": "pages/Login-on/Login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/property-payment/wyjf",
+          "pathName": "pages/index/user/property-payment/wyjf",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/My_Settled/My_Settled",
+          "pathName": "pages/index/user/My_Settled/My_Settled",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/checkIn/checkIn",
+          "pathName": "pages/index/user/checkIn/checkIn",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/checkIn/checkIn",
+          "pathName": "pages/index/user/checkIn/checkIn",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/checkIn/checkIn",
+          "pathName": "pages/index/user/checkIn/checkIn",
           "scene": null
         }
       ]

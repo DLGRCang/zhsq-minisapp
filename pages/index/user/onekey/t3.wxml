@@ -1,6 +1,6 @@
 <view class="onekey">
   <!-- <image class="keyimg" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png"></image> -->
-  <view class="biaoshi">
+  <!-- <view class="biaoshi">
     <view class="bsnei"><view style="border: 5rpx solid #ccc;"></view>离线</view>
     <view class="bsnei"><view style="border: 5rpx solid #188BFF;"></view>蓝牙</view>
     <view class="bsnei"><view style="border: 5rpx solid #22B31E;"></view>在线</view>
@@ -12,5 +12,19 @@
         <view></view>
       </view>
     </view>
+  </view> -->
+  <view class="erweima">
+    <view class="ewmnei">
+      <image src="../../../../images/EWM.jpg" lazy-load="true" wx:if="{{tupian}}"></image>
+      <image src="../../../../images/ewm2.png" lazy-load="true" wx:if="{{!tupian}}"></image>
+      <view class="tanchaung" wx:if="{{tanch}}">
+        <view style="font-size:100rpx;color:#fff" class="cu-load loading1"></view>
+      </view>
+    </view>
+    
   </view>
+  <view class="donghua" bindtap="tcClick">
+    点击重新生成
+  </view>
+  
 </view>

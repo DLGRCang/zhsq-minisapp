@@ -38,14 +38,15 @@ border-radius: 0 0 15rpx 15rpx;
 .pban_box .box{border-radius: 15rpx;background: #fff;padding:35rpx;clear: both;overflow: hidden;
   font-size: 26rpx;margin-top:35rpx;}
 .pban_box .box .box_top .bor_fl{float: left;width: 60%;display: block;} 
-.pban_box .box .box_top{height:45rpx;line-height: 45rpx;}
+.pban_box .box .box_top{height:45rpx;line-height: 45rpx;width: 100%;display: flex;justify-content: space-between;align-items: center;color: #999;}
 .pban_box .box .box_top .bor_fl .fl{width:45rpx;height: 45rpx;border-radius: 50%;margin-right: 15rpx;} 
 
 .pban_box .box .bor_fr{float: right;width: 40%;color: #999;} 
 .pban_box .box .box_title{display: inline-block;margin-left:55rpx;line-height:2;padding-top: 15rpx;}
 .pban_box .box .box_title .tit1{color: #999;padding-right: 35rpx;}
 .pban_box .box .box_title .tit1 .texta{padding-left: 35rpx;color: #000;}
-.pban_box .box .box_title .tit2 .title_textarea{width: 80%; display: block;
+.title_textarea{width: 55%; display: block;
+  float:right;
   margin-left: 108rpx;color: #999;
   margin-top: -50rpx;}
 .zt{padding-bottom: 25rpx;}
@@ -64,3 +65,10 @@ border-radius: 0 0 15rpx 15rpx;
     .bianji{float: right;}  
     .bianji .text-blue{margin:15rpx;float: left;}    
     .bianji .text-red{margin:15rpx;float: left;}    
+    .jilu{
+      width: 100%;
+      padding: 30rpx;
+      background: red;
+      margin-top: 30rpx;
+      border-radius: 15rpx;
+    }

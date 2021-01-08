@@ -54,13 +54,16 @@ toCollect () {
   onLoad: function (options) {
     let that=this;
     var item = decodeURIComponent(options.item)
-
+    
     var data = JSON.parse(item)
+   // console.log(data)
     this.setData({
       data:data
     })
-    var data = that.data.data.CONTENT
-    wxParse.wxParse('dataHtml','html',data,that, 5)
+    
+    //var data = that.data.data.CONTENT
+
+    wxParse.wxParse('dataHtml','html',data.content,that, 5)
   },
 
   /**

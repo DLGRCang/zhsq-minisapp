@@ -1,55 +1,43 @@
+const app = getApp();
 Component({
+  
+  options: {
+    addGlobalClass: true,
+    multipleSlots: true
+  },
   /**
    * 组件的属性列表
    */
+  
   properties: {
-   
+    topPadding:String,
+    btntrue: {
+      type: [Boolean, String],
+      default: false
+    },
   },
  
   /**
    * 组件的初始数据
    */
   data: {
-    tanch:false,
-    tupian:true
+
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    tcClick(){
-      this.setData({
-        tanch:true
-      })
-      setTimeout(()=>{
-        if(this.data.tupian){
-          this.setData({
-            tupian:false
-          })
-        }else{
-          this.setData({
-            tupian:true
-          })
-        }
-        setTimeout(()=>{
-          this.setData({
-            tanch:false
-          })
-        },500)
-      },500)
-    }
-   
 
+    clickH(){
+      this.triggerEvent('defectClick')
+    }
   },
  
   /*组件生命周期*/ 
   lifetimes: {
     //在组件实例刚刚被创建时执行
     created() {
-     // 获取用户信息
-
-   
     },
     
     //在组件实例进入页面节点树时执行
@@ -58,7 +46,7 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
-      
+      //this.Arr()
     },
  
     //在组件实例被移动到节点树另一个位置时执行

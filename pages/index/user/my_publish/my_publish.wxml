@@ -6,7 +6,7 @@
 
 <view style="height:91%;">
   <view class="box-body">
-    <image src="../../../images/back.png" class="beijing"></image>
+    <image src="../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     <!-- 内容 -->
     <view class="view_tab01">
       <view class="tab_bar01" > 

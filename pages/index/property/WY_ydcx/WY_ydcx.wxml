@@ -3,17 +3,22 @@
     <view slot="content">移动巡查</view>
   </cu-custom>
   <view class="pbDingwei" style="top:{{CustomBar}}px">
-    <view class="view_tab-4">
+    <!-- <view class="view_tab-4">
       <view class="tab_bar" > 
         <view class="{{tabArr.curHdIndex=='0'? 'active4' : ''}} tab_barnei" id="0"  data-id="0" bindtap="tab">全部</view> 
         <view class="{{tabArr.curHdIndex=='1'? 'active4' : ''}} tab_barnei" id="1"  data-id="1" bindtap="tab">已发布</view> 
         <view class="{{tabArr.curHdIndex=='2'? 'active4' : ''}} tab_barnei" id="2"  data-id="2" bindtap="tab">未发布</view> 
       </view> 
-    </view>
+    </view> -->
     <view class="pk right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-      <picker mode="date" value="{{date}}" fields="month" class="pickers" start="2020年09月" end="2260年09月" bindchange="DateChange">
+      <picker mode="date" value="{{date}}" fields="month" class="pickers" bindchange="DateChange" wx:if="{{indexId == 2}}">
         <view class="picker">
           {{date}} <text class="cuIcon-unfold lg"></text>
+        </view>
+      </picker>
+      <picker mode="date" value="{{date}}" bindchange="DateChange1" wx:if="{{indexId == 3}}">
+        <view class="picker">
+          {{date}} <text class="cuIcon-unfold lg "></text>
         </view>
       </picker>
     </view>
@@ -22,42 +27,46 @@
   <view class="box-body-4">
  
 <view class="view_tab-4">
-<view class="tab_bar" > 
+<!-- <view class="tab_bar" > 
   <view class="{{tabArr.curHdIndex=='0'? 'active4' : ''}} tab_barnei" id="0"  data-id="0" bindtap="tab">全部</view> 
   <view class="{{tabArr.curHdIndex=='1'? 'active4' : ''}} tab_barnei" id="1"  data-id="1" bindtap="tab">已发布</view> 
   <view class="{{tabArr.curHdIndex=='2'? 'active4' : ''}} tab_barnei" id="2"  data-id="2" bindtap="tab">未发布</view> 
-</view> 
+</view>  -->
 
 <view class="box_content-4"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="pban_box" bindtap="xiangqing">
+    <view class="pban_box">
       <picker mode="date" value="{{date}}" fields="month" class="pickers" start="2020年09月" end="2260年09月" bindchange="DateChange">
 			<view class="picker">
 				{{date}} <text class="cuIcon-unfold lg "></text>
 			</view>
     </picker>
-    <view class="box" wx:for="{{4}}">
-      <view class="zt text-blue">已发布</view>
+    <view class="box" wx:for="{{xgList}}" wx:key="index">
         <view class="box_top">
-          <view class="bor_fl">
-          <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
-          <view class="text-black">巡查人员姓名</view>
-        </view>
-        <view class="bor_fr text-gray fr">2020-11-23</view>
+          <view>执行人：{{item.peopleName}}</view>
+          <view>{{item.startTime}}</view>
         </view>
         <view class="box_title">
-        <view class="tit1">工作状态  <text class="texta">巡查中</text></view>
-        <view class="tit1">巡查时间  <text class="texta">2020-11-23  9:00-10:00 拷贝</text></view>
-        <view class="tit2">巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
-        <view class="tit3">巡查视频  <video class="shipin" src=""></video></view>
+        <view class="tit1">工作状态  
+          <text class="texta" wx:if="{{item.state == 0}}">未开始</text>
+          <text class="texta" wx:if="{{item.state == 1}}">进行中</text>
+          <text class="texta" wx:if="{{item.state == 2}}">已完成</text>
+          <text class="texta" wx:if="{{item.state == 3}}">未完成</text>
+          <text class="texta" wx:if="{{item.state == 4}}">超时完成</text>
         </view>
+        <view class="tit1">巡查开始时间  <text class="texta">{{item.startTime}}</text></view>
+        <view class="tit1">巡查结束时间  <text class="texta">{{item.endTime}}</text></view>
+        <view class="tit1">巡查内容  <text class="title_textarea">{{item.planMessage}}</text></view>
+      
+        </view>
+        <view class="jilu">1aaaaaaaaaaaaaaaaaaaaaaaaa</view>
         <!-- <view class="bot_fr">···</view> -->
           <!-- 编辑修改删除 -->
-    <view class="bianji">
+    <!-- <view class="bianji">
         <view bindtap="fabu" class="text-blue">编辑</view>
         <view bindtap="" class="text-red">删除</view>
-    </view>
+    </view> -->
     </view>
     </view>
   </view> 
@@ -82,7 +91,6 @@
         <view>工作状态  <text>巡查中</text></view>
         <view>巡查时间  <text>2020-11-23  9:00-10:00 拷贝</text></view>
         <view>巡查内容  <text class="title_textarea">维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述维修内容描述。</text></view>
-        <view>巡查视频  <video class="shipin" src=""></video></view>
         </view>
         <!-- <view class="bot_fr">···</view> -->
                  <!-- 编辑修改删除 -->

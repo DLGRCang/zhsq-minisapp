@@ -19,7 +19,7 @@ Page({
       {name:'租户稳定',xg:''}
     ],
     xzzhuangtai:[],
-    fangyuan:[],
+    fangyuan:[], 
     fangyuan1:null,
     fyxxId:[
       {name:'a房间',floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'},

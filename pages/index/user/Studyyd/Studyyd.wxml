@@ -16,7 +16,7 @@
     </view>
     <view>
   <view class="box">
-    <image src="../../../../images/back2.png" class="beijing"></image>
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
         <view class="cu-item {{index==TabCur?'text-white cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
