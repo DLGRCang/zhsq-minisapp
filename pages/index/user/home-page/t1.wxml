@@ -65,7 +65,11 @@
 <view class="tjshangjia">
   <view class="sjtop">
     <text bindtap="renlian">推荐商家</text>
-    <text class="cuIcon-shop" style="color:#fff;font-size:30rpx"></text>
+    <view>
+      <p style="color:#999;font-size:22rpx">更多</p>
+      <text class="cuIcon-shop" style="color:#999;font-size:22rpx"></text>
+    </view>
+    
   </view>
   <view class="sjneirong">
     <view class="bot-neirong" bindtap="life_details">
@@ -209,15 +213,18 @@
 
 <view class="gddhnrbj" bindtap="gdnrtcClick" wx:if="{{gddh}}" style="top:{{CustomBar}}px;background: rgba(0, 0, 0,0.3);"></view>
 
+
 <view class="gddhnr" style="left:-{{gddhchu}}rpx">
   <view class="dhnr" wx:for="{{gdItem}}" wx:key="index" catchtap="contentClick" data-url="{{item.url}}" data-id="{{item.id}}">
     <image src="{{item.image}}"></image>
     <view>{{item.text}}</view>
+</view>
 <!-- 第七部分 社区新闻二-->
 <view class="sqxw_box" style="margin-top:0rpx">
   <view class="seven_boxtwo"  bindtap="newsxq">
     <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！31省区市新增42例确诊,其中境外输入病例20例 战疫情</text>   
     <text class="xwrq">2020-10-28</text>   
+
   </view>
 </view>
 
@@ -245,4 +252,5 @@
       </view>
     </view>
   </view>
+</view>
 </view>

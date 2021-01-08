@@ -1,6 +1,6 @@
 /* pages/index/Llq_pub/Llq_pub.wxss */
 @import '../../../../colorui/main.wxss';
-.pub_content{width:93%;margin:35rpx auto;background: #fff;border-radius: 15rpx;padding:35rpx;}
+.pub_content{width:93%;height:100%;margin:35rpx auto;background: #fff;border-radius: 15rpx;padding:35rpx;}
 .pub_content>.pub_title{line-height: 2;font-size: 32rpx;font-weight: bold;}
 .pub_content>textarea{
   width: 100%;

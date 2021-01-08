@@ -2019,6 +2019,7 @@ button.icon.lg {
 	line-height: 90rpx;
 	margin: 0 10rpx;
 	padding: 0 20rpx;
+	color:#eee;
 }
 
 .nav .cu-item.cur {

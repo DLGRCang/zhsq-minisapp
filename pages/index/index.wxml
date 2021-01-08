@@ -142,8 +142,8 @@
 <view class="cu-bar tabbar bg-white foot" id="footer3">
     <view class="action text-green" bindtap="NavChange" data-cur="t10">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy11.png" class="tabimg" wx:if="{{PageCur!='t10'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy12.png" class="tabimg" wx:if="{{PageCur=='t10'}}"></image>
+        <image src="../../images/wy11.png" class="tabimg" wx:if="{{PageCur!='t10'}}"></image>
+        <image src="../../images/wy12.png" class="tabimg" wx:if="{{PageCur=='t10'}}"></image>
       </view>
       <view class="{{PageCur=='t10'?'text-ttt':'text-nnn'}}">物业排版</view>
     </view>
@@ -169,7 +169,7 @@
     <view class="action text-gray" bindtap="NavChange" data-cur="t13">
       <view>
         <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy51.png" class="tabimg" wx:if="{{PageCur!='t13'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy52.png" class="tabimg" wx:if="{{PageCur=='t13'}}"></image>
+        <image src="../../images/wy52.png" class="tabimg" wx:if="{{PageCur=='t13'}}"></image>
       </view>
       <view class="{{PageCur=='t13'?'text-ttt':'text-nnn'}}">移动巡查</view>
     </view>

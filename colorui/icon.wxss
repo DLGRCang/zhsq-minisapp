@@ -198,7 +198,7 @@
 }
 
 .cuIcon-shop:before {
-	content: "\e676";
+	content: "\e6a3";
 }
 
 .cuIcon-ticket:before {
