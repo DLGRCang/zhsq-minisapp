@@ -158,7 +158,7 @@ Page({
     if(indexId == 1){
       this.setData({
         login:1,
-        PageCur:'t4'
+        PageCur:'t1'
       })
       
     }else if(indexId == 2){
