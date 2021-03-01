@@ -23,6 +23,7 @@ Component({
     rightHui:'https://yiqi.sucstep.com/zhsq/assets/images/applets/right-hui.png',
     ifLogin:true,
     wxUser:[],
+    village:[],
     xzvillage:[]
   },
 
@@ -107,6 +108,9 @@ Component({
       ifLogin:true,
       wxUser:[]
     })
+    wx.navigateTo({
+      url: '/pages/index/index'
+    })
   },
 
   //父组件调用子组件方法
@@ -116,10 +120,16 @@ Component({
         ifLogin:true
       })
     }else{
-      console.log(wx.getStorageSync('xzvillage'))
+      console.log()
+      if(JSON.stringify(wx.getStorageSync('village')) == '{}'){
+        var village=false
+      }else{
+        var village=wx.getStorageSync('village')
+      }
       this.setData({
         ifLogin:false,
         wxUser:wx.getStorageSync('wxUser'),
+        village:village,
         xzvillage:wx.getStorageSync('xzvillage')
        })
     }
@@ -127,6 +137,7 @@ Component({
 
  //点击登录
  loginClick(){
+   wx.setStorageSync('t5Login', true)
   verif.checkLogin()
   },
   logUser(){
@@ -140,7 +151,7 @@ Component({
     created() {
      // 获取用户信息
     this.logUser()
-   
+
     },
     
     //在组件实例进入页面节点树时执行

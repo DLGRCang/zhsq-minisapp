@@ -43,8 +43,8 @@ Component({
       {id:1,tname:'待审核'},
       {id:2,tname:'已审核'},
       {id:3,tname:'维修中'},
-      {id:4,tname:'维修完成'},
-      {id:5,tname:'完成'},
+      {id:4,tname:'完成'},
+      {id:5,tname:'已确认'},
       {id:6,tname:'已拒绝'},
     ],
     tabList2:[

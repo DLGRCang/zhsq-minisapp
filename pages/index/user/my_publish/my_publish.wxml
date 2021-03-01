@@ -6,7 +6,7 @@
 
 <view style="height:91%;">
   <view class="box-body">
-    <image src="../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     <!-- 内容 -->
     <view class="view_tab01">
       <view class="tab_bar01" > 
@@ -46,9 +46,9 @@
       
     </view>
     <!-- <view wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items">{{items}}</view> -->
-    <view class="bg-white padding" style="background:#fff">
+    <view class="bg-white padding" style="background:#fff" wx:if="{{item.file != ''}}">
     <view class="grid col-3 grid-square">
-      <view class="bg-img" wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" wx:key="index" style="background-image:url(http://172.16.20.81:9000/fileService/downloadFTP/public/{{items}});"></view>
+      <view class="bg-img" wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" wx:key="index" style="background-image:url({{imgUrl+items}});"></view>
     </view>
   </view>
     <!-- <view class="text-gray text-sm text-left padding padding-right">
@@ -116,7 +116,7 @@
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.img[0]}}"></image>
+        <image src="{{imgUrl+item.img[0]}}"></image>
       </view>
       <view class="box_right">
         <view class="cchh">

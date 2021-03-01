@@ -55,11 +55,11 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
-                    <button wx:if="{{item.state == 2&&wyUser == 3}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 3&&wyUser == 3}}" class="active">维修完成</button>
+                    <button>拒绝</button>
+                    <button class="active">接单</button>
+                    <button class="active" bindtap="showModal" data-target="viewModal">派单</button>
+                    <button class="active">接单</button>
+                    <button class="active">维修完成</button>
                   </view>
           </view> 
         </view>
@@ -99,9 +99,9 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                    <button>拒绝</button>
+                    <button class="active">接单</button>
+                    <button class="active" bindtap="showModal" data-target="viewModal">派单</button>
                   </view>
           </view>
         </view>

@@ -1,6 +1,6 @@
 <!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
-<cu-custom bgColor="bg-gray-bljb" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">房屋出租</view>
 </cu-custom>
 
@@ -16,17 +16,16 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rows.length == 0}}">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-    <view>暂无房源信息</view>
-  </view>
+    <defect topPadding="{{160}}" wx:if="{{rows.length == 0}}">
+        <view slot="content">暂无房源信息</view>
+      </defect>
     <view class="tab_box" bindtap="xiangqing" data-id="{{item}}" wx:for="{{rows}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.img[0]}}"></image>
+        <image src="{{imgUrl+item.img[0]}}"></image>
       </view>
       <view class="box_right">
         <view class="cchh">
@@ -45,17 +44,16 @@
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rows1.length == 0}}">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-    <view>暂无房源信息</view>
-  </view>
+    <defect topPadding="{{160}}" wx:if="{{rows1.length == 0}}">
+        <view slot="content">暂无房源信息</view>
+      </defect>
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.rentRoomId}}" wx:for="{{rows1}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.img[0]}}"></image>
+        <image src="{{imgUrl+item.img[0]}}"></image>
       </view>
       <view class="box_right">
         <view class="cchh">
@@ -73,17 +71,16 @@
   </view> 
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rows2.length == 0}}">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-    <view>暂无房源信息</view>
-  </view>
+    <defect topPadding="{{160}}" wx:if="{{rows2.length == 0}}">
+        <view slot="content">暂无房源信息</view>
+      </defect>
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.rentRoomId}}" wx:for="{{rows2}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{item.state == 3}}">关闭</view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.img[0]}}"></image>
+        <image src="{{imgUrl+item.img[0]}}"></image>
       </view>
       <view class="box_right">
         <view class="cchh">

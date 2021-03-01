@@ -1,2 +1,68 @@
-<!--pages/index/user/myPerfect/myPerfect.wxml-->
-<text>pages/index/user/myPerfect/myPerfect.wxml</text>
+
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
+    <view slot="content">完善个人资料</view>
+  </cu-custom>
+  <view style="height:{{windowHeight}}px" class="perBox">
+    <view class="nr-box">
+      
+      <view class="cu-form-group margin-top danhang">
+        <view class="title">性别：</view>
+        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+          <view class="picker">
+            {{index?picker[index]:'请选择'}}
+          </view>
+        </picker>
+      </view>
+      <view class="cu-form-group margin-top danhang">
+        <view class="title">民族：</view>
+        <picker bindchange="PickerChangeMz" value="{{index}}" range="{{pickerMz}}">
+          <view class="picker">
+            {{indexMz?pickerMz[indexMz]:'请选择'}}
+          </view>
+        </picker>
+      </view>
+      <view class="cu-form-group margin-top danhang">
+        <view class="title">籍贯</view>
+        <input placeholder="请输入您的籍贯" bindinput="jgClick" value="{{jg}}"></input>
+      </view>
+      <view class="cu-form-group margin-top danhang">
+        <view class="title">职业</view>
+        <input placeholder="请输入您的职业" bindinput="zyClick" value="{{zy}}"></input>
+      </view>
+      <view class="cu-form-group danhang">
+        <view class="title">工作单位</view>
+        <input placeholder="请输入工作单位" bindinput="gzdwClick" value="{{gzdwClick}}"></input>
+      </view>
+      <view class="" style="padding:0;margin-bottom:30rpx">
+        <view style="font-size:30rpx;margin-bottom:20rpx">人像照片</view>
+        <view class="grid col-4 grid-square flex-sub" style="padding:0">
+          <view class="bg-img" wx:for="{{imgList}}" style="width:100%;height:{{imgHeigth}}px;margin:0;padding:0" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+            <image src='{{imgList[index]}}' style="width:100%;height:{{imgHeigth}}px;margin:0;padding:0" mode='aspectFill'></image>
+ 
+          </view>
+          <view class="solids" id="imgCss" style="width:100%;height:{{imgHeigth}}px;margin:0;padding:0" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+            <text class="cuIcon-cameraadd" style="font-size:100rpx"></text>
+          </view>
+	       </view>
+      </view>
+      <view class="tijiao">
+        <button class="cu-btn" bindtap="tjClick">提交</button>
+      </view>
+    </view>
+    <view class="tanchaung" wx:if="{{zishitc}}" bindtap="guanbi" style="top:{{CustomBar}}px;height:{{windowHeight}}px">
+      <view class="zishi" catchtap>
+          <view class="zishiTop">
+            <text class="cuIcon-roundclose"></text>
+            <text>人脸照片</text>
+            <text class="cuIcon-roundclose" catchtap="guanbi"></text>
+          </view>
+          <image src="../../../../images/renlian.jpeg"></image>
+          <view class="tishi">
+            ！（ 请以上图示例拍照或者上传图片 ）
+          </view>
+          <view class="anniu">
+            <button catchtap="quedingsc">确定</button>
+          </view>
+      </view>
+    </view>
+  </view>

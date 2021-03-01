@@ -21,10 +21,8 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rowsList.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-      <view>暂无数据</view>
-    </view>
+    <defect topPadding="{{200}}" wx:if="{{rowsList.length == 0}}"><view slot="content">暂无数据</view></defect>
+
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsActivityId}}" wx:for="{{rowsList}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-huise light xtb" wx:if="{{item.infoStatus == 0}}">已取消</view>
@@ -33,7 +31,7 @@
           <text wx:if="{{item.activeStartTime <= time && item.activeEndTime >= time}}">进行中</text>
           <text wx:if="{{item.activeEndTime < time}}">已结束</text>
         </view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.actPhonts}}"></image>
+        <image src="{{imgUrl+item.actPhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
@@ -54,10 +52,8 @@
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rowsList1.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-      <view>暂无数据</view>
-    </view>
+    <defect topPadding="{{200}}" wx:if="{{rowsList1.length == 0}}"><view slot="content">暂无数据</view></defect>
+
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsActivityId}}" wx:for="{{rowsList1}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-huise light xtb" wx:if="{{item.infoStatus == 0}}">已取消</view>
@@ -66,7 +62,7 @@
           <text wx:if="{{item.activeStartTime <= time && item.activeEndTime >= time}}">进行中</text>
           <text wx:if="{{item.activeEndTime < time}}">已结束</text>
         </view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.actPhonts}}"></image>
+        <image src="{{imgUrl+item.actPhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
@@ -85,10 +81,8 @@
   </view> 
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rowsList2.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-      <view>暂无数据</view>
-    </view>
+    <defect topPadding="{{200}}" wx:if="{{rowsList2.length == 0}}"><view slot="content">暂无数据</view></defect>
+
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsActivityId}}" wx:for="{{rowsList2}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-huise light xtb" wx:if="{{item.status == 0}}">已取消</view>
@@ -97,7 +91,7 @@
           <text wx:if="{{item.activeStartTime <= time && item.activeEndTime >= time}}">进行中</text>
           <text wx:if="{{item.activeEndTime < time}}">已结束</text>
         </view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.actPhonts}}"></image>
+        <image src="{{imgUrl+item.actPhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">

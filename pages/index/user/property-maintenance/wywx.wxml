@@ -1,5 +1,5 @@
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
-<cu-custom bgColor="bg-gray" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">物业维修</view>
   </cu-custom>
 
@@ -42,6 +42,17 @@
 		</picker>
 	</view>
   </view>
+</view>
+<view class="wx_timebox" wx:if="{{fangyuannr.length > 1}}">
+<text class="wx_title"><text class="text-red">*</text>房屋选择</text>
+<picker class="picCss" bindchange="fangyuanxc" value="{{fangyuan1}}" range="{{fangyuan}}">
+              <view class="inputCss">
+                <view class="picker">
+                  {{fangyuan1?fangyuan[fangyuan1]:'请选择'}}
+                  <text style="float:right" class="cuIcon-right"></text>
+                </view>
+              </view>
+            </picker>
 </view>
 	<!-- !!!!! placeholder 在ios表现有偏移 建议使用 第一种样式 -->
 	<view class="wx_timebox">

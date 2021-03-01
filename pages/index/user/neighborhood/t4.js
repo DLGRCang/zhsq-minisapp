@@ -1,13 +1,14 @@
 // pages/index/t4/t4.js
 import http from '../../../../utils/api'
 import verif from '../../../../utils/verification'
+import util from '../../../../utils/util'
 const app = getApp();
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    
+    botHeight:String
   },
   options: {
     addGlobalClass: true,
@@ -19,28 +20,39 @@ Component({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     ColorList: app.globalData.ColorList,
-    isStar: false, // 默认没有收藏
-    isShare: true, // 默认有分享
-    isShare: false, // 默认没有赞
-
+    imgUrl: app.globalData.imgUrl,
     rows:[],
 
     forF4:[],
     // 邻里圈分类功能tab
     TabCur: 0,
+    TabCur1:0,
     scrollLeft:0,
+    scrollLeft1:0,
     bqList:[
       {dictionariesName:'全部',dictionariesId:null}
     ],
     bqId:null,
     tabTrue:false,
-    inputtrue:null,
-    contentpl:'填写评论内容',
-    plzplnrContent:'评论此内容',
-    plInputTrue:null,
-    plInputTrueL:null,
+
     zhezhao:false,
-    plkuang:null
+    plkuang:null,
+    bqList1:[],
+    animation:'',
+    textPadding:'padding:15rpx',
+    textIf:true,
+    InputBottom:0,
+    InputBottomFalse:false,
+    plSize:'',
+    dzIndex:null,
+    zplId:'',
+    zplCur:'',
+    xpluserids:'',
+    xplName:'',
+    xplIds:'',
+    plng:null,
+    contentText:'',
+    indexCon:null
   },
 
 
@@ -48,75 +60,143 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    inputClick(e){
+    plnrshuru(e){
+      this.setData({
+        contentText:e.detail.value
+      })
+    },
+    dianji(e){
      // console.log(e)
-      //console.log(e.detail.value)
-      if(e.detail.cursor == 0){
-        this.setData({
-          contentpl:'填写评论内容'
-        })
-      }else{
-        this.setData({
-          contentpl:e.detail.value
-        })
-      }
-      
-    },
-    inputClick1(e){
-      if(e.detail.cursor == 0){
-        this.setData({
-          plzplnrContent:'评论此内容',
-        })
-      }else{
-        this.setData({
-          plzplnrContent:e.detail.value
-        })
-      }
-    },
-
-    tianxie(e){
       this.setData({
-        inputtrue:e.currentTarget.dataset.index
+        indexCon:e.currentTarget.dataset.i,
+        plSize:'填写评论内容',
+        zplId:e.currentTarget.dataset.id,
+        zplCur:e.currentTarget.dataset.cur,
+        plng:0,
+        InputBottomFalse:true
       })
     },
+
+    InputFocus(e) {
+      //console.log(e)
+      this.setData({
+        InputBottom: e.detail.height
+      })
+      
+    },
+    inputBlur(){
+      this.setData({
+        InputBottomFalse:false,
+        InputBottom: 0
+      })
+    },
+    inputClick(e){
+ 
+      var i = e.currentTarget.dataset.i
+      var rows = this.data.rows
+      rows[i].contentpl = e.detail.value
+      if(e.detail.value == ''){
+        this.setData({
+          textPadding:'padding:15rpx'
+        })
+      }else{
+        this.setData({
+          textPadding:'padding:0 15rpx'
+        })
+      }
+      this.setData({
+        rows:rows
+      })
+    },
+
+
     plzplClick(e){
-      this.setData({
-        plzplnrContent:'评论此内容'
-      })
-      if(this.data.plInputTrue == e.currentTarget.dataset.index && this.data.plInputTrueL ==e.currentTarget.dataset.indexd){
-        this.setData({
-          plInputTrue:null,
-          plInputTrueL:null
-        })
-      }else{
-        this.setData({
-          plInputTrue:e.currentTarget.dataset.index,
-          plInputTrueL:e.currentTarget.dataset.indexd
-        })
-      }
-      
-    },
-    plzplClick1(e){
-        this.setData({
-          plInputTrue:e.currentTarget.dataset.index,
-          plInputTrueL:e.currentTarget.dataset.indexd
-        })
-    },
+   //   console.log(e)
+      var cont = '回复'+e.currentTarget.dataset.items.commentPeopleName
 
-    gbzezhao(){
       this.setData({
-        plInputTrue:null,
-        plInputTrueL:null
+        indexCon:e.currentTarget.dataset.i,
+        plSize:cont,
+        zplId:e.currentTarget.dataset.id,
+        zplCur:e.currentTarget.dataset.cur,
+        xpluserids:e.currentTarget.dataset.items.commentPeopleId,
+        xplName:e.currentTarget.dataset.items.commentPeopleName,
+        xplIds:e.currentTarget.dataset.items.commentId,
+        plng:1,
+        InputBottomFalse:true
       })
+
+      
     },
           // 邻里圈分类功能tab
           
   tabSelect(e) {
-    
+    //console.log(e)
     this.setData({
-      bqId:e.currentTarget.dataset.id,
+      TabCur1:0,
+      bqList1:[],
       TabCur: e.currentTarget.dataset.i,
       scrollLeft: (e.currentTarget.dataset.i-1)*60,
+    })
+    if( e.currentTarget.dataset.i == 0){
+      this.setData({
+        bqId:e.currentTarget.dataset.id,
+        rows:[]
+      })
+      this.llqList()
+    }else{
+      this.setData({
+        rows:[]
+      })
+      this.llqbqArr1(e.currentTarget.dataset.code)
+    }
+
+  },
+  llqbqArr1(code){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    http.llqbqApi1({
+      data:{
+        code:code
+      },
+      success:res=>{
+       // console.log(res)
+        var bqList1 = this.data.bqList1
+        for(var i in res){
+          bqList1.push(res[i])
+        }
+        //console.log(bqList)
+        
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
+        this.setData({
+          bqList1:bqList1,
+          bqId:res[0].dictionariesId,
+          rows:[]
+        })
+        this.llqList()
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
+        console.log(err)
+      }
+    })
+  },
+  tabSelect1(e) {
+    
+    this.setData({
+      
+      bqId:e.currentTarget.dataset.id,
+      TabCur1: e.currentTarget.dataset.i,
+      scrollLeft1: (e.currentTarget.dataset.i-1)*60,
       rows:[]
     })
 
@@ -132,10 +212,6 @@ Component({
     },
 
     lljClick:function(e){
-      this.setData({
-        plInputTrue:null,
-        plInputTrueL:null
-      })
       wx.navigateTo({
         url: '/pages/index/user/neighborhood-details/llq_xq?rows='+JSON.stringify(e.currentTarget.dataset.rows)
       })
@@ -179,61 +255,169 @@ Component({
     },
 
     dzClick(e){
-      //console.log(e.currentTarget.dataset.i)
-      var i = e.currentTarget.dataset.i
+      var that = this
+    
       var rows = this.data.rows
-      if(rows[i].dianzan){
-        rows[i].dianzan = false
-        rows[i].dianzanshu--
-      }else{
-        rows[i].dianzan = true
-        rows[i].dianzanshu++
-      }
-      this.setData({
-        rows:rows
+      var i = e.currentTarget.dataset.i
+      
+      http.goodnumberApi({
+        data:{
+          goodId:e.currentTarget.dataset.id,
+          goodPeopleId:wx.getStorageSync('wxUser').id,
+          goodPeopleName:wx.getStorageSync('wxUser').name,
+          goodTime:util.formatTime(new Date()),
+          goodCommentId:e.currentTarget.dataset.id
+        },
+        success:res=>{
+          if(res.code == 200){
+              if(rows[i].goodState == '1'){
+                rows[i].goodState = '0'
+                rows[i].goodNumber--
+              }else{
+                
+                rows[i].goodState = '1'
+                rows[i].goodNumber++
+                that.setData({
+                  dzIndex: i
+                })
+                setTimeout(function() {
+                  that.setData({
+                    dzIndex: null
+                  })
+                }, 800)
+              }
+            this.setData({
+              rows:rows
+            })
+          }
+        },
+        fail:err=>{
+          console.log(err)
+        }
       })
     },  
+    plnrdzClick(e){
+
+      var rows = this.data.rows
+      
+      http.goodnumberApi({
+        data:{
+          goodId:e.currentTarget.dataset.id,
+          goodPeopleId:wx.getStorageSync('wxUser').id,
+          goodPeopleName:wx.getStorageSync('wxUser').name,
+          goodTime:util.formatTime(new Date()),
+          goodCommentId:e.currentTarget.dataset.ids
+        },
+        success:res=>{
+          console.log(res)
+          if(rows[e.currentTarget.dataset.i].pinglunRows[e.currentTarget.dataset.in].goodState == '1'){
+            rows[e.currentTarget.dataset.i].pinglunRows[e.currentTarget.dataset.in].goodState = 0
+          }else{
+            rows[e.currentTarget.dataset.i].pinglunRows[e.currentTarget.dataset.in].goodState = 1
+          }
+          
+          this.setData({
+            rows:rows
+          })
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+    },
     scClick(e){
       var i = e.currentTarget.dataset.i
       var rows = this.data.rows
-      if(rows[i].shoucang){
-        rows[i].shoucang = false
-      }else{
-        rows[i].shoucang = true
-      }
-      this.setData({
-        rows:rows
+      http.collectionrecordApi({
+        data:{
+          collectionId:e.currentTarget.dataset.id,
+          collectionPeopleId:wx.getStorageSync('wxUser').id,
+          collectionResources:1
+        },
+        success:res=>{
+          //console.log(res)
+          if(res.code == 200){
+            if(rows[i].collectionState == null||rows[i].collectionState == 0){
+              rows[i].collectionState = 1
+            }else{
+              rows[i].collectionState = 0
+            }
+            this.setData({
+              rows:rows
+            })
+          }
+        },
+        fail:err=>{
+          console.log(err)
+        }
       })
+      
+      
     },
     plClick(e){
       var i = e.currentTarget.dataset.i
       var rows = this.data.rows
-      if(rows[i].pinglun){
-        rows[i].pinglun = false
-      }else{
-        rows[i].pinglun = true
-      }
-      this.setData({
-        rows:rows
+      
+      http.getlistCommentByMessageIdApi({
+        data:{
+          goodpeopleId:wx.getStorageSync('wxUser').id,
+          commId:e.currentTarget.dataset.id,
+          curPage:e.currentTarget.dataset.cur
+        },
+        success:res=>{
+          console.log(res)
+          rows[i].pinglunRows = res.rows
+          if(res.rows.length != 0){
+            if(rows[i].pinglun){
+              rows[i].pinglun = false
+            }else{
+              rows[i].pinglun = true
+            }
+          }else{
+            verif.tips('暂无评论，快来抢沙发吧!')
+          }
+          
+          this.setData({
+            rows:rows
+          })
+        },
+        fail:err=>{
+          console.log(err)
+        },
+        complete(lete) {
+  
+          console.log(lete)
+        }
       })
-    },
 
+      
+    },
+    sxt4Click(){
+      console.log('sssss')
+    },
     llqList(){
+
       wx.showLoading({
         title: '拼命加载中',
       })
       http.xinwenApi({
-      
+        data:{
+          userId:wx.getStorageSync('wxUser').id,
+          villageId:wx.getStorageSync('xzvillage')[0].villageId
+        },
         success:res=>{
           //console.log(res)
           var rows = res.rows
           var message1 = ''
           
           for(var i in rows){
-            rows[i].dianzan = false
+  
             rows[i].pinglun = false
-            rows[i].dianzanshu = "99"
-            rows[i].shoucang = false
+            rows[i].pinglunRows = []
+            rows[i].pinglunCur = 1
+            rows[i].contentpl = ''
+            rows[i].textIf = true
+ 
             rows[i].img = rows[i].file.split(',')
             if(rows[i].message.length > 100){
               message1 = rows[i].message.slice(0,100)
@@ -247,7 +431,7 @@ Component({
             }
             
           }
-          console.log(rows)
+         // console.log(rows)
           if(this.data.bqId == null){
             this.setData({
               rows:rows
@@ -286,7 +470,7 @@ Component({
       })
       http.llqbqApi({
         success:res=>{
-         
+          //console.log(res)
           var bqList = this.data.bqList
           for(var i in res){
             bqList.push(res[i])
@@ -313,12 +497,114 @@ Component({
     },
     scry(e){
       console.log(e)
-    }
+    },
+    plsClick(e){
+
+      var i = this.data.indexCon
+      if(this.data.contentText == ''){
+        verif.tips('请填写回复内容')
+      }else{
+        http.savecommentApi({
+          data:{
+            commId:this.data.zplId,
+            contentReview:this.data.contentText,
+            commentTime:util.formatTime(new Date()),
+            commentPeopleId:wx.getStorageSync('wxUser').id,
+            commentPeopleName:wx.getStorageSync('wxUser').name,
+            beCommentedId:this.data.xplIds,
+            beCommentPeopleId:this.data.xpluserids,
+            beCommentPeopleName:this.data.xplName
+          },
+          success:res=>{
+            //console.log(res)
+            verif.tips('评论成功')
+            var rows = this.data.rows
+            http.getlistCommentByMessageIdApi({
+              data:{
+                commId:this.data.zplId,
+                curPage:this.data.zplCur
+              },
+              success:res=>{
+                //console.log(res)
+                rows[i].pinglunRows = res.rows
+                rows[i].commentNumber ++
+                this.setData({
+                  contentText:'',
+                  rows:rows
+                })
+              },
+              fail:err=>{
+                console.log(err)
+              },
+              complete(lete) {
+        
+                console.log(lete)
+              }
+            })
+          },
+          fail:err=>{
+            console.log(err)
+          }
+        })
+      }
+    },
+    zhuPlClick(e){
+      //console.log(wx.getStorageSync('wxUser'))
+      var i = this.data.indexCon
+      if(this.data.contentText == ''){
+        verif.tips('请填写评论内容')
+      }else{
+        http.savecommentApi({
+          data:{
+            commId:this.data.zplId,
+            contentReview:this.data.contentText,
+            commentTime:util.formatTime(new Date()),
+            commentPeopleId:wx.getStorageSync('wxUser').id,
+            commentPeopleName:wx.getStorageSync('wxUser').name,
+            beCommentedId:0,
+            beCommentPeopleId:0,
+            beCommentPeopleName:0
+          },
+          success:res=>{
+            verif.tips('评论成功')
+            var rows = this.data.rows
+            http.getlistCommentByMessageIdApi({
+              data:{
+                commId:this.data.zplId,
+                curPage:this.data.zplCur
+              },
+              success:res=>{
+                //console.log(res)
+                rows[i].pinglunRows = res.rows
+                rows[i].contentpl = ""
+                rows[i].commentNumber ++
+                this.setData({
+                  contentText:'',
+                  rows:rows
+                })
+              },
+              fail:err=>{
+                console.log(err)
+              },
+              complete(lete) {
+        
+                console.log(lete)
+              }
+            })
+          },
+          fail:err=>{
+            console.log(err)
+          }
+        })
+      }
+    },
   },
   getAddInfo(){
     this.llqList()
       this.llqbqArr()
   },
+
+  
   /*组件生命周期*/ 
   lifetimes: {
     //在组件实例刚刚被创建时执行

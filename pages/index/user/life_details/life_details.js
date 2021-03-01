@@ -1,4 +1,6 @@
-// pages/index/life_details/life_details.js
+import http from '../../../../utils/api'
+
+// pages/index/life_details/life_details.js 
 const app = getApp()
 Page({
 
@@ -10,14 +12,22 @@ Page({
       num: 0,  
       // 使用data数据对象设置样式名  
       minusStatus: 'disabled'  ,
-
+      windowHeight:app.globalData.windowHeight,
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
+    imgUrl: app.globalData.imgUrl,
+    tabBox:[
+      {name:'全部商品'},
+      {name:'评价'},
+      {name:'商家'}
+    ],
     TabCur: 0,
     MainCur: 0,
     VerticalNavTop: 0,
-    list: [],
+    list: [
+    
+    ],
     load: true,
     isCollect: true, // 默认下箭头
     // 三个导航
@@ -25,7 +35,111 @@ Page({
       curHdIndex: 0,
       curBdIndex: 0
     }, 
+    boxHeight:0,
+    tabRight:0,
+    shopWidth:0,
+    tabLeftIndex:null,
+    tabLeft2Index:null,
+    box3Index:null,
+    tabLeftTop:0,
+    forBox:[],
+    forBox3:[],
+    page:1,
+    weChatList:[],
+    modalName:null,
+    ggBoxList:[],
+    ggBoxListIndex:null,
+    ggBoxListprice:[],
   },
+
+  box3Click(e){
+    console.log(e)
+    this.setData({
+      box3Index:e.currentTarget.dataset.i
+    })
+    http.listPageCommodityDetailsWeChatApi({
+      data:{
+        type:e.currentTarget.dataset.id,
+        shopListId:this.data.forBox.shopListId,
+        page:this.data.page
+      },
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          weChatList:res.rows
+        })
+        var that = this
+        var query = wx.createSelectorQuery()
+        query.select('#shopimg').boundingClientRect(function (res) { 
+          //console.log(res)
+          that.setData({
+            shopWidth:res.height+20
+          })
+          }).exec();
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
+
+  tabLeftClick(e){
+    if(e.currentTarget.dataset.i == this.data.tabLeftIndex){
+      this.setData({
+        tabLeftIndex:null,
+        tabLeft2Index:null,
+        box3Index:null,
+        forBox3:[],
+        tabLeftTop: (e.currentTarget.dataset.i - 1) * 60
+      })
+      var type = 0
+    this.shopList(type)
+    }else{
+      this.setData({
+        tabLeft2Index:null,
+        box3Index:null,
+        forBox3:[],
+        tabLeftIndex:e.currentTarget.dataset.i,
+        tabLeftTop: (e.currentTarget.dataset.i - 1) * 60
+      })
+      this.getTypefindParentIdArr(e.currentTarget.dataset.id,1,this.data.forBox.shopListId)
+    }
+    
+  },
+  tabLeft2Click(e){
+    //console.log(e)
+    this.setData({
+      tabLeft2Index:e.currentTarget.dataset.i,
+      box3Index:null
+      //box3Index:0
+    })
+    http.listPageCommodityDetailsWeChatApi({
+      data:{
+        type:e.currentTarget.dataset.id,
+        shopListId:this.data.forBox.shopListId,
+        page:this.data.page
+      },
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          weChatList:res.rows
+        })
+        var that = this
+        var query = wx.createSelectorQuery()
+        query.select('#shopimg').boundingClientRect(function (res) { 
+          //console.log(res)
+          that.setData({
+            shopWidth:res.height+20
+          })
+          }).exec();
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+    this.getTypefindParentId3Arr(e.currentTarget.dataset.id,2,this.data.forBox.shopListId)
+  },
+  
     // 搜索页面跳转
     Search:function(){
       wx.navigateTo({
@@ -89,23 +203,206 @@ tab: function (e) {
   //console.log(e);
 },  
 
+ggClick(e){
+  this.setData({
+    ggBoxListIndex:e.currentTarget.dataset.i,
+    ggBoxListprice:this.data.ggBoxList[e.currentTarget.dataset.i]
+  })
+},
+
+//加入购物车按钮
+shopClick(e){
+
+  http.findDetailsByShoppingIdApi({
+    data:{
+      shoppingId:e.currentTarget.dataset.id
+    },
+    success:res=>{
+      
+      if(res.length != 0){
+        this.setData({
+          ggBoxList:res,
+          ggBoxListIndex:0,
+          ggBoxListprice:res[0],
+          modalName: e.currentTarget.dataset.target
+        })
+      }
+      console.log(res)
+    }
+  })
+},
+shopClickFalse(){
+  this.setData({
+    modalName: null
+  })
+},
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //console.log(JSON.parse(options.item))
+    var item = JSON.parse(options.item)
+    console.log(item)
+    // item.lable = []
+    // for(var i in item.type.split(',')){
+    //   item.lable.push({id:item.type.split(',')[i],name:item.commodityTypeName.split(',')[i],list:[]})
+    // }
+    //console.log(item)
+    this.setData({
+       tabLeftIndex:0,
+      // tabLeft2Index:0,
+      // box3Index:0,
+      forBox:item
+    })
+  
+
+    this.twoForArr()
+    //this.getTypefindParentIdArr(item.lable[0].id,1,item.shopListId,arrtrue)
+   
+   
     wx.showLoading({
       title: '加载中...',
       mask: true
     });
-    let list = [{}];
-    for (let i = 0; i < 6; i++) {
-      list[i] = {};
-      list[i].name = String.fromCharCode(65 + i);
-      list[i].id = i;
-    }
+    // let list = [{}];
+    // for (let i = 0; i < 6; i++) {
+    //   list[i] = {};
+    //   list[i].name = '';
+    //   list[i].id = i;
+    // }
     this.setData({
-      list: list,
-      listCur: list[0]
+      //list: list,
+      listCur: this.data.list[0]
+    })
+ 
+      this.twoHeight()
+      var type = 0
+    this.shopList(type)
+    
+  },
+
+  shopList(type){
+    console.log(type)
+    http.listPageCommodityDetailsWeChatApi({
+      data:{
+        type:type,
+        shopListId:this.data.forBox.shopListId,
+        page:this.data.page
+      },
+      success:res=>{
+        console.log(res)
+        this.setData({
+          weChatList:res.rows
+        })
+        var that = this
+        var query = wx.createSelectorQuery()
+        query.select('#shopimg').boundingClientRect(function (res) { 
+          console.log(res)
+          that.setData({
+            shopWidth:res.height+20
+          })
+          }).exec();
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
+
+  twoHeight(){
+    var that = this
+    var query = wx.createSelectorQuery()
+    var width = 0
+    query.select('#ditails_box').boundingClientRect(function (res) { 
+      width = res.width
+      that.setData({
+        boxHeight:that.data.windowHeight - res.height - 60
+      })
+      
+   }).exec();
+   
+   setTimeout(()=>{
+    query.select('#tabLeft').boundingClientRect(function (resm) { 
+        that.setData({
+          tabRight:width - resm.width
+        })
+    }).exec();//shopimg
+    
+   },400)
+   
+  },
+
+    //获取一级列表
+  twoForArr(){
+  
+    http.getTypefindParentIdApi({
+      data:{
+        commodityTypeId:0,
+        level:0,
+        shopListId:this.data.forBox.shopListId
+      },
+      success:res=>{
+        var forBox = this.data.forBox
+        forBox.lable = res
+        this.setData({
+          forBox:forBox
+        })
+        
+          this.getTypefindParentIdArr(forBox.lable[this.data.tabLeftIndex].id,1,forBox.shopListId)
+        
+        
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
+
+    //获取二级列表
+  getTypefindParentIdArr(commid,level,listid){
+    http.getTypefindParentIdApi({
+      data:{
+        commodityTypeId:commid,
+        level:level,
+        shopListId:listid
+      },
+      success:res=>{
+        
+        var forBox = this.data.forBox
+        forBox.lable[this.data.tabLeftIndex].list = res
+        //console.log(forBox)
+        this.setData({
+          forBox:forBox
+        })
+        if(this.data.tabLeft2Index != null){
+          this.getTypefindParentId3Arr(forBox.lable[this.data.tabLeftIndex].list[this.data.tabLeft2Index].id,2,forBox.shopListId)
+        }
+          
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
+
+    //获取三级列表
+  getTypefindParentId3Arr(commid,level,listid){
+    http.getTypefindParentIdApi({
+      data:{
+        commodityTypeId:commid,
+        level:level,
+        shopListId:listid
+      },
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          forBox3:res
+        })
+      },
+      fail:err=>{
+        console.log(err)
+      }
     })
   },
 
@@ -123,6 +420,7 @@ tab: function (e) {
     wx.hideLoading()
   },
   tabSelect(e) {
+    console.log(e)
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       MainCur: e.currentTarget.dataset.id,

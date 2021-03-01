@@ -1,7 +1,7 @@
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <view class="lease">
 
-  <cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+  <cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">房屋出租</view>
   </cu-custom>
   <view class="lease-box">
@@ -20,7 +20,7 @@
           <view class="biaoti"><text style="color:red">*</text>标题</view>
           <view class="inputCss"><input type="text" class="btInput" bindinput="titleClick" value="{{title}}" placeholder="请输入房屋标题" value="{{title}}"/></view>
         </view>
-        <view class="danhang">
+        <view class="danhang" wx:if="{{fangyuan.length > 1}}">
           <view class="biaoti"> <text style="color:red">*</text> 房屋地址</view>
           <view class="inputCss">
             <picker class="picCss" bindchange="fangyuanxc" value="{{fangyuan1}}" range="{{fangyuan}}">

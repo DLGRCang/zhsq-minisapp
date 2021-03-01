@@ -10,7 +10,8 @@
 .box_content .right-item{display: none}
 .box_content .right-item.active{display: block}
 
-.bg{width: 100%;padding-top:35rpx;background: #0090FA;}
+.bg{width: 100%;padding-top:35rpx;
+  background: linear-gradient(90deg, #0586F8, #1BB1FD);}
 .box_content{font-size: 28rpx;}
 .view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
 .view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}

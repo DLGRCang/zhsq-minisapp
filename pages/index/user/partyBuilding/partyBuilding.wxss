@@ -7,10 +7,10 @@
 }
 .box{
   width: 100%;
-
-  position: relative;
+  padding: 0 30rpx;
+  
   overflow-x: hidden;
-box-shadow: 0px 3px 10px 0px rgba(239, 240, 243, 0.99);
+
 /* padding: 56rpx 30rpx 0; */
 box-sizing: border-box;
 }
@@ -25,7 +25,7 @@ box-sizing: border-box;
 }
 .beijing{
   width: 100%;
-  height: 206rpx;
+  height: 406rpx;
   left: 0;
   top: 0;
   position: absolute;

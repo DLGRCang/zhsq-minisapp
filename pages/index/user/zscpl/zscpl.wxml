@@ -1,6 +1,6 @@
 <!--pages/index/zscpl/zscpl.wxml-->
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
-<cu-custom bgColor="bg-gray-bl" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">点赞/收藏/评论</view>
 </cu-custom>
 
@@ -15,9 +15,12 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="tab_box" bindtap="lljClick">
+    <defect topPadding="{{350}}" wx:if="{{rows.length == 0}}">
+      <view slot="content">暂无数据</view>
+    </defect>
+    <view class="tab_box" wx:for="{{rows}}" wx:key="index" style="margin-bottom:30rpx" bindtap="lljClick" data-rows="{{item}}">
           <!-- 邻里圈列表 -->
-  <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
+  <view class="cu-item shadow">
     <view class="cu-list menu-avatar">
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
@@ -32,9 +35,9 @@
     <view class="text-content" >
       {{item.message}}
     </view>
-   <view class="padding">
+   <view class="padding" wx:if="{{item.file != ''}}">
     <view class="grid col-3 grid-square">
-      <view class="bg-img" wx:for="{{3}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+      <view class="bg-img" wx:for="{{item.img}}" wx:key="index" wx:for-item="items" style="background-image:url({{imgUrl+items}});"></view>
     </view>
   </view>
    </view>
@@ -44,19 +47,12 @@
   </view>
   <!-- 我的收藏 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="tab_box" >
-                    <!-- 新闻列表 -->
-        <view class="seven_box"  bindtap="newsxq" wx:for="{{2}}">
-          <view class="seven_left">
-              <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
-              <text>2020-10-28</text>  
-          </view>
-            <view class="seven_right">
-              <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/componentBg.png"></image>
-            </view>
-        </view>
-                  <!-- 邻里圈列表 -->
-  <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
+    <defect topPadding="{{350}}" wx:if="{{rows1.length == 0}}">
+      <view slot="content">暂无数据</view>
+    </defect>
+    <view class="tab_box" wx:for="{{rows1}}" wx:key="index" style="margin-bottom:30rpx" bindtap="lljClick" data-rows="{{item}}">
+          <!-- 邻里圈列表 -->
+  <view class="cu-item shadow">
     <view class="cu-list menu-avatar">
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
@@ -68,22 +64,27 @@
         </view>
       </view>
     </view>
-    <view class="text-content" bindtap="lljClick">
+    <view class="text-content" >
       {{item.message}}
     </view>
-   <view class=" padding">
+   <view class="padding" wx:if="{{item.file != ''}}">
     <view class="grid col-3 grid-square">
-      <view class="bg-img" wx:for="{{3}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+      <view class="bg-img" wx:for="{{item.img}}" wx:key="index" wx:for-item="items" style="background-image:url({{imgUrl+items}});"></view>
     </view>
   </view>
    </view>
-    </view>
+
+
+  </view>
   </view>
 <!-- 我的评论 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
-    <view class="tab_box" bindtap="lljClick">
+    <defect topPadding="{{350}}" wx:if="{{rows2.length == 0}}">
+      <view slot="content">暂无数据</view>
+    </defect>
+    <view class="tab_box" wx:for="{{rows2}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}">
                    <!-- 邻里圈列表 -->
-  <view class="cu-item shadow" wx:for="{{forF4}}" :key="index">
+  <view class="cu-item shadow">
     <view class="cu-list menu-avatar">
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
@@ -98,9 +99,9 @@
     <view class="text-content">
       {{item.message}}
     </view>
-   <view class="padding">
+   <view class="padding" wx:if="{{item.file != ''}}">
     <view class="grid col-3 grid-square">
-      <view class="bg-img" wx:for="{{3}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+      <view class="bg-img" wx:for="{{item.img}}" wx:key="index" wx:for-item="items" style="background-image:url({{imgUrl+items}});"></view>
     </view>
   </view>
    </view>

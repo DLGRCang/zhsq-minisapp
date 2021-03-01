@@ -1,21 +1,21 @@
 
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <view class="t1" >
-  <view class="gg_box" bindtap="tzgg">
+  <view class="gg_box" bindtap="tzgg" wx:if="{{tzgg != ''}}">
     <view class="box-1"><text>通知</text><text>公告</text></view>
     <view class="box-2">
       <!-- <text class="tongzhi-text">紧急通知！呼和浩特市应对新型冠状病毒...</text> -->
       <view class="box-2-for-l"></view>
         <view class="box-2-for" wx:for="{{jianxianL}}" wx:key="index" style="opacity: {{item.ids}};left:{{3*index}}rpx"></view>
-              <text class="header-marquee-item1">呼和浩特市应对新型冠状病毒</text>
-              <text class="header-marquee-item2">呼和浩特市应对新型冠状病毒</text>
+              <text class="header-marquee-item1">{{tzgg}}</text>
+              <text class="header-marquee-item2">{{tzgg}}</text>
         <view class="box-2-for" wx:for="{{jianxianL}}" wx:key="index" style="opacity: {{item.ids}};right:{{3*index}}rpx"></view>
     </view>
     <text class="cuIcon-right lg text-gray"></text>
   </view>
 
 
-<!-- <view class="h-c-b">
+<view class="h-c-b" style="margin-top:30rpx">
   <scroll-view scroll-x="true" style="width:100%" bindscroll="getleft">
   <view class="h-c-b1">
     <view class="c-box-nei" wx:for="{{dataItem1}}" wx:key="index" bindtap="contentClick" data-url="{{item.url}}" data-id="{{item.id}}">
@@ -41,7 +41,7 @@
     <view style="width:100%;height:100%;background: #188BFF;border-radius: 12rpx;" wx:if="{{dataItem.length <= 8}}"></view>
   
   </view>
-</view> -->
+</view>
 <view class="head_c">
   <swiper class="swiper_container" style="width:100%;height:100%" autoplay="true" circular="true" duration="1500" interval="3000" indicator-dots="true" indicator-color="rgba(0,0,0,0.2)" indicator-active-color="#0586F8">
     <block wx:for="{{msgList}}" wx:key="index" style="width:100%;height:100%">
@@ -53,47 +53,52 @@
    <!-- <image src="../../../images/t1/index_banner.png" ></image> -->
 </view>
 
-<view class="daohang">
+<!-- <view class="daohang">
   <view class="dh-text" wx:for="{{topItem}}" wx:key="index" bindtap="contentClick" data-url="{{item.url}}" data-id="{{item.id}}">
     <image src="{{item.image}}"></image>
     <view>{{item.text}}</view>
   </view>
-</view>
+</view> -->
 
 
 
-<view class="tjshangjia">
+<view class="tjshangjia" wx:if="{{shopRows.length != 0}}">
   <view class="sjtop">
-    <text bindtap="renlian">推荐商家</text>
-    <view>
-      <p style="color:#999;font-size:22rpx">更多</p>
+    <text bindtap="renlian" class="sqxw_title">推荐商家</text>
+    <view bindtap="tjsjClick">
+      <text style="color:#999;font-size:22rpx">更多</text>
       <text class="cuIcon-shop" style="color:#999;font-size:22rpx"></text>
     </view>
     
   </view>
   <view class="sjneirong">
-    <view class="bot-neirong" bindtap="life_details">
+    <view class="bot-neirong" bindtap="life_details" wx:for="{{shopRows}}" wx:key="index">
+      <view class="nr-top">
         <view class="nr-left">
-          <image class="nr-left-nei" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/timg.jpg"></image>
+          <image class="nr-left-nei" src="{{imgUrl+item.photo}}"></image>
         </view>
         <view class="nr-right">
-          <view class="r-n1">立刻（左右商店）</view>
+          <view class="r-n1">{{item.shopName}}</view>
           <view class="r-n2">
             <view class="n2-1">
-              <text class="cuIcon-favorfill" style="font-size:24rpx;color:#F55E5A;margin-right:10rpx">4.9</text>
-              <text>月销300</text>
+              <text class="cuIcon-favorfill" style="font-size:24rpx;color:#F55E5A;margin-right:10rpx">{{item.starLevel}}</text>
+              <text>月销 {{item.salesVolume}}</text>
             </view>
-            <view class="n2-1">距离您1.5km</view>
+            <view class="n2-1"></view>
           </view>
+          
+        </view>
+      </view>
+        <view class="nr-bot">
           <view class="r-n3">
-            <view class="n3-nr" wx:for="{{swiperList}}" wx:key="index">
+            <view class="n3-nr" wx:for="{{item.commodityDetailsList}}" wx:for-item="items" wx:key="index">
               <view>
-                <image src="{{item.url}}"></image>
+                <image src="{{imgUrl+items.photo}}"></image>
               </view>
-              <view>青岛 听装醇厚ascoaisn </view>
+              <view>{{item.shoppingName}}</view>
               <view>
                 <text style="font-size:22rpx">￥</text>
-                <text style="font-size:26rpx">5.5</text>
+                <text style="font-size:26rpx">{{items.price}}</text>
               </view>
             </view>
           </view>
@@ -112,7 +117,7 @@
           <text wx:if="{{rowsSQHD.activeStartTime <= time && rowsSQHD.activeEndTime >= time}}">进行中</text>
           <text wx:if="{{rowsSQHD.activeEndTime < time}}">已结束</text>
         </view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{rowsSQHD.actPhonts}}"></image>
+        <image src="http://yiqi.sucstep.com:9000/fileService/downloadFTP/public/{{rowsSQHD.actPhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
@@ -193,21 +198,12 @@
             <text>{{item.publicTime}}</text>  
         </view>
           <view class="seven_right" style="{{item.head == ''?'width:0':'width:25%'}}">
-            <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.head}}"></image>
+            <image src="http://yiqi.sucstep.com:9000/fileService/downloadFTP/public/{{item.head}}"></image>
           </view>
         </view>
       </view>  
 </view> 
 
- <view class="seven_box"  bindtap="newsxq">
-   <view class="seven_left">
-      <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！</text>   
-      <text class="xwrq">2020-10-28</text>  
-   </view>
-     <view class="seven_right">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/componentBg.png"></image>
-     </view>
-  </view>
   
 </view> 
 
@@ -219,14 +215,7 @@
     <image src="{{item.image}}"></image>
     <view>{{item.text}}</view>
 </view>
-<!-- 第七部分 社区新闻二-->
-<view class="sqxw_box" style="margin-top:0rpx">
-  <view class="seven_boxtwo"  bindtap="newsxq">
-    <text>31省区市新增42例确诊,其中境外输入病例20例 战疫情！31省区市新增42例确诊,其中境外输入病例20例 战疫情</text>   
-    <text class="xwrq">2020-10-28</text>   
 
-  </view>
-</view>
 
 <view class="gdneirong" wx:if="{{!gddh}}" bindtap="gddhClick">
   <text></text>
@@ -234,23 +223,5 @@
   <text class="cuIcon-right"></text>
 </view>
 </view>
-<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
-  <view class="cu-dialog" style="border-radius:15rpx 15rpx 0 0">
-    <view class="padding-xl">
-      <view class="wxsq-tc">
-        <view>授权</view>
-        <view>
-          <image></image>
-        </view>
-        <view>智慧社区申请获得以下权限：</view>
-        <view>获得您的公开信息（昵称，头像等）</view>
-      </view>
-      <view class="sq-btn">
-        <button class="cu-btn" bindtap="wxsqjjClick">拒绝</button>
-        <!-- <button class="cu-btn" bindtap="tiaozhuana">授权</button> -->
-        <button class="cu-btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">授权</button>
-      </view>
-    </view>
-  </view>
-</view>
+
 </view>

@@ -1,23 +1,128 @@
 <!--pages/index/life_details/life_details.wxml-->
-<cu-custom bgColor="bg-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">详情</view>
 </cu-custom>
-
-<view style="height:100%;">
-  <view class="box-body">
-    <view class="back-box1"></view>
-    <view class="back-box2"></view>
-    <view class="back-box3"></view>
-  <!-- 内容开始 -->
-    <view class="ditails_box">
-        <!-- 搜索 -->
-      <view class="sousuo">
+<view style="width:100%;height:{{windowHeight}}px" class="boxXq">
+  <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+  <view class="ditails_box" id="ditails_box">
+    <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
       <input type="text" placeholder="搜索店内商品"/>
       <view bindtap="Search">搜索</view>
+    </view>
+    <view class="box_one">
+     <view class="fl">
+            <view class="one_title">{{forBox.shopName}}</view>
+            <view class="one_img"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/sh_star.png"></image><text>{{forBox.starLevel}}分</text></view>
+            <view class="one_img"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/sh_ysl.png"></image><text>月售{{forBox.salesVolume}}</text></view>
+            <view class="one_tabimg">
+              <view class="cu-tag bg-blue light">满30减5</view>
+              <view class="cu-tag bg-blue light">满30减5</view>
+              <view class="cu-tag bg-blue light">满30减5</view>
+            </view>
+          </view>
+          <view class="fr">
+            <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3236757554,2055665845&fm=26&gp=0.jpg"></image>
+          </view>
+    </view>
+    
+  </view>
+  <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" style="padding:0 30rpx 20rpx;box-shadow: 0px 3px 10px 0px rgba(239, 240, 243, 0.99);">
+      <view class="cu-item {{index==TabCur?'cur tabcurBck':''}}" style="{{index==TabCur?'color:#188BFF':'color:#A9B3BD'}}" wx:for="{{tabBox}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+        {{item.name}}
+      </view>
+    </scroll-view>
+    <view style="width:100%;height:{{boxHeight}}px;display:flex">
+      <view class="tabLeft" id="tabLeft">
+        <scroll-view scroll-y style="height:100%" scroll-y scroll-with-animation scroll-top="{{tabLeftTop}}">
+          <view class="tab2left" wx:for="{{forBox.lable}}" wx:key="index" style="{{tabLeftIndex == index ? 'background: #f1f1f1;':''}}">
+            <view class="tab2leftFirst" style="{{tabLeftIndex == index ? 'font-weight: 900;':''}}" bindtap="tabLeftClick" data-i="{{index}}" data-id="{{item.id}}">
+              <text>{{item.name}}</text>
+              <text class="cuIcon-right" wx:if="{{tabLeftIndex != index}}"></text>
+              <text class="cuIcon-unfold" wx:if="{{tabLeftIndex == index}}"></text>
+            </view>
+            <view class="tab2leftBot" wx:if="{{tabLeftIndex == index}}">
+              <view class="tab2botFor" wx:for="{{item.list}}" wx:for-item="items" wx:for-index="index2" wx:key="index2">
+                <view class="ForTwo1" style="{{tabLeft2Index == index2 ? 'font-weight: 900;border-right:6rpx solid #0586F8;background: rgba(102, 183, 249, 0.8);color:#fff':''}}" bindtap="tabLeft2Click" data-i="{{index2}}" data-id="{{items.id}}">
+                  <text>{{items.name}}</text>
+                  <!-- <text class="cuIcon-right" wx:if="{{tabLeft2Index != index2}}"></text>
+                  <text class="cuIcon-unfold" wx:if="{{tabLeft2Index == index2}}"></text> -->
+                </view>
+                <!-- <view class="ForTwo2" wx:if="{{items.list != null}}">
+                  <view class="fortwo-nei" wx:for="{{items.list}}" wx:for-item="itemx" wx:for-index="index3" wx:key="index3">
+                    <view>
+                      {{itemx.name}}
+                    </view>
+                    
+                  </view>
+                </view> -->
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+        
+      </view>
+      <view class="tabRight" style="width:{{tabRight}}px">
+          <view class="tabRightTop" wx:if="{{forBox3.length != 0}}" style="{{forBox3.length == 0 ? '':'height: 9%;'}}">
+            <scroll-view scroll-x style="width:100%;height:100%;" id="scrollId">
+              <view wx:for="{{forBox3}}" wx:key="index" class="rightTopNEI" style="{{index == box3Index?'background: linear-gradient(60deg, #66B7F9, #3A91F7);':''}}" bindtap="box3Click" data-i="{{index}}" data-id="{{item.id}}"><view>{{item.name}}</view></view>
+            </scroll-view>
+            <!-- <view class="scrollRight"><text class="cuIcon-unfold"></text></view> -->
+          </view>
+          <view class="tabRightBot" style="{{forBox3.length == 0 ? 'height: 100%;':'height: 91%;'}}">
+            <view class="shopFor" wx:for="{{weChatList}}" wx:for-item="itemIn" wx:key="index">
+              <view class="shopForLeft" id="shopimg">
+                <image src="{{imgUrl+itemIn.picture}}"></image>
+              </view>
+              <view class="shopForRight" style="width:{{tabRight-shopWidth}}px">
+                <view class="shopForRight1">{{itemIn.name}}</view>
+                <view class="shopForRight2">月销 {{itemIn.monthNumber}}</view>
+                <view class="shopForRight3" wx:if="{{itemIn.discount != ''}}"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dz.png"></image>{{itemIn.discount}}折</view>
+                <view class="shopForRight4">
+                  <view class="shopForRight4First">
+                    <text style="font-size:20rpx;color: #F55E5A;">￥</text>
+                    <text style="font-size:30rpx;color: #F55E5A;font-weight: bold;"><text wx:if="{{itemIn.discount != ''}}">{{itemIn.price*itemIn.discount}}</text><text wx:if="{{itemIn.discount == ''}}">{{itemIn.price}}</text></text>
+                    <text style="text-decoration:line-through;font-size:18rpx;color:#999" wx:if="{{itemIn.discount != ''}}">￥{{itemIn.price}}</text>
+                  </view>
+                  <view class="shopForRight4Last"><text class="cuIcon-roundaddfill" style="color:#188BFF;font-size:40rpx" bindtap="shopClick" data-target="bottomModal" data-id="{{itemIn.shoppingId}}"></text></view>
+                </view>
+              </view>
+            </view>
+          </view>
+      </view>
+    </view> 
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" bindtap="shopClickFalse">
+  <view class="cu-dialog" catchtap>
+    <view class="imgDialog">
+      <view class="dImg">
+        <image src="{{imgUrl+ggBoxListprice.photo}}"></image>
+      </view>
+      <view class="price">
+        <view><text>价格：</text><text>￥</text><text>{{ggBoxListprice.price}}</text></view>
+        <view><text>库存：</text><text>{{ggBoxListprice.stockNumber}}</text></view>
+      </view>
+    </view>
+    <view class="guige">
+      <view class="guigeFirest">规格：</view>
+      <view>
+        <view wx:for="{{ggBoxList}}" style="{{index == ggBoxListIndex ? 'background: linear-gradient(60deg, #66B7F9, #3A91F7);color:#fff;font-weight:bold':''}}" wx:key="index" class="xuanzeClick" bindtap="ggClick" data-i="{{index}}">{{item.targetListName}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <view style="height:100%;">
+  <view class="box-body">
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+
+    <view class="ditails_box">
+   
+      <view class="sousuo">
+      
       </view>
  
-       <!-- 第一块 -->
+
        <view class="box_one">
           <view class="fl">
             <view class="one_title">利客(左右城店)</view>
@@ -35,7 +140,7 @@
        </view>
 
     </view>
-       <!-- 第二块导航 -->
+
        <view class="view_tab">
 <view class="tab_bar" > 
   <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">全部商品</view> 
@@ -44,33 +149,24 @@
 </view> 
  
 <view class="box_content"> 
-    <!-- 第一栏目 1-->
+ 
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <view class="tab_box">
       <view class="VerticalBox">
   <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
     <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
-      品水果-{{item.name}}
+{{item.name}}
     
     </view>
   </scroll-view>
   <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
     <view wx:for="{{list}}" wx:key id="main-{{index}}">
       <view class='cu-bar solid-bottom bg-white'>
-        <view class="padding">销量-{{item.name}}</view>
-        <view bindtap="jiage" bindtap="toCollect">价格 
-            <!-- 箭头下拉  上拉 -->
-      <block wx:if="{{isCollect == false}}">
-        <text class='cuIcon-unfold lg text-gray'></text>
-      </block>
-      <block wx:elif="{{isCollect == true}}" >
-        <text class='cuIcon-fold lg text-gray'></text>
-      </block>
-        </view>
+
       </view>
-      <view class="cu-list menu-avatar">
+      <view class="cu-list menu-avatar" wx:for="{{item}}" wx:for-item="items" wx:key="index">
         <view class="cu-item ">
-          <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+          <view class="cu-avatar radius lg" style="background-image:url({{}});"></view>
           <view class="content">
             <view class="text-black">
               <text class="two_title">澳大利亚脐橙 橙子 澳橙一级中果 180g/个</text>
@@ -87,58 +183,19 @@
             </view>
           </view>
           <view class="stepper">
-             <!-- 减号 -->  
+
             <text class="jian {{minusStatus}}" bindtap="bindMinus">-</text>  
-            <!-- 数值 -->  
+ 
             <input type="number" bindchange="bindManual" value="{{num}}" />  
-            <!-- 加号 -->  
+  
             <text class="jia normal" bindtap="bindPlus">+</text>  
           </view>
         </view>
       </view>
 
-      <!-- 复制 -->
-      <view class="cu-list menu-avatar">
-        <view class="cu-item ">
-          <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-          <view class="content">
-            <view class="text-black">
-              <text class="two_title">澳大利亚脐橙 橙子 澳橙一级中果 180g/个</text>
-            </view>
-            <view class="text-gray text-sm flex">
-              <text>月售 20</text>
-            </view>
-            <view class="text-gray text-sm flex">
-              <view class="two_imgtab"><image src=https://yiqi.sucstep.com/zhsq/assets/images/applets/dz.png"></image>8.88折</view>
-            </view>
-            <view class="text-gray text-sm flex">
-              <view class="dz_bold">￥7.9  </view>
-              <view class="qc_dz">￥8.9</view>
-            </view>
-          </view>
-          <view class="stepper">
-             <!-- 减号 -->  
-            <text class="jian {{minusStatus}}" bindtap="bindMinus">-</text>  
-            <!-- 数值 -->  
-            <input type="number" bindchange="bindManual" value="{{num}}" />  
-            <!-- 加号 -->  
-            <text class="jia normal" bindtap="bindPlus">+</text>  
-          </view>
-        </view>
-      </view>
     </view>
   </scroll-view>
-  <!-- 结算 button -->
-<view class="js_button" bindtap="order">
-    <view class="button_lf">
-      <view class="button_djg">￥72.9  </view><text class="button_xjg">￥8.9</text> 
-      <view class="psf">另需配送费￥2.5</view>
-    </view>  
-    
-     <view class="button_lr">
-       <button>去结算</button>
-     </view>
-</view>
+
 
 
 </view>
@@ -148,7 +205,7 @@
 
   
 
-  <!-- 第二栏目 -->
+
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
     <view class="tab_box">
 
@@ -157,7 +214,7 @@
       <view class="cu-avatar lg_two" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
       <view class="content_two">
         <view class="text-grey">文晓港</view>
-        <!-- 评分 -->
+ 
         <view class="text-gray text-sm">
           <text class="cuIcon-favorfill lg text-red"></text>
           <text class="cuIcon-favorfill lg text-red"></text>
@@ -174,7 +231,7 @@
 
 
   </view> 
-  <!-- 第三栏目 -->
+ 
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
     <view class="tab_box">
       <view class="cu-item_sj">
@@ -187,10 +244,10 @@
     
   </view> 
 </view>
-<!-- 栏目结束 -->
+
 </view>
 
 
     
     </view>
-</view>
+</view> -->

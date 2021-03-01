@@ -38,7 +38,7 @@ border-radius: 0 0 15rpx 15rpx;
 .top-1-1{
   width: 80rpx;
   height: 100%;
-  background: red;
+  background: #f1f1f1;
   border-radius: 50rpx;
   margin-right: 13rpx;
 }

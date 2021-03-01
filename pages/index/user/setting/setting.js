@@ -1,18 +1,31 @@
 // pages/index/setting/setting.js
 import verif from '../../../../utils/verification'
+import http from '../../../../utils/api'
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    imgUrl: app.globalData.imgUrl,
     myList:[]
   },
    //收货地址-跳转
    addressClick:function(){
-    wx.navigateTo({
-      url: '/pages/index/user/setting_address/setting_address'
-    })
+    // wx.navigateTo({
+    //   url: '/pages/index/user/setting_address/setting_address'
+    // })
+    
+
+    if(wx.getStorageSync('village') == false){
+      verif.tips('您不是小区人员')
+    }else{
+      wx.navigateTo({
+        url: '/pages/index/user/myPerfect/myPerfect'
+      })
+    }
+    
   },
 
   qhjiaose(){
@@ -27,11 +40,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //console.log(this.data.imgUrl)
     this.setData({
       myList:wx.getStorageSync('xzvillage')[0]
     })
-    console.log(wx.getStorageSync('xzvillage')[0])
+
   },
+
+  messageList(){
+    http.messageApi({
+      data:{
+        userId:wx.getStorageSync('wxUser').id
+      },
+      success:res=>{
+        for(var i in res){
+          if(i == wx.getStorageSync('xzvillage')[0].villageId){
+            wx.setStorageSync('xzvillage', res[i])
+            this.setData({
+              myList:res[i][0]
+            })
+          }
+        }
+          
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

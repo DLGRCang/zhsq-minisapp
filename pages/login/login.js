@@ -56,14 +56,31 @@ Page({
                           userId:wx.getStorageSync('wxUser').id
                         },
                         success:res=>{
-                          console.log(res)
-                          wx.setStorageSync('village', res)
+                          //console.log(res)
+                          var status = null
+                            for(var i in res){
+                              status = i
+                            }
+                            if(status != 'noVillage'){
+                              wx.setStorageSync('village', res)
+                            }else{
+                              wx.setStorageSync('village', false)
+                            }
                         },
                         fail:err=>{
                           console.log(err)
                         }
                       })
                       verif.tips('授权成功')
+                      var pages = getCurrentPages(); // 当前页面
+                                var beforePage = pages[pages.length - 2]; // 前一个页面
+                                // console.log("beforePage");
+                                // console.log(beforePage);
+                                wx.navigateBack({
+                                    success: function() {
+                                        beforePage.messageList(); // 执行前一个页面的onLoad方法
+                                    }
+                                });
                       setTimeout(()=>{
                         wx.navigateBack({
                           delta: 1

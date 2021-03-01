@@ -1,11 +1,13 @@
 // pages/czxq/czxq.js
 import http from '../../../../utils/api'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    imgUrl:app.globalData.imgUrl,
      // tab 切换
      tabArr: {
       curHdIndex: 0,

@@ -7,8 +7,8 @@
   
   <scroll-view scroll-y="true"  style="height:91%" bindscroll="scry">
     <view class="pos-top" wx:if="{{topPos}}">
-    <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-        <view class="cu-item {{index==TabCur?'text-huang cur':''}} tabcenter" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+    <scroll-view scroll-x class="nav" scroll-with-animation>
+        <view wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}" class="cu-item {{index==TabCur?'cur':''}}" style="{{index == TabCur ? 'color:#CD2424 ':''}}">
           {{item.content}}
         </view>
       </scroll-view>
@@ -23,7 +23,7 @@
     </view>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+        <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key bindtap="tabSelect" data-id="{{index}}" style="{{index == TabCur ? 'color:#CD2424':''}}">
           {{item.content}}
         </view>
       </scroll-view>
@@ -33,7 +33,7 @@
     <view class="dang" wx:if="{{panduan}}">
       <view class="neirong" wx:for="{{data1}}" wx:key="index">
         <view class="nrimg">
-          <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.headPortrait}}"></image>
+          <image src="{{imgUrl+item.headPortrait}}"></image>
         </view>
         <view class="nrText">
           <view>{{item.partyBranchName}}</view>
@@ -44,7 +44,7 @@
     <view class="xinwen" wx:if="{{!panduan}}">
       <view class="neirong" wx:for="{{data2}}" wx:key="index">
         <view class="nrimg">
-          <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.headPortrait}}"></image>
+          <image src="{{imgUrl+item.headPortrait}}"></image>
         </view>
         <view class="nrText">
           <view>{{item.partyBranchName}}</view>

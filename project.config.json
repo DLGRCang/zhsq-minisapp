@@ -21,14 +21,14 @@
     "checkSiteMap": false,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
@@ -147,6 +147,42 @@
         {
           "name": "pages/index/user/checkIn/checkIn",
           "pathName": "pages/index/user/checkIn/checkIn",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/myPerfect/myPerfect",
+          "pathName": "pages/index/user/myPerfect/myPerfect",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/life_details/life_details",
+          "pathName": "pages/index/user/life_details/life_details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/life_details/life_details",
+          "pathName": "pages/index/user/life_details/life_details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/floor/floor",
+          "pathName": "pages/index/user/floor/floor",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/share/share",
+          "pathName": "pages/index/user/share/share",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/sharePage/sharePage",
+          "pathName": "pages/index/user/sharePage/sharePage",
           "scene": null
         }
       ]

@@ -49,7 +49,7 @@ const imgClick = function (){
         //console.log(tempFilePaths)
         //http://172.16.20.81:9000
         wx.uploadFile({
-          url: 'http://172.16.20.81:9000/fileService/uploadFTP/zhsq/linliquan',
+          url: 'http://yiqi.sucstep.com:9000/fileService/uploadFTP/zhsq/linliquan',
           filePath: tempFilePaths,
           name: 'file',
           formData: {

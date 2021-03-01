@@ -9,14 +9,15 @@
 .box_content .right-item{display: none}
 .box_content .right-item.active{display: block}
 
-.bg{width: 100%;padding-top:35rpx;background: #0090FA;}
-.box_content{font-size: 28rpx;}
-.view_tab{width: 100%;height:auto;padding-bottom:45rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;}
-.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
+.bg{width: 100%;padding-top:35rpx;height: 91.5%;
+  background: linear-gradient(90deg, #0586F8, #1BB1FD);overflow: hidden;}
+.box_content{font-size: 28rpx;height: 92%;width: 100%;overflow-y: auto;}
+.view_tab{width: 100%;height:100%;padding-bottom:20rpx;margin:0 auto;background: #F9F9F9;border-radius: 40rpx 40rpx 0rpx 0rpx;overflow: hidden;}
+.view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;height: 8%;}
 .view_tab>.tab_bar>view{font-weight:bold;height:55rpx;line-height: 55rpx;float: left;margin-right: 45rpx;text-align: center;}
 
-/* .tab_box{padding:35rpx;overflow: hidden;clear: both;width:93%;margin:25rpx auto;  
-  background: #FFFFFF;border-radius: 20rpx;} */
+.tab_box{padding:30rpx;overflow: hidden;clear: both;width:93%;margin:25rpx auto;  
+  background: #FFFFFF;border-radius: 20rpx;}
 
 
 /* 新闻列表样式 */

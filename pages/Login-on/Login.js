@@ -1,15 +1,69 @@
 import http from '../../utils/api'
 // pages/index/Login/Login.js
 import verif from '../../utils/verification'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    windowHeight:app.globalData.windowHeight,
+    CustomBar: app.globalData.CustomBar,
     file:'',
     phone:'',
-    trueClick:true
+    trueClick:true,
+    yhxyIndex:false,
+    yszcIndex:false,
+    yhsz:false,
+    yszc:false,
+    borderSe:'#fff'
+  },
+
+  ygou(){
+    this.setData({
+      yhxyIndex:true,
+      yszcIndex:true
+    })
+  },
+  ngou(){
+    this.setData({
+      yhxyIndex:false,
+      yszcIndex:false
+    })
+  },
+  yhxyClick(){
+    this.setData({
+      yhsz:true
+    })
+  },
+  yhxyN(){
+    this.setData({
+      yhsz:false
+    })
+  },
+  yhxyQdClick(){
+    this.setData({
+      yhxyIndex:true,
+      yhsz:false
+    })
+  },
+
+  yszcClick(){
+    this.setData({
+      yszc:true
+    })
+  },
+  yszcN(){
+    this.setData({
+      yszc:false
+    })
+  },
+  yszcQdClick(){
+    this.setData({
+      yszcIndex:true,
+      yszc:false
+    })
   },
 
   fileClick(e){
@@ -28,6 +82,7 @@ Page({
   // 注册跳登录页面
   register:function(){
     var that = this
+    
     if(this.data.file == ''){
       verif.tips('请输入您的身份证号')
     }else if(this.data.phone == ''){
@@ -38,117 +93,162 @@ Page({
         that.setData({
           trueClick:false
         })
-
+        
         if(verif.checkIdCard(this.data.file)){
           if(verif.checkPhone(this.data.phone)){
-            wx.showLoading({
-              title: '登陆中请稍后',
-            })
-
-            // 登录
-            wx.getUserInfo({
-              success: res => {
-                //console.log(res)
-                wx.login({
-                  success: resa => {
-                    http.saveLoginApi({
-                      data:{
-                        code:resa.code,
-                        encryptedData:res.encryptedData,
-                        iv:res.iv,
-                        idcard:that.data.file,
-                        phone:that.data.phone
-                      },
-                      success(data) {  
-                       // console.log(data)
-                        var userInfo = data.result.data.userInfo;
-                        userInfo.avatarUrl = res.userInfo.avatarUrl
-                        wx.setStorageSync('wxUser',userInfo)
-                        wx.setStorageSync('token',data.result.data.token)
-                        wx.setStorageSync('loginSi', true)
-                        wx.hideLoading({
-                          success: (res) => {
-                            http.messageApi({
-                              data:{
-                                userId:wx.getStorageSync('wxUser').id
-                              },
-                              success:res=>{
-                                console.log(res)
-                                wx.setStorageSync('village', res)
-                              },
-                              fail:err=>{
-                                console.log(err)
-                              }
-                            })
-                            verif.tips('登录成功')
-                            setTimeout(()=>{
-                              wx.navigateBack({
-                                delta: 1
-                              })
-                            },1000)
-                            var pages = getCurrentPages(); // 当前页面
-                            var beforePage = pages[pages.length - 2]; // 前一个页面
-                            wx.navigateBack({
-                                success: function() {
-                                    beforePage.sxLogin(); // 执行前一个页面的onLoad方法
+            
+            if(that.data.yhxyIndex==true&&that.data.yszcIndex==true){
+              wx.showLoading({
+                title: '登陆中请稍后',
+              })
+  
+              // 登录
+              wx.getUserInfo({
+                success: res => {
+                  //console.log(res)
+                  wx.login({
+                    success: resa => {
+                      http.saveLoginApi({
+                        data:{
+                          code:resa.code,
+                          encryptedData:res.encryptedData,
+                          iv:res.iv,
+                          idcard:that.data.file,
+                          phone:that.data.phone
+                        },
+                        success(data) {  
+                         console.log(data)
+                          var userInfo = data.result.data.userInfo;
+                          userInfo.avatarUrl = res.userInfo.avatarUrl
+                          wx.setStorageSync('wxUser',userInfo)
+                          wx.setStorageSync('token',data.result.data.token)
+                          wx.setStorageSync('loginSi', true)
+                          wx.hideLoading({
+                            success: (res) => {
+                              //console.log(res)
+                              http.messageApi({
+                                data:{
+                                  userId:wx.getStorageSync('wxUser').id
+                                },
+                                success:res=>{
+                                  var status = null
+                                    for(var i in res){
+                                      status = i
+                                    }
+                                    if(status != 'noVillage'){
+                                      wx.setStorageSync('village', res)
+                                    }else{
+                                      wx.setStorageSync('village', false)
+                                    }
+                                },
+                                fail:err=>{
+                                  console.log(err)
                                 }
-                            });
-                          },
-                        })
-                        
-                      },
-                      fail(err) {
-                        console.log(err)
-                      }
-                    })
-                    // wx.request({
-                    //   url: 'https://yiqi.sucstep.com/app/sign/saveZhsqWeChatUserrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
-                    //   method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
-                    //   data:{
-                    //     code:resa.code,
-                    //     encryptedData:res.encryptedData,
-                    //     iv:res.iv,
-                    //     idcard:that.data.file,
-                    //     phone:that.data.phone
-                    //   },
-                    //   header: {
-                    //     'content-type': 'application/json'
-                    //   },
-                    //   success(data) {  
-                    //     //console.log(data)
-                    //     var userInfo = data.data.result.data.userInfo;
-                    //     userInfo.avatarUrl = res.userInfo.avatarUrl
-                    //     wx.setStorageSync('wxUser',userInfo)
-                    //     wx.setStorageSync('token',data.data.result.data.token)
-                    //     wx.setStorageSync('loginSi', true)
-                    //     wx.hideLoading({
-                    //       success: (res) => {
-                    //         verif.tips('登录成功')
-                    //         setTimeout(()=>{
-                    //           wx.navigateBack({
-                    //             delta: 1
-                    //           })
-                    //         },1000)
-                    //         var pages = getCurrentPages(); // 当前页面
-                    //         var beforePage = pages[pages.length - 2]; // 前一个页面
-                    //         wx.navigateBack({
-                    //             success: function() {
-                    //                 beforePage.sxLogin(); // 执行前一个页面的onLoad方法
-                    //             }
-                    //         });
-                    //       },
-                    //     })
-                        
-                    //   },
-                    //   fail(err) {
-                    //     console.log(err)
-                    //   }
-                    // })
-                   // console.log(res)
-                  }
+                              })
+                              verif.tips('登录成功')
+                              var pages = getCurrentPages(); // 当前页面
+                                  var beforePage = pages[pages.length - 2]; // 前一个页面
+                                  // console.log("beforePage");
+                                  // console.log(beforePage);
+                                  wx.navigateBack({
+                                      success: function() {
+                                          beforePage.messageList(); // 执行前一个页面的onLoad方法
+                                      }
+                                  });
+                              setTimeout(()=>{
+                                wx.navigateBack({
+                                  delta: 1
+                                })
+                                
+                              },1000)
+                              var pages = getCurrentPages(); // 当前页面
+                              var beforePage = pages[pages.length - 2]; // 前一个页面
+                              wx.navigateBack({
+                                  success: function() {
+                                      beforePage.sxLogin(); // 执行前一个页面的onLoad方法
+                                  }
+                              });
+                            },
+                          })
+                          
+                        },
+                        fail(err) {
+                          console.log(err)
+                        }
+                      })
+                      // wx.request({
+                      //   url: 'https://yiqi.sucstep.com/app/sign/saveZhsqWeChatUserrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
+                      //   method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
+                      //   data:{
+                      //     code:resa.code,
+                      //     encryptedData:res.encryptedData,
+                      //     iv:res.iv,
+                      //     idcard:that.data.file,
+                      //     phone:that.data.phone
+                      //   },
+                      //   header: {
+                      //     'content-type': 'application/json'
+                      //   },
+                      //   success(data) {  
+                      //     //console.log(data)
+                      //     var userInfo = data.data.result.data.userInfo;
+                      //     userInfo.avatarUrl = res.userInfo.avatarUrl
+                      //     wx.setStorageSync('wxUser',userInfo)
+                      //     wx.setStorageSync('token',data.data.result.data.token)
+                      //     wx.setStorageSync('loginSi', true)
+                      //     wx.hideLoading({
+                      //       success: (res) => {
+                      //         verif.tips('登录成功')
+                      //         setTimeout(()=>{
+                      //           wx.navigateBack({
+                      //             delta: 1
+                      //           })
+                      //         },1000)
+                      //         var pages = getCurrentPages(); // 当前页面
+                      //         var beforePage = pages[pages.length - 2]; // 前一个页面
+                      //         wx.navigateBack({
+                      //             success: function() {
+                      //                 beforePage.sxLogin(); // 执行前一个页面的onLoad方法
+                      //             }
+                      //         });
+                      //       },
+                      //     })
+                          
+                      //   },
+                      //   fail(err) {
+                      //     console.log(err)
+                      //   }
+                      // })
+                     // console.log(res)
+                    }
+                  })
+                }
+              })
+            }else{
+              setTimeout(()=>{
+                that.setData({
+                  borderSe:'#188BFF'
                 })
-              }
-            })
+              },200)
+              setTimeout(()=>{
+                that.setData({
+                  borderSe:'#fff'
+                })
+              },400)
+              setTimeout(()=>{
+                that.setData({
+                  borderSe:'#188BFF'
+                })
+              },600)
+              setTimeout(()=>{
+                that.setData({
+                  borderSe:'#fff'
+                })
+              },800)
+              verif.tips('请选择用户协议')
+              
+            }
+            
           } 
         }
       }else{

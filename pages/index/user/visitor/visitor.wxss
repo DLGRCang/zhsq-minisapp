@@ -130,5 +130,27 @@ margin-bottom: 50rpx;
 .xsewm view{
   width: 370rpx;
   height: 370rpx;
-  border: 1rpx solid #000;
+  /* border: 1rpx solid #000; */
+}
+.fudongZt{
+  display: block;
+  padding:12rpx 24rpx;
+  position: fixed;
+  right: 0;
+  background: rgb(70, 69, 69);
+  border-radius: 15rpx 15rpx 0 0;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+}
+.fudongTop{
+  width: 100%;
+  color: #fff;
+  
+  font-weight: bold;
+}
+.ztText{
+  width: 100%;
+  color: #fff;
+  margin-left: 20rpx;
 }

@@ -54,6 +54,7 @@ App({
 
         this.globalData.wHeight = wx.getSystemInfoSync().windowHeight
         this.globalData.windowHeight = wx.getSystemInfoSync().windowHeight - this.globalData.CustomBar
+        this.globalData.imgUrl = 'http://yiqi.sucstep.com:9000/fileService/downloadFTP/public/'
       }
     })
   },

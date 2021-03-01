@@ -1,0 +1,26 @@
+<!-- <cu-custom bgColor="bg-bluejb">
+  <view slot="content">访客通行码</view>
+</cu-custom> -->
+<view style="height:{{CustomBar}}px;" class="biaotou">
+<text class="cuIcon-home" style="font-size:30rpx" bindtap="fhHome"></text>
+<text>访客通行码</text>
+<text></text>
+</view>
+<view class="txmBox">
+  
+  <view class="radius shadow-warp bg-white margin-top" style="border-radius:30rpx 30rpx 20rpx 20rpx">
+    <view class="txm"></view>
+    <view class="nrTxm">
+      
+      <view class="btnFx">
+        <canvas style="width: 200px; height: 200px;margin:0 auto;" canvas-id="myQrcode"></canvas>
+      </view>
+      <view class="txmpass">
+        {{textCon}}
+      </view>
+      <button bindtap="fuzhiClick">复制通行码</button>
+    </view>
+  </view>
+  <!-- <button open-type="share">分享</button>
+  <button bindtap="fhHome">返回首页</button> -->
+</view>

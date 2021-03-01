@@ -1,11 +1,14 @@
+import http from '../../../../utils/api'
 // pages/index/partyBranch/partyBranch.js
 let wxParse = require('../../../../wxParse/wxParse')
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    imgUrl:app.globalData.imgUrl,
     dataTab:[
       {id:0,content:"支委会成员"},
       {id:1,content:"支部党员"},
@@ -37,28 +40,19 @@ Page({
     wx.showLoading({
       title: '拼命加载中',
     })
-    wx.request({
-      url: 'http://192.168.1.113:8083/zhsq/app/release/api/partybranch/listpagepartybranch', // 就是拼接上前缀,此接口域名是开放接口，可访问
-      method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
-      header: {
-        'content-type': 'application/json'
-      },
-      success(res) {
+    http.listpagepartybranchApi({
+      success:res=>{
         //console.log(res)
-
         that.setData({
-          rowsList:res.data.rows[0]
+          rowsList:res.rows[0]
         })
-        //console.log(that.data.rowsList)
-        wx.request({
-          url: 'http://192.168.1.113:8083/zhsq/app/release/api/branchpeople/listPageBranchPeopleBybranch/'+res.data.rows[0].partyBranchId, // 就是拼接上前缀,此接口域名是开放接口，可访问
-          method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
-          header: {
-            'content-type': 'application/json'
+        http.listPageBranchPeopleBybranchApi({
+          data:{
+            partyBranchId:res.rows[0].partyBranchId
           },
-          success(res) {
-            console.log(res)
-            var data = res.data.rows
+          success:resm=>{
+            console.log(resm)
+            var data = resm.rows
             var data1 = that.data.data1
             var data2 = that.data.data2
             for(var i in data){
@@ -74,31 +68,79 @@ Page({
               data2:data2
             })
             //console.log(that.data.rowsList)
-            wx.hideLoading({
-              success: (res) => {
-                this.selectComponent("#haveTrue").falseClick()
-              },
-            })
+            wx.hideLoading()
           },
-          fail(err) {
-            wx.hideLoading({
-              success: (res) => {
-                this.selectComponent("#haveTrue").trueClick()
-              },
-            })
+          fail:err=>{
             console.log(err)
           }
         })
       },
-      fail(err) {
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+      fail:err=>{
         console.log(err)
       }
     })
+    // wx.request({
+    //   url: 'http://192.168.1.113:8083/zhsq/app/release/api/partybranch/listpagepartybranch', // 就是拼接上前缀,此接口域名是开放接口，可访问
+    //   method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   success(res) {
+    //     //console.log(res)
+
+    //     that.setData({
+    //       rowsList:res.data.rows[0]
+    //     })
+    //     //console.log(that.data.rowsList)
+    //     wx.request({
+    //       url: 'http://192.168.1.113:8083/zhsq/app/release/api/branchpeople/listPageBranchPeopleBybranch/'+res.data.rows[0].partyBranchId, // 就是拼接上前缀,此接口域名是开放接口，可访问
+    //       method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
+    //       header: {
+    //         'content-type': 'application/json'
+    //       },
+    //       success(res) {
+    //         console.log(res)
+    //         var data = res.data.rows
+    //         var data1 = that.data.data1
+    //         var data2 = that.data.data2
+    //         for(var i in data){
+    //           if(data[i].peopleRole == 0){
+    //             data1.push(data[i])
+    //           }else{
+    //             data2.push(data[i])
+    //           }
+    //         }
+
+    //         that.setData({
+    //           data1:data1,
+    //           data2:data2
+    //         })
+    //         //console.log(that.data.rowsList)
+    //         wx.hideLoading({
+    //           success: (res) => {
+    //             this.selectComponent("#haveTrue").falseClick()
+    //           },
+    //         })
+    //       },
+    //       fail(err) {
+    //         wx.hideLoading({
+    //           success: (res) => {
+    //             this.selectComponent("#haveTrue").trueClick()
+    //           },
+    //         })
+    //         console.log(err)
+    //       }
+    //     })
+    //   },
+    //   fail(err) {
+    //     wx.hideLoading({
+    //       success: (res) => {
+    //         this.selectComponent("#haveTrue").trueClick()
+    //       },
+    //     })
+    //     console.log(err)
+    //   }
+    // })
     
   },
   /**
@@ -116,18 +158,16 @@ Page({
   },
 
   tabSelect(e) {
-    //console.log(e)
     this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id-1)*60
+      TabCur: e.currentTarget.dataset.id
     })
-    if(this.data.panduan){
+    if(e.currentTarget.dataset.id == 0){
       this.setData({
-        panduan:false
+        panduan:true
       })
     }else{
       this.setData({
-        panduan:true
+        panduan:false
       })
     }
   },

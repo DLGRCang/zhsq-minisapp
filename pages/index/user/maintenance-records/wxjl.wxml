@@ -1,19 +1,20 @@
 <!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
-<cu-custom bgColor="bg-gray" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">维修记录</view>
   </cu-custom>
 
-  <view class="top-navigation bg-gray" id="tab">
+  <!-- <view class="top-navigation bg-gray" id="tab">
     <view>
       <text class="cuIcon-location"></text>
       <view style="width:324rpx">左右城左E4 1单元1203</view>
     </view>
-  </view>
+  </view> -->
 
 <!--  -->
-<view style="width:100%;height:{{windowHeight}}px;padding-top:{{tabHeight}}px;overflow-y: auto;">
+<view style="width:100%;height:{{windowHeight}}px;overflow-y: auto;">
   <view class="wxjl_content" wx:for="{{rows}}" wx:key="index">
+   <view class="fwAddress" ><text class="cuIcon-home"></text> {{item.floorName}}{{item.unitName}}{{item.roomName}}</view>
    <view class="content_box">
      <view class="content_title">
       <text>
@@ -31,7 +32,7 @@
 
      <view class="box_btn">
       <text wx:if="{{item.state == 1}}">审核中</text>
-      <text wx:if="{{item.state == 2}}">审核完成</text>
+      <text wx:if="{{item.state == 2}}">待维修</text>
       <text wx:if="{{item.state == 3}}">派单中</text>
       <button class="bg-blue" wx:if="{{item.state == 4}}">完成</button>
       <text wx:if="{{item.state == 5}}">已解决</text>

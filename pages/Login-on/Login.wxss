@@ -1,8 +1,11 @@
 /* pages/index/Login/Login.wxss */
+@import '../../colorui/main.wxss';
+@import '../../colorui/icon.wxss';
 .fr{float: right;}
 .fl{float: left;}
 .login_box{margin:0 auto;background: #fff;
   clear: both;overflow: hidden;padding-bottom: 15%;
+  position: relative;
 }
 .login_box>.login_top{width: 100%;height: 400rpx;}
 .login_box>.login_top>image{width:75%;height: 400rpx;}
@@ -29,3 +32,67 @@ border-radius: 45rpx;padding-left: 50rpx;
   background: linear-gradient(60deg, #66B7F9, #3A91F7);
   border-radius: 44px;}
  .center{text-align: center;line-height: 2;color: #188BFF;} 
+ .gClass{
+   width: 100%;
+   display: flex;
+   align-items: center;
+ }
+ .gouClick{
+   margin-right: 15rpx;
+   font-size: 40rpx;
+ }
+ .yhszClass{
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   left: 0;
+   top: 0;
+   z-index: 1000;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 140rpx 40rpx;
+   background: rgba(0,0,0,0.4);
+   
+ }
+ .classNei{
+   width: 100%;
+   height: 100%;
+   background: #fff;
+   border-radius: 15rpx;
+ }
+ .neiTop{
+   width: 100%;
+   height: 12%;
+   background: #f1f1f1;
+   border-radius: 15rpx 15rpx 0 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0 30rpx;
+ }
+ .neiBox{
+  width: 100%;
+  height: 76%;
+  overflow-y: auto;
+  padding: 20rpx;
+}
+.neiBox view{
+  text-indent: 30rpx;
+  margin-bottom: 10rpx;
+}
+.neiBot{
+  width: 100%;
+   height: 12%;
+   background: #f1f1f1;
+   border-radius: 0 0 15rpx 15rpx;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.neiBot .neiBtn{
+  padding: 15rpx 70rpx;
+  border-radius: 50rpx;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+  color: #fff;
+}

@@ -18,7 +18,7 @@
         <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
       </swiper-item>
     </swiper> -->
-    <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{rowsList.placePhonts}}" class="timg"></image>
+    <image src="{{imgUrl+rowsList.placePhonts}}" class="timg"></image>
    <view class="xq_title">{{rowsList.name}}</view>
    <!-- 星星 -->
     <view>

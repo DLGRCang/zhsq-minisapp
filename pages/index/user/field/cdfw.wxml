@@ -19,15 +19,12 @@
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rowsList.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-      <view>暂无数据</view>
-    </view>
+    <defect topPadding="{{200}}" wx:if="{{rowsList.length == 0}}"><view slot="content">暂无数据</view></defect>
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.placePhonts}}"></image>
+        <image src="{{imgUrl+item.placePhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
@@ -50,15 +47,13 @@
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rowsList1.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-      <view>暂无数据</view>
-    </view>
+    <defect topPadding="{{200}}" wx:if="{{rowsList1.length == 0}}"><view slot="content">暂无数据</view></defect>
+
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList1}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.placePhonts}}"></image>
+        <image src="{{imgUrl+item.placePhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
@@ -79,15 +74,13 @@
   </view> 
   <!-- 第三栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='2'? 'active' : ''}}">
-    <view class="queshiye" wx:if="{{rowsList2.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-      <view>暂无数据</view>
-    </view>
+    <defect topPadding="{{200}}" wx:if="{{rowsList2.length == 0}}"><view slot="content">暂无数据</view></defect>
+
     <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList2}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{item.placePhonts}}"></image>
+        <image src="{{imgUrl+item.placePhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">

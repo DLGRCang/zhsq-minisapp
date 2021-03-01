@@ -2,12 +2,14 @@
 var dateTimePicker = require('../../../../utils/dateTimePicker.js');
 import http from '../../../../utils/api'
 import verif from '../../../../utils/verification'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    imgUrl:app.globalData.imgUrl,
     neirong:true,
     date: '',
     zufang:'1',
@@ -22,8 +24,8 @@ Page({
     fangyuan:[], 
     fangyuan1:null,
     fyxxId:[
-      {name:'a房间',floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'},
-      {name:'b房间',floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'}
+      // {name:'a房间',floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'},
+      // {name:'b房间',floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'}
     ],
     zujin:'',
     zuqi:'',
@@ -114,8 +116,21 @@ Page({
     this.onLoad()
   },
   onLoad: function (options) {
+    var fyxxId = this.data.fyxxId
+    for(var i in wx.getStorageSync('xzvillage')){
+      if(wx.getStorageSync('xzvillage')[i].isMaster == 1){
+        fyxxId.push({name:wx.getStorageSync('xzvillage')[i].floorName+wx.getStorageSync('xzvillage')[i].unitName+wx.getStorageSync('xzvillage')[i].roomName,floorId:wx.getStorageSync('xzvillage')[i].floorId,unitId:wx.getStorageSync('xzvillage')[i].unitId,roomId:wx.getStorageSync('xzvillage')[i].roomId})
+
+      }
+    }
+
+    //console.log(this.data.fyxxId)
     this.selectComponent("#haveTrue").falseClick()
-    console.log(options.item)
+
+    var village = wx.getStorageSync('village')
+    for(var i in village){
+      //console.log(village[i])
+    }
     if(options.item == undefined){
         this.setData({
           anniu:'发布'
@@ -150,7 +165,7 @@ Page({
   
         var imgList = this.data.imgList
         for(var o in item.img){
-          imgList.push('http://172.16.20.81:9000/fileService/downloadFTP/public/'+item.img[o])
+          imgList.push(this.data.imgUrl+item.img[o])
         }
         
         
@@ -225,7 +240,7 @@ Page({
     imgs.then(res=>{
        this.setData({
         imgId:this.data.imgId.concat(res),
-        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)
+        imgList:this.data.imgList.concat(this.data.imgUrl+res)
       })
     })
    // console.log(this.data.imgList)
@@ -368,7 +383,7 @@ pmClick(e){
             startRentDate:this.data.date,
             roomState:this.data.miaoshu,
             rentMoney:this.data.zujin,
-            residentsId:wx.getStorageSync('user').userId,
+            residentsId:wx.getStorageSync('wxUser').id,
             requirement:yq,
             housePhoto:imgId1,
             title:this.data.title,
@@ -382,6 +397,16 @@ pmClick(e){
             })
             if(res.code == 200){
               verif.tips('发布成功')
+              const pages = getCurrentPages();//获取页面栈
+              const beforePage = pages[pages.length - 2];  //前一个页面
+
+                  beforePage.onLoad(); 
+     
+              setTimeout(()=>{
+                wx.navigateBack({//返回
+                  delta: 1
+                })
+              },500)
             }
 
           },
@@ -411,7 +436,7 @@ pmClick(e){
             startRentDate:this.data.date,
             roomState:this.data.miaoshu,
             rentMoney:this.data.zujin,
-            residentsId:wx.getStorageSync('user').userId,
+            residentsId:wx.getStorageSync('wxUser').id,
             requirement:yq,
             housePhoto:imgId1,
             title:this.data.title,
@@ -425,6 +450,17 @@ pmClick(e){
             })
             if(res.code == 200){
               verif.tips('修改成功')
+              const pages = getCurrentPages();//获取页面栈
+              const beforePage = pages[pages.length - 2];  //前一个页面
+ 
+                  //调用前一个页面的方法updateTime()。
+                  beforePage.onLoad(); 
+         
+              setTimeout(()=>{
+                wx.navigateBack({//返回
+                  delta: 1
+                })
+              },500)
             }
           },
           fail:err=>{

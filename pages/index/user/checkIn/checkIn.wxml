@@ -1,7 +1,7 @@
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 
 <view class="checkin">
-  <cu-custom bgColor="bg-gray-bc" isBack="{{true}}">
+  <cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">入驻小区</view>
   </cu-custom>
   <view class="lease-box">
@@ -135,7 +135,7 @@
         </view>
         <image src="../../../../images/renlian.jpeg"></image>
         <view class="tishi">
-          ！（ 请以上图实例拍照或者上传图片 ）
+          ！（ 请以上图示例拍照或者上传图片 ）
         </view>
         <view class="anniu">
           <button catchtap="quedingsc">确定</button>

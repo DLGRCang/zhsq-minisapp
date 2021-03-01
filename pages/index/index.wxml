@@ -31,7 +31,9 @@
       <view wx:if="{{village.length != 0}}">
         <view wx:if="{{PageCur=='t1'||PageCur=='t2'||PageCur=='t3'||PageCur=='t4'}}" bindtap="xunzexq">
           <text class="cuIcon-location"></text>
-          <view>{{xzvillage.length == 0 ? "选择小区":""+xzvillage[0].villageName}}</view>
+          <!-- {{xzvillage.length == 0||xzvillage == false ? "选择小区":""+xzvillage[0].villageName}} -->
+          <view wx:if="{{xzvillage.length == 0||xzvillage == false}}">选择小区</view>
+          <view wx:if="{{xzvillage.length != 0}}">{{xzvillage[0].villageName}}</view>
           <text class="cuIcon-right lg" style="font-size:20rpx"></text>
         </view>
       </view>
@@ -41,46 +43,117 @@
   <view class="box-body" style="height:{{windowHeight - tab1Height}}px;">
     <scroll-view scroll-y scroll-top="{{topNum}}" lower-threshold="100" style="height: 100%;" bindscroll="scry">
       <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
-    
-      <home wx:if="{{PageCur == 't1'}}" id="dlFalse" bind:xunzexq="xunzexq"></home>
+      <home wx:if="{{PageCur == 't1'}}" id="dlFalse" bind:messageListChong="messageListChong" bind:xunzexq="xunzexq" bind:sjClick="sjClick"></home>
       <life wx:if="{{PageCur == 't2'}}"></life>
-      <onekey wx:if="{{PageCur == 't3'}}"></onekey>
-      <neigh wx:if="{{PageCur == 't4'}}" id="tip4"></neigh>
+      <!-- <onekey wx:if="{{PageCur == 't3'}}"></onekey> -->
+      <neigh wx:if="{{PageCur == 't4'}}" id="t4Onload" botHeight="{{tab1Height}}"></neigh>
       <my wx:if="{{PageCur == 't5'}}" id="tip5" t5If="{{t5If}}" CustomBar="{{CustomBar}}"></my>
-  </scroll-view>
-    
+    </scroll-view>
+    <view class="kmAbslot" wx:if="{{zziconTrue}}">
+      <view wx:if="{{djewmTrue}}" style="text-align: center;">
+        <view class="ewmTop" id="ewmHeight" style="height:{{ewmHeight}}px">
+          <image src="../../images/EWM.jpg" style="{{ewmtubiao}}" wx:if="{{ewmtupianqh}}"></image>
+          <image src="../../images/ewm2.png" style="{{ewmtubiao}}" wx:if="{{!ewmtupianqh}}"></image>
+        </view>
+        <view class="cxscEwm" style="background:{{EwmCss}}" bindtouchstart="chsClick" bindtouchend="endClick">点击重新加载</view>
+      </view>
+      <view wx:if="{{djyjkmTrue}}" class="disMen">
+        <!-- <view class="menBox" wx:for="{{menList}}"  wx:key="index">
+          <view class="box-top">
+              <image src="../../images/mending.png"></image>
+          </view>
+          <view class="box-paibian">
+              <view>{{item.name}}</view>
+          </view>
+          <view class="box-bot">
+            <view class="box-left"></view>
+            <view class="box-nth2">
+              <view class="menFor" style="border-left: {{item.yaobshi}}rpx solid #000;border-right: {{item.yaobshi}}rpx solid #000;">
+          
+                <view class="door door-left {{item.dhLeftCss}}"></view>
+                <view class="door door-right {{item.dhRightCss}}"></view>
+                <view class="lock" catchtap="kaimenClick" data-i="{{index}}" wx:if="{{item.kaimenTrue}}">开</view>
+              </view>
+            </view>
+            <view class="box-right"></view>
+          </view>
+ 
+        </view> -->
+        <view class="osdamen" wx:for="{{menList}}"  wx:key="index">
+          <view class="osdamen-left">
+            <view class="jintiao">
+              {{item.name}}
+            </view>
+          </view>
+          <view class="osdamen-box">
+            <view class="menFor" style="border-left: {{item.yaobshi}}rpx solid #000;border-right: {{item.yaobshi}}rpx solid #000;">
+              <view class="door door-left {{item.dhLeftCss}}">
+                <view wx:for="{{7}}"></view>
+              </view>
+              <view class="door door-right {{item.dhRightCss}}">
+                <view wx:for="{{7}}"></view>
+              </view>
+              <view class="lock" catchtap="kaimenClick" data-i="{{index}}" wx:if="{{item.kaimenTrue}}">开</view>
+            </view>
+          </view>
+          <view class="osdamen-right">
+            <view class="jintiao"></view>
+          </view>
+        </view>
+          
+      </view>
+      <view wx:if="{{djlyTrue}}">
+        <view>aaa{{body1}}</view>
+        <view>bbb{{body2}}</view>
+        <view>ccc{{body3}}</view>
+      </view>
+    </view>
   </view>
 <view class="cu-bar tabbar bg-white foot" id="footer1">
     <view class="action text-green" bindtap="NavChange" data-cur="t1">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/1.png" class="tabimg" wx:if="{{PageCur!='t1'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/1j.png" class="tabimg" wx:if="{{PageCur=='t1'}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/1.png" class="tabimg" wx:if="{{PageCur1!='t1'}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/1j.png" class="tabimg" wx:if="{{PageCur1=='t1'}}"></image>
       </view>
       <view class="{{PageCur=='t1'?'text-ttt':'text-nnn'}}">首页</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t2">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/2.png" class="tabimg" wx:if="{{PageCur!='t2'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/2j.png" class="tabimg" wx:if="{{PageCur=='t2'}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/2.png" class="tabimg" wx:if="{{PageCur1!='t2'}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/2j.png" class="tabimg" wx:if="{{PageCur1=='t2'}}"></image>
       </view>
       <view class="{{PageCur=='t2'?'text-ttt':'text-nnn'}}">生活</view>
     </view>
-    <view class="action text-gray add-action" bindtap="NavChange" data-cur="t3">
-
-      <image class="img3" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/3.png"></image>
+    <view class="action text-gray add-action yjkmen" bindtap="NavChange" data-cur="t3">
+      <view class="ewmkaimen" style="{{ewmkm}}" catchtap="ewmClick">
+        <text class="cuIcon-scan" style="{{smcuicon}};top:5rpx;color:#fff"></text>
+      </view>
+      <view class="yjkaimen" style="{{yjkm}}" catchtap="yjClick">
+        <image src="../../images/yjkm.png" style="{{lycuicon}};top:20rpx"></image>
+        <!-- <text class="cuIcon-scan" style="{{smcuicon}};top:5rpx;color:#fff"></text> -->
+      </view>
+      <view class="lykaimen" style="{{lykm}}" catchtap="lyClick">
+        <image src="../../images/ly.png" style="{{lycuicon}};top:20rpx"></image>
+      </view>
+      <view class="img3">
+        <image src="../../images/km.png" style="{{ysimg}}"></image>
+        <text class="cuIcon-close" style="{{chaimg}};top:0rpx;color:#fff"></text>
+        <!-- <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/3.png"></image> -->
+      </view>
+      
       <view class="{{PageCur=='t3'?'text-ttt':'text-nnn'}}">一键开门</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t4">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/4.png" class="tabimg" wx:if="{{PageCur!='t4'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/4j.png" class="tabimg" wx:if="{{PageCur=='t4'}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/4.png" class="tabimg" wx:if="{{PageCur1!='t4'}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/4j.png" class="tabimg" wx:if="{{PageCur1=='t4'}}"></image>
       </view>
       <view class="{{PageCur=='t4'?'text-ttt':'text-nnn'}}">邻居</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t5">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/5.png" class="tabimg" wx:if="{{PageCur!='t5'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/5j.png" class="tabimg" wx:if="{{PageCur=='t5'}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/5.png" class="tabimg" wx:if="{{PageCur1!='t5'}}"></image>
+        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/5j.png" class="tabimg" wx:if="{{PageCur1=='t5'}}"></image>
       </view>
       <view class="{{PageCur=='t5'?'text-ttt':'text-nnn'}}">我的</view>
     </view>
@@ -172,6 +245,26 @@
         <image src="../../images/wy52.png" class="tabimg" wx:if="{{PageCur=='t13'}}"></image>
       </view>
       <view class="{{PageCur=='t13'?'text-ttt':'text-nnn'}}">移动巡查</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="position: fixed;left: 0;top: 0;z-index: 99999999999;">
+  <view class="cu-dialog" style="border-radius:15rpx 15rpx 0 0">
+    <view class="padding-xl">
+      <view class="wxsq-tc">
+        <view>授权</view>
+        <view>
+          <image></image>
+        </view>
+        <view>智慧社区申请获得以下权限：</view>
+        <view>获得您的公开信息（昵称，头像等）</view>
+      </view>
+      <view class="sq-btn">
+        <button class="cu-btn" bindtap="wxsqjjClick">拒绝</button>
+        <!-- <button class="cu-btn" bindtap="tiaozhuana">授权</button> -->
+        <button class="cu-btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">授权</button>
+      </view>
     </view>
   </view>
 </view>

@@ -13,6 +13,9 @@ Page({
     imgList: [],
     imgId:[],
     windowHeight:app.globalData.windowHeight,
+    imgUrl:app.globalData.imgUrl,
+    fangyuan:[], 
+    fangyuan1:null,
   },
   PickerChange(e){
     this.setData({
@@ -36,10 +39,35 @@ Page({
     })
   },
   onLoad(){
-    //console.log(new Date().getDate() + 2)
+   
+    var fangyuan = []
+    var fangyuan1 = []
+    for(var i in wx.getStorageSync('xzvillage')){
+
+        fangyuan.push(wx.getStorageSync('xzvillage')[i])
+      
+    }
+    //console.log(fangyuan)
+    for(var i in fangyuan){
+      var name = fangyuan[i].floorName + fangyuan[i].unitName + fangyuan[i].roomName
+      fangyuan1.push(name)
+    }
+    this.setData({
+      fangyuan:fangyuan1,
+      fangyuannr:fangyuan
+    })
+ 
+
     this.setData({
       dateT:util.formatTime1(new Date).split(' ')[0],
       time:util.formatTime1(new Date).split(' ')[1]
+    })
+  },
+
+  fangyuanxc(e){
+    //console.log(e)
+    this.setData({
+      fangyuan1: e.detail.value
     })
   },
 
@@ -49,7 +77,7 @@ Page({
   imgs.then(res=>{
      this.setData({
       imgId:this.data.imgId.concat(res),
-      imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)
+      imgList:this.data.imgList.concat(this.data.imgUrl+res)
     })
   })
  // console.log(this.data.imgList)
@@ -80,6 +108,14 @@ DelImg(e) {
   })
 },
   tjClick(){
+
+    if(this.data.fangyuannr.length == 1){
+      var user = this.data.fangyuannr[0]
+    }else{
+      var user = this.data.fangyuannr[this.data.fangyuan1]
+    }
+
+
     var imgId1 = ''
     for(var i in this.data.imgId){
       if(imgId1 == ''){
@@ -88,11 +124,16 @@ DelImg(e) {
         imgId1=imgId1+','+this.data.imgId[i]
       }
     }
+
     //console.log(this.data.picker[this.data.index])
     if(this.data.index == null){
       verif.tips('请选择维修分类')
     }else if(this.data.textValue == ''){
       verif.tips('请输入问题描述')
+    }else if(user == undefined){
+      verif.tips('请选择房屋地址')
+    }else if(imgId1 == ''){
+      verif.tips('请您上传需维修相关图片')
     }else{
       wx.showLoading({
         title: '拼命加载中',
@@ -100,10 +141,13 @@ DelImg(e) {
       http.saverepairApi({
         data:{
           type:this.data.picker[this.data.index],
-          unifiedUserId:wx.getStorageSync('user').userId,
+          unifiedUserId:wx.getStorageSync('wxUser').id,
           appleTime:this.data.dateT+' '+this.data.time,
           appleContent:this.data.textValue,
-          appleFileId:imgId1
+          appleFileId:imgId1,
+          floorId:user.floorId,
+          unitId:user.unitId,
+          roomId:user.roomId
         },
         success:res=>{
           //console.log(res)
@@ -114,6 +158,11 @@ DelImg(e) {
               },
             })
             verif.tips('提交成功')
+            setTimeout(()=>{
+              wx.navigateBack({//返回
+                delta: 1
+              })
+            },800)
           }
         },
         fail:err=>{

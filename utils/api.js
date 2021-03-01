@@ -3,15 +3,32 @@ import { http } from './http'; // 引入刚刚封装好的http模块，import属
 
 // 邻里圈列表
 function xinwenApi(params) { 
-  http('zhsq/app/release/api/neighbor/listpageneighbor', 'get', params)  // 接口请求的路由地址以及请求方法在此处传递
+  http('zhsq/app/release/api/neighbor/listneighbor/'+params.data.userId+'/'+params.data.villageId, 'get', params)  // 接口请求的路由地址以及请求方法在此处传递
 }
+// 邻里圈点赞
+function goodnumberApi(params) { 
+  http('zhsq/app/release/api/goodnumber/goodOrCancel', 'post', params) 
+}
+// 邻里圈评论
+function savecommentApi(params) { 
+  http('zhsq/app/release/api/comment/savecomment', 'post', params) 
+}
+//邻里圈获取评论列表
+function getlistCommentByMessageIdApi(params){
+  http('zhsq/app/release/api/comment/listPageFindAllComment/'+params.data.commId+'/'+params.data.goodpeopleId+'/'+params.data.curPage,'get',params)
+}
+// 收藏
+function collectionrecordApi(params) { 
+  http('zhsq/app/release/api/collectionrecord/savecollectionrecord', 'post', params) 
+}
+
 // 邻里圈发布按钮
 function llqfbApi(params) { 
-  http('zhsq/app/release/api/neighbor/saveneighbor', 'post', params)  // 接口请求的路由地址以及请求方法在此处传递
+  http('zhsq/app/release/api/neighbor/saveneighbor', 'post', params) 
 }
 // 邻里圈浏览量增加接口
 function llqlllzjApi(params) { 
-  http('zhsq/app/release/api/neighbor/views', 'post', params)  // 接口请求的路由地址以及请求方法在此处传递
+  http('zhsq/app/release/api/neighbor/views', 'post', params) 
 }
 
 //社区党建
@@ -171,10 +188,20 @@ function myjfApi(params){
   http('zhsq/app/release/api/housepay/payMoneyList/'+params.data.unifiedUserId,'get',params)
 }
 
+//民族
+function mzApi(params){
+  http('zhsq/app/release/api/dictionaries/codelistofGet/00010001','get',params)
+}
+
 //邻里圈标签
 function llqbqApi(params){
   http('zhsq/app/release/api/dictionaries/codelistofGet/000100050002','get',params)
 }
+//邻里圈标签
+function llqbqApi1(params){
+  http('zhsq/app/release/api/dictionaries/codelistofGet/'+params.data.code,'get',params)
+}
+
 
 //维修单申请提交
 function saverepairApi(params){
@@ -249,6 +276,59 @@ function saveZhsqUserInfoApi(params){
   http('app/sign/saveZhsqUserInfo','post',params)
 }
 
+//完善个人信息
+function savegoodnumberApi(params){
+  http('zhsq/app/release/api/residentsInfo/personalInformation/'+params.data.unifiedUserId+'/'+params.data.findvillageId,'post',params)
+}
+
+//商家列表
+function listpageshoplisApi(params){
+  http('zhsq/app/release/api/shoplist/listPageScreenShopLists/'+params.data.type+'/'+params.data.villageid+'/'+params.data.number,'get',params)
+}
+
+//生活页面 顶部导航 顶级列表
+function getGoodsCategoryTreeByOneApi(params){
+  http('zhsq/app/release/api/commoditytype/getGoodsCategoryTreeByOne/'+params.data.level,'get',params)
+}
+
+//上级页面获取2级3级列表
+function getTypefindParentIdApi(params){
+  http('zhsq/app/release/api/commoditytype/getTypefindParentId/'+params.data.commodityTypeId+'/'+params.data.level+'/'+params.data.shopListId,'get',params)
+}
+
+//商品所有列表
+function listPageCommodityDetailsWeChatApi(params){
+  http('zhsq/app/release/api/shopping/listPageShopByLastTypeId/'+params.data.type+'/'+params.data.shopListId,'get',params)
+}
+
+//社区党支部
+function listpagepartybranchApi(params){
+  http('zhsq/app/release/api/partybranch/listpagepartybranch','get',params)
+}
+//社区党支部
+function listPageBranchPeopleBybranchApi(params){
+  http('zhsq/app/release/api/branchpeople/listPageBranchPeopleBybranch/'+params.data.partyBranchId,'get',params)
+}
+
+//我的点赞
+function findByUserIdAndMessageIdApi(params){
+  http('zhsq/app/release/api/goodnumber/findByUserIdAndMessageId/'+params.data.goodPeopleId,'get',params)
+}
+
+//我的点收藏
+function getMyCollectionRecordApi(params){
+  http('zhsq/app/release/api/collectionrecord/getMyCollectionRecord/'+params.data.userId+'/'+params.data.collectionResources,'get',params)
+}
+//我的评论
+function getMyCommentApi(params){
+  http('zhsq/app/release/api/comment/getMyComment/'+params.data.userId+'/'+params.data.collectionResources,'get',params)
+}
+
+//获取商品指标
+function findDetailsByShoppingIdApi(params){
+  http('zhsq/app/release/api/commoditydetails/findDetailsByShoppingId/'+params.data.shoppingId,'get',params)
+}
+
 export default { // 暴露接口
   xinwenApi,
   llqfbApi,
@@ -284,6 +364,7 @@ export default { // 暴露接口
   scczfwApi,
   myjfApi,
   llqbqApi,
+  llqbqApi1,
   saverepairApi,
   listrepairApi,
   selfListApi,
@@ -298,5 +379,21 @@ export default { // 暴露接口
   messageApi,
   codelistApi,
   wdrzhzApi,
-  saveZhsqUserInfoApi
+  saveZhsqUserInfoApi,
+  mzApi,
+  savegoodnumberApi,
+  goodnumberApi,
+  collectionrecordApi,
+  savecommentApi,
+  getlistCommentByMessageIdApi,
+  listpageshoplisApi,
+  getGoodsCategoryTreeByOneApi,
+  getTypefindParentIdApi,
+  listPageCommodityDetailsWeChatApi,
+  listpagepartybranchApi,
+  listPageBranchPeopleBybranchApi,
+  findByUserIdAndMessageIdApi,
+  getMyCollectionRecordApi,
+  getMyCommentApi,
+  findDetailsByShoppingIdApi
 }

@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/index/user/home-page/t1",
+    "pages/index/user/share/share",
+    "pages/index/user/sharePage/sharePage",
     "pages/index/user/airClass/airClass",
     "pages/index/UserSelection/UserSelection",
     "pages/index/user/Llq_pub/Llq_pub",

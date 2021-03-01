@@ -7,13 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    jfList:[]
+    jfList:[],
+    xqText:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //console.log(wx.getStorageSync('xzvillage'))
+    this.setData({
+      xqText:wx.getStorageSync('xzvillage')[0].villageName
+    })
     this.jfArr()
   },
   getAddInfo(){
@@ -26,7 +31,7 @@ Page({
     })
     http.myjfApi({
       data:{
-        unifiedUserId:wx.getStorageSync('user').userId
+        unifiedUserId:wx.getStorageSync('wxUser').id
       },
       success:res=>{
         console.log(res)

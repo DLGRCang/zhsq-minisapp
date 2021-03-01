@@ -8,7 +8,10 @@
     <text class="pub_title" style="padding-top:50rpx">请输入发布内容：</text>
 		<textarea name="" id="" cols="30" rows="10" placeholder="请输入要发布的内容..." bindinput="textClick" value="{{textArea}}"></textarea>
 		<view class="biaoqian">
-			<view wx:for="{{bqList}}" class="{{item.yangshi}}" bindtap="bqClick" data-id="{{item.dictionariesId}}">{{item.dictionariesName}}</view>
+			<view wx:for="{{bqList}}" class="{{item.yangshi}}" bindtap="bqClick" data-id="{{item.dictionariesId}}" data-code="{{item.dictionariesCode}}">{{item.dictionariesName}}</view>
+		</view>
+		<view class="biaoqian">
+			<view wx:for="{{bqList1}}" class="{{item.yangshi}}" bindtap="bq1Click" data-id="{{item.dictionariesId}}" data-code="{{item.dictionariesCode}}">{{item.dictionariesName}}</view>
 		</view>
   <!-- 相册 -->
   <view class="cu-bar bg-white margin-top">

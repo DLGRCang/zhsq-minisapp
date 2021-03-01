@@ -18,7 +18,7 @@
         <view class="cu-tag bg-cyan light xtb" wx:if="{{rows.state == 1}}">已租</view>
         <view class="cu-tag bg-blue light xtb" wx:if="{{rows.state == 2}}">待租</view>
         <view class="cu-tag bg-grey light xtb" wx:if="{{rows.state == 3}}">关闭</view>
-        <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{rows.img[0]}}"></image>
+        <image src="{{imgUrl+rows.img[0]}}"></image>
         </view>
       <view class="box_right">
         <view class="cchh">

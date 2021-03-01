@@ -78,7 +78,7 @@
 .head_c{
   width:100%;
   height:140rpx;
-  margin: 30rpx 0;
+  margin: 30rpx 0 0;
 }
 .head_c>image{
   width:100%;height: 100%;
@@ -210,13 +210,13 @@ justify-content: space-between;
     left: 0;
   }
   100% {
-    left: -100%;
+    left: -120%;
   }
 }
 
 @keyframes marquee2 {
   0% {
-    left: 100%;
+    left: 120%;
   }
   100% {
     left: 0%;
@@ -390,47 +390,11 @@ font-family: Microsoft YaHei;
 font-weight: 400;
 color: #FFFFFF;
 }
-.wxsq-tc{
-  width: 100%;
-}
-.wxsq-tc view:first-child{
-  color: #3A91F7;
-  font-size: 35rpx;
-  font-weight: 600;
-}
-.wxsq-tc view:nth-child(2){
-  width: 120rpx;
-  height: 120rpx;
-  background: #66B7F9;
-  border-radius: 50%;
-  margin: 20rpx auto;
-}
-.wxsq-tc view:nth-child(3){
-  color: #999;
-  font-size: 24rpx;
-  width: 100%;
-}
-.wxsq-tc view:last-child{
-  color: #999;
-  font-size: 24rpx;
-  width: 100%;
-  margin: 10rpx 0 30rpx;
-}
-.sq-btn{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.sq-btn button:last-child{
-  color: #fff;
-background: linear-gradient(60deg, #66B7F9, #3A91F7);
-}
+
 
 .tjshangjia{
   width: 100%;
-  position: relative;
-  margin-bottom: 400rpx;
+
 }
 .sjtop{
   width: 100%;
@@ -448,10 +412,9 @@ background: linear-gradient(60deg, #66B7F9, #3A91F7);
   color: #333;
 }
 .sjneirong{
-  top: 90rpx;
-  left: 0;
+
   width: 100%;
-  position: absolute;
+
   border-radius: 15rpx;
 }
 .sjneirong .bot-neirong{ 
@@ -461,8 +424,12 @@ background: linear-gradient(60deg, #66B7F9, #3A91F7);
   border-radius: 15rpx;
   padding: 30rpx;
   box-sizing: border-box;
+  
+}
+.nr-top{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20rpx;
 }
 .nr-left{
   width: 20%;

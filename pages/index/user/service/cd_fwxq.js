@@ -1,8 +1,10 @@
 import http from '../../../../utils/api'
 import util from '../../../../utils/util'
 import verif from '../../../../utils/verification'
+const app = getApp()
 Page({
   data: {
+    imgUrl:app.globalData.imgUrl,
          // tab 切换
          tabArr: {
           curHdIndex: 0,

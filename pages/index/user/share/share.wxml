@@ -1,0 +1,21 @@
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
+  <view slot="content">通行码</view>
+</cu-custom>
+<view class="txmBox">
+  
+  <view class="radius shadow-warp bg-white margin-top" style="border-radius:30rpx 30rpx 20rpx 20rpx">
+    <view class="txm"></view>
+    <view class="nrTxm">
+      <text class="cuIcon-pullup" style="font-size:300rpx;color:{{pullup}};transition: all .1s ease-in-out;"></text>
+      <view class="txmpass">
+        {{textCon}}
+      </view>
+      <view class="btnFx">
+        <button bindtap="fuzhiClick">复制通行码</button>
+        <button open-type="share" style="background: linear-gradient(60deg, #0586F8, #1BB1FD);color:#fff">分享</button>
+      </view>
+    </view>
+  </view>
+  <!-- <button open-type="share">分享</button>
+  <button bindtap="fhHome">返回首页</button> -->
+</view>

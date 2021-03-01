@@ -9,7 +9,7 @@
 /* 头部样式 */
 /* .head_content{width:100%; height:400rpx;text-align: center; color:#333;} */
 /* 頭部背景樣式 */
-.box-body{ width: 100%;height: 91%;position: relative;overflow-x: hidden;
+.box-body{ width: 100%;position: relative;overflow-x: hidden;overflow-y: auto;
   /* padding: 0 30rpx; */color:#333;
 }
 .beijing{
@@ -80,4 +80,144 @@ padding-left: 3%;
 
 .good_lg_img{
   width: 41rpx;height: 41rpx;
+}
+
+.pinglun{
+  width: 100%;
+  height: 90rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  
+  justify-content: space-between;
+}
+/* .plann{
+  background: #f1f1f1;
+  padding: 5rpx 10rpx;
+  border-radius: 5rpx;
+  font-size: 22rpx;
+} */
+.pinglun-right{
+  display: flex;
+  align-items: center;
+  flex-direction:row-reverse;
+  position: relative;
+}
+.fudongdz{
+  position: absolute;
+  top: -14rpx;
+  right: 110rpx;
+}
+.pinglun-right view{
+  margin-left: 16rpx;
+  font-size: 26rpx;
+}
+.pinglun-right view text:last-child{
+  margin-left: 6rpx;
+}
+.pinglunnr{
+  width: 100%;
+  border-top: 1px solid #ccc;
+  background: #e7e7e7;
+  position: relative;
+}
+.pinglunlb{
+  border-bottom: 2rpx solid #fff;
+  position: relative;
+  padding:20rpx 25rpx 10rpx;
+}
+.pinglunlb:last-child{
+  border-bottom: 0;
+}
+.nr-top1{
+  width: 100%;
+  margin-bottom: 12rpx;
+}
+.nr-name{
+  width: 100%;
+  text-align: left;
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nr-name view:first-child text:first-child{
+  font-size: 24rpx;
+  font-weight: 900;
+}
+.nr-name view:first-child text:last-child{
+  font-size: 24rpx;
+}
+.nr-name view:first-child view:last-child{
+  font-size: 20rpx;
+  color: #ccc;
+}
+.nr-box{
+  width: 100%;
+  font-size: 22rpx;
+  text-align: left;
+}
+
+
+.nr-bot1{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nr-bot1-first{
+  font-size: 22rpx;
+  color: rgb(145, 144, 144);
+}
+.bot-last{
+  display: flex;
+  align-items: center;
+}
+.bot-last view:first-child{
+  display: flex;
+  align-items: center;
+  /* margin-right: 20rpx; */
+}
+.bot-last view:first-child text:first-child{
+  margin-right: 5rpx;
+}
+.plann{
+  background: #f1f1f1;
+  padding: 5rpx 10rpx;
+  border-radius: 5rpx;
+  font-size: 22rpx;
+  margin-right: 12rpx;
+}
+.textareakuang{
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  border-top: 2rpx solid #ccc;
+  left: 0;
+  min-height: 90rpx;
+  z-index: 999999999999999999;
+  padding: 20rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.kaungwai{
+  width: 80%;
+  height: 100%;
+  padding: 15rpx 0;
+  display: flex;
+  align-items: center;
+}
+.kuangnei{
+  width: 100%;
+}
+.zplan{
+  width: 19%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+  color: #fff;
 }

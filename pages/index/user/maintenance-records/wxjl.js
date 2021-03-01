@@ -27,10 +27,10 @@ Page({
     })
     http.listrepairApi({
       data:{
-        unifiedUserId:wx.getStorageSync('user').userId
+        unifiedUserId:wx.getStorageSync('wxUser').id
       },
       success:res=>{
-        //console.log(res)
+        console.log(res)
         wx.hideLoading({
           success: (res) => {
             this.selectComponent("#haveTrue").falseClick()
@@ -61,14 +61,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this
-    var query = wx.createSelectorQuery()
-    query.select('#tab').boundingClientRect(function (res) {
-      // console.log(res);
-      that.setData({
-        tabHeight:res.height
-       })
-    }).exec();
+    // var that = this
+    // var query = wx.createSelectorQuery()
+    // query.select('#tab').boundingClientRect(function (res) {
+    //   // console.log(res);
+    //   that.setData({
+    //     tabHeight:res.height
+    //    })
+    // }).exec();
   },
 
   /**

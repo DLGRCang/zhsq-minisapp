@@ -1,17 +1,17 @@
 <!-- <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}"></scroll-view> -->
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
-<cu-custom bgColor="bg-gray" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">物业缴费</view>
   </cu-custom>
 
   <view class="top-navigation bg-gray">
     <view>
       <text class="cuIcon-location"></text>
-      <view>天龙嘉苑 乌兰小区</view>
+      <view>{{xqText}}</view>
     </view>
   </view>
   
-  <defect topPadding="{{350}}"><view slot="content">暂无数据</view></defect>
+  <defect topPadding="{{350}}" wx:if="{{jfList.length == 0}}"><view slot="content">暂无数据</view></defect>
 <!-- 内容第一块 -->
 
 <view class="cu-list menu-avatar wxjl_content" wx:for="{{jfList}}" wx:key="index" style="{{index == 0 ? 'margin-top:115rpx':''}};">

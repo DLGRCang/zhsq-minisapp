@@ -1,12 +1,14 @@
 // pages/index/community/community.js
 import http from '../../../../utils/api'
 import util from '../../../../utils/util'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    imgUrl:app.globalData.imgUrl,
     tabArr: {
       curHdIndex: 0,
       curBdIndex: 0,

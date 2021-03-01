@@ -4,7 +4,8 @@
   <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
     <view slot="content">社区党建</view>
   </cu-custom> 
-  <scroll-view scroll-y="true" style="height:{{windowHeight}}px;" bindscrolltolower="cbott" bindscroll="scry">
+  <scroll-view scroll-y="true" style="height:{{windowHeight}}px;position: relative;" bindscrolltolower="cbott" bindscroll="scry">
+    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
     <view class="pos-top" wx:if="{{topPos}}">
     <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
         <view class="cu-item {{index==TabCur?'text-huang cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
@@ -14,7 +15,7 @@
     </view>
     <view>
   <view class="box">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
+    
     
     <view class="top-text" wx:if="{{rowsList.length != 0}}">
       <view class="text-shang">

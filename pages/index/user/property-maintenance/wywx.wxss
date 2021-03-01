@@ -66,3 +66,18 @@ font-family: Microsoft YaHei;
 font-weight: 400;
 color: #A9B3BD;
 }
+.inputCss{
+  height: 90rpx;
+  border: 2rpx solid #E8EEF4;
+  border-radius: 12rpx;
+  }
+  .picker{
+    width: 100%;
+    height: 100%;
+    font-size: 30rpx;
+    padding: 0 24rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }

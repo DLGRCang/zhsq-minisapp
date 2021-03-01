@@ -10,7 +10,8 @@ Page({
    */
   data: {
     CustomBar: app.globalData.CustomBar,
-    windowHeight:app.globalData.windowHeight,
+    windowHeight:app.globalData.windowHeight, 
+    imgUrl:app.globalData.imgUrl,
     imgList: [],
     sex:1,
     picker:[],
@@ -20,7 +21,7 @@ Page({
     fangyuannr:[],
     pickerIndex:null,
     status1:null,
-    date: '',
+    date: '', 
     sfcz:1,
     imgId:[],
     name:'',
@@ -152,12 +153,12 @@ guanbi(){
     })
     
   },
-  quedingsc(){
+quedingsc(){
   var imgs=verif.imgClick()
     imgs.then(res=>{
        this.setData({
         imgId:this.data.imgId.concat(res),
-        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res),
+        imgList:this.data.imgList.concat(this.data.imgUrl+res),
         zishitc:false
       })
     })

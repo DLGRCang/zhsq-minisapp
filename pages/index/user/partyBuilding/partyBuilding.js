@@ -8,6 +8,7 @@ Page({
    */
   data: {
     windowHeight:app.globalData.windowHeight,
+    CustomBar: app.globalData.CustomBar,
     dataTab:[
       {id:0,content:"工作动态",code:'gzdt',cur:1},
       {id:1,content:"党员风采",code:'dyfc',cur:1},

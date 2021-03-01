@@ -2,19 +2,19 @@
 <cu-custom bgColor="bg-gray" isBack="{{true}}">
     <view slot="content">通知公告</view>
   </cu-custom>
-
+  <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
   <!-- 内容 第一栏目 -->
-  <view class="tzgg_content" wx:for="{{5}}">
+  <view class="tzgg_content" wx:for="{{tzggList}}" bindtap="xwDetails" data-item="{{item}}"wx:key="index">
        <view class="cu-list">
-        <view class="text-grey"><view class="wy">物业</view>紧急通知</view>
+        <view class="text-grey"><view class="wy">物业</view></view>
           <view class="text-gray text-content text-df">
-            新疆维吾尔自治区卫生健康委最新通报，10月27日0时至24时，新疆维吾尔自治区报告新增新冠肺炎确诊病例...
+            {{item.title}}
           </view>
 
           <view class="margin-top-sm flex justify-between">
             <view class="text-gray text-df">2020-10-28</view>
             <view>
-              <text class="text-blue" bindtap="xiangqing">详情<text class="cuIcon-right lg text-blue"></text></text>
+              <text class="text-blue">详情<text class="cuIcon-right lg text-blue"></text></text>
             </view>
           </view>
         </view>

@@ -1,28 +1,35 @@
 <have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
-<view class="tabllq" style="top:{{CustomBar}}px">
-      <scroll-view scroll-x class="nav" style="color:#eee" scroll-with-animation scroll-left="{{scrollLeft}}">
-        <view class="cu-item {{index==TabCur?'text-bai cur':''}}" wx:for="{{bqList}}" wx:key="index" bindtap="tabSelect" data-i="{{index}}" data-id="{{item.dictionariesId}}">
+<view class="tabllq" style="top:{{CustomBar}}px" wx:if="{{bqList.length != 0}}">
+  <scroll-view scroll-x class="nav" style="color:#eee" scroll-with-animation scroll-left="{{scrollLeft}}">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{index==TabCur?'text-bai cur':''}}" wx:for="{{bqList}}" wx:key="index" bindtap="tabSelect" data-i="{{index}}" data-id="{{item.dictionariesId}}" data-code="{{item.dictionariesCode}}">
+        {{item.dictionariesName}}
+      </view>
+    </view>
+  </scroll-view>
+      <scroll-view scroll-x class="nav" style="color:#eee" scroll-with-animation scroll-left="{{scrollLeft1}}">
+        <view class="cu-item {{index==TabCur1?'text-bai cur':''}}" wx:for="{{bqList1}}" wx:key="index" bindtap="tabSelect1" data-i="{{index}}" data-id="{{item.dictionariesId}}">
           {{item.dictionariesName}}
         </view>
       </scroll-view>
     </view>
-<view class="t4" style="{{rows.length != 0 ? 'padding-top:100rpx':''}}">
+<view class="t4" style="{{rows.length != 0 ? 'padding-top:170rpx':''}};">
   
 <view class="head_content">
+<view class="cu-card dynamic {{isCard?'no-card':''}}" style="min-height:100%;padding: 0 30rpx 100rpx;">
 
-<view class="cu-card dynamic {{isCard?'no-card':''}}">
 <!-- 第一部分 内容 -->
 <view class="queshiye" wx:if="{{rows.length == 0}}" style="padding-top:600rpx">
     <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png" class="imgs"></image>
     <view class="wenzi">暂无数据</view>
   </view>
-  <view class="cu-item shadow" wx:for="{{rows}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}">
+  <view class="cu-item shadow" style="margin:30rpx 0;" wx:for="{{rows}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}">
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);" ></view>
         <view class="content flex-sub">
           <view>小区用户名</view>
-          <view class="text-gray text-sm flex justify-between">
+          <view class="text-gray text-sm flex justify-between" wx:if="{{item.gmtCreate != null}}">
             {{item.gmtCreate}}
           </view>
         </view>
@@ -36,107 +43,109 @@
     <!-- <view wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items">{{items}}</view> -->
    <!-- <view class="bg-white padding" wx:if="{{item.file != ''}}">
     <view class="imgFor" style="{{item.img.length >= 3?'justify-content: space-between':''}}">
-        <image wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" style="{{item.img.length == 2?'margin-right:15rpx':''}};width:200rpx;height:200rpx" src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{items}}"></image>
+        <image wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" style="{{item.img.length == 2?'margin-right:15rpx':''}};width:200rpx;height:200rpx" src="http://yiqi.sucstep.com:9000/fileService/downloadFTP/public/{{items}}"></image>
         
     </view>
   </view> -->
   <view class="bg-white padding" style="background:#fff" wx:if="{{item.file != ''}}">
     <view class="grid col-3 grid-square">
-      <view class="bg-img" wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" wx:key="index" style="background-image:url(http://172.16.20.81:9000/fileService/downloadFTP/public/{{items}});"></view>
+      <view class="bg-img" wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" wx:key="index" style="background-image:url({{imgUrl+items}});"></view>
     </view>
   </view>
-    <!-- <view class="text-gray text-sm text-left padding padding-right">
-   
-      <view  class="download" bindtap="toStar" style="margin-left:0;">
-      <block wx:if="{{isStar == false}}">
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star_active.png " class="star_img">  </image><text class="text-gray"> 已收藏</text> 
-      </block>
-      <block wx:elif="{{isStar == true}}" >
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star.png " class="star_img">  </image><text class="text-gray"> 收藏</text> 
-      </block>
-      </view>
-      
-    
-    <view class="download" bindtap="toShare">
-      <block wx:if="{{isShare == false}}">
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/share.png " class="share_img">  </image><text class="text-gray"> 分享</text> 
-      </block>
-      <block wx:elif="{{isShare == true}}" >
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/share.png " class="share_img">  </image><text class="text-gray"> 已分享</text> 
-      </block>
-      </view>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/message.png " class="message_img" style="margin-left:25rpx;"></image><text class="text-gray"> 30</text> 
-            
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/good_active.png " class="good_img"></image><text class="right" style="padding-right:0;"> 15</text> 
-    </view> -->
+
     <view class="pinglun">
-        <view></view>
+        <view>
+        </view>
   
       <view class="pinglun-right" catchtap>
-        <view catchtap="dzClick" data-i="{{index}}">
-          <text class="cuIcon-like" wx:if="{{!item.dianzan}}"></text>
-          <text class="cuIcon-likefill" style="color:red" wx:if="{{item.dianzan}}"></text>
-          <text>{{item.dianzanshu > 99 ? '99+':''+item.dianzanshu}}</text>
+        <view class="plann" catchtap="dianji" data-i="{{index}}" data-id="{{item.neighborId}}" data-cur="{{item.pinglunCur}}">
+          评论
         </view>
-        
-        <view catchtap="plClick" data-i="{{index}}">
+        <view catchtap="dzClick" data-i="{{index}}" data-id="{{item.neighborId}}" style="width:70rpx;text-align: right;">
+          <view class="flex flex-wrap justify-around fudongdz">
+            <text class="cuIcon-like animation-reverse margin-sm basis-sm shadow" wx:if="{{item.goodState == null||item.goodState == '0'}}"></text>
+            <text class="cuIcon-likefill animation-{{dzIndex == index ? 'scale-down':''}} animation-reverse margin-sm basis-sm shadow" style="color:red" wx:if="{{item.goodState == '1'}}"></text>
+          </view>
+          <text style="margin-right:{{item.goodNumber < 10 ? '10rpx':'0'}}">
+            <text wx:if="{{item.goodNumber == null}}">0</text>
+            <text wx:if="{{item.goodNumber != null}}">{{item.goodNumber > 99 ? '99+':''+item.goodNumber}}</text>
+          </text>
+        </view>
+        <view catchtap="plClick" data-i="{{index}}" data-cur="{{item.pinglunCur}}" data-id="{{item.neighborId}}">
           <text class="cuIcon-comment"></text>
-          <text>30</text>
+          <text>{{item.commentNumber}}</text>
         </view>
         
-        <view catchtap="scClick" data-i="{{index}}">
-          <text class="cuIcon-favor" wx:if="{{!item.shoucang}}"></text>
-          <text class="cuIcon-favorfill" style="color:yellow" wx:if="{{item.shoucang}}"></text>
-          <text>{{item.shoucang ? '已收藏':'收藏'}}</text>
+        <view catchtap="scClick" data-i="{{index}}" data-id="{{item.neighborId}}">
+          <text class="cuIcon-favor" wx:if="{{item.collectionState == null||item.collectionState == 0}}"></text>
+          <text class="cuIcon-favorfill" style="color:yellow" wx:if="{{item.collectionState == 1}}"></text>
+
+          <text wx:if="{{item.collectionState == null||item.collectionState == 0}}">收藏</text>
+          <text wx:if="{{item.collectionState == 1}}">已收藏</text>
         </view>
+
+        
       </view>
-      
 
-      
     </view>
-    <view class="pinglunnr" catchtap wx:if="{{item.pinglun}}">
-      <view wx:for="{{3}}" wx:for-index="indexD" class="pinglunlb" bindtap="gbzezhao">
-        <view class="nr-top">
-          <view class="nr-name">
-            <text>德力格日仓</text>
 
+    <view class="pinglunnr" catchtap wx:if="{{item.pinglun}}">
+      <view wx:for="{{item.pinglunRows}}" wx:for-item="items" wx:for-index="indexD" wx:key="indexD" class="pinglunlb" bindtap="gbzezhao">
+        <view class="nr-top1">
+          <view class="nr-name">
+            <view>
+              <text>{{items.commentPeopleName}}</text>
+              <text style="font-size:18rpx;color:#0586F8;margin:0 5rpx" wx:if="{{items.beCommentedId != 0}}">回复</text>
+              <text wx:if="{{items.beCommentedId != 0}}">{{items.beCommentPeopleName}}</text>
+            </view>
+            <view class="nr-bot1-first">{{items.commentTime}}</view>
           </view>
-          <view class="nr-box" catchtap="plzplClick" data-index="{{index}}" data-indexd="{{indexD}}">
-              评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容评论内容
+          <view class="nr-box" catchtap="plzplClick" data-i="{{index}}" data-items="{{items}}" data-id="{{item.neighborId}}" data-cur="{{item.pinglunCur}}">
+              {{items.contentReview}}
           </view>
         </view>
-        <view class="nr-bot">
-          <view>2020年10月12日</view>
+        <view class="nr-bot1">
+          <view></view>
           <view class="bot-last">
-            <view catchtap="plzplClick" data-index="{{index}}" data-indexd="{{indexD}}">
-              <text class="cuIcon-comment"></text>
-              <text>评论</text>
+            <view class="plann" catchtap="plzplClick" data-i="{{index}}" data-items="{{items}}" data-id="{{item.neighborId}}" data-cur="{{item.pinglunCur}}"> 
+              评论
+            </view>
+            <view catchtap="plnrdzClick" data-id="{{item.neighborId}}" data-ids="{{items.commentId}}" data-i="{{index}}" data-in="{{indexD}}">
+              <text class="cuIcon-like" wx:if="{{items.goodState == '0'||items.goodState == null}}"></text>
+              <text class="cuIcon-likefill" style="color:red" wx:if="{{items.goodState == '1'}}"></text>
             </view>
             
-            <text class="cuIcon-likefill" style="color:red"></text>
           </view>
-          <view class="plzpl" catchtap wx:if="{{index == plInputTrue && indexD == plInputTrueL}}">
-            <input type="text" class="inputkuang" focus="{{index == plInputTrue && indexD == plInputTrueL ? 'auto':''}}" bindinput="inputClick1"/>
-            <view class="plzplnr" catchtap="plzplClick1" data-index="{{index}}" data-indexd="{{indexD}}">
+          <!-- <view class="plzpl" catchtap wx:if="{{index == plInputTrue && indexD == plInputTrueL}}">
+            <view class="plzplFirst">
+              <textarea name="" disable-default-padding="true" bindblur="bindFalse" data-i="{{index}}" class="textareaFirst" placeholder="评论此内容" cursor-spacing="30rpx" focus="{{index == plInputTrue && indexD == plInputTrueL ? 'auto':''}}" auto-height></textarea>
+            </view>
+            <view class="plzplan" bindtap="plsClick" data-id="{{item.neighborId}}" data-cur="{{item.pinglunCur}}" data-i="{{index}}" data-ids="{{items.commentId}}" data-userIds="{{items.commentPeopleId}}" data-name="{{items.commentPeopleName}}" >评论</view>
+            <input type="text" class="inputkuang" focus="{{index == plInputTrue && indexD == plInputTrueL ? 'auto':''}}" bindinput="inputClick1" value="{{plzplnrContents}}"/>
+            <view class="plzplnr" catchtap="plzplClick1" data-index="{{index}}" data-indexd="{{indexD}}" data-i="index" style="color:{{ziyanse1}}">
               {{plzplnrContent}}
             </view>
-            <view class="plzplan">评论</view>
-          </view>
+            <view class="plzplan" bindtap="plsClick" data-id="{{item.neighborId}}" data-cur="{{item.pinglunCur}}" data-i="{{index}}" data-ids="{{items.commentId}}" data-userIds="{{items.commentPeopleId}}" data-name="{{items.commentPeopleName}}" >评论</view>
+          </view> -->
         </view>
       </view>
-      <input type="text" class="inputkuang" focus="{{index == inputtrue ? 'auto':''}}" bindinput="inputClick"/>
-        <view class="plkuang" catchtap>
-          <view class="fdpl" bindtap="tianxie" data-index="{{index}}">
-            {{contentpl}}
-          </view>
-          <view class="zplan">评论</view>
-        </view>
+      
     </view>
  </view>
+
 </view>
 </view>
 
 <!-- 发布图标 -->
 <button class="cuIcon-add bg-blue fabu_btnLlq" role="button" aria-disabled="false" bindtap="fabu"></button>
 
+
 </view>
+<view class="textareakuang" style="bottom:{{InputBottom-1}}px" wx:if="{{InputBottomFalse}}">
+  <view class="kaungwai">
+    <textarea class="kuangnei" name="" bindinput="plnrshuru" value="{{contentText}}" bindfocus="InputFocus" cursor-spacing="20rpx" show-confirm-bar = "{{false}}" disable-default-padding="true" bindblur="inputBlur" focus="{{InputBottomFalse}}" fixed="true" placeholder="{{plSize}}" auto-height="true" adjust-position="{{false}}"></textarea>
+  </view>
+  <view class="zplan" wx:if="{{plng == 0}}" bindtap="zhuPlClick">评论</view>
+  <view class="zplan" wx:if="{{plng == 1}}" bindtap="plsClick">评论</view>
+</view>
+

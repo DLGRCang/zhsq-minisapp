@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgUrl: app.globalData.imgUrl,
     hidden:false,
     rows:[],
     rows1:[],
@@ -95,7 +96,7 @@ delete(){
   })
   http.scczfwApi({
     data:{
-      residentsId:wx.getStorageSync('user').userId,
+      residentsId:wx.getStorageSync('wxUser').id,
       rentRoomIds:this.data.rentRoomId,
       state:'3'
     },
@@ -181,7 +182,7 @@ lljClick:function(e){
     })
     http.wdfbLlqApi({
       data:{
-        createPeopleId:wx.getStorageSync('user').userId
+        createPeopleId:wx.getStorageSync('wxUser').id
       },
       success:res=>{
         //console.log(res)
@@ -231,7 +232,7 @@ lljClick:function(e){
     })
     http.wdfbfwApi({
       data:{
-        residentsId:wx.getStorageSync('user').userId
+        residentsId:wx.getStorageSync('wxUser').id
       },
       success:res=>{
         //console.log(res)

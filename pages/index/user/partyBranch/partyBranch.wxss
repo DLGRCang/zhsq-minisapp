@@ -23,8 +23,9 @@ box-sizing: border-box;
   box-sizing: border-box;
 }
 .nav .cu-item {
-  width: 50% !important;text-align: center !important;
+  width: 50% !important;text-align: center !important;color: #ccc;
 }
+
 
 .beijing{
   width: 100%;

@@ -15,7 +15,9 @@ Component({
    * 组件的初始数据
    */
   data: {
+    imgUrl:app.globalData.imgUrl,
     CustomBar: app.globalData.CustomBar,
+    tzgg:'',
     topItem:[
       {id:1,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts1a.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
       {id:2,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts2a.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
@@ -65,39 +67,11 @@ Component({
     timeL:0,
     rowsWJ:[],
     //rowsSQHD:[],
-    modalName:null,
+    
     xwrows:[],
     gddh:false,
     gddhchu:'100',
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-    }, {
-      id: 1,
-        type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-    }, {
-      id: 3,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-    }, {
-      id: 4,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
-    }, {
-      id: 5,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
-    }, {
-      id: 6,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-    }],
+    shopRows:[]
   },
  
   /**
@@ -106,6 +80,7 @@ Component({
 
 
   methods: {
+    
     gddhClick(){
       this.setData({
         gddh:true
@@ -154,39 +129,47 @@ Component({
           }) 
       }else if(verif.checkLogin()){
        // wx.removeStorageSync('xzvillage')
-        //console.log(wx.getStorageSync('xzvillage'))
-        if(wx.getStorageSync('village') == ''){
-          verif.tips('您不是小区人员，不能操作该功能')
-        }else if(wx.getStorageSync('xzvillage') == ''){
-          verif.tips('请先选择您的小区')
-          setTimeout(()=>{
-            this.triggerEvent('xunzexq')
-          },2000)
-          
+        //console.log(wx.getStorageSync('village'))
+        if(id == 1||id == 10){
+          wx.navigateTo({
+            url: e.currentTarget.dataset.url
+          }) 
         }else{
-          if(id == 6||id == 12){
-            var id = 0
-            for(var i in wx.getStorageSync('xzvillage')){
-              
-              if(wx.getStorageSync('xzvillage')[i].isMaster == 1){
-                id = wx.getStorageSync('xzvillage')[i].isMaster
-                break;
+          if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
+            verif.tips('您不是小区人员，不能操作该功能')
+          }else if(wx.getStorageSync('xzvillage') == ''){
+            verif.tips('请先选择您的小区')
+            setTimeout(()=>{
+              this.triggerEvent('xunzexq')
+            },2000)
+            
+          }else{
+            if(id == 6||id == 12){
+              var id = 0
+              for(var i in wx.getStorageSync('xzvillage')){
+                
+                if(wx.getStorageSync('xzvillage')[i].isMaster == 1){
+  
+                  id = wx.getStorageSync('xzvillage')[i].isMaster
+                  break;
+                }
               }
-            }
-
-            if(id == 0){
-              verif.tips('您不是户主不可操作此功能')
-            }else if(id == 1){
+  
+              if(id == 0){
+                verif.tips('您不是户主不可操作此功能')
+              }else if(id == 1){
+                wx.navigateTo({
+                  url: e.currentTarget.dataset.url
+                }) 
+              }
+            }else{
               wx.navigateTo({
                 url: e.currentTarget.dataset.url
               }) 
             }
-          }else{
-            wx.navigateTo({
-              url: e.currentTarget.dataset.url
-            }) 
           }
         }
+        
         // wx.navigateTo({
         //   url: e.currentTarget.dataset.url
         // }) 
@@ -282,6 +265,11 @@ Component({
       }
     })
   },
+
+  tjsjClick(){
+      this.triggerEvent('sjClick')
+  },
+
   timeList(){
     var time = util.formatTime(new Date)
     var times = time.split(' ')[0]
@@ -339,21 +327,47 @@ Component({
       url: '/pages/index/user/communityDetails/sq_hdxq?id='+id
     })
   },
-  wxsqjjClick(){
-    this.setData({
-      modalName:'null'
-    })
-    wx.setStorageSync('loginSi', true)
-  },
-  loginClick(){
-    this.setData({
-      modalName:'null'
-    })
-  },
+  
 
   xinwenList(){
     wx.showLoading({
       title: '拼命加载中',
+    })
+    http.newsApi({
+      data:{
+        code:'wytzfbgl',
+        cur:'1'
+      },
+      success:res=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
+        //console.log(res)
+        for(var i in res.rows){
+          if(res.rows[i].isTop == '置顶'){
+            //console.log(res.rows[i])
+            this.setData({
+              tzgg:res.rows[i].title
+            })
+          }else{
+            this.setData({
+              tzgg:res.rows[0].title
+            })
+          }
+        }
+
+        
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
+        console.log(err)
+      }
     })
     http.newsApi({
       data:{
@@ -382,148 +396,7 @@ Component({
     })
   },
 
-  bindGetUserInfo(e) {
-   // console.log(e)
-    var that = this
-    wx.showLoading({
-      title: '授权中...',
-    })
-    
-        //console.log(e)
-        wx.login({
-          success: resa => {
-            verif.tips('aaaa')
-            http.loginApi({
-              data:{
-                code:resa.code,
-                encryptedData:e.detail.encryptedData,
-                iv:e.detail.iv
-              },
-              success(data) {
-                verif.tips('bbb')
-                // console.log(data)
-                 if(data.code == 200){
-      //                  var user = {
-      //   userId:'100',
-      //   floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',
-      //   unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',
-      //   roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'
-      // }
-
-      // wx.setStorageSync('user', user)
-                  
-                   var userInfo = data.result.data.userInfo;
-                   userInfo.avatarUrl = e.detail.userInfo.avatarUrl
-                   wx.setStorageSync('wxUser',userInfo)
-                   wx.setStorageSync('token',data.result.data.token)
-                   wx.setStorageSync('loginSi', true)
-                
-                   wx.hideLoading({
-                     success: (res) => {
-                       that.messageList()
-                       verif.tips('授权成功')
-                       that.setData({
-                         modalName:'null'
-                       })
-                     },
-                   })
-                 }else{
-                   verif.tips('ccc')
-                     wx.navigateTo({
-                         url: '/pages/Login-on/Login'
-                     })
-                 }
-               },
-               fail(err) {
-                verif.tips('dddd')
-                 console.log(err)
-               }
-            })
-            // wx.request({
-            //   url: 'https://yiqi.sucstep.com/app/sign/checkCodeZHSQrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
-            //   method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
-            //   data:{
-            //     code:resa.code,
-            //     encryptedData:e.detail.encryptedData,
-            //     iv:e.detail.iv
-            //   },
-            //   header: {
-            //     'content-type': 'application/json'
-            //   },
-            //   success(data) {
-            //    // console.log(data)
-            //     if(data.data.code == 200){
-                  
-            //       var userInfo = data.data.result.data.userInfo;
-            //       userInfo.avatarUrl = e.detail.userInfo.avatarUrl
-            //       wx.setStorageSync('wxUser',userInfo)
-            //       wx.setStorageSync('token',data.data.result.data.token)
-            //       wx.setStorageSync('loginSi', true)
-               
-            //       wx.hideLoading({
-            //         success: (res) => {
-            //           verif.tips('授权成功')
-            //           that.setData({
-            //             modalName:'null'
-            //           })
-            //         },
-            //       })
-            //     }else{
-            //         wx.navigateTo({
-            //             url: '/pages/Login-on/Login'
-            //         })
-            //     }
-            //   },
-            //   fail(err) {
-            //     console.log(err)
-            //   }
-            // })
-           // console.log(res)
-          }
-        })
-
-
-
-    // if (e.detail.userInfo != undefined){
-    
-    //   // wx.getUserInfo({
-    //   //   success: res => {
-    //   //     wx.setStorageSync('wxUser',res)
-
-    //   //   }
-    //   // })
-    //   // var user = {
-    //   //   userId:'100',
-    //   //   floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',
-    //   //   unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',
-    //   //   roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'
-    //   // }
-
-    //   // wx.setStorageSync('user', user)
-    //  // wx.setStorageSync('loginSi', true)
-    //   //后台授权
-    //   // wx.showToast({
-    //   //   title: '登录成功',
-    //   // })
-      
-    //   // this.setData({
-    //   //   modalName:'null'
-    //   // })
-
-    //   // setTimeout(()=>{
-    //   //   wx.navigateTo({
-    //   //     url: '/pages/index/UserSelection/UserSelection'
-    //   //   })
-    //   // },1000)
-      
-      
-    //   // setTimeout(()=>{
-    //   //   wx.navigateBack({
-    //   //     delta: 1
-    //   //   })
-    //   // },1000)
-    // }
-  },
+  
   getAddInfo(){
     this.wenjuan()
   },
@@ -531,7 +404,7 @@ Component({
    // console.log('aa')
     wx.checkIsSupportSoterAuthentication({
       success(res) {
-        console.log(res)
+        //console.log(res)
         wx.setStorageSync('user', res)
         // res.supportMode = [] 不具备任何被SOTER支持的生物识别方式
         // res.supportMode = ['fingerPrint'] 只支持指纹识别
@@ -542,6 +415,13 @@ Component({
       }
     })
   },
+  xwDetails(e){
+    //console.log(e.currentTarget.dataset.item)
+    var item = encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
+    wx.navigateTo({
+      url: '/pages/index/user/notice-details/notice-details?item='+item
+    })
+  },
   messageList(){
       http.messageApi({
         data:{
@@ -549,8 +429,15 @@ Component({
         },
         success:res=>{
           //console.log(res)
-            if(res.length != 0){
+          var status = null
+            for(var i in res){
+              status = i
+            }
+            if(status != 'noVillage'){
               wx.setStorageSync('village', res)
+              this.triggerEvent('messageListChong')
+            }else{
+              wx.setStorageSync('village', false)
             }
             
           
@@ -559,7 +446,31 @@ Component({
           console.log(err)
         }
       })
-  }
+  },
+ 
+  listpageshoplisArr(){
+    //console.log(wx.getStorageSync('xzvillage'))
+    if(wx.getStorageSync('xzvillage') != ''){
+      http.listpageshoplisApi({
+        data:{
+          type:0,
+          villageid:wx.getStorageSync('xzvillage')[0].villageId,
+          number:2
+        },
+        success:res=>{
+          //console.log(res)
+          this.setData({
+            shopRows:res.rows
+          })
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+    }
+    
+  },
+  
   },
  
   /*组件生命周期*/ 
@@ -577,20 +488,10 @@ Component({
     ready() {
      // console.log(wx.getStorageSync('wxUser').id)
      //console.log('aaa')
-      this.wenjuan()
-      this.timeList()
-      this.xinwenList()
-
-      //this.sqhdList()
-      if(wx.getStorageSync('wxUser') == ''&&!wx.getStorageSync('loginSi')){
-        this.setData({
-          modalName:'bottomModal'
-        })
-      }
       
-      this.setData({
-        modalName:'null'
-      })
+      //this.sqhdList()
+      
+      
       var dataItem = this.data.dataItem
       var dataItem1 = []
       var dataItem2 = []
@@ -646,7 +547,10 @@ Component({
           dataItem1:dataItem
         })
       }
-   
+      this.wenjuan()
+      this.timeList()
+      this.xinwenList()
+      this.listpageshoplisArr()
     },
  
     //在组件实例被移动到节点树另一个位置时执行

@@ -15,7 +15,7 @@ module.exports = {
       }
       data = { ...data, ...params.data }
     }
-
+ 
     //http://192.168.0.14:8083
     //http://172.16.20.82:8083
     //https://yiqi.sucstep.com
@@ -31,6 +31,9 @@ module.exports = {
       },
       fail(err) {
         params.fail && params.fail(err)
+      },
+      complete(lete) {
+        params.lete && params.lete(lete)
       }
     })
   }

@@ -1,7 +1,8 @@
 <!--pages/index/setting/setting.wxml-->
-<cu-custom bgColor="bg-gray" isBack="{{true}}">
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">设置</view>
   </cu-custom>
+
 
   <!-- 内容 -->
   <view class="setting_box">
@@ -24,22 +25,25 @@
     <!-- 第二栏 -->
     <view class="my-b-from">
     <view class="my-p-from">
-      <view class="bot-border">
+      <view class="bot-border" wx:if="{{myList.facePhoto != null}}">
         <text>人像照片</text>
-        <image class="tx_img" src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{myList.facePhoto}}"> </image>
+        <image class="tx_img" src="{{imgUrl + myList.facePhoto}}"> </image>
         <!-- <text class="cuIcon-right lg text-gray"></text> -->
       </view>
   </view>
   <view class="my-p-from">
     <view class="bot-border">
         <text>姓名</text>
-        <view class="fr text-gray">{{myList.name}}<text class="cuIcon-right lg text-gray"></text></view>
+        <view class="fr text-gray">{{myList.name != null ? ''+myList.name:'无'}}</view>
       </view>
   </view>
   <view class="my-p-from">
     <view class="bot-border">
         <text>性别</text>
-        <view class="fr text-gray">{{myList.sex == 0 ? '女':'男'}}
+        <view class="fr text-gray">
+          <text wx:if="{{myList.sex == null}}">无</text>
+          <text wx:if="{{myList.sex == 0}}">女</text>
+          <text wx:if="{{myList.sex == 1}}">男</text>
           <!-- <text class="cuIcon-right lg text-gray"></text> -->
         </view>
       </view>
@@ -47,7 +51,7 @@
   <view class="my-p-from">
     <view class="bot-border">
         <text>手机号码</text>
-        <view class="fr text-gray">{{myList.phone}}
+        <view class="fr text-gray">{{myList.phone != null ? ''+myList.phone:'无'}}
           <!-- <text class="cuIcon-right lg text-gray"></text> -->
         </view>
       </view>
@@ -55,7 +59,39 @@
   <view class="my-p-from">
     <view class="bot-border">
         <text>证件号码</text>
-        <view class="fr text-gray">{{myList.idCard}}
+        <view class="fr text-gray">{{myList.idCard != null ? ''+myList.idCard:'无'}}
+          <!-- <text class="cuIcon-right lg text-gray"></text> -->
+        </view>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>民族</text>
+        <view class="fr text-gray">{{myList.national != null ? ''+myList.national:'无'}}
+          <!-- <text class="cuIcon-right lg text-gray"></text> -->
+        </view>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>籍贯</text>
+        <view class="fr text-gray">{{myList.nativePlace != null ? ''+myList.nativePlace:'无'}}
+          <!-- <text class="cuIcon-right lg text-gray"></text> -->
+        </view>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>职业</text>
+        <view class="fr text-gray">{{myList.professional != '' ? ''+myList.professional:'无'}}
+          <!-- <text class="cuIcon-right lg text-gray"></text> -->
+        </view>
+      </view>
+  </view>
+  <view class="my-p-from">
+    <view class="bot-border">
+        <text>工作单位</text>
+        <view class="fr text-gray">{{myList.work != null ? ''+myList.work:'无'}}
           <!-- <text class="cuIcon-right lg text-gray"></text> -->
         </view>
       </view>

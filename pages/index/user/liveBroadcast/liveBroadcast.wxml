@@ -28,7 +28,7 @@
     <view class="col-3 padding-sm">
       <view class="chuanjain">创建直播间</view>
       <input type="text" class="btInput" placeholder="请输入直播间标题"/>
-      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
                 <image src='{{imgList[index]}}' mode='aspectFill'></image>
                 <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
                   <text class="cuIcon-close"></text>

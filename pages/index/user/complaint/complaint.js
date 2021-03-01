@@ -2,12 +2,14 @@
 import http from '../../../../utils/api'
 import verif from '../../../../utils/verification'
 import util from '../../../../utils/util'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    imgUrl:app.globalData.imgUrl,
     imgList: [],
     imgId:[],
     content:'',
@@ -25,7 +27,7 @@ Page({
     imgs.then(res=>{
        this.setData({
         imgId:this.data.imgId.concat(res),
-        imgList:this.data.imgList.concat('http://172.16.20.81:9000/fileService/downloadFTP/public/'+res)
+        imgList:this.data.imgList.concat(this.data.imgUrl+res),
       })
     })
    // console.log(this.data.imgList)
@@ -71,6 +73,7 @@ Page({
     this.selectComponent("#haveTrue").falseClick()
   },
   tsjyList(){
+    console.log(wx.getStorageSync('xzvillage')[0].villageId)
     var time = util.formatTime(new Date)
     //console.log(this.data.title)
    // console.log(this.data.content)
@@ -87,7 +90,8 @@ Page({
     })
     http.tsjyApi({
       data:{
-        peopleId:'500',
+        villageId:wx.getStorageSync('xzvillage')[0].villageId,
+        peopleId:wx.getStorageSync('wxUser').id,
         peopleName:'bbb',
         time:time,
         content:this.data.content,
@@ -95,7 +99,7 @@ Page({
         title:this.data.title
       },
       success:res=>{
-        //console.log(res)
+       // console.log(res)
         wx.hideLoading({
           success: (res) => {
             this.selectComponent("#haveTrue").falseClick()
@@ -103,14 +107,15 @@ Page({
         })
         if(res.code == 200){
           verif.tips('提交成功')
+          setTimeout(()=>{
+            wx.navigateBack({//返回
+              delta: 1
+            })
+          },500)
         }else{
           verif.tips(res.msg)
         }
-        setTimeout(()=>{
-          wx.navigateBack({//返回
-            delta: 1
-          })
-        },500)
+        
       },
       fali:err=>{
         wx.hideLoading({
