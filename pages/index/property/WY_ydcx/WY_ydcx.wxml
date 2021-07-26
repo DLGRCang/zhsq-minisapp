@@ -11,12 +11,12 @@
       </view> 
     </view> -->
     <view class="pk right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-      <picker mode="date" value="{{date}}" fields="month" class="pickers" bindchange="DateChange" wx:if="{{indexId == 2}}">
+      <picker mode="date" value="{{date}}" fields="month" class="pickers" bindchange="DateChange" wx:if="{{wyUser.roleId == 'c9239296-0f3f-4b19-803c-f8050eabe863'}}">
         <view class="picker">
           {{date}} <text class="cuIcon-unfold lg"></text>
         </view>
       </picker>
-      <picker mode="date" value="{{date}}" bindchange="DateChange1" wx:if="{{indexId == 3}}">
+      <picker mode="date" value="{{date}}" bindchange="DateChange1" wx:if="{{wyUser.roleId == 'c54edb4e-9668-49c9-82ef-a417604d2b29'}}">
         <view class="picker">
           {{date}} <text class="cuIcon-unfold lg "></text>
         </view>
@@ -60,7 +60,7 @@
         <view class="tit1">巡查内容  <text class="title_textarea">{{item.planMessage}}</text></view>
       
         </view>
-        <view class="jilu">1aaaaaaaaaaaaaaaaaaaaaaaaa</view>
+        <!-- <view class="jilu"></view> -->
         <!-- <view class="bot_fr">···</view> -->
           <!-- 编辑修改删除 -->
     <!-- <view class="bianji">

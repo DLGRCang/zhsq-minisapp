@@ -36,7 +36,7 @@
 	</view>
 
 
-	<view class="but">
+	<view class="but"> 
 		<button class="cu-btn bg-blue shadow-blur round" form-type="submit" bindtap="conData" style="height:100%; width:100%;">提交预约</button>
 		<view class="Province" wx:if="{{showAreaList}}">
     	<van-area area-list="{{ areaList }}" bind:cancel="cancel" bind:confirm="confirm" />

@@ -13,8 +13,12 @@
   color: #333333;
   line-height: 30rpx;}
 .text_02{padding-top: 20rpx;}
-.box_btn{float: right;width: 10%;}
-.box_btn>image{width: 40rpx;height: 40rpx;margin-top:25rpx;}
+.box_btn{float: right;width: 10%;display: flex;flex-wrap: wrap;align-content: space-between;}
+.box_btn view{
+  width: 100%;
+  text-align: center;
+}
+.box_btn>image{width: 30rpx;height: 30rpx;margin: 15rpx auto;}
 
 
 

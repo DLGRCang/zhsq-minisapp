@@ -73,7 +73,7 @@ Page({
     this.selectComponent("#haveTrue").falseClick()
   },
   tsjyList(){
-    console.log(wx.getStorageSync('xzvillage')[0].villageId)
+    //console.log(wx.getStorageSync('xzvillage')[0].villageId)
     var time = util.formatTime(new Date)
     //console.log(this.data.title)
    // console.log(this.data.content)
@@ -90,13 +90,14 @@ Page({
     })
     http.tsjyApi({
       data:{
-        villageId:wx.getStorageSync('xzvillage')[0].villageId,
+        villageId:wx.getStorageSync('xzvillage').village.villageId,
         peopleId:wx.getStorageSync('wxUser').id,
         peopleName:'bbb',
         time:time,
         content:this.data.content,
         file:imgId1,
-        title:this.data.title
+        title:this.data.title,
+        state:0
       },
       success:res=>{
        // console.log(res)
@@ -111,7 +112,7 @@ Page({
             wx.navigateBack({//返回
               delta: 1
             })
-          },500)
+          },800)
         }else{
           verif.tips(res.msg)
         }

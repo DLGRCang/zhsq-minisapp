@@ -116,13 +116,13 @@ Page({
       title: '拼命加载中',
     })
       wx.request({
-        url: 'http://172.16.20.82:8083/zhsq/api/news/pubListNews/' +code+'/'+cur, // 就是拼接上前缀,此接口域名是开放接口，可访问
+        url: 'https://www.yjhlcity.com/zhsq/api/news/pubListNews/' +code+'/'+cur, // 就是拼接上前缀,此接口域名是开放接口，可访问
         method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
         header: {
           'content-type': 'application/json'
         },
         success(res) {
-     
+          //console.log(res)
         if(v){
           setTimeout(()=>{
             if(that.data.TabCur == 0){
@@ -277,14 +277,14 @@ Page({
         }
         wx.hideLoading({
           success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
+            that.selectComponent("#haveTrue").falseClick()
           },
         })
         },
         fail(err) {
           wx.hideLoading({
             success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
+              that.selectComponent("#haveTrue").trueClick()
             },
           })
           console.log(err)

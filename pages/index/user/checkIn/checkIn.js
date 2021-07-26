@@ -31,7 +31,8 @@ Page({
     zy:'',
     sjh:'',
     guanxi:[],
-    zishitc:false
+    zishitc:false,
+    baseImg:null
   },
 
   /**
@@ -43,9 +44,9 @@ Page({
     
     var fangyuan = []
     var fangyuan1 = []
-    for(var i in wx.getStorageSync('xzvillage')){
-      if(wx.getStorageSync('xzvillage')[i].isMaster == 1){
-        fangyuan.push(wx.getStorageSync('xzvillage')[i])
+    for(var i in wx.getStorageSync('xzvillage').houseList){
+      if(wx.getStorageSync('xzvillage').houseList[i].isMaster == 1){
+        fangyuan.push(wx.getStorageSync('xzvillage').houseList[i])
       }
     }
     //console.log(fangyuan)
@@ -154,14 +155,17 @@ guanbi(){
     
   },
 quedingsc(){
-  var imgs=verif.imgClick()
+  var imgs=verif.imgClickBseseven()
     imgs.then(res=>{
+      //console.log(res)
        this.setData({
-        imgId:this.data.imgId.concat(res),
-        imgList:this.data.imgList.concat(this.data.imgUrl+res),
-        zishitc:false
+        imgId:this.data.imgId.concat(res.imgs),
+        imgList:this.data.imgList.concat(this.data.imgUrl+res.imgs),
+        zishitc:false,
+        baseImg:res.base
       })
     })
+
   },
 
   ViewImage(e) {
@@ -182,7 +186,8 @@ quedingsc(){
           this.data.imgId.splice(e.currentTarget.dataset.index, 1);
           this.setData({
             imgList: this.data.imgList,
-            imgId:this.data.imgId
+            imgId:this.data.imgId,
+            baseImg:null
           })
         }
       }
@@ -232,7 +237,7 @@ quedingsc(){
     })
   },
   tjshClick(){
-    //console.log(wx.getStorageSync('wxUser'))
+    console.log(this.data.fangyuannr)
     var that = this
     if(this.data.fangyuannr.length == 1){
       var user = this.data.fangyuannr[0]
@@ -260,7 +265,7 @@ quedingsc(){
             title: '拼命加载中',
           })
             wx.request({
-              url: 'https://yiqi.sucstep.com/app/sign/saveZhsqUserInfo', // 就是拼接上前缀,此接口域名是开放接口，可访问
+              url: 'https://www.yjhlcity.com/usercenter/app/sign/saveZhsqUserInfo', // 就是拼接上前缀,此接口域名是开放接口，可访问
               method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
               data:{
                 name:that.data.name,
@@ -295,10 +300,11 @@ quedingsc(){
                       isStay:that.data.sfcz,
                       unifiedUserId:resm.data.result,
                       work:'',
-                      facePhoto:that.data.imgId[0]
+                      facePhoto:that.data.imgId[0],
+                      facePhotoBase:that.data.baseImg
                     },
                     success:res=>{
-                      //console.log(res.status)
+                      console.log(res)
                       if(res.status == 500){
                         wx.hideLoading()
                         verif.tips('提交失败')

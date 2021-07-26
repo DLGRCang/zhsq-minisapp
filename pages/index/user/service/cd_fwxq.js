@@ -2,6 +2,8 @@ import http from '../../../../utils/api'
 import util from '../../../../utils/util'
 import verif from '../../../../utils/verification'
 const app = getApp()
+var t = null;
+var p = null;
 Page({
   data: {
     imgUrl:app.globalData.imgUrl,
@@ -50,7 +52,11 @@ Page({
     timeb:null,
     pickers:0,
     pickerx:0,
-    date:0
+    date:0,
+    msDate:"",
+    mxDate:"",
+    psDate:"",
+    pxDate:"",
   },
 
    // tab切换
@@ -210,25 +216,67 @@ Page({
   
 // },
 yuyue(){
+  //verif.tips("暂时无法")
   this.setData({
     modalName: 'bottomModal'
   })
 },
 DateChange(e) {
+
   this.setData({
     date: e.detail.value
   })
   this.yuyue()
 },
 hideModal(e) {
+  t = null;
+  p = null;
+  var rowsList = this.data.rowsList
+  for(var i in rowsList.amopenTimeList1){
+    rowsList.amopenTimeList1[i].isTrue = false
+  }
+  for(var i in rowsList.pmopenTimeList1){
+    rowsList.pmopenTimeList1[i].isTrue = false
+  }
   this.setData({
-    modalName: null
+    modalName: null,
+    msDate:"",
+    mxDate:"",
+    psDate:"",
+    pxDate:"",
+    rowsList:rowsList
   })
+},
+
+quedingyy(){
+  if(this.data.msDate == undefined||this.data.psDate == undefined){
+    verif.tips("请选择预约时间段")
+  }
+  var bmTime = this.data.msDate+"-"+this.data.mxDate
+  var pmTime = this.data.psDate+"-"+this.data.pxDate
+http.saveconstructionsinfoApi({
+  data:{
+    userId:wx.getStorageSync('xzvillage').name,
+    data:util.formatTime1(new Date).split(' ')[0],
+    bmTime:bmTime,
+    pmTime:pmTime,
+    place:this.data.rowsList.constructionsPlaceId,
+    alreadyPeoper:"",
+    unifiedUserId:wx.getStorageSync('xzvillage').houseList[0].unifiedUserId
+  },
+  success:res=>{
+    verif.tips("预约成功")
+    console.log(res)
+    this.hideModal()
+  }
+})
 },
 
   onLoad(options) {
     this.towerSwiper('swiperList');
     this.cdDetailsArr(options.id)
+    //console.log(wx.getStorageSync('xzvillage')[0].unifiedUserId)
+   // console.log(util.formatTime1(new Date).split(' ')[0])
     // 初始化towerSwiper 传已有的数组名即可
   },
 
@@ -290,15 +338,21 @@ hideModal(e) {
         constructionsActivityId:id
       },
       success:res=>{
-        console.log(res)
+        
         // console.log(res.openTime.split(' 至 ')[0])
          //console.log(res.openTime.split(' 至 ')[1])
-        
-        
+         res.amopenTimeList1 = []
+         res.pmopenTimeList1 = []
+        for(var i in res.amopenTimeList){
+          res.amopenTimeList1.push({date:res.amopenTimeList[i],isTrue:false})
+        }
+        for(var i in res.pmopenTimeList){
+          res.pmopenTimeList1.push({date:res.pmopenTimeList[i],isTrue:false})
+        }
          var time = new Date()
         time.setDate(time.getDate() + 1)
         var pickersM = util.formatTime(time)
-        
+        console.log(res)
         // var a = new Date('2020-01-01 9:00')
         // var b = new Date('2020-01-01 11:00')
         // var timea = res.amopenTime.split('-')[0]
@@ -311,7 +365,7 @@ hideModal(e) {
         // }
        
         
-        console.log(res.openTime)
+        //console.log(res.openTime)
         this.setData({
           rowsList:res,
           pickers:pickersM,
@@ -324,6 +378,91 @@ hideModal(e) {
       }
     })
   },
+
+  amctimes(e){
+    var rowsList = this.data.rowsList
+    this.setData({
+      msDate:"",
+      mxDate:""
+    })
+    if(t == null){
+      for(var i in rowsList.amopenTimeList1){
+        rowsList.amopenTimeList1[i].isTrue = false
+      }
+      t = e.currentTarget.dataset.i
+      rowsList.amopenTimeList1[t].isTrue = true
+    }else{
+      if(t < e.currentTarget.dataset.i){
+        for(var i in rowsList.amopenTimeList1){
+            if(t <= i && i <= e.currentTarget.dataset.i){
+              rowsList.amopenTimeList1[i].isTrue = true
+            }
+        }
+            this.setData({
+              msDate:rowsList.amopenTimeList1[t].date,
+              mxDate:rowsList.amopenTimeList1[e.currentTarget.dataset.i].date,
+            })
+      }else{
+        for(var i in rowsList.amopenTimeList1){
+          if(t >= i && i >= e.currentTarget.dataset.i){
+            rowsList.amopenTimeList1[i].isTrue = true
+          }
+        }
+        this.setData({
+          msDate:rowsList.amopenTimeList1[e.currentTarget.dataset.i].date,
+          mxDate:rowsList.amopenTimeList1[t].date,
+        })
+      }
+      t = null
+    }
+    this.setData({
+      rowsList:rowsList
+    })
+   
+  },
+  pmctimes(e){
+    var rowsList = this.data.rowsList
+    this.setData({
+      psDate:"",
+      pxDate:""
+    })
+    if(p == null){
+      for(var i in rowsList.pmopenTimeList1){
+        rowsList.pmopenTimeList1[i].isTrue = false
+      }
+      p = e.currentTarget.dataset.i
+      rowsList.pmopenTimeList1[p].isTrue = true
+    }else{
+      if(p < e.currentTarget.dataset.i){
+        for(var i in rowsList.pmopenTimeList1){
+            if(p <= i && i <= e.currentTarget.dataset.i){
+              rowsList.pmopenTimeList1[i].isTrue = true
+            }
+        }
+        this.setData({
+          psDate:rowsList.pmopenTimeList1[p].date,
+          pxDate:rowsList.pmopenTimeList1[e.currentTarget.dataset.i].date,
+        })
+      }else{
+        for(var i in rowsList.pmopenTimeList1){
+          if(p >= i && i >= e.currentTarget.dataset.i){
+            rowsList.pmopenTimeList1[i].isTrue = true
+          }
+      }
+      this.setData({
+        psDate:rowsList.pmopenTimeList1[e.currentTarget.dataset.i].date,
+        pxDate:rowsList.pmopenTimeList1[p].date,
+      })
+      }
+      p = null
+    }
+    this.setData({
+      rowsList:rowsList
+    })
+   
+  },
+
+
   DotStyle(e) {
     this.setData({
       DotStyle: e.detail.value

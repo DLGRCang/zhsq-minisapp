@@ -2,8 +2,187 @@
 
 .visitor-box{
   width: 100%;
-  padding:30rpx;
+  padding-bottom: 125rpx;
+  /* padding:30rpx; */
   box-sizing: border-box;
+}
+.tishis{
+  width: 100%;
+  padding: 0 17px;
+  font-size: 22rpx;
+  color: #ccc;
+  margin-bottom: 24rpx;
+}
+.sex{
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+}
+.sex view{
+  width: 100rpx;
+  padding: 4rpx 0;
+  border:2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  border-radius: 9rpx;
+  color: #ccc;
+}
+
+.textarea{
+  width: 100%;
+  padding: 20rpx 30rpx 1rpx;
+  background: #fff;
+}
+
+.textarea textarea{
+  width: 100%;
+  height: 130rpx;
+  margin-top: 16rpx;
+}
+
+.btn{
+  width: 100%;
+  padding: 19rpx 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.btn view{
+  width: 100%;
+height: 87rpx;
+background: linear-gradient(60deg, #66B7F9, #3A91F7);
+border-radius: 44rpx;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 28rpx;
+font-family: Microsoft YaHei;
+font-weight: bold;
+color: #FFFFFF;
+}
+
+.yzSousuo{
+  position: fixed;
+  width: 100%;
+height: 100%;
+background: rgba(0,0, 0, 0.4);
+left: 0;
+top: 0;
+z-index: 5;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.sousuo{
+  width: 80%;
+  height: 70%;
+}
+.sousuotop{
+  width: 100%;
+  height: 90%;
+background: #fff;
+border-radius: 5rpx;
+}
+.sousuobot{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topSSk{
+  width: 100%;
+  height: 9%;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rpx 30rpx;
+}
+.topSSk input{
+  height: 100%;
+  width: 80%;
+  padding: 20rpx;
+
+}
+.tanchaung{
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  position: fixed;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50rpx 30rpx;
+}
+.zishi{
+  width: 100%;
+  background: #fff;
+  border-radius: 15rpx;
+  padding: 30rpx;
+}
+.zishi image{
+  width: 100%;
+  height: 600rpx;
+  border-radius: 15rpx;
+  margin: 30rpx 0;
+}
+.tishi{
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 900;
+  color: red;
+}
+.zishiTop{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.zishiTop text:first-child{
+  font-size: 50rpx;
+  color: #fff;
+}
+.zishiTop text:nth-child(2){
+  font-size: 30rpx;
+  font-weight: 900;
+}
+.zishiTop text:last-child{
+  font-size: 50rpx;
+  color: #ccc;
+}
+.anniu{
+  margin-top: 50rpx;
+  width: 100%;
+  text-align: center;
+}
+.anniu button{
+  display: inline-block;
+  border-radius: 35rpx;
+  height: 70rpx;
+  font-size: 30rpx;
+  color: #fff;
+  padding: 0 80rpx;
+  margin: 0 auto;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+}
+.topSSnr{
+  width: 100%;
+  height: 90%;
+  padding: 0 30rpx;
+  overflow-y: auto;
+}
+.topSSnr view{
+  width: 100%;
+  padding: 19rpx 0;
+  border-top: 1px solid #ccc;
+  font-size: 29rpx;
+  
 }
 .box-top{
   width: 100%;

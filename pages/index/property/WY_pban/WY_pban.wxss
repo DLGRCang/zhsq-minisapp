@@ -3,6 +3,13 @@
 @import "../../../../colorui/icon.wxss";
 .fl{float: left;}
 .fr{float: right;}
+.imgFl{
+  width:125rpx;height: 125rpx;
+  border-radius: 50%;
+  background: #f1f1f1;
+  margin-right: 15rpx;
+}
+.dbox_top>.bor_fl>.imgFl>image{width:125rpx;height: 125rpx;border-radius: 50%} 
 /* 頭部背景樣式 */
 .box-body-3-nei{ width: 100%;position: relative;overflow: hidden;
   /* padding: 0 30rpx; */color:#333;
@@ -14,7 +21,7 @@
   left: 0;
   padding: 35rpx 35rpx 0;
   z-index: 10;
-  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+  /* background: linear-gradient(deg, #0586F8, #1BB1FD); */
 border-radius: 0 0 15rpx 15rpx;
 }
 /* 内容样式 */
@@ -31,7 +38,7 @@ border-radius: 0 0 15rpx 15rpx;
 .dbox_top>.bor_fl{  display:block;height: 130rpx; width: 80%;float: left;} 
 .wxgr{font-size: 24rpx;    margin-top: -30rpx;}
 .dbox_top{height:85rpx;line-height: 85rpx;    margin-bottom: 35rpx;color: #fff;font-size: 32rpx;font-weight: bold;}
-.dbox_top>.bor_fl>image{width:125rpx;height: 125rpx;border-radius: 50%;margin-right: 15rpx;} 
+
 
 
 

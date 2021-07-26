@@ -20,11 +20,11 @@
 
 <!-- 第一部分 内容 -->
 <view class="queshiye" wx:if="{{rows.length == 0}}" style="padding-top:600rpx">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png" class="imgs"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png" class="imgs"></image>
     <view class="wenzi">暂无数据</view>
   </view>
-  <view class="cu-item shadow" style="margin:30rpx 0;" wx:for="{{rows}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}">
-    <view class="cu-list menu-avatar">
+  <view class="cu-item shadow" style="margin:30rpx 0;padding-top:30rpx" wx:for="{{rows}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}">
+    <!-- <view class="cu-list menu-avatar">
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);" ></view>
         <view class="content flex-sub">
@@ -34,16 +34,16 @@
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
     <view class="text-cont">
-      <view wx:if="{{item.pantrue == true}}">{{item.message1}}<text style="color:green;margin-left:10rpx" catchtap="quanwen" data-i="{{index}}">全文</text></view>
-      <view wx:if="{{item.pantrue == false}}">{{item.message}}<text style="color:green;margin-left:10rpx" wx:if="{{item.pantrue1 == true}}" catchtap="squanwen" data-i="{{index}}">收起</text></view>
+      <view wx:if="{{item.pantrue == true}}" class="text-cont-over">{{item.message1}}<text style="color:green;margin:15rpx;font-size:30rpx;font-weight: 900;" catchtap="quanwen" data-i="{{index}}">全文</text></view>
+      <view wx:if="{{item.pantrue == false}}" class="text-cont-over">{{item.message}}<text style="color:green;margin:15rpx;font-size:30rpx;font-weight: 900;" wx:if="{{item.pantrue1 == true}}" catchtap="squanwen" data-i="{{index}}">收起</text></view>
       
     </view>
     <!-- <view wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items">{{items}}</view> -->
    <!-- <view class="bg-white padding" wx:if="{{item.file != ''}}">
     <view class="imgFor" style="{{item.img.length >= 3?'justify-content: space-between':''}}">
-        <image wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" style="{{item.img.length == 2?'margin-right:15rpx':''}};width:200rpx;height:200rpx" src="http://yiqi.sucstep.com:9000/fileService/downloadFTP/public/{{items}}"></image>
+        <image wx:for="{{item.img}}" wx:for-index="i" wx:for-item="items" wx:if="{{i<=2}}" style="{{item.img.length == 2?'margin-right:15rpx':''}};width:200rpx;height:200rpx" src="https://www.yjhlcity.com:9000/fileService/downloadFTP/public/{{items}}"></image>
         
     </view>
   </view> -->
@@ -54,10 +54,10 @@
   </view>
 
     <view class="pinglun">
-        <view>
-        </view>
-  
+
+      <view></view>
       <view class="pinglun-right" catchtap>
+        
         <view class="plann" catchtap="dianji" data-i="{{index}}" data-id="{{item.neighborId}}" data-cur="{{item.pinglunCur}}">
           评论
         </view>
@@ -84,9 +84,9 @@
           <text wx:if="{{item.collectionState == 1}}">已收藏</text>
         </view>
 
-        
+       
       </view>
-
+      <!-- <view class="text-red" catchtap="removeCLick" data-id="{{item.neighborId}}" data-i="{{index}}" data-target="DialogModal1">删除</view> -->
     </view>
 
     <view class="pinglunnr" catchtap wx:if="{{item.pinglun}}">
@@ -114,7 +114,6 @@
               <text class="cuIcon-like" wx:if="{{items.goodState == '0'||items.goodState == null}}"></text>
               <text class="cuIcon-likefill" style="color:red" wx:if="{{items.goodState == '1'}}"></text>
             </view>
-            
           </view>
           <!-- <view class="plzpl" catchtap wx:if="{{index == plInputTrue && indexD == plInputTrueL}}">
             <view class="plzplFirst">
@@ -129,10 +128,8 @@
           </view> -->
         </view>
       </view>
-      
     </view>
  </view>
-
 </view>
 </view>
 
@@ -149,3 +146,23 @@
   <view class="zplan" wx:if="{{plng == 1}}" bindtap="plsClick">评论</view>
 </view>
 
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">删除</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      您确定要删除此内容吗
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-red margin-left" bindtap="removeClickin">确定</button>
+
+      </view>
+    </view>
+  </view>
+</view>

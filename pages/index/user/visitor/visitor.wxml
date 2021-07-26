@@ -1,9 +1,109 @@
 <cu-custom bgColor="bg-bluejb" isBack="{{true}}">
   <view slot="content">访客预约</view>
 </cu-custom>
+<view class="visitor-box">
+  <view class="cu-form-group">
+		<view class="title">所在小区</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'请选择小区'}}
+			</view>
+		</picker>
+  </view>
+  <view class="cu-form-group" bindtap="xzYz">
+		<view class="title">被访对象</view>
+		<view class="picker">
+      {{yzItem.personName}}
+        <text class="cuIcon-right var(--grey)" style="font-size:32rpx;"></text>
+			</view>
+	</view>
+  <view class="cu-form-group margin-top">
+		<view class="title">访客姓名</view>
+		<input placeholder="请输入访客姓名" bindinput="nameInput"></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">手机号码</view>
+		<input type="number" placeholder="请输入访客手机号" bindinput="phoneInput"></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">身份证号</view>
+		<input placeholder="请输入访客身份证号" bindinput="cardInput"></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">性别</view>
+		<view class="sex">
+      <view bindtap="sexClick" data-sex="1" style="{{sex == 1 ? 'border:2px solid #3A91F7;color:#3A91F7':''}}">男</view>
+      <view bindtap="sexClick" data-sex="2" style="{{sex == 2 ? 'border:2px solid #3A91F7;color:#3A91F7':''}}">女</view>
+    </view>
+   
+  </view>
+  <view class="cu-form-group">
+    <view class="title">来访时间</view>
+		<pickerYMDHM bind:onPickerChange="onPickerChange3" date="{{dateTime}}"></pickerYMDHM>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">离开时间</view>
+		<pickerYMDHMEnd bind:onPickerChange1="onPickerChange4" id="myComponent" bindtap="endClick" date="{{endTime}}" ksDate="{{ksDate}}"></pickerYMDHMEnd>
+  </view>
+  <view class="tishis">来访时间和离开时间最多相差24小时</view>
+  <view class="margin-top textarea">
+    <view class="title">来访事由</view>
+		<textarea name="" maxlength="128" placeholder="请输入来访事由，最多128字" bindinput="textInput"></textarea>
+  </view>
+  <view class="margin-top textarea">
+        <view class="title" style="padding-bottom:16rpx">人脸照片</view>
+        <view class="grid col-4 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+            <image src='{{imgList[index]}}' mode='aspectFill'></image>
+            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+              <text class="cuIcon-close"></text>
+            </view>
+          </view>
+          <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+            <text class="cuIcon-cameraadd"></text>
+          </view>
+	       </view>
+      </view>
+</view>
+<view class="yzSousuo" wx:if="{{sousuoTrue}}">
+  <view class="sousuo">
+    <view class="sousuotop">
+      <view class="topSSk">
+        <input type="text" placeholder="请输入业主名字" bindinput="yezhuInput"/>
+        <text bindtap="sousuoClick">搜索</text>
+      </view>
+      <view class="topSSnr">
+        <view wx:for="{{topSSnrFor}}" wx:key="index" style="{{index == 0 ? 'border-top: none;':''}}" bindtap="nrClick" data-item="{{item}}">{{item.personName}}</view>
+      </view>
+    </view>
+    <view class="sousuobot">
+      <text class="cuIcon-roundclose" style="font-size:60rpx;color:#ccc" bindtap="chaClick"></text>
+    </view>
+  </view>
+</view>
+<view class="tanchaung" wx:if="{{zishitc}}" bindtap="guanbi" style="top:{{CustomBar}}px;height:{{windowHeight}}px">
+    <view class="zishi" catchtap>
+        <view class="zishiTop">
+          <text class="cuIcon-roundclose"></text>
+          <text>人脸照片</text>
+          <text class="cuIcon-roundclose" catchtap="guanbi"></text>
+        </view>
+        <image src="https://www.yjhlcity.com/zhsqminiapp/renlian.jpeg"></image>
+        <view class="tishi">
+          <view>！（ 请以上图示例拍照或者上传图片 ）</view>
+          <view>请提供五官清晰，人脸居中的正面人脸免冠照片</view>
+          
+        </view>
+        <view class="anniu">
+          <button catchtap="quedingsc">确定</button>
+        </view>
+    </view>
+  </view>
+<view class="btn">
+  <view bindtap="tjClick">提交</view>
+</view>
 
-
-  <view class="visitor-box">
+  <!-- <view class="visitor-box">
     <view class="box-top">
       <text>访客预约</text>
       <view bindtap="yuyue">去预约</view>
@@ -43,5 +143,5 @@
   <view class="fudongZt" style="bottom:{{botFudong}}px" wx:if="{{fudongText != ''&&ztban == true}}" bindtap="ztClick">
     <view class="fudongTop">{{fudongText}}</view>
     <view class="ztText">粘贴</view>
-  </view>
+  </view> -->
 

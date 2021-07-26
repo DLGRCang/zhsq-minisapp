@@ -6,45 +6,45 @@
   </cu-custom>
 <!-- <view class="llq_content"> -->
   <view class="pbDingwei" id="pbDingwei" style="top:{{CustomBar}}px">
-    <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" wx:if="{{wyUser == 2}}">
+    <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" wx:if="{{wyUser.roleId == 'c9239296-0f3f-4b19-803c-f8050eabe863'}}">
       <view class="cu-item {{curHdIndex==item.id? 'active3' : ''}}" wx:for="{{tabList1}}" wx:key="index" bindtap="tab" data-id="{{item.id}}">
         {{item.tname}}
       </view>
     </scroll-view>
-    <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" wx:if="{{wyUser == 3}}">
+    <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" wx:if="{{wyUser.roleId == 'dab53080-0871-4b5f-862b-f5ad1c79c585'}}">
       <view class="cu-item {{curHdIndex1==item.id? 'active3' : ''}}" wx:for="{{tabList2}}" wx:key="index" bindtap="tab" data-id="{{item.id}}">
         {{item.tname}}
       </view>
     </scroll-view>
-  </view>
-  <view class="box-body-3-nei">
-    <image src="../../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
-    <view class="view-nei" wx:if="{{wyUser == 2}}" style="padding-top:{{CustomBar}}px">
-      <view wx:if="{{curHdIndex==0}}" class="waiBox">
-          <picker mode="date" wx:if="{{rows0.length != 0}}" value="{{date0}}" start="{{dateC}}" end="{{date0}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
+    <picker mode="date" value="{{date0}}" start="{{dateC}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
             <view class="picker">
               {{date0}} <text class="cuIcon-unfold lg"></text>
             </view>
           </picker>
+  </view>
+  <view class="box-body-3-nei">
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <view class="view-nei" wx:if="{{wyUser.roleId == 'c9239296-0f3f-4b19-803c-f8050eabe863'}}" style="padding-top:{{CustomBar}}px">
+      <view wx:if="{{curHdIndex==0}}" class="waiBox">
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows0.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows0}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 1}}">待审核</text>
+                      <!-- <text wx:if="{{item.state == 2}}">已审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text> -->
+                      <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                      <text wx:if="{{item.state == 6}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -55,40 +55,35 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <button>拒绝</button>
+                    <button wx:if="{{item.state == 1}}"  bindtap="showModal2" data-target="DialogModal2" data-item="{{item}}">拒绝</button>
+                    <button class="active" wx:if="{{item.state == 1}}" bindtap="showModal" data-target="viewModal" data-item="{{item}}">接单</button>
+                    <!-- <button>拒绝</button>
                     <button class="active">接单</button>
                     <button class="active" bindtap="showModal" data-target="viewModal">派单</button>
                     <button class="active">接单</button>
-                    <button class="active">维修完成</button>
+                    <button class="active">维修完成</button> -->
                   </view>
           </view> 
         </view>
       </view> 
       <view wx:if="{{curHdIndex==1}}">
-        <picker mode="date" wx:if="{{rows1.length != 0}}" value="{{date1}}" start="{{dateC}}" end="{{date1}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date1}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows1.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows1}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 1}}">待审核</text>
+                      <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                      <text wx:if="{{item.state == 6}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -99,80 +94,67 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <button>拒绝</button>
+                    <button wx:if="{{item.state == 1}}"  bindtap="showModal2" data-target="DialogModal2" data-item="{{item}}">拒绝</button>
+                    <button class="active" wx:if="{{item.state == 1}}" bindtap="showModal" data-target="viewModal" data-item="{{item}}">接单</button>
+                    <!-- <button>拒绝</button>
                     <button class="active">接单</button>
-                    <button class="active" bindtap="showModal" data-target="viewModal">派单</button>
-                  </view>
-          </view>
-        </view>
-      </view> 
-      <view wx:if="{{curHdIndex==2}}">
-        <picker mode="date" wx:if="{{rows2.length != 0}}" value="{{date2}}" start="{{dateC}}" end="{{date2}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date2}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
-        <view class="pban_box">
-          <view class="queshiye" wx:if="{{rows2.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
-            <view>暂无数据</view>
-          </view>
-          <view class="box" wx:for="{{rows2}}" wx:key="index">
-              <view class="box_top">
-                <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
-                <view class="text-black">{{item.applePeopleName}}</view>
-              </view>
-                  <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
-                      <text wx:if="{{item.state == 4}}">维修完成</text>
-                      <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
-                  </view>
-                  </view>
-                  <view class="box_title">
-                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
-                    <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
-                    <view>维修类型  <text>{{item.type}}</text></view>
-                    <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
-                    <view>预约时间  <text>{{item.appleTime}}</text></view>
-                  </view>
-                  <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                    <button class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
                   </view>
           </view>
         </view>
       </view> 
       <view wx:if="{{curHdIndex==3}}">
-        <picker mode="date" wx:if="{{rows3.length != 0}}" value="{{date3}}" start="{{dateC}}" end="{{date3}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date3}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
+        <view class="pban_box">
+          <view class="queshiye" wx:if="{{rows2.length == 0}}">
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows2}}" wx:key="index">
+              <view class="box_top">
+                <view class="bor_fl">
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
+                <view class="text-black">{{item.applePeopleName}}</view>
+              </view>
+                  <view class="bor_fr text-gray">
+                      <text wx:if="{{item.state == 1}}">待审核</text>
+                      <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 4}}">维修完成</text>
+                      <text wx:if="{{item.state == 5}}">完成</text>
+                      <text wx:if="{{item.state == 6}}">拒单</text>
+                  </view>
+                  </view>
+                  <view class="box_title">
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
+                    <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
+                    <view>维修类型  <text>{{item.type}}</text></view>
+                    <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
+                    <view>预约时间  <text>{{item.appleTime}}</text></view>
+                  </view>
+                  <view class="btn">
+                    <!-- <button wx:if="{{item.state == 1}}">拒绝</button>
+                    <button wx:if="{{item.state == 1}}" class="active">接单</button>
+                    <button wx:if="{{item.state == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                  </view>
+          </view>
+        </view>
+      </view> 
+       <!-- <view wx:if="{{curHdIndex==3}}">
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows3.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows3}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 1}}">待审核</text>
+                      <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                      <text wx:if="{{item.state == 6}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -183,38 +165,29 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+
                   </view>
           </view>
         </view>
-      </view> 
+      </view>   -->
       <view wx:if="{{curHdIndex==4}}">
-        <picker mode="date" wx:if="{{rows4.length != 0}}" value="{{date4}}" start="{{dateC}}" end="{{date4}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date4}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows4.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows4}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 1}}">待审核</text>
+                      <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                      <text wx:if="{{item.state == 6}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -225,38 +198,31 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                    <!-- <button wx:if="{{item.state == 1}}">拒绝</button>
+                    <button wx:if="{{item.state == 1}}" class="active">接单</button>
+                    <button wx:if="{{item.state == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
                   </view>
           </view>
         </view>
       </view> 
       <view wx:if="{{curHdIndex==5}}">
-        <picker mode="date" wx:if="{{rows5.length != 0}}" value="{{date5}}" start="{{dateC}}" end="{{date5}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date5}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows5.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows5}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 1}}">待审核</text>
+                      <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                      <text wx:if="{{item.state == 6}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -267,38 +233,31 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                    <!-- <button wx:if="{{item.state == 1}}">拒绝</button>
+                    <button wx:if="{{item.state == 1}}" class="active">接单</button>
+                    <button wx:if="{{item.state == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
                   </view>
           </view>
         </view>
       </view> 
       <view wx:if="{{curHdIndex==6}}">
-        <picker mode="date" wx:if="{{rows6.length != 0}}" value="{{date6}}" start="{{dateC}}" end="{{date6}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date6}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows6.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows6}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 1}}">待审核</text>
+                      <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                      <text wx:if="{{item.state == 6}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -309,9 +268,9 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                    <!-- <button wx:if="{{item.state == 1}}">拒绝</button>
+                    <button wx:if="{{item.state == 1}}" class="active">接单</button>
+                    <button wx:if="{{item.state == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
                   </view>
           </view>
         </view>
@@ -319,33 +278,26 @@
     </view>
 
 
-    <view class="view-nei" wx:if="{{wyUser == 3}}" style="padding-top:{{CustomBar}}px">
+    <view class="view-nei" wx:if="{{wyUser.roleId == 'dab53080-0871-4b5f-862b-f5ad1c79c585'}}" style="padding-top:{{CustomBar}}px">
 
       <view wx:if="{{curHdIndex1==7}}">
-        <picker mode="date" wx:if="{{rows7.length != 0}}" value="{{date7}}" start="{{dateC}}" end="{{date7}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date7}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows7.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows7}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                    <text wx:if="{{item.state == 1}}">待审核</text>
+                    <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
+                      <text wx:if="{{item.state == 6}}">管理员已拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -356,38 +308,33 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                    
+                    <button class="active" wx:if="{{item.state == 1}}" bindtap="showModal" data-target="viewModal" data-item="{{item}}">接单</button>
+                    <button wx:if="{{item.state == 2||item.state == 3}}" class="active" bindtap="wxwcClick" data-item="{{item}}">维修完成</button>
                   </view>
           </view>
         </view>
       </view> 
       <view wx:if="{{curHdIndex1==8}}">
-        <picker mode="date" wx:if="{{rows8.length != 0}}" value="{{date8}}" start="{{dateC}}" end="{{date8}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date8}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows8.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows8}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                      <!-- 
+                      <text wx:if="{{item.state == 2}}">已审核</text>
+                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text> -->
+                      <text wx:if="{{item.state == 1}}">待审核</text>
+                      <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -398,38 +345,28 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                    <button class="active" wx:if="{{item.state == 1}}" bindtap="showModal" data-target="viewModal" data-item="{{item}}">接单</button>
                   </view>
           </view>
         </view>
       </view> 
       <view wx:if="{{curHdIndex1==9}}">
-        <picker mode="date" wx:if="{{rows9.length != 0}}" value="{{date9}}" start="{{dateC}}" end="{{date9}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date9}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows9.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows9}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
+                <!-- <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image> -->
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                    <text wx:if="{{item.state == 1}}">待审核</text>
+                    <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -440,38 +377,27 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                    <button wx:if="{{item.state == 2||item.state == 3}}" class="active">维修完成</button>
                   </view>
           </view>
         </view>
       </view> 
       <view wx:if="{{curHdIndex1==10}}">
-        <picker mode="date" wx:if="{{rows10.length != 0}}" value="{{date10}}" start="{{dateC}}" end="{{date10}}" bindchange="DateChange" class="tpack" style="top:{{tCustomBar}}px">
-            <view class="picker">
-              {{date10}} <text class="cuIcon-unfold lg "></text>
-            </view>
-          </picker>
         <view class="pban_box">
           <view class="queshiye" wx:if="{{rows10.length == 0}}">
-            <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
             <view>暂无数据</view>
           </view>
           <view class="box" wx:for="{{rows10}}" wx:key="index">
               <view class="box_top">
                 <view class="bor_fl">
-                <image class="fl" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1441836571,2166773131&fm=26&gp=0.jpg"></image>
                 <view class="text-black">{{item.applePeopleName}}</view>
               </view>
                   <view class="bor_fr text-gray">
-                      <text wx:if="{{item.state == 1&&wyUser == 2}}">待审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 2}}">已审核</text>
-                      <text wx:if="{{item.state == 2&&wyUser == 3}}">待维修</text>
-                      <text wx:if="{{item.state == 3}}">维修中</text>
+                    <text wx:if="{{item.state == 1}}">待审核</text>
+                    <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
                       <text wx:if="{{item.state == 4}}">维修完成</text>
                       <text wx:if="{{item.state == 5}}">完成</text>
-                      <text wx:if="{{item.state == 6&&wyUser == 2}}">拒单</text>
                   </view>
                   </view>
                   <view class="box_title">
@@ -482,9 +408,36 @@
                     <view>预约时间  <text>{{item.appleTime}}</text></view>
                   </view>
                   <view class="btn">
-                    <!-- <button wx:if="{{item.state == 1&&wyUser == 2}}">拒绝</button>
-                    <button wx:if="{{item.state == 1&&wyUser == 2}}" class="active">接单</button>
-                    <button wx:if="{{item.state == 2&&wyUser == 2}}" class="active" bindtap="showModal" data-target="viewModal">派单</button> -->
+                  </view>
+          </view>
+        </view>
+      </view> 
+      <view wx:if="{{curHdIndex1==11}}">
+        <view class="pban_box">
+          <view class="queshiye" wx:if="{{rows11.length == 0}}">
+            <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
+            <view>暂无数据</view>
+          </view>
+          <view class="box" wx:for="{{rows11}}" wx:key="index">
+              <view class="box_top">
+                <view class="bor_fl">
+                <view class="text-black">{{item.applePeopleName}}</view>
+              </view>
+                  <view class="bor_fr text-gray">
+                    <text wx:if="{{item.state == 1}}">待审核</text>
+                    <text wx:if="{{item.state == 2||item.state == 3}}">维修中</text>
+                      <text wx:if="{{item.state == 4}}">维修完成</text>
+                      <text wx:if="{{item.state == 5}}">完成</text>
+                  </view>
+                  </view>
+                  <view class="box_title">
+                    <view>维修地址  <text>{{item.floorName == null ? "暂无" : "" + item.floorName + item.unitName + item.roomName}}</text></view>
+                    <view>联系电话  <text>{{item.applePeoplePhone}}</text></view>
+                    <view>维修类型  <text>{{item.type}}</text></view>
+                    <view>维修内容  <text class="title_textarea">{{item.appleContent}}</text></view>
+                    <view>预约时间  <text>{{item.appleTime}}</text></view>
+                  </view>
+                  <view class="btn">
                   </view>
           </view>
         </view>
@@ -499,12 +452,51 @@
 		</view>
 		<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}" style="height:{{wHeight}}px">
 			<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
-				<view class="cu-item arrow" wx:for="{{20}}" wx:key="index">
+				<view class="cu-item arrow" wx:for="{{listpropertyList}}" wx:key="index"  bindtap="showModal1" data-target="DialogModal1" data-item="{{item}}">
 					<view class="content">
-						<text class="cuIcon-github text-grey"></text>
-						<text class="text-grey">{{index +1}}</text>
+						<text class="text-grey">{{item.name}}</text>
 					</view>
 				</view>
 			</view>
 		</scroll-view>
+
+<view class="cu-modal {{modalName1=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">派单</view>
+      <view class="action" bindtap="hideModals">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      确认把此单派发给{{pdItem.name}}吗
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModals">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="pdClick">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName2=='DialogModal2'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">拒单</view>
+      <view class="action" bindtap="hideModal2">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <textarea name="" id="" cols="30" rows="10" bindinput="jdInput" value="{{jdSreing}}" placeholder="请输入拒单理由" style="width: 100%;height: 200rpx;text-align: left;"></textarea>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal2">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="jdClick">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
 

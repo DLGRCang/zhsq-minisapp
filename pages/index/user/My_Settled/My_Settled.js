@@ -30,7 +30,7 @@ Page({
       })
     }else{
       this.setData({
-        xzjihe:wx.getStorageSync('xzvillage')[0]
+        xzjihe:wx.getStorageSync('xzvillage').houseList[0]
       })
       this.wdrzList()
     }
@@ -58,7 +58,7 @@ Page({
 
   wdrzList(){
     
-    //console.log(this.data.xzjihe)
+    console.log(this.data.xzjihe)
     if(this.data.xzjihe.isMaster == 1){
       this.hzList(this.data.xzjihe.roomId)
     }else{

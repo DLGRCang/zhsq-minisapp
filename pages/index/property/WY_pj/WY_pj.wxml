@@ -21,8 +21,8 @@
    
     <!-- 评分星星 -->
     <view class="star">
-     <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star_active_lg.png" wx:for="{{4}}"></image> 
-     <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/star_lg.png" wx:for="{{1}}"></image>
+     <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/star_active_lg.png" wx:for="{{4}}"></image> 
+     <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/star_lg.png" wx:for="{{1}}"></image>
     </view>
     <button class="btn">提交</button>
   </view>

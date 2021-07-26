@@ -17,6 +17,10 @@ function savecommentApi(params) {
 function getlistCommentByMessageIdApi(params){
   http('zhsq/app/release/api/comment/listPageFindAllComment/'+params.data.commId+'/'+params.data.goodpeopleId+'/'+params.data.curPage,'get',params)
 }
+// 邻里圈列删除
+function removecommentApi(params) { 
+  http('zhsq/app/release/api/neighbor/removeneighbor/'+params.data.ids, 'delete', params)  // 接口请求的路由地址以及请求方法在此处传递
+}
 // 收藏
 function collectionrecordApi(params) { 
   http('zhsq/app/release/api/collectionrecord/savecollectionrecord', 'post', params) 
@@ -202,7 +206,6 @@ function llqbqApi1(params){
   http('zhsq/app/release/api/dictionaries/codelistofGet/'+params.data.code,'get',params)
 }
 
-
 //维修单申请提交
 function saverepairApi(params){
   http('zhsq/app/release/api/repair/saverepair/'+params.data.unifiedUserId,'post',params)
@@ -229,14 +232,13 @@ function pubListNewsApi(params){
 
 //物业排版
 function listArrangeDataApi(params){
-  http('zhsq/app/release/api/arrange/listArrangeData/'+params.data.page,'post',params)
+  http('zhsq/app/release/api/arrange/listArrangeData','get',params)
 }
 
-
-//安防巡更
-function listpropertypatrollingplanApi(params){
-  http('zhsq/app/release/api/propertypatrollingplan/listpropertypatrollingplan/'+params.data.curDate,'get',params)
-}
+// //安防巡更
+// function listpropertypatrollingplanApi(params){
+//   http('zhsq/app/release/api/propertypatrollingplan/listpropertypatrollingplan/'+params.data.curDate,'get',params)
+// }
 //安防巡更查询打卡记录
 function listpropertypatrollingplanApi(params){
   http('zhsq/app/release/api/propertypatrollingplan/listpropertypatrollingplan/'+params.data.curDate,'get',params)
@@ -247,18 +249,38 @@ function compareRecordApi(params){
   http('zhsq/app/release/api/propertypatrollingrecord/getCompareRecords/'+params.data.propertyPatrollingPlanId,'get',params)
 }
 
+//获取物业维修人员列表
+function listpropertyApi(params){
+  http('zhsq/app/release/api/property/listproperty?jobs=ff4348dc-882e-44ec-9138-7aa134ab840c&state=0','get',params)
+}
+
+//物业管理员派单
+function updaterepairApi(params){
+  http('zhsq/app/release/api/repair/order/'+params.data.repairId,'put',params)
+}
+
+//物业管理员拒单
+function schedulingApi(params){
+  http('zhsq/app/release/api/repair/scheduling/'+params.data.repairId,'put',params)
+}
+
+//物业维修人员完成维修
+function confirmEndApi(params){
+  http('zhsq/app/release/api/repair/confirmEnd/'+params.data.repairId,'put',params)
+}
+
 //登录
 function loginApi(params){
-  http('app/sign/checkCodeZHSQrelease','post',params)
+  http('usercenter/app/sign/checkCodeZHSQrelease','post',params)
 }
 //初次登录
 function saveLoginApi(params){
-  http('app/sign/saveZhsqWeChatUserrelease','post',params)
+  http('usercenter/app/sign/saveZhsqWeChatUserrelease','post',params)
 }
 
 //新闻
 function newsApi(params){
-  http('zhsq/api/news/pubListNews/'+params.data.code+'/'+params.data.cur,'get',params)
+  http('zhsq/app/release/api/news/pubListNews/'+params.data.code+'/'+params.data.cur,'get',params)
 }
 
 //个人信息
@@ -329,6 +351,123 @@ function findDetailsByShoppingIdApi(params){
   http('zhsq/app/release/api/commoditydetails/findDetailsByShoppingId/'+params.data.shoppingId,'get',params)
 }
 
+//场地预约
+function saveconstructionsinfoApi(params){
+  http('zhsq/app/release/api/constructionsinfo/saveconstructionsinfo','post',params)
+}
+
+//新建地址
+function saveUserLocationApi(params){
+  http('zhsq/app/order/saveUserLocation','post',params)
+}
+
+//地址列表
+function getLocationByUserApi(params){
+  http('zhsq/app/order/getLocationByUser','get',params)
+}
+
+//地址修改
+function updateUserLocationApi(params){
+  http('zhsq/app/order/updateUserLocation','put',params)
+}
+
+//删除地址
+function deleteUserLocationApi(params){
+  http('zhsq/app/order/deleteUserLocation?id='+params.data.id,'DELETE',params)
+}
+
+//订单提交
+function saveorderApi(params){
+  http('zhsq/app/order/saveorder','post',params)
+}
+
+//订单查看
+function listpageorderApi(params){
+  http('zhsq/app/order/listpageorder?buy_peop_id='+params.data.buy_peop_id,'get',params)
+}
+
+//查看个人活动列表
+function listconstructionssignupApi(params){
+  http('zhsq/app/release/api/constructionssignup/listActivityUser?userId='+params.data.userId,'get',params)
+}
+
+//取消个人活动
+function cancelActivityUserApi(params){
+  http('zhsq/app/release/api/constructionssignup/cancelActivityUser?userId='+params.data.userId+"&&constructionsActivityId="+params.data.constructionsActivityId,'get',params)
+}
+
+//个人活动
+function updateconstructionsactivityScoreApi(params){
+  http('zhsq/app/release/api/constructionsactivity/updateconstructionsactivityScore/'+params.data.constructionsActivityId+"/"+params.data.score,'put',params)
+}
+
+//访客预约
+function savevisitorpassApi(params){
+  http('zhsq/app/release/api/visitorpass/savevisitorpass','post',params)
+}
+
+//访客二维码
+function generateCodeStringApi(params){
+  http('zhsq/app/release/api/visitorpass/generateCodeString/'+params.data.generateCodeNumber+"/"+params.data.visitorPassId,'post',params)
+}
+
+//查看个人预约通行码
+function listVisitorPassByUnifiedUserIdApi(params){
+  http('zhsq/app/release/api/visitorpass/listVisitorPassByUnifiedUserId/'+params.data.unifiedUserId,'get',params)
+}
+
+//微信支付
+function goPayApi(params){
+  http('zhsq/app/wxPay/palceOrder','post',params)
+}
+
+//微信支付成功后
+function payOrderStateApi(params){
+  http('zhsq/app/wxPay/payOrderState','post',params)
+}
+
+
+//小鱼token
+function videocommunicationApi(params){
+  http('zhsq/app/release/api/videocommunication/getToken','get',params)
+}
+
+//小鱼关闭
+function loginOutApi(params){
+  http('zhsq/app/release/api/videocommunication/loginOut/'+params.data.userName,'get',params)
+}
+
+
+//人员查询接口
+function queryPersonnelListV2Api(params){
+  http('zhsqhik/app/release/hikApi/queryPersonnelListV2','post',params)
+}
+
+//访客预约
+function appointmentApi(params){
+  http('zhsqhik/app/release/hikApi/appointment','post',params)
+}
+
+//根据token查询预约情况
+function getVisitinfoByUSerApi(params){
+  http('zhsqhik/app/release/hikApi/getVisitinfoByUSer','get',params)
+}
+
+//访客预约生成二维码
+function creatQRcodeApi(params){
+  http('zhsqhik/app/release/hikApi/creatQRcode?str='+params.data.str,'get',params)
+}
+
+//物业维修完成
+function confirmFinishApi(params){
+  http('zhsq/app/release/api/repair/confirmFinish/'+params.data.repairId,'put',params)
+}
+
+//获取json
+function tabbarApi(params){
+  http('zhsqminiapp/tabbar.json','get',params)
+}
+
 export default { // 暴露接口
   xinwenApi,
   llqfbApi,
@@ -395,5 +534,33 @@ export default { // 暴露接口
   findByUserIdAndMessageIdApi,
   getMyCollectionRecordApi,
   getMyCommentApi,
-  findDetailsByShoppingIdApi
+  findDetailsByShoppingIdApi,
+  saveconstructionsinfoApi,
+  saveUserLocationApi,
+  getLocationByUserApi,
+  updateUserLocationApi,
+  deleteUserLocationApi,
+  saveorderApi,
+  listpageorderApi,
+  listconstructionssignupApi,
+  cancelActivityUserApi,
+  updateconstructionsactivityScoreApi,
+  savevisitorpassApi,
+  generateCodeStringApi,
+  listVisitorPassByUnifiedUserIdApi,
+  goPayApi,
+  videocommunicationApi,
+  loginOutApi,
+  payOrderStateApi,
+  queryPersonnelListV2Api,
+  appointmentApi,
+  getVisitinfoByUSerApi,
+  creatQRcodeApi,
+  confirmFinishApi,
+  removecommentApi,
+  tabbarApi,
+  listpropertyApi,
+  updaterepairApi,
+  schedulingApi,
+  confirmEndApi
 }

@@ -24,7 +24,7 @@
   align-items: center;overflow: hidden;clear: both;
   justify-content: space-between;
   z-index: 20;
-background: linear-gradient(60deg, #0586F8, #1BB1FD);
+background: linear-gradient(90deg, #0586F8, #1BB1FD);
 border-radius: 0 0 15rpx 15rpx;
 }
 .my-top>image:nth-child(1){
@@ -67,6 +67,7 @@ color: #FFFFFF;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   background: #fff;
   border-radius: 15rpx;
 }

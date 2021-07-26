@@ -19,42 +19,45 @@ Component({
     CustomBar: app.globalData.CustomBar,
     tzgg:'',
     topItem:[
-      {id:1,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts1a.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
-      {id:2,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts2a.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
-      {id:3,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts3a.png',text:"物业缴费",url:'/pages/index/user/property-payment/wyjf'},
-      {id:4,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts4a.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
-      {id:5,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts5a.png',text:"SOS求助",url:''},
-      {id:6,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts6a.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
-      {id:10,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts10a.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
-      {id:11,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts11a.png',text:"民情直达",url:'/pages/index/user/complaint/complaint'},
-      {id:12,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts12a.png',text:"入驻小区",url:'/pages/index/user/checkIn/checkIn'},
-      {id:13,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts13a.png',text:"楼栋布局",url:'/pages/index/user/floor/floor'},
+      {id:1,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts1a.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
+      {id:2,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts2a.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
+      {id:3,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts3a.png',text:"物业缴费",url:'/pages/index/user/property-payment/wyjf'},
+      {id:4,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts4a.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
+      {id:5,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts5a.png',text:"SOS求助",url:''},
+      {id:6,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts6a.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
+      {id:10,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts10a.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
+      {id:11,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts11a.png',text:"民情直达",url:'/pages/index/user/complaint/complaint'},
+      {id:12,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts12a.png',text:"入驻小区",url:'/pages/index/user/checkIn/checkIn'},
+      {id:13,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts13a.png',text:"楼栋布局",url:'/pages/index/user/floor/floor'},
     ],
     gdItem:[
-      {id:7,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:'/pages/index/user/airClass/airClass'},
-      {id:8,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts8a.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
-      {id:14,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts14a.png',text:"活动设施",url:''}
+      {id:7,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:'/pages/index/user/airClass/airClass'},
+      {id:8,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts8a.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
+      {id:14,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts14a.png',text:"活动设施",url:''}
     ],
+
+
+
     dataItem:[
-      {id:1,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts1a.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
-      {id:2,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts2a.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
-      {id:3,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts3a.png',text:"物业缴费",url:'/pages/index/user/property-payment/wyjf'},
-      {id:4,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts4a.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
-      {id:5,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts5a.png',text:"SOS求助",url:''},
-      {id:6,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts6a.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
-      {id:7,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:'/pages/index/user/airClass/airClass'},
-      {id:8,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts8a.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
+      {id:1,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts1a.png',text:"访客通行",url:'/pages/index/user/visitor/visitor'},
+      {id:2,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts2a.png',text:"物业维修",url:'/pages/index/user/property-maintenance/wywx'},
+      {id:3,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts3a.png',text:"物业缴费",url:'/pages/index/user/property-payment/wyjf'},
+      {id:4,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts4a.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
+      {id:5,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts5a.png',text:"SOS求助",url:''},
+      {id:6,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts6a.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
+      {id:7,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:'/pages/index/user/airClass/airClass?video=0'},
+      // {id:8,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts8a.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
       //{id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:'/pages/index/partyBranch/partyBranch'},
-      {id:10,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts10a.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
-      {id:11,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts11a.png',text:"民情直达",url:'/pages/index/user/complaint/complaint'},
-      {id:12,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts12a.png',text:"入驻小区",url:'/pages/index/user/checkIn/checkIn'},
-      {id:13,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts13a.png',text:"楼栋布局",url:'/pages/index/user/floor/floor'},
-      {id:14,image:'https://yiqi.sucstep.com/zhsq/assets/images/applets/ts14a.png',text:"活动设施",url:''}
+      {id:10,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts10a.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
+      {id:11,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts11a.png',text:"民情直达",url:'/pages/index/user/complaint/complaint'},
+      {id:12,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts12a.png',text:"入驻小区",url:'/pages/index/user/checkIn/checkIn'},
+      // {id:13,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts13a.png',text:"楼栋布局",url:'/pages/index/user/floor/floor'},
+      // {id:14,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts14a.png',text:"活动设施",url:''}
     ],
     msgList: [
-      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/banner1.1.jpg' },
-      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/banner2.1.jpg' },
-      { img: 'https://yiqi.sucstep.com/zhsq/assets/images/applets/banner3.1.jpg' }
+      { img: 'https://www.yjhlcity.com/zhsqminiapp/banner1.jpg' },
+      { img: 'https://www.yjhlcity.com/zhsqminiapp/banner2.jpg' },
+      { img: 'https://www.yjhlcity.com/zhsqminiapp/banner3.jpg' }
     ],
     jianxianL:[
       {ids:"1"},{ids:"0.9"},{ids:"0.8"},{ids:"0.7"},{ids:"0.6"},{ids:"0.5"},{ids:"0.4"},{ids:"0.3"},{ids:"0.2"},{ids:"0.1"}
@@ -71,7 +74,14 @@ Component({
     xwrows:[],
     gddh:false,
     gddhchu:'100',
-    shopRows:[]
+    shopRows:[],
+    ifInput:false,
+    nameInput:"",
+    phoneInput:"",
+    qrtjInputData:[],
+    qrtjInputData1:[],
+    sosPhone:false,
+    shopping:false
   },
  
   /**
@@ -80,6 +90,69 @@ Component({
 
 
   methods: {
+    // webview(){
+    //   wx.navigateTo({
+    //     url: '/pages/index/webView/webView'
+    //   })
+    // },
+    ifTrueClick(){
+      this.setData({
+        ifInput:true
+      })
+    },
+    nameInput(e){
+      this.setData({
+        nameInput:e.detail.value
+      })
+    },
+    phoneInput(e){
+      this.setData({
+        phoneInput:e.detail.value
+      })
+    },
+    qrtjInputClick(){
+      console.log(this.data.qrtjInputData)
+      if(this.data.nameInput == ""){
+        verif.tips("请输入紧急联系人姓名")
+      }else if(this.data.phoneInput == ""){
+        verif.tips("请输入紧急联系人手机号")
+      }else{
+        if(verif.checkPhone(this.data.phoneInput)){
+          var id = this.data.qrtjInputData.length
+          var data = {id:id,name:this.data.nameInput,input:this.data.phoneInput}
+          var qrtjInputData = this.data.qrtjInputData
+          if(qrtjInputData==null || qrtjInputData=='' || qrtjInputData==undefined){
+            qrtjInputData=[];
+          }
+          qrtjInputData.push(data)
+          wx.setStorageSync('qrtjInputData',qrtjInputData)
+         this.setData({
+          qrtjInputData1: qrtjInputData.reverse(),
+          ifInput:false
+         })
+        }
+      }
+      
+      
+    },
+    bhClick(e){
+      //console.log(e.currentTarget.dataset.phone)
+      wx.makePhoneCall({
+        phoneNumber: e.currentTarget.dataset.phone
+      })
+    },
+    gbifTrueClick(){
+      this.setData({
+        sosPhone:false
+      })
+    },
+    // 生活跳转详情页面
+  life_details:function(e){
+    //console.log(e)
+    wx.navigateTo({
+      url: '/pages/index/user/life_details/life_details?item='+JSON.stringify(e.currentTarget.dataset.item)
+    })
+  },
     
     gddhClick(){
       this.setData({
@@ -120,9 +193,12 @@ Component({
   },
 
   contentClick(e){
+   // console.log(wx.getStorageSync('xzvillage'))
     //console.log(e.currentTarget.dataset.id)
     var id = e.currentTarget.dataset.id
+   
     if(e.currentTarget.dataset.url != ''){
+     
       if(id == 5){
           wx.navigateTo({
             url: e.currentTarget.dataset.url
@@ -135,7 +211,8 @@ Component({
             url: e.currentTarget.dataset.url
           }) 
         }else{
-          if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
+         
+          if(wx.getStorageSync('village') == false){
             verif.tips('您不是小区人员，不能操作该功能')
           }else if(wx.getStorageSync('xzvillage') == ''){
             verif.tips('请先选择您的小区')
@@ -143,14 +220,15 @@ Component({
               this.triggerEvent('xunzexq')
             },2000)
             
+          }else if(wx.getStorageSync('xzvillage').houseList == null){
+            verif.tips('您不是本小区住户,不能操作该功能')
           }else{
             if(id == 6||id == 12){
+              //console.log(wx.getStorageSync('xzvillage'))
               var id = 0
-              for(var i in wx.getStorageSync('xzvillage')){
-                
-                if(wx.getStorageSync('xzvillage')[i].isMaster == 1){
-  
-                  id = wx.getStorageSync('xzvillage')[i].isMaster
+              for(var i in wx.getStorageSync('xzvillage').houseList){
+                if(wx.getStorageSync('xzvillage').houseList[i].isMaster == 1){
+                  id = wx.getStorageSync('xzvillage').houseList[i].isMaster
                   break;
                 }
               }
@@ -158,14 +236,19 @@ Component({
               if(id == 0){
                 verif.tips('您不是户主不可操作此功能')
               }else if(id == 1){
-                wx.navigateTo({
+                wx.navigateTo({ 
                   url: e.currentTarget.dataset.url
                 }) 
               }
             }else{
-              wx.navigateTo({
-                url: e.currentTarget.dataset.url
-              }) 
+              if(id == 13){
+                  verif.tips("暂未开通此功能")
+              }else{
+                wx.navigateTo({
+                  url: e.currentTarget.dataset.url
+                }) 
+              }
+              
             }
           }
         }
@@ -184,12 +267,17 @@ Component({
       //   })
       // }
       
+    }else if(id == 14){
+      verif.tips("暂未开通此功能")
     }
 
     if(e.currentTarget.dataset.id == '5'){
-      wx.makePhoneCall({
-        phoneNumber: '110',
+      this.setData({
+        sosPhone:true
       })
+      // wx.makePhoneCall({
+      //   phoneNumber: '110',
+      // })
     }
 
     if(e.currentTarget.dataset.id == '4'){
@@ -454,7 +542,7 @@ Component({
       http.listpageshoplisApi({
         data:{
           type:0,
-          villageid:wx.getStorageSync('xzvillage')[0].villageId,
+          villageid:wx.getStorageSync('xzvillage').village.villageId,
           number:2
         },
         success:res=>{
@@ -477,7 +565,7 @@ Component({
   lifetimes: {
     //在组件实例刚刚被创建时执行
     created() {
-        
+      
     },
     
     //在组件实例进入页面节点树时执行
@@ -486,10 +574,26 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
+      http.tabbarApi({
+        success:res=>{
+          //console.log(res)
+          this.setData({
+            shopping:res.shopping
+          })
+        }
+      })
      // console.log(wx.getStorageSync('wxUser').id)
      //console.log('aaa')
       
       //this.sqhdList()
+      if(wx.getStorageSync('qrtjInputData') != ""){
+      this.setData({
+        qrtjInputData1:wx.getStorageSync('qrtjInputData').reverse(),
+        qrtjInputData:wx.getStorageSync('qrtjInputData')
+      })
+      }
+      
+      console.log(wx.getStorageSync('qrtjInputData'))
       
       
       var dataItem = this.data.dataItem
@@ -569,7 +673,7 @@ Component({
     pageLifetimes: {
       show: function () {
         // 页面被展示
- 
+        
       },
       hide: function () {
         // 页面被隐藏

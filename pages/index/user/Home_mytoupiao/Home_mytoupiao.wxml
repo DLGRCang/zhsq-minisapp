@@ -4,7 +4,7 @@
     <view slot="content">我的投票</view>
   </cu-custom>
   <view class="box-body">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
      <view class="tp_box">
         <view class="text-center padding text-blue">关于小区XXX 修建投票表决</view>
         <!-- 第一条事项 -->

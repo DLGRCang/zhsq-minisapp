@@ -5,14 +5,14 @@
     <view slot="content">详情</view>
   </cu-custom>
   <view class="box-body">
-    <image src="../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
      <view class="tp_box">
         <view class="text-center padding text-blue">{{rows.voteName}}</view>
         <!-- 第一条事项 -->
         <view class="tp_xx" style="margin-top:0;">
 
           <view class="flex_tp margin-top" style="display:block" wx:for="{{tjRows}}" wx:key="index">
-            <view style="text-align: left;margin-bottom:10rpx;width:100%">{{item.name}} /
+            <view style="text-align: left;margin-bottom:10rpx;width:100%">{{item.name}}
               <text wx:if="{{item.number <= 20}}">{{item.number}}票</text>
             </view>
             <view class="bg-blue" wx:if="{{item.number != 0}}" style="width:{{loading?item.number+'%':''}};"><text class="margin-left">

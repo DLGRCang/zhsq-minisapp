@@ -82,8 +82,8 @@ Page({
     var imgs=verif.imgClick()
       imgs.then(res=>{
          this.setData({
-          imgId:this.data.imgId.concat(res),
-          imgList:this.data.imgList.concat(this.data.imgUrl+res),
+          imgId:this.data.imgId.concat(res.imgs),
+          imgList:this.data.imgList.concat(this.data.imgUrl+res.imgs),
           zishitc:false
         })
       })
@@ -146,7 +146,7 @@ Page({
        http.savegoodnumberApi({
           data:{
             unifiedUserId:wx.getStorageSync('wxUser').id,
-            findvillageId:wx.getStorageSync('xzvillage')[0].villageId,
+            findvillageId:wx.getStorageSync('xzvillage').village.villageId,
             sex:this.data.index,
             national:national,
             nativePlace:this.data.jg,

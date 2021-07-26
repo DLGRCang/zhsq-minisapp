@@ -5,11 +5,11 @@
     <view slot="content">详情</view>
   </cu-custom>
   <view class="queshiye" wx:if="{{rows.length == 0}}">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
     <view>暂无数据</view>
   </view>
   <view class="box-body">
-    <image src="../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     <view class="body-ase" wx:for="{{rows}}" bindtap="tp_click" data-id="{{item.voteId}}">
       <view class="abc"></view>
       <view class="ase-box">

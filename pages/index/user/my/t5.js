@@ -15,12 +15,12 @@ Component({
    */
   data: {
     t5state:[
-      {id:1,img:'https://yiqi.sucstep.com/zhsq/assets/images/applets/state1.png',text:'我的订单',url:'/pages/index/user/Home_myorders/Home_myorders'},
-      {id:2,img:'https://yiqi.sucstep.com/zhsq/assets/images/applets/state2.png',text:'我的发布',url:'/pages/index/user/my_publish/my_publish'},
-      {id:3,img:'https://yiqi.sucstep.com/zhsq/assets/images/applets/state3.png',text:'我的活动',url:'/pages/index/user/Home_myactivity/Home_myactivity'},
-      {id:4,img:'https://yiqi.sucstep.com/zhsq/assets/images/applets/state4.png',text:'我的入驻',url:'/pages/index/user/My_Settled/My_Settled'}
+      {id:1,img:'https://www.yjhlcity.com/zhsq/assets/images/applets/state1.png',text:'我的订单',url:'/pages/index/user/Home_myorders/Home_myorders'},///
+      {id:2,img:'https://www.yjhlcity.com/zhsq/assets/images/applets/state2.png',text:'我的发布',url:'/pages/index/user/my_publish/my_publish'},
+      {id:3,img:'https://www.yjhlcity.com/zhsq/assets/images/applets/state3.png',text:'我的活动',url:'/pages/index/user/Home_myactivity/Home_myactivity'},
+      {id:4,img:'https://www.yjhlcity.com/zhsq/assets/images/applets/state4.png',text:'我的入驻',url:'/pages/index/user/My_Settled/My_Settled'}
     ],
-    rightHui:'https://yiqi.sucstep.com/zhsq/assets/images/applets/right-hui.png',
+    rightHui:'https://www.yjhlcity.com/zhsq/assets/images/applets/right-hui.png',
     ifLogin:true,
     wxUser:[],
     village:[],
@@ -39,9 +39,10 @@ Component({
       })
     },
     // 我的点赞/评论/收藏跳转
-    my_dzClick:function(){
+    my_dzClick:function(e){
+      console.log(e.currentTarget.dataset.tabid)
       wx.navigateTo({
-        url: "/pages/index/user/zscpl/zscpl"
+        url: "/pages/index/user/zscpl/zscpl?tabId="+e.currentTarget.dataset.tabid
       })
     },  
     // 我的预约 跳转
@@ -56,6 +57,12 @@ Component({
           url: "/pages/index/user/Home_mytoupiao/Home_mytoupiao"
         })
       },  
+
+      wxkfClick(){
+        wx.navigateTo({
+          url: "/pages/index/user/airClass/airClass?video=1"
+        })
+      },
   //积分记录-跳转
   Credits_LogClick:function(){
     wx.navigateTo({
@@ -115,12 +122,13 @@ Component({
 
   //父组件调用子组件方法
   showClick(){
+    
     if(wx.getStorageSync('wxUser') == ''){
       this.setData({
         ifLogin:true
       })
     }else{
-      console.log()
+      console.log(wx.getStorageSync('wxUser'))
       if(JSON.stringify(wx.getStorageSync('village')) == '{}'){
         var village=false
       }else{

@@ -1,4 +1,5 @@
-
+import http from '../../../../utils/api'
+import verif from '../../../../utils/verification'
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
     isCollect: true, // 默认下箭头
     time: '12:01',
     isShow: false,
+    orderData:[]
   },
   // 下拉 上拉
   // toggle() {
@@ -20,6 +22,8 @@ Page({
   //     url: '/pages/index/setting_address/setting_address'
   //   })
   // },
+ 
+
   // 时间控件
   TimeChange(e) {
     this.setData({
@@ -40,9 +44,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.order()
   },
 
+  order(){
+    http.listpageorderApi({
+      data:{
+        buy_peop_id:wx.getStorageSync('wxUser').id
+      },
+      success:res=>{
+        this.setData({
+          orderData:res.rows
+        })
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

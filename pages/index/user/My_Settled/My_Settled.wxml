@@ -8,10 +8,10 @@
   
   <view class="box-body">
    
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     <!-- 第一部分 头部 -->
     <view class="queshiye" wx:if="{{rows.length == 0}}" style="padding-top:600rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
       <view class="settled_content" wx:for="{{rows}}">

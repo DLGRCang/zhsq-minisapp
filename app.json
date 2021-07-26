@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/webView/webView",
     "pages/index/user/home-page/t1",
     "pages/index/user/share/share",
     "pages/index/user/sharePage/sharePage",
@@ -24,6 +25,7 @@
     "pages/index/user/houseRental/fwcz",
     "pages/index/user/subscribe/subscribe",
     "pages/index/user/visitor/visitor",
+    "pages/index/user/visitor/pickerYMDHM/pickerYMDHM",
     "pages/index/user/property-maintenance/wywx",
     "pages/index/user/notice/notice",
     "pages/index/user/property-payment/wyjf",
@@ -53,6 +55,7 @@
     "pages/index/user/zscpl/zscpl",
     "pages/index/user/Home_jfjl/Home_jfjl",
     "pages/index/user/Home_myactivity/Home_myactivity",
+    "pages/index/user/Home_myactivity/Home_myactivityPJ/Home_myactivityPJ",
     "pages/index/user/Home_myorders/Home_myorders",
     "pages/index/user/Home_mytoupiao/Home_mytoupiao",
     "pages/index/user/My_appointment/My_appointment",

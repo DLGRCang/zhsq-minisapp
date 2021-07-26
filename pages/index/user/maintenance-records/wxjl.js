@@ -50,6 +50,25 @@ Page({
       }
     })
   },
+
+  wcCclick(e){
+    //console.log(e.currentTarget.dataset.id)
+    var rows = this.data.rows
+    http.confirmFinishApi({
+      data:{
+        repairId:e.currentTarget.dataset.id
+      },
+      success:res=>{
+        console.log(res)
+        if(res.code == 200){
+          rows[e.currentTarget.dataset.i].state = 5
+          this.setData({
+            rows:rows
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

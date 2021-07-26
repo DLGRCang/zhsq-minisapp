@@ -1,5 +1,5 @@
 <view class="defect" style="padding-top:{{topPadding}}rpx">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png" class="imgs"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png" class="imgs"></image>
     <view class="wenzi">
       
       <slot name="content"></slot>

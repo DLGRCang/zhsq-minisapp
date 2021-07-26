@@ -1,11 +1,13 @@
 
 <view class="box" wx:if="{{login == 1}}">
-  <view class="xuanzexiaoqu" style="top:{{CustomBar}}px" bindtap="gbtchaung" wx:if="{{xuanzexiaoqu}}">
+  <view class="xuanzexiaoqu" style="top:{{CustomBar}}px;height:{{windowHeight - tab1Height}}px;" bindtap="gbtchaung" wx:if="{{xuanzexiaoqu}}">
     <view class="xzxq">
       <view class="xzxqTop">选择小区</view>
-      <view wx:for="{{village}}" class="xqxuanze {{xzvillage[0].villageId == item[0].villageId ? ''+xzyys:''+xzwys}}" wx:key="index" catchtap="xuzneXq" data-item="{{item}}">
-        <text class="cuIcon-home"></text>
-        <text>{{item[0].villageName}}</text>
+      <view class="xzxpBot">
+          <view wx:for="{{village}}" class="xqxuanze {{xzvillage.village.villageId == item.village.villageId ? ''+xzyys:''+xzwys}}" wx:key="index" catchtap="xuzneXq" data-item="{{item}}">
+          <text class="cuIcon-home"></text>
+          <text>{{item.village.name}}</text>
+        </view>
       </view>
       <view class="xzxqBtn">
         <button catchtap="qrxzxqClick">确认</button>
@@ -33,16 +35,16 @@
           <text class="cuIcon-location"></text>
           <!-- {{xzvillage.length == 0||xzvillage == false ? "选择小区":""+xzvillage[0].villageName}} -->
           <view wx:if="{{xzvillage.length == 0||xzvillage == false}}">选择小区</view>
-          <view wx:if="{{xzvillage.length != 0}}">{{xzvillage[0].villageName}}</view>
+          <view wx:if="{{xzvillage.length != 0}}">{{xzvillage.village.name}}</view>
           <text class="cuIcon-right lg" style="font-size:20rpx"></text>
         </view>
       </view>
       <view wx:if="{{PageCur=='t5'}}">我的</view>
     </view>
-    <!-- style="background: url('https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png');" -->
+    <!-- style="background: url('https://www.yjhlcity.com/zhsq/assets/images/applets/back.png');" -->
   <view class="box-body" style="height:{{windowHeight - tab1Height}}px;">
-    <scroll-view scroll-y scroll-top="{{topNum}}" lower-threshold="100" style="height: 100%;" bindscroll="scry">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <scroll-view scroll-y scroll-top="{{topNum}}" lower-threshold="100" style="width:100%;height: 100%;white-space: nowrap;-webkit-overflow-scrolling: touch;" bindscroll="scry">
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
       <home wx:if="{{PageCur == 't1'}}" id="dlFalse" bind:messageListChong="messageListChong" bind:xunzexq="xunzexq" bind:sjClick="sjClick"></home>
       <life wx:if="{{PageCur == 't2'}}"></life>
       <!-- <onekey wx:if="{{PageCur == 't3'}}"></onekey> -->
@@ -52,8 +54,8 @@
     <view class="kmAbslot" wx:if="{{zziconTrue}}">
       <view wx:if="{{djewmTrue}}" style="text-align: center;">
         <view class="ewmTop" id="ewmHeight" style="height:{{ewmHeight}}px">
-          <image src="../../images/EWM.jpg" style="{{ewmtubiao}}" wx:if="{{ewmtupianqh}}"></image>
-          <image src="../../images/ewm2.png" style="{{ewmtubiao}}" wx:if="{{!ewmtupianqh}}"></image>
+          <image src="https://www.yjhlcity.com/zhsqminiapp/EWM.jpg" style="{{ewmtubiao}}" wx:if="{{ewmtupianqh}}"></image>
+          <image src="https://www.yjhlcity.com/zhsqminiapp/ewm2.png" style="{{ewmtubiao}}" wx:if="{{!ewmtupianqh}}"></image>
         </view>
         <view class="cxscEwm" style="background:{{EwmCss}}" bindtouchstart="chsClick" bindtouchend="endClick">点击重新加载</view>
       </view>
@@ -100,60 +102,53 @@
             <view class="jintiao"></view>
           </view>
         </view>
-          
       </view>
       <view wx:if="{{djlyTrue}}">
-        <view>aaa{{body1}}</view>
-        <view>bbb{{body2}}</view>
-        <view>ccc{{body3}}</view>
       </view>
     </view>
   </view>
 <view class="cu-bar tabbar bg-white foot" id="footer1">
-    <view class="action text-green" bindtap="NavChange" data-cur="t1">
+    <!-- <view class="action text-green" wx:for="{{tabbar}}" wx:key="index" bindtap="NavChange" data-cur="{{item.cur}}" wx:if="{{item.isTrue}}">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/1.png" class="tabimg" wx:if="{{PageCur1!='t1'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/1j.png" class="tabimg" wx:if="{{PageCur1=='t1'}}"></image>
+        <image src="{{item.imgs}}" class="tabimg" wx:if="{{PageCur1!=item.cur}}"></image>
+        <image src="{{item.imgt}}" class="tabimg" wx:if="{{PageCur1==item.cur}}"></image>
       </view>
-      <view class="{{PageCur=='t1'?'text-ttt':'text-nnn'}}">首页</view>
-    </view>
+      <view class="{{PageCur==item.cur?'text-ttt':'text-nnn'}}">{{item.name}}</view>
+    </view> -->
     <view class="action text-gray" bindtap="NavChange" data-cur="t2">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/2.png" class="tabimg" wx:if="{{PageCur1!='t2'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/2j.png" class="tabimg" wx:if="{{PageCur1=='t2'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/2.png" class="tabimg" wx:if="{{PageCur1!='t2'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/2j.png" class="tabimg" wx:if="{{PageCur1=='t2'}}"></image>
       </view>
       <view class="{{PageCur=='t2'?'text-ttt':'text-nnn'}}">生活</view>
     </view>
-    <view class="action text-gray add-action yjkmen" bindtap="NavChange" data-cur="t3">
+<!-- <view class="action text-gray add-action yjkmen" bindtap="NavChange" data-cur="t3">
       <view class="ewmkaimen" style="{{ewmkm}}" catchtap="ewmClick">
         <text class="cuIcon-scan" style="{{smcuicon}};top:5rpx;color:#fff"></text>
       </view>
       <view class="yjkaimen" style="{{yjkm}}" catchtap="yjClick">
-        <image src="../../images/yjkm.png" style="{{lycuicon}};top:20rpx"></image>
-        <!-- <text class="cuIcon-scan" style="{{smcuicon}};top:5rpx;color:#fff"></text> -->
+        <image src="https://www.yjhlcity.com/zhsqminiapp/yjkm.png" style="{{lycuicon}};top:20rpx"></image>
       </view>
       <view class="lykaimen" style="{{lykm}}" catchtap="lyClick">
-        <image src="../../images/ly.png" style="{{lycuicon}};top:20rpx"></image>
+        <image src="https://www.yjhlcity.com/zhsqminiapp/ly.png" style="{{lycuicon}};top:20rpx"></image>
       </view>
       <view class="img3">
-        <image src="../../images/km.png" style="{{ysimg}}"></image>
+        <image src="https://www.yjhlcity.com/zhsqminiapp/km.png" style="{{ysimg}}"></image>
         <text class="cuIcon-close" style="{{chaimg}};top:0rpx;color:#fff"></text>
-        <!-- <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/3.png"></image> -->
       </view>
-      
       <view class="{{PageCur=='t3'?'text-ttt':'text-nnn'}}">一键开门</view>
-    </view>
+    </view> -->
     <view class="action text-gray" bindtap="NavChange" data-cur="t4">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/4.png" class="tabimg" wx:if="{{PageCur1!='t4'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/4j.png" class="tabimg" wx:if="{{PageCur1=='t4'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/4.png" class="tabimg" wx:if="{{PageCur1!='t4'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/4j.png" class="tabimg" wx:if="{{PageCur1=='t4'}}"></image>
       </view>
       <view class="{{PageCur=='t4'?'text-ttt':'text-nnn'}}">邻居</view>
     </view>
     <view class="action text-gray" bindtap="NavChange" data-cur="t5">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/5.png" class="tabimg" wx:if="{{PageCur1!='t5'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/5j.png" class="tabimg" wx:if="{{PageCur1=='t5'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/5.png" class="tabimg" wx:if="{{PageCur1!='t5'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/5j.png" class="tabimg" wx:if="{{PageCur1=='t5'}}"></image>
       </view>
       <view class="{{PageCur=='t5'?'text-ttt':'text-nnn'}}">我的</view>
     </view>
@@ -170,29 +165,29 @@
 <view class="cu-bar tabbar bg-white shadow foot" id="footer2">
   <view class="action" bindtap="NavChange" data-cur="t6">
     <view class='cuIcon-cu-image'>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/message.png" class="tabimg" wx:if="{{PageCur!='t6'}}"></image>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/message2.png" class="tabimg" wx:if="{{PageCur=='t6'}}"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/message.png" class="tabimg" wx:if="{{PageCur!='t6'}}"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/message2.png" class="tabimg" wx:if="{{PageCur=='t6'}}"></image>
     </view>
     <view class="{{PageCur=='t6'?'text-ttt':'text-nnn'}}">消息</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t7">
     <view class='cuIcon-cu-image'>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/order.png" class="tabimg" wx:if="{{PageCur!='t7'}}"></image>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/order2.png" class="tabimg" wx:if="{{PageCur=='t7'}}"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/order.png" class="tabimg" wx:if="{{PageCur!='t7'}}"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/order2.png" class="tabimg" wx:if="{{PageCur=='t7'}}"></image>
     </view>
     <view class="{{PageCur=='t7'?'text-ttt':'text-nnn'}}">订单</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t8">
     <view class='cuIcon-cu-image'>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/goods.png" class="tabimg" wx:if="{{PageCur!='t8'}}"></image>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/goods2.png" class="tabimg" wx:if="{{PageCur=='t8'}}"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/goods.png" class="tabimg" wx:if="{{PageCur!='t8'}}"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/goods2.png" class="tabimg" wx:if="{{PageCur=='t8'}}"></image>
     </view>
     <view class="{{PageCur=='t8'?'text-ttt':'text-nnn'}}">商品</view>
   </view>
   <view class="action" bindtap="NavChange" data-cur="t9">
     <view class='cuIcon-cu-image'>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/shop.png" class="tabimg" wx:if="{{PageCur!='t9'}}"></image>
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/shop2.png" class="tabimg" wx:if="{{PageCur=='t9'}}"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/shop.png" class="tabimg" wx:if="{{PageCur!='t9'}}"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/shop2.png" class="tabimg" wx:if="{{PageCur=='t9'}}"></image>
     </view>
     <view class="{{PageCur=='t9'?'text-ttt':'text-nnn'}}">店铺</view>
   </view>
@@ -204,7 +199,7 @@
   <scroll-view scroll-y="true" style="height:{{wHeight - tab3Height}}px;position: relative;" bindscrolltolower="wyhdBot">
 
   
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" style="top:{{CustomBar}}px" class="beijing"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" style="top:{{CustomBar}}px" class="beijing"></image>
         <t10 wx:if="{{PageCur=='t10'}}" CustomBar="{{CustomBar}}" id="bot10"></t10>
         <t11 wx:if="{{PageCur=='t11'}}" CustomBar="{{CustomBar}}"></t11>
         <t12 wx:if="{{PageCur=='t12'}}" CustomBar="{{CustomBar}}" windowHeight="{{windowHeight}}" wHeight="{{wHeight-tab3Height}}"></t12>
@@ -213,36 +208,36 @@
 
 </scroll-view>
 <view class="cu-bar tabbar bg-white foot" id="footer3">
-    <view class="action text-green" bindtap="NavChange" data-cur="t10">
+    <view class="action text-green" bindtap="NavChange" data-cur="t10" >
       <view>
-        <image src="../../images/wy11.png" class="tabimg" wx:if="{{PageCur!='t10'}}"></image>
-        <image src="../../images/wy12.png" class="tabimg" wx:if="{{PageCur=='t10'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsqminiapp/wy11.png" class="tabimg3" wx:if="{{PageCur!='t10'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsqminiapp/wy12.png" class="tabimg3" wx:if="{{PageCur=='t10'}}"></image>
       </view>
       <view class="{{PageCur=='t10'?'text-ttt':'text-nnn'}}">物业排版</view>
     </view>
     <!-- <view class="action text-gray" bindtap="NavChange" data-cur="t11">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy21.png" class="tabimg" wx:if="{{PageCur!='t11'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy22.png" class="tabimg" wx:if="{{PageCur=='t11'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/wy21.png" class="tabimg" wx:if="{{PageCur!='t11'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/wy22.png" class="tabimg" wx:if="{{PageCur=='t11'}}"></image>
       </view>
       <view class="{{PageCur=='t11'?'text-ttt':'text-nnn'}}">通知发布</view>
     </view> -->
     <!-- <view class="action text-gray add-action" bindtap="NavChange" data-cur="t14">
 
-      <image class="img3" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy31.png"></image>
+      <image class="img3" src="https://www.yjhlcity.com/zhsq/assets/images/applets/wy31.png"></image>
       <view class="{{PageCur=='t3'?'text-ttt':'text-nnn'}}">安防巡更</view>
     </view> -->
-    <view class="action text-gray" bindtap="NavChange" data-cur="t12">
+    <view class="action text-gray" bindtap="NavChange" data-cur="t12" wx:if="{{wyUser.roleId == 'c9239296-0f3f-4b19-803c-f8050eabe863'||wyUser.roleId == 'dab53080-0871-4b5f-862b-f5ad1c79c585'}}">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy41.png" class="tabimg" wx:if="{{PageCur!='t12'}}"></image>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy42.png" class="tabimg" wx:if="{{PageCur=='t12'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/wy41.png" class="tabimg3" wx:if="{{PageCur!='t12'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/wy42.png" class="tabimg3" wx:if="{{PageCur=='t12'}}"></image>
       </view>
       <view class="{{PageCur=='t12'?'text-ttt':'text-nnn'}}">维修单</view>
     </view>
-    <view class="action text-gray" bindtap="NavChange" data-cur="t13">
+    <view class="action text-gray" bindtap="NavChange" data-cur="t13" wx:if="{{wyUser.roleId == 'c9239296-0f3f-4b19-803c-f8050eabe863'||wyUser.roleId == 'c54edb4e-9668-49c9-82ef-a417604d2b29'}}">
       <view>
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/wy51.png" class="tabimg" wx:if="{{PageCur!='t13'}}"></image>
-        <image src="../../images/wy52.png" class="tabimg" wx:if="{{PageCur=='t13'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/wy51.png" class="tabimg3" wx:if="{{PageCur!='t13'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsqminiapp/wy52.png" class="tabimg3" wx:if="{{PageCur=='t13'}}"></image>
       </view>
       <view class="{{PageCur=='t13'?'text-ttt':'text-nnn'}}">移动巡查</view>
     </view>

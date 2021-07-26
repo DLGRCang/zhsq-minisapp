@@ -1,0 +1,289 @@
+.xy-room {
+  position: fixed;
+  left: 14vw;
+  width: 75vw;
+}
+.xy-hide {
+  display: none;
+}
+.xy__container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #1f1f25;
+}
+.xy__click-content {
+  width: 75vw;
+  height: 100%;
+  margin: 0 auto;
+}
+.xy-translate {
+  display: block;
+  transform: rotate(90deg);
+}
+.xy__call {
+  z-index: 100;
+}
+.xy__call-box {
+  width: 100vh;
+  height: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+}
+.xy__call-image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 10PX;
+}
+.xy__call-image .img {
+  border-radius: 60rpx;
+}
+.xy__call-person-image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 70rpx;
+  border: 2rpx solid #fff;
+}
+.xy__call-person-image .img {
+  border-radius: 70rpx;
+}
+.xy__call-person-name {
+  margin-top: 20rpx;
+  font-size: 32rpx;
+}
+.xy__call-person-status {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+}
+.xy__call .img {
+  width: 100%;
+  height: 100%;
+}
+.xy__tips {
+  z-index: 1;
+}
+.xy__tips-container {
+  position: absolute;
+  top: 0;
+  left: calc(66vw);
+  width: 100vh;
+  transform: rotate(90deg);
+  transform-origin: 0 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 1s;
+}
+.xy__tips-box {
+  color: #fff;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.xy__tips-icon {
+  width: 30rpx;
+  height: 30rpx;
+  z-index: 1;
+}
+.xy__tips-icon-img {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.xy__tips-content {
+  margin: 0 8rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+.xy__operate-left {
+  left: 0;
+}
+.xy__operate-right {
+  right: 0;
+}
+.xy__operate {
+  width: 14vw;
+  height: calc(-20vh);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  padding: 60rpx 0;
+  transition: all ease 0.5s;
+  z-index: 10;
+}
+.xy__operate-btn {
+  transform: rotate(90deg);
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+.xy__operate-btn-click {
+  opacity: 0.6;
+}
+.xy__operate-font {
+  white-space: nowrap;
+}
+.xy__operate-number {
+  font-size: 32rpx;
+}
+.xy__operate .icon {
+  width: 72rpx;
+  height: 50rpx;
+}
+.xy__operate .icon-mini {
+  width: 72rpx;
+  height: 30rpx;
+}
+.xy__network {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding-bottom: 14vh;
+  top: 0rpx;
+  left: 0rpx;
+  width: 100vw;
+  height: 100vh;
+  font-size: 28rpx;
+  word-break: break-all;
+  line-height: 1;
+}
+.xy__network-txt {
+  line-height: 1;
+  word-break: break-all;
+  white-space: pre-wrap;
+  width: 100%;
+}
+.xy__network-close {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  color: #666;
+  width: 14vw;
+  height: 14vw;
+  background-color: #fff;
+  line-height: 14vw;
+  text-align: center;
+}
+.xy__layout-container {
+  height: 100vh;
+  width: 100vw;
+  color: #fff;
+  position: relative;
+  background-color: #1f1f25;
+}
+.xy__layout-container .video {
+  position: fixed;
+  width: 40vw;
+  height: 40vh;
+  left: 45vw;
+  top: 0vh;
+  right: 14vw;
+  bottom: 25vh;
+  overflow: hidden;
+  vertical-align: top;
+}
+.xy__layout-container .video-player {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.xy__layout-container .video-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://devcdn.xylink.com/miniProgram/bg-theme.jpg");
+  background-size: cover;
+  color: #fff;
+  font-size: 32rpx;
+  position: relative;
+}
+.xy__layout-container .video-mini {
+  display: block;
+}
+.xy__layout-container .video-mini .video-bg {
+  font-size: 24rpx;
+}
+.xy__layout-container .video-mini .video-mute-icon {
+  width: 34rpx;
+  height: 34rpx;
+}
+.xy__layout-container .video-1 {
+  position: fixed;
+  right: 0vw;
+  bottom: 0vh;
+}
+.xy__layout-container .video-cover-view {
+  width: 100%;
+  height: 100%;
+}
+.xy__layout-container .video-pause-box {
+  font-size: 24rpx;
+  position: absolute;
+  left: 49%;
+  top: 0;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.xy__layout-container .video-pause-name-box {
+  left: calc(49% - 50rpx);
+}
+.xy__layout-container .video-pause-name-box .video-member-name {
+  font-size: 20rpx;
+}
+.xy__layout-container .video-tranlate-font {
+  transform: rotate(90deg);
+}
+.xy__layout-container .video-pause-bg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url("https://devcdn.xylink.com/assets/common/img/bg-theme.jpg");
+  background-size: cover;
+}
+.xy__layout-container .video-displayname {
+  transform: rotate(90deg);
+  line-height: 1;
+  width: 24rpx;
+}
+.xy__layout-container .video-mute-icon {
+  width: 50rpx;
+  height: 50rpx;
+  transform: rotate(90deg);
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+  z-index: 10000;
+}
+.xy__layout-container .video-member {
+  padding: 4rpx;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 6rpx 8rpx 8rpx 8rpx;
+  font-size: 24rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 30rpx;
+  border-radius: 4rpx;
+}
+.xy__layout-container .video-member-name {
+  transform: rotate(90deg);
+  line-height: 1;
+  width: 30rpx;
+  color: #ddd;
+  font-size: 24rpx;
+}

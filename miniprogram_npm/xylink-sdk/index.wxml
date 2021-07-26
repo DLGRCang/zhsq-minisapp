@@ -1,0 +1,256 @@
+<view class="{{ show }}">
+  <view wx:if="{{ template['layout'] === 'custom' }}">
+    <view class="xy__container" wx:if="{{ newCustomScreen.length !== 0 }}">
+      <view class="xy__layout-container">
+        <view class="xy__click-content">
+          <view wx:for="{{ newCustomScreen }}" wx:for-item="item" wx:key="{{ item.callNumber }}">
+            <!-- 本地所有画面 -->
+            <view wx:if="{{ item.isPusher }}" class="video video-mini video-1" style="{{ item.style }}">
+              <live-pusher beauty="{{ beauty }}" class="video-player" device-position="{{ devicePosition }}" enable-camera="{{ camera }}" id="pusher" muted="{{ muted }}" mode="RTC" url="{{ pushUrl }}" autopush='true' binderror="onPusherError" waiting-image="{{ waitingImage }}" orientation="horizontal" bindstatechange="onPush">
+                <cover-view class='video-cover-view' wx:if="{{ pushUrl && camera }}" bindtap="onClickContent" data-item="{{ item }}">
+                  <cover-image wx:if="{{ muted }}" src="https://cdn.xylink.com/miniProgram/mute-ss.png" class="video-mute-icon"></cover-image>
+                  <cover-view class="video-member">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                </cover-view>
+
+                <cover-view class="video-pause-bg" wx:elif="{{ !pushUrl }}">
+                  <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg" bindtap="onClickContent" data-item="{{ item }}"></cover-image>
+                  <cover-view class="video-pause-box">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                  <cover-view class="video-pause-box video-pause-name-box">
+                    <cover-view class="video-member-name">获</cover-view>
+                    <cover-view class="video-member-name">取</cover-view>
+                    <cover-view class="video-member-name">推</cover-view>
+                    <cover-view class="video-member-name">流</cover-view>
+                    <cover-view class="video-member-name">...</cover-view>
+                  </cover-view>
+                </cover-view>
+
+                <cover-view class="video-pause-bg" wx:else>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg" bindtap="onClickContent" data-item="{{ item }}"/>
+                  <cover-view class="video-pause-box">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                  <cover-view class="video-pause-box video-pause-name-box">
+                    <cover-view class="video-member-name">视</cover-view>
+                    <cover-view class="video-member-name">频</cover-view>
+                    <cover-view class="video-member-name">已</cover-view>
+                    <cover-view class="video-member-name">关</cover-view>
+                    <cover-view class="video-member-name">闭</cover-view>
+                  </cover-view>
+                  <cover-image wx:if="{{ muted }}" src="https://cdn.xylink.com/miniProgram/mute-ss.png" class="video-mute-icon"></cover-image>
+                </cover-view>
+              </live-pusher>
+            </view>
+            <!-- 远端端画面 -->
+            <view wx:else class="video" style="{{ item.style }}">
+              <live-player 
+                auto-pause-if-navigate="{{ false }}" 
+                auto-pause-if-open-native="{{ false }}" 
+                id="{{ item.roster.userId + item.mediaGroupId }}" 
+                class="video-player" 
+                mode="RTC" 
+                object-fit="fillCrop" 
+                src="{{ item.playUrl }}" 
+                autoplay="{{ true }}" 
+                orientation="horizontal" 
+                aspect="16:9" 
+                bindstatechange="onPlay"
+              >
+                <!-- 正常状态 -->
+                <cover-view class='video-cover-view' wx:if="{{ item.pullStatus === 'start' }}" bindtap="onClickContent" data-item="{{ item }}">
+                  <cover-image src="https://cdn.xylink.com/miniProgram/mute-ss.png" wx:if="{{ item.roster.audioTxMute }}" class="video-mute-icon" />
+                  <cover-view class="video-member">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                </cover-view>
+
+                <!-- 正在清流 -->
+                <cover-view class="video-pause-bg" wx:elif="{{ item.pullStatus === 'pull' }}">
+                  <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg"  bindtap="onClickContent" data-item="{{ item }}"></cover-image>
+                  <cover-view class="video-pause-box">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                  <cover-view class="video-pause-box video-pause-name-box">
+                    <cover-view class="video-member-name"></cover-view>
+                    <cover-view class="video-member-name">视</cover-view>
+                    <cover-view class="video-member-name">频</cover-view>
+                    <cover-view class="video-member-name">请</cover-view>
+                    <cover-view class="video-member-name">求</cover-view>
+                    <cover-view class="video-member-name">中</cover-view>
+                    <cover-view class="video-member-name">...</cover-view>
+                  </cover-view>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/mute-ss.png" wx:if="{{ item.roster.audioTxMute }}" class="video-mute-icon" />
+                </cover-view>
+
+                <!-- 视频关闭 -->
+                <cover-view class="video-pause-bg" wx:elif="{{ item.roster && item.roster.videoTxMute }}">
+                  <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg" bindtap="onClickContent" data-item="{{ item }}"/>
+                  <cover-view class="ideo-pause-box">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                  <cover-view class="video-pause-box video-pause-name-box">
+                    <cover-view class="video-member-name">视</cover-view>
+                    <cover-view class="video-member-name">频</cover-view>
+                    <cover-view class="video-member-name">暂</cover-view>
+                    <cover-view class="video-member-name">停</cover-view>
+                  </cover-view>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/mute-ss.png" wx:if="{{ item.roster.audioTxMute }}" class="video-mute-icon" />
+                </cover-view>
+
+                <!-- 未入会 -->
+                <cover-view class="video-pause-bg" wx:else>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg"  bindtap="onClickContent" data-item="{{ item }}"/>
+                  <cover-view class="video-pause-box">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                  <cover-view class="video-pause-box video-pause-name-box">
+                    <cover-view class="video-member-name">请</cover-view>
+                    <cover-view class="video-member-name">流</cover-view>
+                    <cover-view class="video-member-name">中</cover-view>
+                    <cover-view class="video-member-name">.</cover-view>
+                    <cover-view class="video-member-name">.</cover-view>
+                    <cover-view class="video-member-name">.</cover-view>
+                  </cover-view>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/mute-ss.png" wx:if="{{ item.roster.audioTxMute }}" class="video-mute-icon" />
+                </cover-view>
+              </live-player>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else>没有配置成员信息</view>
+  </view>
+  <view wx:if="{{ template['layout'] === 'auto' }}">
+    <!-- 有主会场 -->
+    <view class="xy__container">
+      <view style="{{ onholdStyle }}" class="xy__layout-container">
+        <view class="xy__click-content">
+          <!-- 本地端画面 -->
+          <view class="video video-mini video-1" style="{{ localVideo }}">
+            <live-pusher beauty="{{ beauty }}" class="video-player" device-position="{{ devicePosition }}" enable-camera="{{ camera }}" id="pusher" muted="{{ muted }}" mode="RTC" url="{{ pushUrl }}" autopush='true' binderror="onPusherError" waiting-image="{{ waitingImage }}" orientation="horizontal" bindstatechange="onPush">
+              <cover-view class='video-cover-view' wx:if="{{ pushUrl && camera }}"  bindtap="onClickContent" bindlongpress="onFullScreenContent" data-item="{{ item }}">
+                <cover-image wx:if="{{ muted }}" src="https://cdn.xylink.com/miniProgram/mute-ss.png" class="video-mute-icon"></cover-image>
+                <cover-view class="video-member">
+                  <cover-view class="video-member-name">我</cover-view>
+                </cover-view>
+              </cover-view>
+              <cover-view class="video-pause-bg" wx:elif="{{ !pushUrl }}"  bindtap="onClickContent" bindlongpress="onFullScreenContent" data-item="{{ item }}">
+                <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg"></cover-image>
+                <cover-view class="video-pause-box">
+                  <cover-view class="video-member-name" data-index="{{index}}" wx:key="val.i" key="{{val.i}}" wx:for="{{name}}" wx:for-index="index" wx:for-item="val">
+                    {{ val.name }}
+                  </cover-view>
+                </cover-view>
+                <cover-view class="video-pause-box video-pause-name-box">
+                  <cover-view class="video-member-name">获</cover-view>
+                  <cover-view class="video-member-name">取</cover-view>
+                  <cover-view class="video-member-name">推</cover-view>
+                  <cover-view class="video-member-name">流</cover-view>
+                  <cover-view class="video-member-name">...</cover-view>
+                </cover-view>
+              </cover-view>
+              <cover-view class="video-pause-bg" wx:else bindtap="onClickContent">
+                <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg"  bindtap="onClickContent" bindlongpress="onFullScreenContent" data-item="{{ item }}"/>
+                <cover-view class="video-pause-box">
+                  <cover-view class="video-member-name" data-index="{{index}}" wx:key="val.i" key="{{val.i}}" wx:for="{{name}}" wx:for-index="index" wx:for-item="val">
+                    {{ val.name }}
+                  </cover-view>
+                </cover-view>
+                <cover-view class="video-pause-box video-pause-name-box">
+                  <cover-view class="video-member-name">视</cover-view>
+                  <cover-view class="video-member-name">频</cover-view>
+                  <cover-view class="video-member-name">已</cover-view>
+                  <cover-view class="video-member-name">关</cover-view>
+                  <cover-view class="video-member-name">闭</cover-view>
+                </cover-view>
+                <cover-image wx:if="{{ muted }}" src="https://cdn.xylink.com/miniProgram/mute-ss.png" class="video-mute-icon"></cover-image>
+              </cover-view>
+            </live-pusher>
+          </view>
+          <!-- 远端所有画面 -->
+          <view data-index="{{i}}" wx:key="item.roster.userId" key="{{item.roster.userId}}" wx:for="{{newScreen}}" wx:for-index="i" wx:for-item="item">
+            <view class="{{ item.newClass }}" wx:if="{{ item.roster.userId }}" style="{{ item.style }}">
+              <live-player 
+              debug="{{ item.debug }}" 
+              id="{{ item.roster.userId + item.mediaGroupId }}" 
+              class="video-player" 
+              mode="RTC" 
+              muted="{{ item.muted }}" 
+              object-fit="{{ item.fit ? item.fit : 'fillCrop' }}" 
+              src="{{ item.playUrl }}" 
+              autoplay="{{ true }}" 
+              orientation="horizontal" 
+              aspect="16:9" 
+              bindstatechange="onPlay"
+              auto-pause-if-navigate="{{ false }}"
+              auto-pause-if-open-native="{{ false }}"
+              >
+                <!-- 正常状态 -->
+                <cover-view class='video-cover-view' wx:if="{{ item.pullStatus === 'start' }}" bindtap="onClickContent" bindlongpress="onFullScreenContent" data-item="{{ item }}">
+                  <cover-view class="video-member" wx:if="{{ item.displayName.length > 0 }}">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/mute-ss.png" wx:if="{{ item.roster.audioTxMute && !item.roster.isContent }}" class="video-mute-icon" />
+                </cover-view>
+                <!-- 正在清流 -->
+                <cover-view class="video-pause-bg" wx:elif="{{ item.pullStatus === 'pull' }}">
+                  <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg"  bindtap="onClickContent" bindlongpress="onFullScreenContent" data-item="{{ item }}" />
+                  <cover-view class="video-pause-box" wx:if="{{ item.displayName.length > 0 }}">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                  <cover-view class="video-pause-box video-pause-name-box">
+                    <cover-view class="video-member-name">视</cover-view>
+                    <cover-view class="video-member-name">频</cover-view>
+                    <cover-view class="video-member-name">请</cover-view>
+                    <cover-view class="video-member-name">求</cover-view>
+                    <cover-view class="video-member-name">中</cover-view>
+                    <cover-view class="video-member-name">...</cover-view>
+                  </cover-view>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/mute-ss.png" wx:if="{{ item.roster.audioTxMute }}" class="video-mute-icon" />
+                </cover-view>
+                <!-- 视频关闭 -->
+                <cover-view class="video-pause-bg" wx:else>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/bg-theme.jpg" class="video-pause-bg"  bindtap="onClickContent" bindlongpress="onFullScreenContent" data-item="{{ item }}" />
+                  <cover-view class="video-pause-box" wx:if="{{ item.displayName.length > 0 }}">
+                    <cover-view class="video-member-name" wx:for="{{ item.displayName }}" wx:for-item="val" wx:key="{{ val.i }}">
+                      {{ val.name }}
+                    </cover-view>
+                  </cover-view>
+                  <cover-view class="video-pause-box video-pause-name-box">
+                    <cover-view class="video-member-name">视</cover-view>
+                    <cover-view class="video-member-name">频</cover-view>
+                    <cover-view class="video-member-name">暂</cover-view>
+                    <cover-view class="video-member-name">停</cover-view>
+                  </cover-view>
+                  <cover-image src="https://cdn.xylink.com/miniProgram/mute-ss.png" wx:if="{{ item.roster.audioTxMute }}" class="video-mute-icon" />
+                </cover-view>
+              </live-player>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

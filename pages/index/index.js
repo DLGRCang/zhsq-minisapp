@@ -54,7 +54,9 @@ Page({
     ],
     body1:'',
     body2:'',
-    body3:''
+    body3:'',
+    tabbar:[],
+    wyUser:{}
   },
 
   kaimenClick(e){
@@ -73,7 +75,7 @@ Page({
                       menList:menList
                     })
                     if(menList[i].yaobshi == 10){
-                      console.log('aaa')
+                     // console.log('aaa')
                       clearInterval(timer);
                     }
                   }, 40);
@@ -133,24 +135,26 @@ Page({
 
   //蓝牙开门
   lyClick(){
-    var that = this
-    this.setData({
-      djewmTrue:false,
-      djyjkmTrue:false,
-      djlyTrue:true,
-    })
+   
+    //verif.tips("暂未开通此功能")
+    // var that = this
+    // this.setData({
+    //   djewmTrue:false,
+    //   djyjkmTrue:false,
+    //   djlyTrue:true,
+    // })
 
-    //初始化蓝牙
-    wx.openBluetoothAdapter({
-      success: function (res) {
-     // console.log('初始化蓝牙适配器返回' + JSON.stringify(res))
-      that.lyState()
-      },
-      fail:function(res){
-     // console.log('初始化蓝牙适配器失败' + JSON.stringify(res))
-      verif.tips('请打开蓝牙')
-      }
-      })
+    // //初始化蓝牙
+    // wx.openBluetoothAdapter({
+    //   success: function (res) {
+    //  // console.log('初始化蓝牙适配器返回' + JSON.stringify(res))
+    //   that.lyState()
+    //   },
+    //   fail:function(res){
+    //  // console.log('初始化蓝牙适配器失败' + JSON.stringify(res))
+    //   verif.tips('请打开蓝牙')
+    //   }
+    //   })
   },
   lyState(){
     var that = this;
@@ -246,7 +250,7 @@ Page({
               ewmtubiao:'width:100%;height:100%',
             })
           },300)
-          setTimeout(()=>{
+          setTimeout(()=>{ 
             this.setData({
               ewmtubiao:'width:90%;height:90%',
             })
@@ -327,7 +331,7 @@ Page({
                 }
              })
              // wx.request({
-             //   url: 'https://yiqi.sucstep.com/app/sign/checkCodeZHSQrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
+             //   url: 'https://www.yjhlcity.com/app/sign/checkCodeZHSQrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
              //   method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
              //   data:{
              //     code:resa.code,
@@ -412,10 +416,11 @@ Page({
      // }
    },
   xuzneXq(e){
-    //console.log(e)
+
     this.setData({
       xzvillage:e.currentTarget.dataset.item
     })
+    console.log(this.data.xzvillage)
   },
   qrxzxqClick(){
     wx.setStorageSync('xzvillage', this.data.xzvillage)
@@ -434,7 +439,7 @@ Page({
     })
   },
   xunzexq(){
-
+    console.log(this.data.village)
     if(this.data.village.length > 1){
       this.setData({
         xuanzexiaoqu:true
@@ -452,9 +457,9 @@ Page({
 
     wx.setStorageSync('clackTabBar', e.currentTarget.dataset.cur)
     if(e.currentTarget.dataset.cur == 't2'||e.currentTarget.dataset.cur == 't3'||e.currentTarget.dataset.cur == 't4'){
-     
         if(verif.checkLogin()){
-          if(verif.village==0){
+          console.log(verif.village)
+          if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
             verif.tips('您不是小区人员')
           }else{
 
@@ -504,10 +509,17 @@ Page({
                 },400)
                 
               }else{
+                //console.log("aaa")
+                var menList = this.data.menList
+                for(var i in menList){
+                  menList[i].kaimenTrue = true,
+                  menList[i].dhLeftCss = ''
+                   menList[i].dhRightCss = ''
+                }
                 setTimeout(()=>{
                   this.setData({
                     ewmkm:'top:-40rpx;left:40rpx;transition: all .2s ease-in-out;z-index:-50;width:0rpx;height:0rpx',
-                    yjkm:'top:-40rpx;left:75rpx;transition: all .2s ease-in-out;z-index:-50;width:0rpx;height:0rpx',
+                    yjkm:'top:-40rpx;left:65rpx;transition: all .2s ease-in-out;z-index:-50;width:0rpx;height:0rpx',
                     lykm:'top:-40rpx;right:40rpx;transition: all .2s ease-in-out;z-index:-50;width:0rpx;height:0rpx',
                     ysimg:'width:40%;height:40%',
                     chaimg:'font-size:0rpx',
@@ -516,6 +528,10 @@ Page({
                     yjkmTrue:true,
                     zziconTrue:false,
                     PageCur1:this.data.PageCur,
+                    djewmTrue:false,
+                    djyjkmTrue:false,
+                    djlyTrue:false,
+                    menList:menList
                   })
                 },200)
                 
@@ -719,6 +735,10 @@ Page({
     
     if(e.currentTarget.dataset.cur == 't5'){
       this.selectComponent("#tip5").showClick()
+    }else{
+      this.setData({
+        t5If:0
+      })
     }
     
   },
@@ -733,6 +753,22 @@ Page({
  
 
   onLoad: function () {
+    //console.log(wx.getStorageSync('wyUser'))
+    this.setData({
+      wyUser:wx.getStorageSync('wyUser')
+    })
+    console.log(this.data.wyUser)
+    //console.log(wx.getStorageSync('wxUser'))
+    http.tabbarApi({
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          tabbar:res.tabbar
+        })
+      }
+    })
+    //this.messageList()
+    
     // if(wx.getStorageSync('wxUser') == ''&&!wx.getStorageSync('loginSi')){
     //   this.setData({
     //     modalName:'bottomModal'
@@ -772,103 +808,173 @@ Page({
       })
     }
     this.appid()
-    this.messageList()
-    //this.messageListChong()
-    
+  },
 
-  },
-  messageListChong(){
-    //console.log('aaa')
-    //console.log(wx.getStorageSync('village'))
-    var village = []
-    for(var i in wx.getStorageSync('village')){
-      village.push(wx.getStorageSync('village')[i])
-    }
-    //console.log(village)
-    if(village.length == 1){
-      var xzvillage = []
-      for(var i in village[0]){
-        xzvillage.push(village[0][i])
-      }
-      //console.log(xzvillage)
-      this.setData({
-        village:village,
-        xzvillage:xzvillage
-      })
-      wx.setStorageSync('xzvillage', xzvillage)
-    }else{
-      //console.log(village)
-      this.setData({
-        village:village,
-        xzvillage:wx.getStorageSync('xzvillage')
-      })
-    }
-  },
   messageList(){
     
+    var that = this
     if(wx.getStorageSync('wxUser') != ''){
-      http.messageApi({
-        data:{
-          userId:wx.getStorageSync('wxUser').id
-        },
-        success:res=>{
+      wx.getSetting({
+        success: res => {
+          //console.log(res)
+          if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+            wx.getUserInfo({
+              success: resa => {
+                //console.log(resa)
+                wx.login({
+                  success: resb => {
+                    //console.log(resb)
+                    wx.request({
+                      url: 'http://172.16.20.74:8002/usercenter/app/sign/checkCodeZHSQrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
+                      method: 'POST', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
+                      data:{
+                        code:resb.code,
+                        encryptedData:resa.encryptedData,
+                        iv:resa.iv
+                      },
+                      header: {
+                        'content-type': 'application/json',
+                      },
+                      success(data) {
+                            //console.log(data)
+                            if(data.data.code == 200){
+                              var userInfo = data.data.result.data.userInfo;
+                              wx.setStorageSync('wxUser',userInfo)
+                              wx.setStorageSync('token',data.data.result.data.token)
+                            }
+                    
+                            let userId;
+                            if(wx.getStorageSync('wxUser').phone == "16666666666"){
+                              userId = "4a3f693f-d276-4682-a494-e198bc435d0f"
+                            }else{
+                              userId = wx.getStorageSync('wxUser').id
+                            }
+                            http.messageApi({
+                              data:{
+                                userId:userId
+                              },
+                              success:res=>{
+                                console.log(res)
+                                if(res[0].code == "400"){
+                                    wx.setStorageSync('village', false)
+                                    wx.setStorageSync('xzvillage', false)
+                                }else{
+                                  
+                                  if(res.length == 1){
+                                    wx.setStorageSync('village', res[0])
+                                    wx.setStorageSync('xzvillage', res[0])
+                                    that.setData({
+                                      village:res[0],
+                                      xzvillage:res[0]
+                                    })
+                                  }else{
+                                    wx.setStorageSync('village', res)
+                                    if(wx.getStorageSync('xzvillage') != ""){
+                                      for(var i in res){
+                                        //console.log(res[i].village.villageId)
+                                        if(res[i].village.villageId == wx.getStorageSync('xzvillage').village.villageId){
+                                          wx.setStorageSync('xzvillage', res[i])
+                                          that.setData({
+                                            xzvillage:res[i]
+                                          })
+                                        }
+                                      }
+                                      
+                                    }
+                                    that.setData({
+                                      village:res
+                                    })
+                                  }
+                                }
+                                
+                               // console.log(res)
+                                // if(res.status == 500){
+                                  
+                                // }else{
+                                //   if(res.code == 40001){
+                                //     wx.setStorageSync('village', false)
+                                //     wx.setStorageSync('xzvillage', false)
+                                //   }else{
+                                    
+                                //   var xzvillagePage = [];
+                                //   wx.setStorageSync('village', res)
+                                //   var status = null
+                                //   for(var s in res){
+                                //     status = s
+                                //   }
+                                //   if(status != 'noVillage'||JSON.stringify(res) == '{}'){
+                                //     var village = []
+                                //     for(var i in res){
+                                //       village.push(res[i])
+                                  
+                                //       if(wx.getStorageSync('xzvillage')[0] != undefined){
+                                //         if(wx.getStorageSync('xzvillage')[0].villageId == i){
+                                //           xzvillagePage = res[i]
+                                //         }
+                                //       }
+                                      
+                                //     }
+                      
+                                //     if(village.length == 1){
+                                //       var xzvillage = []
+                                //       for(var m in village[0]){
+                                //         xzvillage.push(village[0][m])
+                                //       }
+                                //       this.setData({
+                                //         village:village,
+                                //         xzvillage:xzvillage
+                                //       })
+                                //       wx.setStorageSync('xzvillage', xzvillage)
+                                //     }else{
+                                //       //console.log(xzvillagePage)
+                                //       this.setData({
+                                //         village:village,
+                                //         xzvillage:xzvillagePage
+                                //       })
+                                //     }
+                                //   }else{
+                                //     wx.setStorageSync('village', false)
+                                //     wx.setStorageSync('xzvillage', false)
+                                //   }
+                                //   }
+                                // }
+                              },
+                              fail:err=>{
+                                console.log(err)
+                              }
+                            })
+                      },
+                      fail(err) {
+                        console.log(err)
+                      }
+                    })
+                    // http.loginApi({
+                    //   data:{
+                    //     code:resb.code,
+                    //     encryptedData:resa.encryptedData,
+                    //     iv:resa.iv
+                    //   },
+                    //   success(data) {
+                    //      //console.log(data)
+                    //     if(data.code == 200){
+                    //       var userInfo = data.result.data.userInfo;
+                    //       wx.setStorageSync('wxUser',userInfo)
+                    //       wx.setStorageSync('token',data.result.data.token)
+                    //     }
+                    //    },
+                    //    fail(err) {
  
-          ///console.log(res)
-          if(res.status == 500){
-            
-          }else{
-            if(res.code == 40001){
-              wx.setStorageSync('village', false)
-              wx.setStorageSync('xzvillage', false)
-            }else{
-              
-            var xzvillagePage = [];
-            wx.setStorageSync('village', res)
-            var status = null
-            for(var s in res){
-              status = s
-            }
-            if(status != 'noVillage'||JSON.stringify(res) == '{}'){
-              var village = []
-              for(var i in res){
-                village.push(res[i])
-            
-                if(wx.getStorageSync('xzvillage')[0] != undefined){
-                  if(wx.getStorageSync('xzvillage')[0].villageId == i){
-                    xzvillagePage = res[i]
+                    //    }
+                    // })
                   }
-                }
-                
-              }
-
-              if(village.length == 1){
-                var xzvillage = []
-                for(var m in village[0]){
-                  xzvillage.push(village[0][m])
-                }
-                this.setData({
-                  village:village,
-                  xzvillage:xzvillage
-                })
-                wx.setStorageSync('xzvillage', xzvillage)
-              }else{
-                //console.log(xzvillagePage)
-                this.setData({
-                  village:village,
-                  xzvillage:xzvillagePage
                 })
               }
-            }else{
-              wx.setStorageSync('village', false)
-              wx.setStorageSync('xzvillage', false)
-            }
-            }
+            })
           }
-        },
-        fail:err=>{
-          console.log(err)
         }
       })
+      
     }
     
 },
@@ -932,6 +1038,7 @@ Page({
 
   //监听页面显示
   onShow:function(){
+    console.log(wx.getStorageSync('wxUser'))
     this.messageList()
     var that = this
     var query = wx.createSelectorQuery()
@@ -959,6 +1066,15 @@ Page({
          })
       }).exec();
     }
+
+    http.loginOutApi({
+      data:{
+        userName:wx.getStorageSync('xyuserName')
+      },
+      success:res=>{
+        
+      }
+    })
     
     wx.getStorage({
       key: 'llqfb',

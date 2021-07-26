@@ -17,13 +17,20 @@
 .view_tab>.tab_bar{color: #A9B3BD;    padding-left:40rpx;padding-top: 25rpx; display: inline-flex;}
 .view_tab>.tab_bar>view{font-weight:bold;height:55rpx;line-height: 55rpx;float: left;margin-right: 45rpx;text-align: center;}
 
-.tab_box{padding:35rpx;overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;border-radius: 20rpx;}
+.tab_box{ overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;border-radius: 20rpx;}
 
 
     /*密码  */
-.ewm-1{font-size:28rpx;font-family:Microsoft YaHei;font-weight:600;color:#333}
+.ewm-1{padding: 30rpx 30rpx 0;font-size:28rpx;font-family:Microsoft YaHei;font-weight:600;color:#333}
 .text-gray{color:#999}
-.mima{width:100%;padding:50rpx 80rpx 0;box-sizing:border-box}
+.mima{width:100%;box-sizing:border-box;padding: 20rpx 30rpx 30rpx;}
+.mimaBtn{
+  width: 100%;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+  padding: 13rpx 0;
+  text-align: center;
+  color: #fff;
+}
 .pass_content{display:flex;justify-content:space-between;align-items:center}
 .iptbox{width:55rpx;height:55rpx;background:rgba(51,51,51,0);border:2rpx solid #ddd;border-radius:6rpx;display:flex;justify-content:center;align-items:center;text-align:center}
 .ipt{width:0;height:0}
@@ -84,3 +91,56 @@ overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
     .yy_title{color:#A9B3BD;font-size:28rpx !important;font-weight: normal;}
 .pj_btn{margin-top:25rpx;}
 .pj_btn>button{background: #188BFF;color: #fff;    font-size: 20rpx;}    
+
+.ewmTc{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  padding: 20% 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.txm{
+  width: 100%;
+  height: 50rpx;
+background: linear-gradient(60deg, #0586F8, #1BB1FD);
+border-radius: 30rpx 30rpx 0 0;
+}
+.nrTxm{
+  width: 600rpx;
+  height: 600rpx;
+  padding: 30rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 30rpx;
+}
+.nrTxm image{
+  width: 100%;
+  height: 100%;
+}
+.txmpass{
+  width: 100%;
+  letter-spacing:5rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.btnFx{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50rpx;
+}
+.btnFx button{
+  width: 46%;
+  font-size: 28rpx;
+}

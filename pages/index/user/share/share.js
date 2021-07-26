@@ -6,7 +6,7 @@ Page({
    */
   data: {
     pullup:'#1BB1FD',
-    textCon:'1111111'
+    textCon:null
   },
 
 
@@ -19,6 +19,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //console.log(options.data)
+    this.setData({
+      textCon:options.data
+    })
     setInterval(() => {
       if(this.data.pullup == '#1BB1FD'){
         this.setData({

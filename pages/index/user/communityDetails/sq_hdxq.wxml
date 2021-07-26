@@ -6,7 +6,7 @@
 
 <view style="height:91%;">
   <view class="box-body">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
 <!-- <view class="bg"></view> -->
 <!-- 第一部分 头部 -->
 <!-- <view class="bg-blue head_content"> -->
@@ -19,17 +19,17 @@
         <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
       </swiper-item>
     </swiper> -->
-    <image src="http://172.16.20.81:9000/fileService/downloadFTP/public/{{rowsList.actPhonts}}" class="timg"></image>
+    <image src="{{imgUrl+rowsList.actPhonts}}" class="timg"></image>
    <view class="xq_title">{{rowsList.name}}</view>
    <!-- 星星 -->
     <view>
-      <text class="{{rowsList.score >=2 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
-      <text class="{{rowsList.score >=4 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
-      <text class="{{rowsList.score >=6 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
-      <text class="{{rowsList.score >=8 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
-      <text class="{{rowsList.score ==10 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score > 0 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score > 2 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score > 4 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score > 6 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
+      <text class="{{rowsList.score > 8 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
    
-      <text style="padding-left:10rpx;">评分：{{rowsList.score}}</text>
+      <text style="padding-left:10rpx;">评分：<text wx:if="{{rowsList.score == ''}}">0</text><text wx:if="{{rowsList.score != ''}}">{{rowsList.score}}</text></text>
       <view class="cu-tag bg-lvse light jnpx">{{rowsList.type}}</view>
     </view>
 </view>
@@ -38,7 +38,7 @@
 <view class="view_tab">
 <view class="tab_bar" > 
   <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">基本信息</view> 
-  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">活动回顾</view> 
+  <!-- <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">活动回顾</view>  -->
 </view> 
 </view>
 <!-- 栏目结束 -->
@@ -78,12 +78,12 @@
 <!-- 底部 我要报名 -->
 
 <view class="bm_box">
-  <view class="box_tx">
+  <!-- <view class="box_tx">
     <view class="box01"></view>
     <view class="box02"></view>
     <view class="box03"></view>
     <view class="cu-tag round box04">15</view>
-  </view>
+  </view> -->
 
 
 <view class="bm_button" bindtap="baoming">我要报名</view>

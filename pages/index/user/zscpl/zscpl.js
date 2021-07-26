@@ -50,12 +50,17 @@ Page({
           goodPeopleId:wx.getStorageSync('wxUser').id
         },
         success:res=>{
-          
+
           var res = res
+         // console.log(res)
           for(var i in res){
-            res[i].img = res[i].file.split(',')
+            if(res[i] != null){
+              if(res[i].file != ""){
+                res[i].img = res[i].file.split(',')
+              }
+            }
           }
-         //console.log(res)
+         
           this.setData({
             rows:res
           })
@@ -74,7 +79,11 @@ Page({
       
           var res = res
           for(var i in res){
-            res[i].img = res[i].file.split(',')
+            if(res[i] != null){
+              if(res[i].file != ""){
+                res[i].img = res[i].file.split(',')
+              }
+            }
           }
           //console.log(res)
           this.setData({
@@ -95,9 +104,13 @@ Page({
           //console.log(res)
           var res = res
           for(var i in res){
-            res[i].img = res[i].file.split(',')
+            if(res[i] != null){
+              if(res[i].file != ""){
+                res[i].img = res[i].file.split(',')
+              }
+            }
           }
-          //console.log(res)
+         // console.log(res)
           this.setData({
             rows2:res
           })
@@ -110,7 +123,14 @@ Page({
     getAddInfo(){
       this.xinwenArr()
     },
-    onLoad:function(){
+    onLoad:function(options){
+      //console.log(options.tabId)
+      var obj = {};
+      obj.curHdIndex = options.tabId;
+      obj.curBdIndex = options.tabId;
+      this.setData({
+        tabArr: obj
+      })
       this.xinwenArr()
    
     },

@@ -40,9 +40,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //console.log(this.data.imgUrl)
+   // console.log(wx.getStorageSync('xzvillage').houseList[0])
     this.setData({
-      myList:wx.getStorageSync('xzvillage')[0]
+      myList:wx.getStorageSync('xzvillage').houseList[0]
     })
 
   },
@@ -53,8 +53,9 @@ Page({
         userId:wx.getStorageSync('wxUser').id
       },
       success:res=>{
+        console.log(res)
         for(var i in res){
-          if(i == wx.getStorageSync('xzvillage')[0].villageId){
+          if(i == wx.getStorageSync('xzvillage').village.villageId){
             wx.setStorageSync('xzvillage', res[i])
             this.setData({
               myList:res[i][0]

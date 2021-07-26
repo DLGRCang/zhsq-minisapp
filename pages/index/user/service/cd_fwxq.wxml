@@ -5,7 +5,7 @@
 
 <view style="height:91%;overflow-y: auto;">
   <view class="box-body">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
 <!-- <view class="bg"></view> -->
 <!-- 第一部分 头部 -->
 <!-- <view class="bg-blue head_content"> -->
@@ -28,7 +28,7 @@
       <text class="{{rowsList.score >= 8 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
       <text class="{{rowsList.score == 10 ? 'cuIcon-favorfill':'cuIcon-favor'}} lg text-red"></text>
  
-      <text style="padding-left:10rpx;">评分：{{rowsList.score}}</text>
+      <text style="padding-left:10rpx;">评分：<text wx:if="{{rowsList.score == ''}}">0</text><text wx:if="{{rowsList.score != ''}}">{{rowsList.score}}</text></text>
       <view class="cu-tag bg-lvse light jnpx">{{rowsList.typeMessage}}</view>
     </view>
 </view>
@@ -59,32 +59,32 @@
 </view>
 
 </view>
-
+ 
 <view class="btn-bot">
-
-		<picker style="width:100%" mode="date" value="{{date}}" start="{{pickers}}" end="{{pickerx}}" bindchange="DateChange">
+  <button class="cu-btn round" bindtap="yuyue">预约</button>
+		<!-- <picker style="width:100%" mode="date" value="{{date}}" start="{{pickers}}" end="{{pickerx}}" bindchange="DateChange">
 				<button class="cu-btn round">预约</button>
-		</picker>
+		</picker> -->
 
 </view>
 <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white">
       <view class="action" bindtap="hideModal">取消</view>
-      <view class="action text-green">确定</view>
+      <view class="action text-green" bindtap="quedingyy">确定</view>
       
     </view>
     <view class="padding-xl">
       <view class="times">
         <view class="times-s">上午</view>
         <view class="times-f">
-          <view wx:for="{{timeList}}" wx:if="{{item.id < 6}}" wx:key="index" class="{{item.timeCss}}" bindtap="ctimes" data-id="{{item.id}}">{{item.time}}</view>
+          <view wx:for="{{rowsList.amopenTimeList1}}" wx:key="index" style="{{item.isTrue?'background: linear-gradient(60deg, #F35854, #FF7B79);color:#fff;':''}}" bindtap="amctimes" data-i="{{index}}">{{item.date}}</view>
         </view>
       </view>
       <view class="times">
         <view class="times-s">下午</view>
         <view class="times-f">
-          <view wx:for="{{timeList}}" wx:if="{{item.id > 5}}" wx:key="index" class="{{item.timeCss}}" bindtap="ctimes" data-id="{{item.id}}">{{item.time}}</view>
+          <view wx:for="{{rowsList.pmopenTimeList1}}" wx:key="index" style="{{item.isTrue?'background: linear-gradient(60deg, #F35854, #FF7B79);color:#fff;':''}}" bindtap="pmctimes" data-i="{{index}}">{{item.date}}</view>
         </view>
       </view>
     </view>

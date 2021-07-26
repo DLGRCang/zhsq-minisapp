@@ -2,7 +2,7 @@
   
   <view class="floorImg">
     <view bindtouchmove="touchmoveCallback" bindtouchstart="touchstartCallback" style="width: {{ touch.scaleWidth }}px;">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/timg.jpg" style="width: {{ touch.scaleWidth }}px;height: {{ touch.scaleHeight }}px" bindload="bindload"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/timg.jpg" style="width: {{ touch.scaleWidth }}px;height: {{ touch.scaleHeight }}px" bindload="bindload"></image>
   </view>
     
   </view>

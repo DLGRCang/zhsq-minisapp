@@ -5,14 +5,16 @@
 
 <view style="height:100%;">
   <view class="box-body">
-    <image src="../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
   <!-- 内容开始 -->
      <!-- 第一块 -->
     <view class="order_box">
        <view class="box_one">
           <view class="one_top" bindtap="AddressClick">
-            <view class="one_dbt">呼和浩特科创中心 505</view>
-            <view class="one_xbt">用户名(先生)<view>18247140000</view> </view>
+            <view class="one_dbt" wx:if="{{addresid != null}}">{{province+city+county+detail}}</view>
+            <view class="one_xbt" wx:if="{{addresid != null}}">{{username}}({{sex}})<view>{{phone}}</view></view>
+          <view style="height:100rpx;line-height:100rpx" wx:if="{{addresid == null}}">选择地址</view>
+  
             <text class="cuIcon-right lg text-gray one_righticon"></text>
           </view>
     
@@ -30,43 +32,28 @@
   <view class="cu-list menu-avatar list_two">
       <view class="cu-bar bg-white solid-bottom ">
             <view class="action">
-              利客超市(左右城店)
+              {{title}}
             </view>
       </view>
 
-    <view class="cu-item ">
+    <view class="cu-item " wx:for="{{dataList}}" wx:key="index" wx:if="{{index < coll}}">
       <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
       <view class="content">
         <view class="content_title">
-          澳大利亚脐橙 橙子 澳橙一级中果 180g/个
+          {{item.name}}
         </view>
         <view class="text-gray text-sm flex">
-          <text class="text-cut">x1</text>
+          <text class="text-cut">x{{item.data}}</text>
         </view>
       </view>
       <view class="fl_jg">
-        <view class="button_djg">￥72.9  </view><text class="button_xjg">￥8.9</text> 
+        <view class="button_djg">￥{{item.discount*item.data}}  </view><text class="button_xjg">￥{{(item.price*item.data)-(item.discount*item.data)}}</text> 
       </view>
     </view>
-    <!-- 复制 第二个 -->
-    <view class="cu-item ">
-      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-      <view class="content">
-        <view class="content_title">
-          澳大利亚脐橙 橙子 澳橙一级中果 180g/个
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">x1</text>
-        </view>
-      </view>
-      <view class="fl_jg">
-        <view class="button_djg">￥72.9  </view><text class="button_xjg">￥8.9</text> 
-      </view>
-    </view>
+  
     <!-- 展开 -->
-    <view class="zk" bindtap="toCollect">
-      <view >展开（共11件）
-                   <!-- 箭头下拉  上拉 -->
+    <view class="zk" bindtap="toCollect" wx:if="{{dataList.length > 2}}">
+      <view >展开（共{{dataList.length}}件）
       <block wx:if="{{isCollect == false}}">
         <text class='cuIcon-unfold lg text-gray'></text>
       </block>
@@ -76,30 +63,15 @@
       </view>
     </view>
 
-        <!-- 复制 第二个 -->
-     <view class="cu-item content {{isShow ? 'on' : ''}}" style="display:none;">
-      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
-      <view class="content">
-        <view class="content_title">
-          澳大利亚脐橙 橙子 澳橙一级中果 180g/个
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut">x1</text>
-        </view>
-      </view>
-      <view class="fl_jg">
-        <view class="button_djg">￥72.9  </view><text class="button_xjg">￥8.9</text> 
-      </view>
-    </view>
 
 
-    <!-- 包装费  配送费 -->
+    <!-- 包装费  配送费
     <view class="bzf"><text class="fl">包装费</text><text class="fr">￥2.5</text></view>
-    <view class="psf"><text class="fl">配送费</text><text class="fr">￥2.5</text></view>
+    <view class="psf"><text class="fl">配送费</text><text class="fr">￥2.5</text></view> -->
     <!-- 以优惠，合计 -->
     <view class="fr">
-       <view class="youhui">已优惠 <text class="text-blue">￥8.5</text> </view>
-       <view class="youhui">合计：<text class="text-bold">￥23.70</text></view>
+       <view class="youhui">已优惠 <text class="text-blue">￥{{zkPrice}}</text> </view>
+       <view class="youhui">合计：<text class="text-bold">￥{{price}}</text></view>
     </view>
     
     
@@ -110,12 +82,12 @@
   <!-- 结算 button -->
 <view class="js_button" bindtap="order">
     <view class="button_lf">
-      <view class="button_djg">￥72.9  </view>
-      <view class="l_psf">已优惠￥2.5</view>
+      <view class="button_djg">￥{{price}} </view>
+      <view class="l_psf">已优惠￥{{zkPrice}}</view>
     </view>  
     
      <view class="button_lr">
-       <button>提交订单</button>
+       <button bindtap="tjOrder">提交订单</button>
      </view>
 </view>
 

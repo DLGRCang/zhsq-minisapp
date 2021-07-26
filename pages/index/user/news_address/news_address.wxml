@@ -10,14 +10,14 @@
 <form>
 <view class="add_list">
 <text>联系人</text>
-  <input class="news_input" placeholder="姓名"></input>
-  <view class="padding cu-tag line-grey" style="margin-left:0;">先生</view>
-  <view class="padding cu-tag line-grey">女士</view>
+  <input class="news_input" placeholder="姓名" bindinput="nameInput" value="{{name}}"></input>
+  <view class="padding cu-tag line-grey" style="margin-left:0; {{sex == 0?'background: linear-gradient(60deg, #66B7F9, #3A91F7);color: #fff;':''}}" bindtap="sexClick" data-sex="{{0}}">先生</view>
+  <view class="padding cu-tag line-grey" style="{{sex == 1?'background: linear-gradient(60deg, #66B7F9, #3A91F7);color: #fff;':''}}" bindtap="sexClick" data-sex="{{1}}">女士</view>
 </view>
 
 <view class="add_list">
 <text>电话</text>
-  <input class="news_input" placeholder="电话"></input>
+  <input class="news_input" placeholder="电话" bindinput="phoneInput" value="{{phone}}"></input>
 </view>
 
 <view class="add_list">
@@ -39,9 +39,10 @@
 
 <view class="add_list">
 <text>详细地址/门牌号</text>
-  <input class="news_input" placeholder="请输入详细地址/门牌号"></input>
+  <input class="news_input" placeholder="请输入详细地址/门牌号" bindinput="addressInput" value="{{address}}"></input>
 </view>
 
 </form>
-  <button class="tj_btn">保存并使用</button>
+  <button class="tj_btn" bindtap="baocun" wx:if="{{btnIf}}">保存并使用</button>
+  <button class="tj_btn" bindtap="xiugai" wx:if="{{!btnIf}}">修改并使用</button>
 </view>

@@ -29,12 +29,14 @@ Page({
     })
   },
   bindGetUserInfo(e) {
+   // console.log(e)
     wx.showLoading({
       title: '授权中...',
     })
-        //console.log(e)
+       // console.log(e)
         wx.login({
           success: resa => {
+            //console.log(resa)
             http.loginApi({
               data:{
                 code:resa.code,
@@ -42,7 +44,7 @@ Page({
                 iv:e.detail.iv
               },
               success(data) {
-                // console.log(data)
+                console.log(data)
                 if(data.code == 200){
                   var userInfo = data.result.data.userInfo;
                   userInfo.avatarUrl = e.detail.userInfo.avatarUrl
@@ -51,26 +53,26 @@ Page({
                   wx.setStorageSync('loginSi', true)
                   wx.hideLoading({
                     success: (res) => {
-                      http.messageApi({
-                        data:{
-                          userId:wx.getStorageSync('wxUser').id
-                        },
-                        success:res=>{
-                          //console.log(res)
-                          var status = null
-                            for(var i in res){
-                              status = i
-                            }
-                            if(status != 'noVillage'){
-                              wx.setStorageSync('village', res)
-                            }else{
-                              wx.setStorageSync('village', false)
-                            }
-                        },
-                        fail:err=>{
-                          console.log(err)
-                        }
-                      })
+                      // http.messageApi({
+                      //   data:{
+                      //     userId:wx.getStorageSync('wxUser').id
+                      //   },
+                      //   success:res=>{
+                      //     //console.log(res)
+                      //     var status = null
+                      //       for(var i in res){
+                      //         status = i
+                      //       }
+                      //       if(status != 'noVillage'){
+                      //         wx.setStorageSync('village', res)
+                      //       }else{
+                      //         wx.setStorageSync('village', false)
+                      //       }
+                      //   },
+                      //   fail:err=>{
+                      //     console.log(err)
+                      //   }
+                      // })
                       verif.tips('授权成功')
                       var pages = getCurrentPages(); // 当前页面
                                 var beforePage = pages[pages.length - 2]; // 前一个页面
@@ -78,14 +80,14 @@ Page({
                                 // console.log(beforePage);
                                 wx.navigateBack({
                                     success: function() {
-                                        beforePage.messageList(); // 执行前一个页面的onLoad方法
+                                        beforePage.messageList(); // 执行前一个页面的messageList方法
                                     }
                                 });
-                      setTimeout(()=>{
-                        wx.navigateBack({
-                          delta: 1
-                        })
-                      },800)
+                      // setTimeout(()=>{
+                      //   wx.navigateBack({
+                      //     delta: 1
+                      //   })
+                      // },500)
                     },
                   })
                 }else{
@@ -95,6 +97,12 @@ Page({
                 }
                },
                fail(err) {
+                 verif.tips("登录失败，稍后重试")
+                 setTimeout(()=>{
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                },800)
                  console.log(err)
                }
             })

@@ -47,7 +47,7 @@
     <defect topPadding="{{160}}" wx:if="{{rows1.length == 0}}">
         <view slot="content">暂无房源信息</view>
       </defect>
-    <view class="tab_box" bindtap="xiangqing" data-id="{{item.rentRoomId}}" wx:for="{{rows1}}" wx:key="index">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item}}" wx:for="{{rows1}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>
@@ -74,7 +74,7 @@
     <defect topPadding="{{160}}" wx:if="{{rows2.length == 0}}">
         <view slot="content">暂无房源信息</view>
       </defect>
-    <view class="tab_box" bindtap="xiangqing" data-id="{{item.rentRoomId}}" wx:for="{{rows2}}" wx:key="index">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item}}" wx:for="{{rows2}}" wx:key="index">
       <view class="box_left">
         <view class="cu-tag bg-blue light xtb" wx:if="{{item.state == 0}}">使用</view>
         <view class="cu-tag bg-cyan light xtb" wx:if="{{item.state == 1}}">已租</view>

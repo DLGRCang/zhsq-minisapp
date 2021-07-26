@@ -3,7 +3,7 @@
     <view slot="content">详情</view>
 </cu-custom>
 <view style="width:100%;height:{{windowHeight}}px" class="boxXq">
-  <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+  <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
   <view class="ditails_box" id="ditails_box">
     <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
@@ -13,8 +13,8 @@
     <view class="box_one">
      <view class="fl">
             <view class="one_title">{{forBox.shopName}}</view>
-            <view class="one_img"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/sh_star.png"></image><text>{{forBox.starLevel}}分</text></view>
-            <view class="one_img"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/sh_ysl.png"></image><text>月售{{forBox.salesVolume}}</text></view>
+            <view class="one_img"><image src="https://www.yjhlcity.com/zhsq/assets/images/applets/sh_star.png"></image><text>{{forBox.starLevel}}分</text></view>
+            <view class="one_img"><image src="https://www.yjhlcity.com/zhsq/assets/images/applets/sh_ysl.png"></image><text>月售{{forBox.salesVolume}}</text></view>
             <view class="one_tabimg">
               <view class="cu-tag bg-blue light">满30减5</view>
               <view class="cu-tag bg-blue light">满30减5</view>
@@ -77,14 +77,18 @@
               <view class="shopForRight" style="width:{{tabRight-shopWidth}}px">
                 <view class="shopForRight1">{{itemIn.name}}</view>
                 <view class="shopForRight2">月销 {{itemIn.monthNumber}}</view>
-                <view class="shopForRight3" wx:if="{{itemIn.discount != ''}}"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dz.png"></image>{{itemIn.discount}}折</view>
+                <view class="shopForRight3" wx:if="{{itemIn.discount != ''}}"><image src="https://www.yjhlcity.com/zhsq/assets/images/applets/dz.png"></image>{{itemIn.discount}}折</view>
                 <view class="shopForRight4">
                   <view class="shopForRight4First">
                     <text style="font-size:20rpx;color: #F55E5A;">￥</text>
-                    <text style="font-size:30rpx;color: #F55E5A;font-weight: bold;"><text wx:if="{{itemIn.discount != ''}}">{{itemIn.price*itemIn.discount}}</text><text wx:if="{{itemIn.discount == ''}}">{{itemIn.price}}</text></text>
+                    <text style="font-size:30rpx;color: #F55E5A;font-weight: bold;"><text wx:if="{{itemIn.discount != ''}}">{{itemIn.discount}}</text><text wx:if="{{itemIn.discount == ''}}">{{itemIn.price}}</text></text>
                     <text style="text-decoration:line-through;font-size:18rpx;color:#999" wx:if="{{itemIn.discount != ''}}">￥{{itemIn.price}}</text>
                   </view>
-                  <view class="shopForRight4Last"><text class="cuIcon-roundaddfill" style="color:#188BFF;font-size:40rpx" bindtap="shopClick" data-target="bottomModal" data-id="{{itemIn.shoppingId}}"></text></view>
+                  <view class="shopForRight4Last">
+                    <text style="color:#fff;font-size:40rpx;width:37rpx;height:37rpx;border-radius: 50%;background: #ccc;display: flex;align-items: center;justify-content: center;" bindtap="jianClick" data-target="bottomModal" data-item="{{itemIn}}" wx:if="{{itemIn.data != 0}}" data-i="{{index}}">-</text>
+                    <view wx:if="{{itemIn.data != 0}}">{{itemIn.data}}</view>
+                    <text class="cuIcon-roundaddfill" style="color:#188BFF;font-size:40rpx" bindtap="shopClick" data-target="bottomModal" data-item="{{itemIn}}" data-i="{{index}}"></text>
+                  </view>
                 </view>
               </view>
             </view>
@@ -112,9 +116,20 @@
     </view>
   </view>
 </view>
+<view class="jiesuan" wx:if="{{price != 0}}">
+  <view class="jiesuan1">
+    <view>
+      <text>￥</text>
+      <text>{{price}}</text>
+      <text>￥{{zkPrice}}</text>
+    </view>
+    
+  </view>
+  <view class="jiesuan2" bindtap="jiesuanClick">去结算</view>
+</view>
 <!-- <view style="height:100%;">
   <view class="box-body">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
 
     <view class="ditails_box">
    
@@ -126,8 +141,8 @@
        <view class="box_one">
           <view class="fl">
             <view class="one_title">利客(左右城店)</view>
-            <view class="one_img"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/sh_star.png"></image><text>4.9分</text></view>
-            <view class="one_img"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/sh_ysl.png"></image><text>月售348</text></view>
+            <view class="one_img"><image src="https://www.yjhlcity.com/zhsq/assets/images/applets/sh_star.png"></image><text>4.9分</text></view>
+            <view class="one_img"><image src="https://www.yjhlcity.com/zhsq/assets/images/applets/sh_ysl.png"></image><text>月售348</text></view>
             <view class="one_tabimg">
               <view class="cu-tag bg-blue light">满30减5</view>
               <view class="cu-tag bg-blue light">满30减5</view>
@@ -135,7 +150,7 @@
             </view>
           </view>
           <view class="fr">
-            <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3236757554,2055665845&fm=26&gp=0.jpg"></image>
+            <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3236757554,2055665845&fm=26&gp=0.jpg"></image> 
           </view>
        </view>
 
@@ -175,7 +190,7 @@
               <text>月售 20</text>
             </view>
             <view class="text-gray text-sm flex">
-              <view class="two_imgtab"><image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/dz.png"></image>8.88折</view>
+              <view class="two_imgtab"><image src="https://www.yjhlcity.com/zhsq/assets/images/applets/dz.png"></image>8.88折</view>
             </view>
             <view class="text-gray text-sm flex">
               <view class="dz_bold">￥7.9  </view>

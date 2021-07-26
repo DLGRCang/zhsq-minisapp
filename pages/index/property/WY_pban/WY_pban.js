@@ -18,7 +18,7 @@ Component({
     windowHeight:app.globalData.windowHeight,
     dateT: '',
     dateC:'2020-12-25',
-    names:'',
+    user:'',
     page:1,
     rows:[],
     botTrue:true,
@@ -55,17 +55,17 @@ Component({
       wx.showLoading({
         title: '拼命加载中',
       })
-      //console.log(this.data.dateT)
+     // console.log(this.data.dateT)
       http.listArrangeDataApi({
         data:{
-          page:this.data.page,
+          //page:this.data.page,
           timeDate:this.data.dateT
         },
         success:res=>{
-          //console.log(res)
+         // console.log(res)
           
           var rows = this.data.rows
-          var data = res.rows
+          var data = res
 
           if(data.length == 0){
             this.setData({
@@ -146,15 +146,11 @@ Component({
       this.setData({
         wxUser:wx.getStorageSync('wxUser')
       })
-      if(wx.getStorageSync('wyUser') == 2){
-        this.setData({
-          names : '物业管理人员'
-        })
-      }else if(wx.getStorageSync('wyUser') == 3){
-        this.setData({
-          names : '物业技术人员'
-        }) 
-      }
+      // console.log(wx.getStorageSync('wyUser'))
+      // console.log(wx.getStorageSync('wxUser'))
+      this.setData({
+        user : wx.getStorageSync('wyUser')
+      })
 
        //console.log(util.formatTime1(new Date).split(' ')[0])
       this.setData({

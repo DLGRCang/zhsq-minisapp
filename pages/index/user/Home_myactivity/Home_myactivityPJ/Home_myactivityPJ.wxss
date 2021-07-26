@@ -1,0 +1,24 @@
+/* pages/index/user/Home_myactivity/Home_myactivityPJ/Home_myactivityPJ.wxss */
+@import "../../../../index/user/communityDetails/sq_hdxq.wxss";
+.beijing{
+  width: 100%;
+}
+.xxfu{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnClick{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.btnClick view{
+  width: 70%;
+  height: 70rpx;
+  text-align: center;
+height: 70rpx;line-height: 70rpx;color: #fff;font-size: 28rpx;
+background: linear-gradient(60deg, #F35854, #FF7B79);
+border-radius: 35rpx;margin: 0 auto;
+}

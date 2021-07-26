@@ -1,5 +1,5 @@
 import http from '../../../../utils/api'
-
+import verif from '../../../../utils/verification'
 // pages/index/life_details/life_details.js 
 const app = getApp()
 Page({
@@ -46,14 +46,18 @@ Page({
     forBox3:[],
     page:1,
     weChatList:[],
+    weChatList1:[],
     modalName:null,
     ggBoxList:[],
     ggBoxListIndex:null,
     ggBoxListprice:[],
+    shopJiesuan:[],
+    price:0,
+    zkPrice:0
   },
 
   box3Click(e){
-    console.log(e)
+    //console.log(e)
     this.setData({
       box3Index:e.currentTarget.dataset.i
     })
@@ -64,9 +68,20 @@ Page({
         page:this.data.page
       },
       success:res=>{
-        //console.log(res)
+        var weChatList1 = this.data.weChatList1
+        var rows = res.rows
+        var list = []
+  
+          for(var i in weChatList1){
+            for(var n in rows){
+              if(weChatList1[i].shoppingId == rows[n].shoppingId){
+                list.push(weChatList1[i])
+              }
+            }
+          }
+         
         this.setData({
-          weChatList:res.rows
+          weChatList:list
         })
         var that = this
         var query = wx.createSelectorQuery()
@@ -120,9 +135,19 @@ Page({
         page:this.data.page
       },
       success:res=>{
-        //console.log(res)
+        var weChatList1 = this.data.weChatList1
+
+        var rows = res.rows
+        var list = []
+        for(var i in weChatList1){
+          for(var n in rows){
+            if(weChatList1[i].shoppingId == rows[n].shoppingId){
+              list.push(weChatList1[i])
+            }
+          }
+        }
         this.setData({
-          weChatList:res.rows
+          weChatList:list
         })
         var that = this
         var query = wx.createSelectorQuery()
@@ -210,27 +235,112 @@ ggClick(e){
   })
 },
 
+jianClick(e){
+  //console.log(this.data.shopJiesuan)
+  var index = e.currentTarget.dataset.i
+  var weChatList = this.data.weChatList
+  var shopJiesuan = this.data.shopJiesuan
+  
+  for(var i in shopJiesuan){
+    if(shopJiesuan[i].shoppingId == e.currentTarget.dataset.item.shoppingId){
+      if(shopJiesuan[i].data == 1){
+        shopJiesuan.splice(i,1)
+      }else{
+        shopJiesuan[i].data--
+      }
+    }
+  }
+  weChatList[index].data--
+  this.setData({
+    weChatList:weChatList,
+    weChatList1:weChatList,
+    shopJiesuan:shopJiesuan
+  })
+  this.typeList()
+},
+
 //加入购物车按钮
 shopClick(e){
-
-  http.findDetailsByShoppingIdApi({
-    data:{
-      shoppingId:e.currentTarget.dataset.id
-    },
-    success:res=>{
-      
-      if(res.length != 0){
-        this.setData({
-          ggBoxList:res,
-          ggBoxListIndex:0,
-          ggBoxListprice:res[0],
-          modalName: e.currentTarget.dataset.target
-        })
+  var index = e.currentTarget.dataset.i
+  var weChatList = this.data.weChatList
+  var shopJiesuan = this.data.shopJiesuan
+  
+  if(weChatList[index].data < weChatList[index].number){
+    weChatList[index].data++
+    if(shopJiesuan.length == 0){
+      e.currentTarget.dataset.item.data++
+      shopJiesuan.push(e.currentTarget.dataset.item)
+    }else{
+      var m = false
+      for(var i in shopJiesuan){
+        if(shopJiesuan[i].shoppingId == e.currentTarget.dataset.item.shoppingId){
+          shopJiesuan[i].data++ 
+          m = false
+          break;
+        }else{
+          m = true
+        }
       }
-      console.log(res)
+      if(m){
+        e.currentTarget.dataset.item.data++
+        shopJiesuan.push(e.currentTarget.dataset.item)
+      }
     }
+    
+  }else{
+    verif.tips("库存不足")
+  }
+ 
+    this.setData({
+      weChatList:weChatList,
+      weChatList1:weChatList,
+      shopJiesuan:shopJiesuan
+    })
+
+  this.typeList()
+
+
+  // http.findDetailsByShoppingIdApi({
+  //   data:{
+  //     shoppingId:e.currentTarget.dataset.id
+  //   },
+  //   success:res=>{
+  //     if(res.length != 0){
+  //       this.setData({
+  //         ggBoxList:res,
+  //         ggBoxListIndex:0,
+  //         ggBoxListprice:res[0],
+  //         modalName: e.currentTarget.dataset.target
+  //       })
+  //     }
+  //     console.log(res)
+  //   }
+  // })
+},
+
+
+typeList(){
+  var shopJiesuan = this.data.shopJiesuan
+
+  var price = 0
+  var zkPrice = 0
+  for(var i in shopJiesuan){
+    price=price+(shopJiesuan[i].data*shopJiesuan[i].discount)
+    zkPrice=zkPrice+(shopJiesuan[i].data*shopJiesuan[i].price)
+  }
+
+  this.setData({
+    price:price,
+    zkPrice:zkPrice
   })
 },
+
+jiesuanClick(){
+  wx.navigateTo({
+    url: '/pages/index/user/life_detailsOrder/life_detailsOrder?item='+JSON.stringify(this.data.shopJiesuan)
+  })
+},
+
 shopClickFalse(){
   this.setData({
     modalName: null
@@ -243,7 +353,7 @@ shopClickFalse(){
   onLoad: function (options) {
     //console.log(JSON.parse(options.item))
     var item = JSON.parse(options.item)
-    console.log(item)
+    //console.log(item)
     // item.lable = []
     // for(var i in item.type.split(',')){
     //   item.lable.push({id:item.type.split(',')[i],name:item.commodityTypeName.split(',')[i],list:[]})
@@ -283,7 +393,8 @@ shopClickFalse(){
   },
 
   shopList(type){
-    console.log(type)
+    //debugger
+   // console.log(http.listPageCommodityDetailsWeChatApi)
     http.listPageCommodityDetailsWeChatApi({
       data:{
         type:type,
@@ -291,14 +402,16 @@ shopClickFalse(){
         page:this.data.page
       },
       success:res=>{
-        console.log(res)
+        for(var i in res.rows){
+          res.rows[i].data = 0
+        }
         this.setData({
-          weChatList:res.rows
+          weChatList:res.rows,
+          weChatList1:res.rows
         })
         var that = this
         var query = wx.createSelectorQuery()
         query.select('#shopimg').boundingClientRect(function (res) { 
-          console.log(res)
           that.setData({
             shopWidth:res.height+20
           })

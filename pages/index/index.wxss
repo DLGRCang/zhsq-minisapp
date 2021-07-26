@@ -27,7 +27,7 @@
 .box-body{
   width: 100%;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .beijing{
   width: 100%;
@@ -73,6 +73,11 @@ height: 479rpx;
   height: 40rpx;
   margin:0 auto 10rpx;
   
+}
+.tabimg3{
+  width: 45rpx;
+  height: 45rpx;
+  margin:0 auto 10rpx;
 }
 .top-navigation{
   width: 100%;
@@ -356,34 +361,44 @@ background: linear-gradient(60deg, #0586F8, #1BB1FD);
 
 .xuanzexiaoqu{
   width: 100%;
-  height: 100%;
   position: fixed;
   left: 0;
   background: rgba(0, 0, 0, 0.3);
   z-index: 30;
-  padding: 18rpx;
+  padding: 30rpx;
+  overflow-y: auto;
 }
 .xzxq{
   width: 100%;
+  height: 100%;
   border-radius: 15rpx;
-  padding: 18rpx;
   background: #fff;
 }
 .xzxqTop{
   width: 100%;
-  padding: 20rpx;
-  text-align: center;
+  height: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 30rpx;
   font-weight: 900;
 }
+.xzxpBot{
+  width: 100%;
+  height: 84%;
+  overflow-y: auto;
+  padding: 18rpx;
+}
 .xzxqBtn{
   width: 100%;
-  padding: 20rpx;
-  text-align: center;
+ height: 9%;
+ display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .xzxqBtn button{
-  width: 200rpx;
-  height: 70rpx;
+  width: 170rpx;
+  height: 60rpx;
   border-radius: 30rpx;
   display: flex;
   align-items: center;

@@ -1,4 +1,3 @@
-
 <cu-custom bgColor="bg-bluejb" isBack="{{true}}">
     <view slot="content">完善个人资料</view>
   </cu-custom>
@@ -56,7 +55,7 @@
             <text>人脸照片</text>
             <text class="cuIcon-roundclose" catchtap="guanbi"></text>
           </view>
-          <image src="../../../../images/renlian.jpeg"></image>
+          <image src="https://www.yjhlcity.com/zhsqminiapp/renlian.jpeg"></image>
           <view class="tishi">
             ！（ 请以上图示例拍照或者上传图片 ）
           </view>

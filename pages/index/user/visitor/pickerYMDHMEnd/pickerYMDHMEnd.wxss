@@ -1,0 +1,7 @@
+/* pages/index/user/visitor/pickerYMDHM/pickerYMDHM.wxss */
+.showFont{
+  font-size: 28rpx;
+  width:500rpx;
+  height:110rpx;
+  line-height:110rpx!important;
+}

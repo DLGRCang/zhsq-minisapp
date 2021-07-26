@@ -8,56 +8,35 @@
 <view class="view_tab">
 <view class="tab_bar" > 
   <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">访客预约</view> 
-  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">场地预约</view> 
+  <!-- <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">场地预约</view>  -->
 </view> 
  
 <view class="box_content"> 
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
-    <view class="tab_box" bindtap="xiangqing">
-      <view class="ewm-1">李三的临时密码 <text class="ewm-1 fr text-gray">使用中</text></view>
-      <view class="mima">
-        <view class="mima-nei">
-            <view class='pass_content'> 
-              <block wx:for="{{Length}}" wx:key="item"> 
-              <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input> 
-              </block> 
-            </view> 
-            <input name="password" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input> 
-        </view>
+    <defect topPadding="{{350}}" wx:if="{{listData.length == 0}}">
+      <view slot="content">暂无数据</view>
+    </defect>
+    <view class="tab_box" wx:for="{{listData}}" wx:key="index">
+      <view class="ewm-1">{{item.visitorName}}临时通行码
+        <text class="ewm-1 fr text-gray" wx:if="{{item.isTime == 0}}">未开始</text>
+        <text class="ewm-1 fr text-gray" wx:if="{{item.isTime == 1}}">使用中</text>
+        <text class="ewm-1 fr text-gray" wx:if="{{item.isTime == 2}}">已过期</text>
       </view>
-       <view class="text-blue text-center">复制临时密码</view>
-    </view>
-    <!-- 复制 第二个 -->
-    <view class="tab_box" bindtap="xiangqing">
-      <view class="ewm-1 text-gray">李三的临时密码 <text class="ewm-1 fr text-gray">已过期</text></view>
       <view class="mima">
-        <view class="mima-nei">
-            <view class='pass_content'> 
-              <block wx:for="{{Length}}" wx:key="item"> 
-              <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input> 
-              </block> 
-            </view> 
-            <input name="password" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input> 
-        </view>
+        访客 ： {{item.receptionistName}}
+      </view>
+      <view class="mimaBtn" wx:if="{{item.isTime == 1}}" bindtap="scewmClick" data-item="{{item}}">
+        点击生成二维码
       </view>
     </view>
-    <!-- 复制第三个 -->
-    <view class="tab_box" bindtap="xiangqing">
-      <view class="ewm-1 text-gray">李三的临时密码 <text class="ewm-1 fr">已过期</text></view>
-      <view class="mima">
-        <view class="mima-nei">
-            <view class='pass_content'> 
-              <block wx:for="{{Length}}" wx:key="item"> 
-              <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input> 
-              </block> 
-            </view> 
-            <input name="password" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input> 
-        </view>
-      </view>
-    </view>
+   
   </view> 
-
+<view class="ewmTc" bindtap="ewmgbClick" wx:if="{{ewmTrue}}">
+    <view class="nrTxm" style="border: 3px solid {{pullup}}" catchtap>
+      <image src="{{img}}"></image>
+    </view>
+</view>
   
 
   <!-- 第二栏目 -->
@@ -78,26 +57,6 @@
         </view>
       </view>
     </view>
-
-    <view class="tab_box" bindtap="xiangqing">
-      <view class="box_left">
-        <view class="cu-tag bg-gray light xtb">已关闭</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
-      </view>
-      <view class="box_right">
-        <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
-        </view>
-        <view class="right2">
-          <view><text class="cuIcon-locationfill" style="color:#F35854"></text> <text class="padd_lf">内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</text></view>
-          <view><text class="cuIcon-friendfill " style="color:#F35854"></text> <text class="padd_lf">100人</text></view>
-    
-        </view>
-        <view class="pj_btn"><button>我要评价</button></view>
-      </view>
-    </view>
-
   </view> 
 </view>
 <!-- 栏目结束 -->

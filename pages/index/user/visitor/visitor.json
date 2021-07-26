@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "pickerYMDHM":"/pages/index/user/visitor/pickerYMDHM/pickerYMDHM",
+    "pickerYMDHMEnd":"/pages/index/user/visitor/pickerYMDHMEnd/pickerYMDHMEnd"
+  }
 }

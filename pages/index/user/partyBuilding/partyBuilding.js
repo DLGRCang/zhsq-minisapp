@@ -7,13 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    imgUrl:app.globalData.imgUrl,
     windowHeight:app.globalData.windowHeight,
     CustomBar: app.globalData.CustomBar,
     dataTab:[
-      {id:0,content:"工作动态",code:'gzdt',cur:1},
+      {id:0,content:"工作动态",code:'djgzdt',cur:1},
       {id:1,content:"党员风采",code:'dyfc',cur:1},
       {id:2,content:"志愿者服务",code:'zyzfw',cur:1},
-      {id:3,content:"精准扶贫",code:'jzfp',cur:1},
+      {id:3,content:"扶贫帮困",code:'jzfp',cur:1},
       {id:4,content:"组织生活会",code:'zzshh',cur:1},
       {id:5,content:"支部党课",code:'zbdk',cur:1},
       {id:6,content:"主题党日",code:'ztdr',cur:1},
@@ -125,7 +126,7 @@ Page({
         cur:cur
       },
       success:res=>{
-        //console.log(res)
+       console.log(res)
         wx.hideLoading({
           success: (res) => {
             that.selectComponent("#haveTrue").falseClick()
@@ -135,6 +136,7 @@ Page({
         setTimeout(()=>{
           if(that.data.TabCur == 0){
             var rowsXw0 = that.data.rowsXw0
+            //console.log(res.rows)
             if(res.rows.length == 0){
               that.setData({
                 isLoad:true

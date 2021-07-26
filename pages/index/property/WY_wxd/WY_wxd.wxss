@@ -22,7 +22,7 @@
   left: 0;
 
   z-index: 10;
-  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+  background: linear-gradient(90deg, #0586F8, #1BB1FD);
 }
 .pk{
   padding: 35rpx 35rpx 20rpx;
@@ -37,7 +37,7 @@
   left: 0;
   border-radius: 0 0 15rpx 15rpx;
   z-index: 10;
-  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+  background: linear-gradient(19deg, #0586F8, #1BB1FD);
   padding-left: 20rpx;
   box-sizing: border-box;
 }
@@ -111,7 +111,8 @@
   
   .DrawerWindow {
     position: fixed;
-    background-image: var(--gradualBlue);
+    /* background-image: var(--gradualBlue); */
+    background: #f1f1f1;
     width: 85vw;
     left: 0;
     top: 0;
@@ -136,7 +137,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6));
+    /* background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6)); */
     letter-spacing: 5px;
     font-size: 50rpx;
     opacity: 0;
@@ -170,13 +171,14 @@
   .DrawerPage .nav .cu-item.cur {
     border-bottom: 0;
     position: relative;
+    
   }
   
   .DrawerPage .nav .cu-item.cur::after {
     content: "";
     width: 10rpx;
     height: 10rpx;
-    background-color: currentColor;
+    /* background-color: currentColor; */
     position: absolute;
     bottom: 10rpx;
     border-radius: 10rpx;

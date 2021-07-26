@@ -56,7 +56,7 @@ Page({
   },
   yszcN(){
     this.setData({
-      yszc:false
+      yszc:false 
     })
   },
   yszcQdClick(){
@@ -105,9 +105,10 @@ Page({
               // 登录
               wx.getUserInfo({
                 success: res => {
-                  //console.log(res)
+                 // console.log(res)
                   wx.login({
                     success: resa => {
+                      //console.log(resa)
                       http.saveLoginApi({
                         data:{
                           code:resa.code,
@@ -117,7 +118,15 @@ Page({
                           phone:that.data.phone
                         },
                         success(data) {  
-                         console.log(data)
+                        // console.log(data)
+                         if(data.code == "REGIST_ERROR"){
+                            verif.tips("登录失败，请稍后重试")
+                            setTimeout(()=>{
+                              wx.navigateBack({
+                                delta: 2
+                              })
+                            },1200)
+                         }else{
                           var userInfo = data.result.data.userInfo;
                           userInfo.avatarUrl = res.userInfo.avatarUrl
                           wx.setStorageSync('wxUser',userInfo)
@@ -146,6 +155,19 @@ Page({
                                 }
                               })
                               verif.tips('登录成功')
+              
+                              setTimeout(()=>{
+                                wx.navigateBack({
+                                  delta: 2
+                                })
+                                
+                              },500)
+                            },
+                          })
+                        }
+                        },
+                        fail(err) {
+                          verif.tips('登录失败，稍后重试')
                               var pages = getCurrentPages(); // 当前页面
                                   var beforePage = pages[pages.length - 2]; // 前一个页面
                                   // console.log("beforePage");
@@ -160,7 +182,7 @@ Page({
                                   delta: 1
                                 })
                                 
-                              },1000)
+                              },500)
                               var pages = getCurrentPages(); // 当前页面
                               var beforePage = pages[pages.length - 2]; // 前一个页面
                               wx.navigateBack({
@@ -168,16 +190,11 @@ Page({
                                       beforePage.sxLogin(); // 执行前一个页面的onLoad方法
                                   }
                               });
-                            },
-                          })
-                          
-                        },
-                        fail(err) {
                           console.log(err)
                         }
                       })
                       // wx.request({
-                      //   url: 'https://yiqi.sucstep.com/app/sign/saveZhsqWeChatUserrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
+                      //   url: 'https://www.yjhlcity.com/app/sign/saveZhsqWeChatUserrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
                       //   method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
                       //   data:{
                       //     code:resa.code,
@@ -252,7 +269,12 @@ Page({
           } 
         }
       }else{
-        verif.tips('请勿重复点击')
+        setTimeout(()=>{
+          that.setData({
+            trueClick:true
+          })
+        },1000)
+        verif.tips('请稍后重试')
       }
       
     }

@@ -59,7 +59,7 @@ xiangqing(e){
     })
     http.cdApi({
       success:res=>{
-        //console.log(res)
+        console.log(res)
         wx.hideLoading({
           success: (res) => {
             this.selectComponent("#haveTrue").falseClick()

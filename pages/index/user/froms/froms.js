@@ -19,7 +19,7 @@ Page({
   },
   froms(){
    wx.request({
-     url: 'http://192.168.0.64:8004/InfoIssue/app/release/applicationform/getapplication_form_field/d3e43335-515b-4c99-871f-eb3c25b1f5a1',
+     url: 'https://www.yjhlcity.com/InfoIssue/app/release/applicationform/getapplication_form_field/d3e43335-515b-4c99-871f-eb3c25b1f5a1',
      success:res=>{
        console.log(res)
        var fromData = {}

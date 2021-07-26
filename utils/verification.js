@@ -41,35 +41,185 @@ const imgClick = function (){
   return new Promise((resolve, reject) => {
     wx.chooseImage({
       success (res) {
-        
-        //console.log(res)
         const tempFilePaths = res.tempFilePaths[0]
+
+        var base;
+
         var str = tempFilePaths.substring(tempFilePaths.length-6)
         var code1 = str.match(/\.(.*)/)[1];//取 ?id=后面所有字符串
         //console.log(tempFilePaths)
-        //http://172.16.20.81:9000
+
+        //https://www.yjhlcity.com
         wx.uploadFile({
-          url: 'http://yiqi.sucstep.com:9000/fileService/uploadFTP/zhsq/linliquan',
+          url: 'http://172.16.20.74:8083/zhsq/app/file/uploadimage',
           filePath: tempFilePaths,
-          name: 'file',
+          name: 'image',
+          header: {
+            'token':wx.getStorageSync('token')
+          },
           formData: {
             'file':tempFilePaths,
             'fileType':code1,
             //'fileGrant':code1
           },
           success (resd){
-            console.log(resd)
             var data = JSON.parse(resd.data)
-        
-            var imgs = data.data[0].fileID
-          
-            resolve(imgs)
+            //console.log(data.data)
+            var imgs = data.data
+            //console.log(base)
+            resolve({imgs,base})
        
           },
           fail (err){
             console.log(err)
           }
         })
+       
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  });
+  
+}
+
+//上传附件Base64
+const imgClickBse = function (){
+
+  return new Promise((resolve, reject) => {
+    wx.chooseImage({
+      success (res) {
+        //console.log(res)
+        if(res.tempFiles[0].path.split(".")[1] == "jpg"){
+          if(res.tempFiles[0].size <= 200000){
+      
+            for (var x = 0; x < res.tempFilePaths.length; x++) {
+              wx.getFileSystemManager().readFile({
+                filePath: res.tempFilePaths[x], //选择图片返回的相对路径
+                encoding: "base64",//这个是很重要的
+                success: resm => { //成功的回调
+                  //console.log(resm)
+                //返回base64格式
+                //base = resm.data
+                const tempFilePaths = res.tempFilePaths[0]
+          
+                var base = resm.data;
+                resolve({tempFilePaths,base})
+                }
+              })
+            }
+            
+            // var str = tempFilePaths.substring(tempFilePaths.length-6)
+            // var code1 = str.match(/\.(.*)/)[1];//取 ?id=后面所有字符串
+            // wx.uploadFile({
+            //   url: 'https://www.yjhlcity.com/zhsq/app/file/uploadimage',
+            //   filePath: tempFilePaths,
+            //   name: 'image',
+            //   header: {
+            //     'token':wx.getStorageSync('token')
+            //   },
+            //   formData: {
+            //     'file':tempFilePaths,
+            //     'fileType':code1,
+            //     //'fileGrant':code1
+            //   },
+            //   success (resd){
+            //     var data = JSON.parse(resd.data)
+            //     //console.log(data.data)
+            //     var imgs = data.data
+            //     //console.log(base)
+            //     
+          
+            //   },
+            //   fail (err){
+            //     console.log(err)
+            //   }
+            // })
+          }else{
+            tips("图片不能超过200K")
+          }
+          
+        }else{
+          tips("图片格式错误")
+        }
+        
+
+        
+       
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  });
+  
+}
+
+//上传附件Base64
+const imgClickBseseven = function (){
+
+  return new Promise((resolve, reject) => {
+    wx.chooseImage({
+      success (res) {
+        //console.log(res)
+        const tempFilePaths = res.tempFilePaths[0]
+        var base;
+        if(res.tempFiles[0].path.split(".")[1] == "jpg"){
+          if(res.tempFiles[0].size <= 200000){
+      
+            for (var x = 0; x < res.tempFilePaths.length; x++) {
+              wx.getFileSystemManager().readFile({
+                filePath: res.tempFilePaths[x], //选择图片返回的相对路径
+                encoding: "base64",//这个是很重要的
+                success: resm => { //成功的回调
+                  //console.log(resm)
+                //返回base64格式
+                //base = resm.data
+                //const tempFilePaths = res.tempFilePaths[0]
+          
+                base = resm.data;
+                
+                }
+              })
+            }
+            
+            var str = tempFilePaths.substring(tempFilePaths.length-6)
+            var code1 = str.match(/\.(.*)/)[1];//取 ?id=后面所有字符串
+            wx.uploadFile({
+              url: 'https://www.yjhlcity.com/zhsq/app/file/uploadimage',
+              filePath: tempFilePaths,
+              name: 'image',
+              header: {
+                'token':wx.getStorageSync('token')
+              },
+              formData: {
+                'file':tempFilePaths,
+                'fileType':code1,
+                //'fileGrant':code1
+              },
+              success (resd){
+                var data = JSON.parse(resd.data)
+                //console.log(data.data)
+                var imgs = data.data
+                //console.log(base)
+                resolve({imgs,base})
+          
+              },
+              fail (err){
+                console.log(err)
+              }
+            })
+          }else{
+            tips("图片不能超过200K")
+          }
+          
+        }else{
+          tips("图片格式错误")
+        }
+        
+
+        
        
       },
       fail:err=>{
@@ -139,7 +289,9 @@ export default{
   checkEmail,
   pageBack,
   imgClick,
+  imgClickBse,
   tips,
   success,
   checkLogin,
+  imgClickBseseven
 }

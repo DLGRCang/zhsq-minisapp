@@ -12,7 +12,7 @@
     "minified": true,
     "newFeature": true,
     "coverView": true,
-    "nodeModules": false,
+    "nodeModules": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
@@ -39,8 +39,8 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.12.2",
-  "appid": "wx6bd0fa14c2a2fe2d",
+  "libVersion": "2.17.0",
+  "appid": "wx41d4d4ec96a867ad",
   "projectname": "%E6%99%BA%E6%85%A7%E7%A4%BE%E5%8C%BA",
   "debugOptions": {
     "hidedInDevtools": []
@@ -183,6 +183,12 @@
         {
           "name": "pages/index/user/sharePage/sharePage",
           "pathName": "pages/index/user/sharePage/sharePage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
           "scene": null
         }
       ]

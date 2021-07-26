@@ -3,7 +3,7 @@
     <view slot="content">直播</view>
   </cu-custom>
   <view class="box-body">
-    <image src="../https://yiqi.sucstep.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+    <image src="../https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
     
     <defect topPadding="{{350}}" wx:if="{{rowsList.length == 0}}"><view slot="content">暂无创建的直播间</view></defect>
     <view class="home-con">

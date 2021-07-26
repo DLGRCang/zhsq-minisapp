@@ -22,7 +22,7 @@ Page({
     ],
     xzzhuangtai:[],
     fangyuan:[], 
-    fangyuan1:null,
+    fangyuan1:0,
     fyxxId:[
       // {name:'a房间',floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'},
       // {name:'b房间',floorId:'c12279b2-1b2a-40e4-a34e-9ab9104279f7',unitId:'a1e60cbe-19d0-4755-80cf-67ea43d29136',roomId:'461a4ce2-595f-45cc-b0d4-dd2d0add873a'}
@@ -116,10 +116,11 @@ Page({
     this.onLoad()
   },
   onLoad: function (options) {
+    console.log(wx.getStorageSync('xzvillage').houseList)
     var fyxxId = this.data.fyxxId
-    for(var i in wx.getStorageSync('xzvillage')){
-      if(wx.getStorageSync('xzvillage')[i].isMaster == 1){
-        fyxxId.push({name:wx.getStorageSync('xzvillage')[i].floorName+wx.getStorageSync('xzvillage')[i].unitName+wx.getStorageSync('xzvillage')[i].roomName,floorId:wx.getStorageSync('xzvillage')[i].floorId,unitId:wx.getStorageSync('xzvillage')[i].unitId,roomId:wx.getStorageSync('xzvillage')[i].roomId})
+    for(var i in wx.getStorageSync('xzvillage').houseList){
+      if(wx.getStorageSync('xzvillage').houseList[i].isMaster == 1){
+        fyxxId.push({name:wx.getStorageSync('xzvillage').houseList[i].floorName+wx.getStorageSync('xzvillage').houseList[i].unitName+wx.getStorageSync('xzvillage').houseList[i].roomName,floorId:wx.getStorageSync('xzvillage').houseList[i].floorId,unitId:wx.getStorageSync('xzvillage').houseList[i].unitId,roomId:wx.getStorageSync('xzvillage').houseList[i].roomId})
 
       }
     }
@@ -238,9 +239,10 @@ Page({
   ChooseImage() {
     var imgs=verif.imgClick()
     imgs.then(res=>{
+      console.log(res)
        this.setData({
-        imgId:this.data.imgId.concat(res),
-        imgList:this.data.imgList.concat(this.data.imgUrl+res)
+        imgId:this.data.imgId.concat(res.imgs),
+        imgList:this.data.imgList.concat(this.data.imgUrl+res.imgs)
       })
     })
    // console.log(this.data.imgList)
@@ -328,7 +330,8 @@ pmClick(e){
   })
 },
   fbfy(){
-    //console.log(this.data.xzzhuangtai)
+    console.log(this.data.fyxxId)
+    console.log(this.data.fangyuan1)
     var imgId1 = ''
     for(var i in this.data.imgId){
       if(imgId1 == ''){

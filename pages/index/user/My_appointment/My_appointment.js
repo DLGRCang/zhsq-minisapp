@@ -1,10 +1,14 @@
 // pages/index/My_appointment/My_appointment.js
+import verif from '../../../../utils/verification'
+import drawQrcode from '../../../../utils/weapp.qrcode.js'
+import http from '../../../../utils/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    pullup:'#1BB1FD',
     Length:7,    //输入框个数 
     isFocus:true,  //聚焦 
     Value:"",    //输入的内容 
@@ -14,6 +18,10 @@ Page({
       curHdIndex: 0,
       curBdIndex: 0
     }, 
+    listData:[],
+    qsTrue:true,
+    ewmTrue:false,
+    img:null
   },
  // tab切换
  tab: function (e) {
@@ -39,30 +47,105 @@ xiangqing(){
    * 生命周期函数--监听页面加载
    */
   
-  floorTui:function(){
-    wx.navigateBack({
-      delta: 1
-    })
-   },
-   Focus(e){ 
-    var that = this; 
-    console.log(e.detail.value);
-    var inputValue = e.detail.value; 
-    that.setData({ 
-     Value:inputValue, 
-    }) 
-   }, 
-   Tap(){ 
-    var that = this; 
-    that.setData({ 
-     isFocus:true, 
-    }) 
-   }, 
+
+   
 
   onLoad: function (options) {
+    setInterval(() => {
+      if(this.data.pullup == '#1BB1FD'){
+        this.setData({
+          pullup:'#0586F8'
+        })
+      }else{
+        this.setData({
+          pullup:'#1BB1FD'
+        })
+      }
+    }, 700);
+    this.kmyuyue()
+    // if(Object.keys(this.data.listData).length == 0){
+    //   this.setData({
+    //     qsTrue:false
+    //   })
+    // }
+  },
+  scewmClick(e){
+    var that = this
+    wx.request({
+      url: "https://www.yjhlcity.com/zhsqhik/app/release/hikApi/creatQRcode?str="+e.currentTarget.dataset.item.QRCode, //获取图片的URL
+      method:"get",
+      responseType: 'arraybuffer',    //ArrayBuffer涉及面比较广，我的理解是ArrayBuffer代表内存之中的一段二进制数据，一旦生成不能再改。可以通过视图（TypedArray和DataView）进行操作。
+      success (res) {
+        let url ='data:image/png;base64,'+wx.arrayBufferToBase64(res.data)
+        that.setData({
+          img:url,
+          ewmTrue:true
+        })
+      },
+      fail(res){
+        Toast.clear();
+      }
+    })
+    // http.creatQRcodeApi({
+    //   data:{
+    //     str:e.currentTarget.dataset.item.QRCode
+    //   },
+    //   success:res=>{
+    //     console.log(res)
+    //     let url =wx.arrayBufferToBase64(res)
+    //     console.log(url)
+    //     this.setData({
+    //       img:res,
+    //       ewmTrue:true
+    //     })
+    //   }
+    // })
+  },
+  ewmgbClick(){
+    this.setData({
+      ewmTrue:false
+    })
+  },
+  kmyuyue(){
+    http.getVisitinfoByUSerApi({
 
+      success:res=>{
+
+        let date = new Date()
+        for(var i in res.data){
+          let startTime = new Date(res.data[i].visitStartTime)
+          let endtTime = new Date(res.data[i].visitEndTime)
+          if(startTime > date){
+            res.data[i].isTime = 0
+          }else if(startTime <= date && date <= endtTime){
+            res.data[i].isTime = 1
+          }else{
+            res.data[i].isTime = 2
+          }
+        }
+        console.log(res)
+        this.setData({
+          listData:res.data
+        })
+      }
+    })
   },
 
+  fuzhiClick(e){
+    //console.log(e.currentTarget.dataset.number)
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.number,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功'
+            })
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -52,7 +52,10 @@ Component({
     xplIds:'',
     plng:null,
     contentText:'',
-    indexCon:null
+    indexCon:null,
+    removeId:null,
+    removeIdIndex:null,
+    page:1
   },
 
 
@@ -60,6 +63,41 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    removeClickin(){
+      http.removecommentApi({
+        data:{
+          ids:this.data.removeId
+        },
+        success:res=>{
+          //console.log(res)
+          var rows = this.data.rows
+          if (Object.keys(res).length === 0) {
+            rows.splice(this.data.removeIdIndex,1)
+            verif.tips("删除成功")
+            this.setData({
+              rows:rows,
+              modalName: null
+            })
+          }else{
+            verif.tips("删除失败")
+          }
+        
+        }
+      })
+    },
+    hideModal(e) {
+      this.setData({
+        modalName: null
+      })
+    },
+    removeCLick(e) {
+      //console.log(e)
+      this.setData({
+        modalName: e.currentTarget.dataset.target,
+        removeId:e.currentTarget.dataset.id,
+        removeIdIndex:e.currentTarget.dataset.i
+      })
+    },
     plnrshuru(e){
       this.setData({
         contentText:e.detail.value
@@ -161,12 +199,12 @@ Component({
         code:code
       },
       success:res=>{
-       // console.log(res)
+        //console.log(res)
         var bqList1 = this.data.bqList1
         for(var i in res){
           bqList1.push(res[i])
         }
-        //console.log(bqList)
+       //console.log(bqList1)
         
         wx.hideLoading({
           success: (res) => {
@@ -403,10 +441,11 @@ Component({
       http.xinwenApi({
         data:{
           userId:wx.getStorageSync('wxUser').id,
-          villageId:wx.getStorageSync('xzvillage')[0].villageId
+          villageId:wx.getStorageSync('xzvillage').village.villageId,
+          page:this.data.page
         },
         success:res=>{
-          //console.log(res)
+         //console.log(res)
           var rows = res.rows
           var message1 = ''
           

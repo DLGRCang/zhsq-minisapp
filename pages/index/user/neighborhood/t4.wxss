@@ -41,6 +41,12 @@ font-family: Microsoft YaHei;
 font-weight: 400;
 color: #333333;
 text-align: left;
+
+ }
+ .text-cont .text-cont-over{
+   width: 100%;
+   overflow: hidden;white-space:normal; word-break: break-all;
+   
  }
  .imgFor{
    width: 100%;

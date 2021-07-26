@@ -6,7 +6,7 @@
   <view class="pub_content">
 	
     <text class="pub_title" style="padding-top:50rpx">请输入发布内容：</text>
-		<textarea name="" id="" cols="30" rows="10" placeholder="请输入要发布的内容..." bindinput="textClick" value="{{textArea}}"></textarea>
+		<textarea name="" id="" maxlength="1000" placeholder="请输入要发布的内容..." bindinput="textClick" value="{{textArea}}"></textarea>
 		<view class="biaoqian">
 			<view wx:for="{{bqList}}" class="{{item.yangshi}}" bindtap="bqClick" data-id="{{item.dictionariesId}}" data-code="{{item.dictionariesCode}}">{{item.dictionariesName}}</view>
 		</view>

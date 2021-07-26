@@ -11,7 +11,7 @@ Page({
     imgUrl:app.globalData.imgUrl,
     tabArr: {
       curHdIndex: 0,
-      curBdIndex: 0,
+      curBdIndex: 0, 
       
     }, 
     rowsList:[],

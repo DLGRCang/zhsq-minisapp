@@ -41,37 +41,41 @@ Page({
       })
       http.llqfbApi({
         data:{
-          villageId:wx.getStorageSync('xzvillage')[0].villageId,
+          villageId:wx.getStorageSync('xzvillage').village.villageId,
           message:this.data.textArea,
           file:imgId1,
           createPeopleId:wx.getStorageSync('wxUser').id,
-          floorId:wx.getStorageSync('xzvillage')[0].floorId,
-          unitId:wx.getStorageSync('xzvillage')[0].unitId,
-          roomId:wx.getStorageSync('xzvillage')[0].roomId,
-          type:this.data.typeId
+          floorId:wx.getStorageSync('xzvillage').houseList[0].floorId,
+          unitId:wx.getStorageSync('xzvillage').houseList[0].unitId,
+          roomId:wx.getStorageSync('xzvillage').houseList[0].roomId,
+          type:this.data.typeId,
+          status:0
         },
         success:res=>{
-         // console.log(res)
-
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-              verif.tips('发布成功')
-              this.setData({
-                imgList: [],
-                imgId:[],
-                textArea:''
-              })
-              wx.setStorageSync('llqfb', 'true')
-              setTimeout(()=>{
-                wx.navigateBack({//返回
-                  delta: 1
+          console.log(res)
+  
+            wx.hideLoading({
+              success: (res) => {
+                this.selectComponent("#haveTrue").falseClick()
+                verif.tips('发布成功')
+                this.setData({
+                  imgList: [],
+                  imgId:[],
+                  textArea:''
                 })
-              },500)
-            },
-          })
+                wx.setStorageSync('llqfb', 'true')
+                setTimeout(()=>{
+                  wx.navigateBack({//返回
+                    delta: 1
+                  })
+                },800)
+              },
+            })
+          
+          
         },
         fail:err=>{
+          console.log(err)
           wx.hideLoading({
             success: (res) => {
               this.selectComponent("#haveTrue").trueClick()
@@ -85,11 +89,12 @@ Page({
   ChooseImage() {
     var imgs=verif.imgClick()
     imgs.then(res=>{
-      
+       
        this.setData({
-        imgId:this.data.imgId.concat(res),
-        imgList:this.data.imgList.concat(this.data.imgUrl+res),
+        imgId:this.data.imgId.concat(res.imgs),
+        imgList:this.data.imgList.concat(this.data.imgUrl+res.imgs),
       })
+      
     })
    // console.log(this.data.imgList)
   },

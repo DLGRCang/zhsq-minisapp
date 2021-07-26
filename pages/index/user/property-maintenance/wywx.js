@@ -39,12 +39,12 @@ Page({
     })
   },
   onLoad(){
-   
+   //console.log(wx.getStorageSync('xzvillage').houseList)
     var fangyuan = []
     var fangyuan1 = []
-    for(var i in wx.getStorageSync('xzvillage')){
+    for(var i in wx.getStorageSync('xzvillage').houseList){
 
-        fangyuan.push(wx.getStorageSync('xzvillage')[i])
+        fangyuan.push(wx.getStorageSync('xzvillage').houseList[i])
       
     }
     //console.log(fangyuan)
@@ -76,8 +76,8 @@ Page({
   var imgs=verif.imgClick()
   imgs.then(res=>{
      this.setData({
-      imgId:this.data.imgId.concat(res),
-      imgList:this.data.imgList.concat(this.data.imgUrl+res)
+      imgId:this.data.imgId.concat(res.imgs),
+      imgList:this.data.imgList.concat(this.data.imgUrl+res.imgs)
     })
   })
  // console.log(this.data.imgList)
@@ -142,6 +142,7 @@ DelImg(e) {
         data:{
           type:this.data.picker[this.data.index],
           unifiedUserId:wx.getStorageSync('wxUser').id,
+          stateTime:this.data.dateT+' '+this.data.time,
           appleTime:this.data.dateT+' '+this.data.time,
           appleContent:this.data.textValue,
           appleFileId:imgId1,

@@ -1,4 +1,4 @@
-<!-- <view class="life">
+<view class="life">
   <view class="life-top">
     <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
@@ -30,7 +30,7 @@
               <text class="cuIcon-favorfill" style="font-size:24rpx;color:#F55E5A;margin-right:10rpx" wx:if="{{item.starLevel != null || item.starLevel != ''}}">{{item.starLevel}}</text>
               <text wx:if="{{item.starLevel != null || item.starLevel != ''}}">月销 {{item.salesVolume}}</text>
             </view>
-            
+            <view class="n2-1">距离您1.5km</view>
           </view>
           
         </view>
@@ -52,5 +52,18 @@
       </view>
     </view>
     
+  </view>
+</view>
+<!-- <view class="life">
+  <view class="life-overv">
+    <view class="forOver" wx:for="{{lifeList}}" wx:key="index">
+      <view class="title">{{item.title}}</view>
+      <image src="{{item.img}}"></image>
+      <view class="cont">{{item.cont}}</view>
+      <view class="dataCon" wx:for="{{item.data}}" wx:for-item="items" wx:key="index">
+        <view>{{items.tite}}</view>
+        <view>{{items.content}}</view>
+      </view>
+    </view>
   </view>
 </view> -->

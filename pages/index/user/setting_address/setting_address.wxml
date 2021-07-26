@@ -17,32 +17,41 @@
   </view>
 
   <!-- 第二栏 -->
-  <view class="cu_address_box">
+  <view class="cu_address_box" wx:for="{{listData}}" wx:key="index">
       <view class="box01">
         <view class="text-black">
-          <text class="text_01">XXX小区几单元   5层505</text>
+          <text class="text_01">{{item.province+item.city+item.county+item.detail}}</text>
         </view>
         <view class="text-gray text-sm flex">
-          <text class="text_02">李三(女士)   18247140000</text>
+          <text class="text_02">{{item.username}}({{item.sex}})   {{item.phone}}</text>
         </view>
       </view>
-      <view class="box_btn" bindtap="editClick">
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/address_bj.png"></image>
-      </view>
-    </view>
-  <!-- 第二栏 复制-->
-  <view class="cu_address_box ">
-      <view class="box01">
-        <view class="text-black">
-          <text class="text_01">XXX小区几单元   5层505</text>
-        </view>
-        <view class="text-gray text-sm flex">
-          <text class="text_02">李三(女士)   18247140000</text>
-        </view>
-      </view>
-      <view class="box_btn" bindtap="editClick">
-        <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/address_bj.png"></image>
+      <view class="box_btn">
+        <view bindtap="showModal" data-target="DialogModal1" data-id="{{item.id}}" data-i="{{index}}" style="color:red;font-size:24rpx">删除</view>
+        <image bindtap="editClick" data-item="{{item}}" src="https://www.yjhlcity.com/zhsq/assets/images/applets/address_bj.png"></image>
+        <view style="color:green;font-size:24rpx" bindtap="xuanze" data-item="{{item}}">选择</view>
       </view>
     </view>
 
+
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">删除</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      确定要删除此地址吗
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-red margin-left" bindtap="scModal">确定</button>
+
+      </view>
+    </view>
+  </view>
 </view>

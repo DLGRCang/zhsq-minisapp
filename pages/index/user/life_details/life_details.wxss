@@ -87,6 +87,7 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
 .tabRight{
   height: 100%;
   background: #fff;
+  
 }
 .tabRightTop{
   width: 100%;
@@ -124,6 +125,7 @@ font-size: 24rpx;font-family: Microsoft YaHei;font-weight: 400;color: #FFFFFF;}
 .tabRightBot{
   width: 100%;
   overflow-y: auto;
+  padding-bottom: 120rpx;
 }
 .shopFor{
   width: 100%;
@@ -194,6 +196,72 @@ color: #F55E5A;
   height: 180rpx;
   display: flex;
   align-items: center;
+}
+.shopForRight4Last{
+  display: flex;
+  align-items: center;
+}
+.shopForRight4Last view{
+  width: 50rpx;
+  text-align: center;
+  
+}
+.jiesuan{
+  width: 90%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 2%;
+  left: 5%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+.jiesuan .jiesuan1{
+  width: 75%;
+  height: 100%;
+  background: #EEEEEE;
+border-radius: 50px 0px 0px 50px;
+padding-left: 60rpx;
+display: flex;
+align-items: center;
+}
+.jiesuan .jiesuan1 view{
+  display: flex;
+  align-items: flex-end;
+}
+.jiesuan .jiesuan1 view text:first-child{
+  font-size: 22rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+}
+.jiesuan .jiesuan1 view text:nth-child(2){
+  font-size: 36rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #333333;
+padding: 0 10rpx 0 3rpx;
+line-height: 38rpx;
+}
+.jiesuan .jiesuan1 view text:last-child{
+  font-size: 24rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+text-decoration: line-through;
+color: #999999;
+}
+.jiesuan .jiesuan2{
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+border-radius: 0px 50px 50px 0px;
+display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+font-family: Microsoft YaHei;
+font-weight: 400;
+color: #FFFFFF;
 }
 .dImg{
   width: 180rpx;

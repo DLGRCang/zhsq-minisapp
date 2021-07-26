@@ -32,12 +32,12 @@
   width: 100%;
   padding: 0 20rpx;
   box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex;
+  flex-wrap: wrap; */
   padding-bottom: 140rpx;
 }
 .box-home{
-  width: 50%;
+  width: 100%;
   padding:10rpx;
   box-sizing: border-box;
 }
@@ -46,13 +46,33 @@
 }
 .con-img{
   width: 100%;
-  height: 350rpx;
-  background: blue;
+  height: 360rpx;
   border-radius: 12rpx 12rpx 0 0;
+  position: relative;
+}
+.con-img video{
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx 12rpx 0 0;
+}
+.con-img-display{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.con-img-display image{
+  width: 50rpx;
+  height: 50rpx;
 }
 .con-text{
   width: 100%;
-  height: 100rpx;
+  
   background: #fff;
   border-radius: 0 0 12rpx 12rpx;
   
@@ -60,6 +80,11 @@ font-size: 24rpx;
 font-family: Microsoft YaHei;
 font-weight: 400;
 color: #333333;
+
+text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    padding:20rpx;
 }
 .text-img{
   width: 65rpx;
@@ -118,3 +143,84 @@ background: linear-gradient(60deg, #66B7F9, #3A91F7);
     align-items: center;
     justify-content: center;
   }
+
+  .xylink-container {
+    background-color: #1f1f25;
+    height: 100vh;
+    width: 100vw;
+    color: #fff;
+  }
+  .xylink-operate-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: 24rpx;
+  }
+  
+  .trans90 {
+    transform: rotateZ(90deg);
+  
+    width: 60px;
+    text-align: center;
+    height: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .xy-translate {
+    display: block;
+    transform: rotate(90deg);
+  }
+  .xy__call {
+    z-index: 100;
+  }
+  .xy__call-box {
+    width: 100vh;
+    height: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+  }
+  .xy__call-image {
+    width: 120rpx;
+    height: 120rpx;
+    margin-bottom: 10px;
+  }
+  .xy__call-image .img {
+    border-radius: 60rpx;
+  }
+  .xy__call-person-image {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 70rpx;
+    border: 2rpx solid #fff;
+  }
+  .xy__call-person-image .img {
+    border-radius: 70rpx;
+    transform: rotateZ(90deg);
+  }
+  .xy__call-person-name {
+    margin-top: 20rpx;
+    font-size: 32rpx;
+  }
+  .xy__call-person-status {
+    margin-top: 20rpx;
+    font-size: 26rpx;
+    
+  }
+  .xy__call .img {
+    width: 100%;
+    height: 100%;
+  }
+  

@@ -1,6 +1,7 @@
 // pages/index/WY_wxd/WY_wxd.js
 import http from '../../../../utils/api'
 import util from '../../../../utils/util'
+import verif from '../../../../utils/verification'
 const app = getApp()
 Component({
   /**
@@ -27,21 +28,11 @@ Component({
     scrollLeft: 0 ,
     dateC: '2020-1-1',
     date0:'',
-    date1:'',
-    date2:'',
-    date3:'',
-    date4:'',
-    date5:'',
-    date6:'',
-    date7:'',
-    date8:'',
-    date9:'',
-    date10:'',
     shows: false,
     tabList1:[
       {id:0,tname:'全部'},
       {id:1,tname:'待审核'},
-      {id:2,tname:'已审核'},
+      // {id:2,tname:'已审核'},
       {id:3,tname:'维修中'},
       {id:4,tname:'完成'},
       {id:5,tname:'已确认'},
@@ -49,9 +40,10 @@ Component({
     ],
     tabList2:[
       {id:7,tname:'全部'},
-      {id:8,tname:'待接单'},
-      {id:9,tname:'维修中'},
-      {id:10,tname:'已完成'}
+       {id:8,tname:'待审核'},
+       {id:9,tname:'维修中'},
+      {id:10,tname:'维修完成'},
+      {id:11,tname:'已完成'}
     ],
     curHdIndex:0,
     curHdIndex1:7,
@@ -66,7 +58,12 @@ Component({
     rows8:[],
     rows9:[],
     rows10:[],
-    wyUser:0
+    rows11:[],
+    wyUser:{},
+    listpropertyList:[],
+    pdItem:{},
+    ddItem:{},
+    jdSreing:""
   },
 
   /**
@@ -87,12 +84,12 @@ Component({
   // tab切换
   tab: function (e) {
     //console.log(e)
-    if(this.data.wyUser == 2){
+    if(this.data.wyUser.roleId == "c9239296-0f3f-4b19-803c-f8050eabe863"){
       this.setData({
         curHdIndex:e.currentTarget.dataset.id,
         scrollLeft: (e.currentTarget.dataset.id-1)*60
       })
-    }else if(this.data.wyUser == 3){
+    }else if(this.data.wyUser.roleId == "dab53080-0871-4b5f-862b-f5ad1c79c585"){
       this.setData({
         curHdIndex1:e.currentTarget.dataset.id,
         scrollLeft: (e.currentTarget.dataset.id-1)*60
@@ -114,52 +111,10 @@ Component({
   }, 
   DateChange(e) {
     //console.log(e)
-    if(this.data.curHdIndex == 0){
-      this.setData({
-        date0: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 1){
-      this.setData({
-        date1: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 2){
-      this.setData({
-        date2: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 3){
-      this.setData({
-        date3: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 4){
-      this.setData({
-        date4: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 5){
-      this.setData({
-        date5: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 6){
-      this.setData({
-        date6: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 7){
-      this.setData({
-        date7: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 8){
-      this.setData({
-        date8: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 9){
-      this.setData({
-        date9: e.detail.value
-      })
-    }else if(this.data.curHdIndex == 10){
-      this.setData({
-        date10: e.detail.value
-      })
-    }
-    
+    this.setData({
+      date0: e.detail.value
+    })
+    this.wxdArr()
   },
   getAddInfo(){
     this.xgArr()
@@ -168,10 +123,11 @@ Component({
     wx.showLoading({
       title: '拼命加载中',
     })
-    if(wx.getStorageSync('wyUser') == 2){
+   // console.log(this.data.date0)
+    if(wx.getStorageSync('wyUser').roleId == "c9239296-0f3f-4b19-803c-f8050eabe863"){
       http.listpagerepairApi({
         data:{
-          page:1
+          stateTime:this.data.date0
         },
         success:res=>{
           wx.hideLoading({
@@ -180,31 +136,28 @@ Component({
             },
           })
           this.setData({ 
-            rows0:res.rows
+            rows0:res
           })
-          console.log(res)
+          //console.log(res)
           var rows1 = this.data.rows1
           var rows2 = this.data.rows2
           var rows3 = this.data.rows3
           var rows4 = this.data.rows4
           var rows5 = this.data.rows5
           var rows6 = this.data.rows6
-          var data = res.rows
+          var data = res
           for(var i in data){
             if(data[i].state == 1){
               rows1.push(data[i])
               this.setData({
                 rows1: rows1
               })
-            }else if(data[i].state == 2){
+            }else if(data[i].state == 2||data[i].state == 3){
+
+              //console.log(data[i])
               rows2.push(data[i])
               this.setData({
                 rows2: rows2
-              })
-            }else if(data[i].state == 3){
-              rows3.push(data[i])
-              this.setData({
-                rows3: rows3
               })
             }else if(data[i].state == 4){
               rows4.push(data[i])
@@ -232,13 +185,14 @@ Component({
           })
         }
       })
-    }else if(wx.getStorageSync('wyUser') == 3){
+    }else{
       http.selfListApi({
         data:{
-          userId:wx.getStorageSync('user').userId
+          userId:wx.getStorageSync('user').userId,
+          stateTime:this.data.date0
         },
         success:res=>{
-          console.log(res)
+          //console.log(res)
           wx.hideLoading({
             success: (res) => {
               this.selectComponent("#haveTrue").falseClick()
@@ -252,25 +206,32 @@ Component({
           var rows8 = this.data.rows8
           var rows9 = this.data.rows9
           var rows10 = this.data.rows10
+          var rows11 = this.data.rows11
           
           var data = res.data.repairList
           for(var i in data){
-            if(data[i].state == 2){
+            if(data[i].state == 1){
               rows8.push(data[i])
               this.setData({
                 rows8: rows8
               })
-            }else if(data[i].state == 3){
+            }else if(data[i].state == 2||data[i].state == 3){
               rows9.push(data[i])
               this.setData({
                 rows9: rows9
               })
-            }else if(data[i].state == 5){
+            }else if(data[i].state == 4){
               rows10.push(data[i])
               this.setData({
                 rows10: rows10
               })
+            }else if(data[i].state == 5){
+              rows11.push(data[i])
+              this.setData({
+                rows11: rows11
+              })
             }
+            
           }
         },
         fail:err=>{
@@ -284,8 +245,21 @@ Component({
     }
     
   },
+  listpropertyArr(){
+    http.listpropertyApi({
+      success:res=>{
+        this.setData({
+          listpropertyList:res
+        })
+        //console.log(res)
+      },
+      fail:err=>{
+        console.log(err)
+      }
+    })
+  },
   getUserInfo: function (e) {
-    console.log(e)
+    //console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -293,20 +267,176 @@ Component({
     })
   },
   showModal(e) {
+    //console.log(e)
+    if(this.data.wyUser.roleId == "c9239296-0f3f-4b19-803c-f8050eabe863"){
+      this.setData({
+        modalName: e.currentTarget.dataset.target,
+        ddItem:e.currentTarget.dataset.item
+      })
+    }else{
+      
+      http.updaterepairApi({
+        data:{
+          repairId:e.currentTarget.dataset.item.repairId,
+          assignPeopleId:wx.getStorageSync('wxUser').id,
+          assignPeopleName:wx.getStorageSync('wxUser').name,
+          propertyPeopleId:wx.getStorageSync('wxUser').id,
+          propertyPeopleName:wx.getStorageSync('wxUser').name
+        },
+        success:res=>{
+          //console.log(res)
+          if(res.code == 200){
+            verif.tips("接单成功")
+            
+          }else{
+            verif.tips("接单失败")
+          }
+          setTimeout(()=>{
+            this.wxdArr()
+          },1000)
+          
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+    }
+    
+  },
+  wxwcClick(e){
+    // console.log(util.formatTime1(new Date))
+    // console.log(e)
+    verif.tips("请拍照上传维修完成图片")
+    setTimeout(()=>{
+      var imgs=verif.imgClick()
+      imgs.then(res=>{
+          
+         //console.log(res.imgs)
+         http.confirmEndApi({
+          data:{
+            repairId:e.currentTarget.dataset.item.repairId,
+            endTime:util.formatTime1(new Date),
+            result:res.imgs
+          },
+          success:resa=>{
+           // console.log(resa)
+            if(resa.code == 200){
+              verif.tips("成功")
+            }else{
+              verif.tips("失败，请稍后重新尝试")
+            }
+            setTimeout(()=>{
+              this.wxdArr()
+            },800)
+          },
+          fail:err=>{
+            console.log(err)
+          }
+         })
+        
+      })
+    },2000)
+    
+  },
+  showModal1(e) {
+    
     this.setData({
-      modalName: e.currentTarget.dataset.target
+      modalName1: e.currentTarget.dataset.target,
+      pdItem:e.currentTarget.dataset.item
     })
+    //console.log(this.data.pdItem)
+  },
+  showModal2(e) {
+    
+    this.setData({
+      modalName2: e.currentTarget.dataset.target,
+      ddItem:e.currentTarget.dataset.item
+    })
+    //console.log(this.data.pdItem)
   },
   hideModal(e) {
     this.setData({
       modalName: null
     })
   },
+  hideModals(e) {
+    this.setData({
+      modalName1: null
+    })
+  },
+  jdInput(e){
+   // console.log(e)
+    this.setData({
+      jdSreing:e.detail.value
+    })
+  },
+  hideModal2(){
+    this.setData({
+      modalName2: null,
+      jdSreing:""
+    })
+  },
+  jdClick(){
+    if(this.data.jdSreing == ""){
+      verif.tips("请输入拒单理由")
+    }else{
+      http.schedulingApi({
+        data:{
+          repairId:this.data.ddItem.repairId,
+          refuseReason:this.data.jdSreing
+        },
+        success:res=>{
+          //console.log(res)
+          if(res.code == 200){
+            verif.tips("拒单成功")
+          }else{
+            verif.tips("拒单失败")
+          }
+          this.hideModal2()
+          this.wxdArr()
+        },
+        fail:err=>{
+          console.log(err)
+        }
+      })
+    }
+    
+  },
   tabSelect(e) {
-    console.log(e);
+   // console.log(e);
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+    })
+  },
+
+  pdClick(){
+    // console.log(this.data.ddItem)
+    // console.log(this.data.pdItem)
+    // console.log(wx.getStorageSync('wxUser'))
+    http.updaterepairApi({
+      data:{
+        repairId:this.data.ddItem.repairId,
+        assignPeopleId:this.data.pdItem.userId,
+        assignPeopleName:this.data.pdItem.name,
+        propertyPeopleId:wx.getStorageSync('wxUser').id,
+        propertyPeopleName:wx.getStorageSync('wxUser').name
+      },
+      success:res=>{
+        //console.log(res)
+        if(res.code == 200){
+          verif.tips("派单成功")
+          
+        }else{
+          verif.tips("派单失败")
+        }
+        this.hideModal()
+        this.hideModals()
+        this.wxdArr()
+      },
+      fail:err=>{
+        console.log(err)
+      }
     })
   },
 
@@ -316,7 +446,7 @@ Component({
   lifetimes: {
     //在组件实例刚刚被创建时执行
     created() {
-      this.wxdArr()
+      
       //console.log(util.formatTime1(new Date).split(' ')[0])
       
     },
@@ -328,22 +458,13 @@ Component({
     //在组件在视图层布局完成后执行
     ready() {
       this.setData({
-        date0:util.formatTime1(new Date).split(' ')[0],
-        date1:util.formatTime1(new Date).split(' ')[0],
-        date2:util.formatTime1(new Date).split(' ')[0],
-        date3:util.formatTime1(new Date).split(' ')[0],
-        date4:util.formatTime1(new Date).split(' ')[0],
-        date5:util.formatTime1(new Date).split(' ')[0],
-        date6:util.formatTime1(new Date).split(' ')[0],
-        date7:util.formatTime1(new Date).split(' ')[0],
-        date8:util.formatTime1(new Date).split(' ')[0],
-        date9:util.formatTime1(new Date).split(' ')[0],
-        date10:util.formatTime1(new Date).split(' ')[0],
-        time:util.formatTime1(new Date).split(' ')[1]
+        date0:util.formatTime1(new Date).split(' ')[0]
       })
       this.setData({
         wyUser:wx.getStorageSync('wyUser')
       })
+      this.wxdArr()
+      this.listpropertyArr()
     },
  
     //在组件实例被移动到节点树另一个位置时执行

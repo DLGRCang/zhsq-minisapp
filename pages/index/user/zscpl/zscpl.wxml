@@ -18,10 +18,10 @@
     <defect topPadding="{{350}}" wx:if="{{rows.length == 0}}">
       <view slot="content">暂无数据</view>
     </defect>
-    <view class="tab_box" wx:for="{{rows}}" wx:key="index" style="margin-bottom:30rpx" bindtap="lljClick" data-rows="{{item}}">
+    <view class="tab_box" wx:for="{{rows}}" wx:key="index" style="margin-bottom:30rpx" bindtap="lljClick" data-rows="{{item}}" wx:if="{{item != null}}">
           <!-- 邻里圈列表 -->
   <view class="cu-item shadow">
-    <view class="cu-list menu-avatar">
+    <!-- <view class="cu-list menu-avatar">
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
         <view class="content flex-sub">
@@ -31,7 +31,7 @@
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
     <view class="text-content" >
       {{item.message}}
     </view>
@@ -50,10 +50,10 @@
     <defect topPadding="{{350}}" wx:if="{{rows1.length == 0}}">
       <view slot="content">暂无数据</view>
     </defect>
-    <view class="tab_box" wx:for="{{rows1}}" wx:key="index" style="margin-bottom:30rpx" bindtap="lljClick" data-rows="{{item}}">
+    <view class="tab_box" wx:for="{{rows1}}" wx:key="index" style="margin-bottom:30rpx" bindtap="lljClick" data-rows="{{item}}" wx:if="{{item != null}}">
           <!-- 邻里圈列表 -->
   <view class="cu-item shadow">
-    <view class="cu-list menu-avatar">
+    <!-- <view class="cu-list menu-avatar">
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
         <view class="content flex-sub">
@@ -63,7 +63,7 @@
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
     <view class="text-content" >
       {{item.message}}
     </view>
@@ -82,10 +82,10 @@
     <defect topPadding="{{350}}" wx:if="{{rows2.length == 0}}">
       <view slot="content">暂无数据</view>
     </defect>
-    <view class="tab_box" wx:for="{{rows2}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}">
+    <view class="tab_box" wx:for="{{rows2}}" wx:key="index" bindtap="lljClick" data-rows="{{item}}" wx:if="{{item != null}}">
                    <!-- 邻里圈列表 -->
   <view class="cu-item shadow">
-    <view class="cu-list menu-avatar">
+    <!-- <view class="cu-list menu-avatar">
       <view class="cu-item">
         <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
         <view class="content flex-sub">
@@ -95,7 +95,7 @@
           </view>
         </view>
       </view>
-    </view>
+    </view> -->
     <view class="text-content">
       {{item.message}}
     </view>

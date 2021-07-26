@@ -1,5 +1,5 @@
 <view class="onekey">
-  <!-- <image class="keyimg" src="https://yiqi.sucstep.com/zhsq/assets/images/applets/index_banner.png"></image> -->
+  <!-- <image class="keyimg" src="https://www.yjhlcity.com/zhsq/assets/images/applets/index_banner.png"></image> -->
 
   <view class="topT3">
     <view wx:for="{{anniu}}" wx:key="index" bindtap="djqiehuan" data-id="{{item.id}}" class="{{item.xz ? 'yxg':''}}" style="{{item.id == 0 ? 'border-radius: 16rpx 0 0 0':''}}{{item.id == 2 ? 'border-radius: 0 16rpx 0 0':''}}">{{item.name}}</view>

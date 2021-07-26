@@ -16,7 +16,7 @@
     </view>
     <view>
   <view class="box">
-    <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
+    <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back2.png" class="beijing"></image>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
         <view class="cu-item {{index==TabCur?'text-white cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
@@ -27,7 +27,7 @@
   </view>
   <view class="bot-box" wx:if="{{TabCur == 0}}">
     <view class="queshiye" wx:if="{{rowsXw0.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
     <view class="xinwen" wx:for="{{rowsXw0}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
@@ -45,7 +45,7 @@
   </view>
   <view class="bot-box" wx:if="{{TabCur == 1}}">
     <view class="queshiye" wx:if="{{rowsXw1.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
     <view class="xinwen" wx:for="{{rowsXw1}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
@@ -63,7 +63,7 @@
   </view>
   <view class="bot-box" wx:if="{{TabCur == 2}}">
     <view class="queshiye" wx:if="{{rowsXw2.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
     <view class="xinwen" wx:for="{{rowsXw2}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
@@ -81,7 +81,7 @@
   </view>
   <view class="bot-box" wx:if="{{TabCur == 3}}">
     <view class="queshiye" wx:if="{{rowsXw3.length == 0}}" style="padding-top:200rpx">
-      <image src="https://yiqi.sucstep.com/zhsq/assets/images/applets/queshi.png"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/queshi.png"></image>
       <view>暂无数据</view>
     </view>
     <view class="xinwen" wx:for="{{rowsXw3}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">

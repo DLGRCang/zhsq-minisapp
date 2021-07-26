@@ -14,7 +14,6 @@
     <text class="cuIcon-right lg text-gray"></text>
   </view>
 
-
 <view class="h-c-b" style="margin-top:30rpx">
   <scroll-view scroll-x="true" style="width:100%" bindscroll="getleft">
   <view class="h-c-b1">
@@ -42,11 +41,11 @@
   
   </view>
 </view>
-<view class="head_c">
+<view class="head_c" style="width:100%;height:260rpx" bindtap="webview">
   <swiper class="swiper_container" style="width:100%;height:100%" autoplay="true" circular="true" duration="1500" interval="3000" indicator-dots="true" indicator-color="rgba(0,0,0,0.2)" indicator-active-color="#0586F8">
     <block wx:for="{{msgList}}" wx:key="index" style="width:100%;height:100%">
     <swiper-item style="width:100%;height:100%">
-      <image src="{{item.img}}" style="width:100%;height:100%;border-radius:15rpx"></image>
+      <image src="{{item.img}}" style="width:100%;border-radius:15rpx;height:100%"></image>
     </swiper-item>
     </block>
   </swiper>
@@ -62,7 +61,7 @@
 
 
 
-<view class="tjshangjia" wx:if="{{shopRows.length != 0}}">
+<view class="tjshangjia" wx:if="{{shopRows.length != 0 && shopping}}">
   <view class="sjtop">
     <text bindtap="renlian" class="sqxw_title">推荐商家</text>
     <view bindtap="tjsjClick">
@@ -72,7 +71,7 @@
     
   </view>
   <view class="sjneirong">
-    <view class="bot-neirong" bindtap="life_details" wx:for="{{shopRows}}" wx:key="index">
+    <view class="bot-neirong" bindtap="life_details" wx:for="{{shopRows}}" wx:key="index" bindtap="life_details" data-item="{{item}}">
       <view class="nr-top">
         <view class="nr-left">
           <image class="nr-left-nei" src="{{imgUrl+item.photo}}"></image>
@@ -106,6 +105,8 @@
       </view>
   </view>
 </view>
+
+
 <!-- 第三部分 -->
 <!-- <view class="sqhd_box" wx:if="{{rowsSQHD.length != 0}}">
 <text class="sqhd_title">社区活动</text>
@@ -117,7 +118,7 @@
           <text wx:if="{{rowsSQHD.activeStartTime <= time && rowsSQHD.activeEndTime >= time}}">进行中</text>
           <text wx:if="{{rowsSQHD.activeEndTime < time}}">已结束</text>
         </view>
-        <image src="http://yiqi.sucstep.com:9000/fileService/downloadFTP/public/{{rowsSQHD.actPhonts}}"></image>
+        <image src="https://www.yjhlcity.com:9000/fileService/downloadFTP/public/{{rowsSQHD.actPhonts}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
@@ -171,7 +172,7 @@
 <!-- 第六部分 -->
 <view class="xqtp_box">
 <!-- <text class="sqhd_title" wx:if="{{rowsWJ.length != 0}}">问卷调查</text> -->
-<!-- <view class="body-ase" wx:for="{{rowsWJ}}" bindtap="xqvode" data-id="{{item.questionnaireId}}">
+<view class="body-ase" wx:for="{{rowsWJ}}" bindtap="xqvode" data-id="{{item.questionnaireId}}">
       <view class="abc"></view>
       <view class="ase-box">
         <view class="ase-left">
@@ -184,11 +185,11 @@
       </view>
 
 
-</view> -->
+</view>
 <!-- 第七部分 社区新闻-->
 <view class="sqxw_box" wx:if="{{xwrows.length != 0}}">
-<text class="sqxw_title">社区新闻</text>
-<text class="font9 right more">查看更多<text class="cuIcon-right lg text-gray"></text></text>
+<text class="sqxw_title">社区动态</text>
+<!-- <text class="font9 right more">查看更多<text class="cuIcon-right lg text-gray"></text></text> -->
 
 
 <view class="xinwen" wx:for="{{xwrows}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
@@ -198,7 +199,7 @@
             <text>{{item.publicTime}}</text>  
         </view>
           <view class="seven_right" style="{{item.head == ''?'width:0':'width:25%'}}">
-            <image src="http://yiqi.sucstep.com:9000/fileService/downloadFTP/public/{{item.head}}"></image>
+            <image src="https://www.yjhlcity.com:9000/fileService/downloadFTP/public/{{item.head}}"></image>
           </view>
         </view>
       </view>  
@@ -210,7 +211,7 @@
 <view class="gddhnrbj" bindtap="gdnrtcClick" wx:if="{{gddh}}" style="top:{{CustomBar}}px;background: rgba(0, 0, 0,0.3);"></view>
 
 
-<view class="gddhnr" style="left:-{{gddhchu}}rpx">
+<!-- <view class="gddhnr" style="left:-{{gddhchu}}rpx">
   <view class="dhnr" wx:for="{{gdItem}}" wx:key="index" catchtap="contentClick" data-url="{{item.url}}" data-id="{{item.id}}">
     <image src="{{item.image}}"></image>
     <view>{{item.text}}</view>
@@ -222,6 +223,46 @@
   <text class="cuIcon-cascades"></text>
   <text class="cuIcon-right"></text>
 </view>
+</view> -->
+
 </view>
 
+
+<view class="sosView" wx:if="{{sosPhone}}">
+  <view class="sosViewTop">
+    <view class="inputView" wx:if="{{ifInput}}">
+      <view class="lxren">
+        <view>联系人姓名:</view>
+        <input type="text" placeholder="请输入联系人姓名"  bindinput="nameInput" maxlength="5"/>
+      </view>
+      <view class="lxren">
+        <view>联系人手机号:</view>
+        <input type="number" placeholder="请输入联系人手机号" bindinput="phoneInput"/>
+      </view>
+      <view class="qrtjClick">
+        <view bindtap="qrtjInputClick">确认添加</view>
+      </view>
+    </view>
+    
+    <view class="inputView" wx:for="{{qrtjInputData1}}" wx:key="index">
+      <view class="lxren">
+        <view>联系人姓名:</view>
+        <view>{{item.name}}</view>
+      </view>
+      <view class="lxren">
+        <view>联系人手机号:</view>
+        <view>{{item.input}}</view>
+      </view>
+      <view class="qrtjClick">
+        <view style="background:red" bindtap="bhClick" data-phone="{{item.input}}">拨号</view>
+      </view>
+    </view>
+
+
+  
+  </view>
+  <view class="sosViewBot">
+    <view bindtap="ifTrueClick">添加联系人</view>
+    <view bindtap="gbifTrueClick" style="background:rgb(119, 116, 116)">关闭</view>
+  </view>
 </view>

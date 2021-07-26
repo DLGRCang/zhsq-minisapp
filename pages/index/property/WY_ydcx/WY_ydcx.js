@@ -13,7 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    indexId:2,
+    wyUser:null,
     date: '',
     // tab 切换
     tabArr: {
@@ -113,14 +113,14 @@ Component({
     //在组件在视图层布局完成后执行
     ready() {
       this.setData({
-        indexId:wx.getStorageSync('wyUser')
+        wyUser:wx.getStorageSync('wyUser')
       })
-      //console.log(wx.getStorageSync('wyUser'))
-      if(wx.getStorageSync('wyUser') == 2){
+      console.log(wx.getStorageSync('wyUser'))
+      if(wx.getStorageSync('wyUser').roleId == "c9239296-0f3f-4b19-803c-f8050eabe863"){
         this.setData({
           date:"2020-12"//util.formatTimeyue(new Date)
         })
-      }else if(wx.getStorageSync('wyUser') == 3){
+      }else if(wx.getStorageSync('wyUser').roleId == "c54edb4e-9668-49c9-82ef-a417604d2b29"){
         this.setData({
           date:util.formatTime1(new Date).split(' ')[0],
         })

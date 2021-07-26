@@ -1,5 +1,6 @@
 import util from '../../../../utils/util'
 import verif from '../../../../utils/verification'
+import http from '../../../../utils/api'
 const app = getApp()
 Page({
   
@@ -43,18 +44,44 @@ Page({
   },
 
   conData() {
+    //console.log(util.formatTime(new Date()).split(" ")[1])
+    //console.log(wx.getStorageSync('xzvillage')[0].residentsInfoId)
     if(this.data.nameText == ''){
       verif.tips('请输入姓名')
     }else if(this.data.cardText == ''){
       verif.tips('请输入身份证号')
     }else if(this.data.phoneText == ''){
       verif.tips('请输入手机号')
+    }else if(this.data.imgId.length == 0){
+      verif.tips('请上传申请人照片')
     }else{
       if(verif.checkIdCard(this.data.cardText)){
         if(verif.checkPhone(this.data.phoneText)){
-          wx.navigateTo({
-            url: '/pages/index/user/share/share'
+          http.savevisitorpassApi({
+            data:{
+              applyDate:this.data.date+" "+util.formatTime(new Date()).split(" ")[1],
+              applyIdCard:this.data.cardText,
+              applyName:this.data.nameText,
+              applyPhone:this.data.phoneText,
+              applyPhoto:this.data.imgId[0],
+              unifiedUserId:wx.getStorageSync('xzvillage')[0].residentsInfoId
+            },
+            success:res=>{
+              console.log(res)
+              
+              if(res.code == 200){
+                wx.setStorageSync('visitorPassId', res.visitorPassId)
+                wx.navigateTo({ 
+                  url: '/pages/index/user/share/share?data='+res.codeNumber
+                })
+              }else{
+          
+                verif.tips(res.msg)
+              }
+          
+            }
           })
+          
         }
       }
     }

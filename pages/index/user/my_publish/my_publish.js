@@ -29,6 +29,10 @@ Page({
       isStar: false, // 默认没有收藏
       isShare: true, // 默认有分享
       isShare: false, // 默认没有赞
+      removeId:null,
+    removeIdIndex:null,
+    desNumber:null,
+    modalName:null
 },
 // 我的发布tab切换
     tab: function (e) {
@@ -78,11 +82,12 @@ fabu:function(){
     url: '/pages/index/user/lease/lease?item='+JSON.stringify(e.currentTarget.dataset.item)
   })
 },
-// 删除按钮
+// 关闭按钮
 showModal(e) {
   this.setData({
     rentRoomId:e.currentTarget.dataset.id,
-    modalName: e.currentTarget.dataset.target
+    modalName: e.currentTarget.dataset.target,
+    desNumber:2
   })
 },
 hideModal(e) {
@@ -94,42 +99,84 @@ delete(){
   wx.showLoading({
     title: '拼命加载中',
   })
-  http.scczfwApi({
-    data:{
-      residentsId:wx.getStorageSync('wxUser').id,
-      rentRoomIds:this.data.rentRoomId,
-      state:'3'
-    },
-    success:res=>{
-      console.log(res)
-      wx.hideLoading({
-        success: (res) => {
-          this.selectComponent("#haveTrue").falseClick()
-        },
-      })
-      if(res.code == 200){
-        verif.tips('关闭成功')
-        this.setData({
-          modalName: null
-        })
-        this.fwList()
+  if(this.data.desNumber == 1){
+    http.removecommentApi({
+      data:{
+        ids:this.data.removeId
+      },
+      success:res=>{
+        //console.log(res)
+        wx.hideLoading()
+        var rows = this.data.rows
+        if (Object.keys(res).length === 0) {
+          rows.splice(this.data.removeIdIndex,1)
+          verif.tips("删除成功")
+          this.setData({
+            rows:rows,
+            modalName: null
+          })
+        }else{
+          verif.tips("删除失败")
+        }
+      
       }
-    },
-    fail:err=>{
-      wx.hideLoading({
-        success: (res) => {
-          this.selectComponent("#haveTrue").trueClick()
-        },
-      })
-      console.log(err)
-    }
-  })
+    })
+  }else{
+    http.scczfwApi({
+      data:{
+        residentsId:wx.getStorageSync('wxUser').id,
+        rentRoomIds:this.data.rentRoomId,
+        state:'3'
+      },
+      success:res=>{
+        //console.log(res)
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").falseClick()
+          },
+        })
+        if(res.code == 200){
+          verif.tips('关闭成功')
+          this.setData({
+            modalName: null
+          })
+          this.fwList()
+        }
+      },
+      fail:err=>{
+        wx.hideLoading({
+          success: (res) => {
+            this.selectComponent("#haveTrue").trueClick()
+          },
+        })
+        console.log(err)
+      }
+    })
+  }
+  
 },
 // 邻里圈点击进入详情
 lljClick:function(e){
  
   wx.navigateTo({
     url: '/pages/index/user/neighborhood-details/llq_xq?rows='+JSON.stringify(e.currentTarget.dataset.rows)
+  })
+},
+
+quanwen(e){
+  //console.log(e.currentTarget.dataset.i)
+  var rows = this.data.rows
+  rows[e.currentTarget.dataset.i].pantrue = false
+  this.setData({
+    rows:rows
+  })
+},
+squanwen(e){
+  //console.log(e.currentTarget.dataset.i)
+  var rows = this.data.rows
+  rows[e.currentTarget.dataset.i].pantrue = true
+  this.setData({
+    rows:rows
   })
 },
   // 点击收藏
@@ -176,6 +223,15 @@ lljClick:function(e){
   getAddInfo(){
     this.onLoad()
   },
+  removeCLick(e) {
+    console.log(e)
+    this.setData({
+      modalName: e.currentTarget.dataset.target,
+      removeId:e.currentTarget.dataset.id,
+      removeIdIndex:e.currentTarget.dataset.i,
+      desNumber:1
+    })
+  },
   llqList(){
     wx.showLoading({
       title: '拼命加载中',
@@ -185,7 +241,7 @@ lljClick:function(e){
         createPeopleId:wx.getStorageSync('wxUser').id
       },
       success:res=>{
-        //console.log(res)
+        console.log(res)
         var rows = res.rows
         var message1 = ''
         

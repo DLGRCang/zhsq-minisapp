@@ -20,7 +20,7 @@
     <!-- 第一栏目 1-->
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <defect topPadding="{{200}}" wx:if="{{rowsList.length == 0}}"><view slot="content">暂无数据</view></defect>
-    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList}}" wx:key="index">
+    <view class="tab_box" bindtap="xiangqing" data-id="{{item.constructionsPlaceId}}" wx:for="{{rowsList}}" wx:key="index"> 
       <view class="box_left">
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 0}}">未开放</view>
         <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status == 1}}">开放中</view>

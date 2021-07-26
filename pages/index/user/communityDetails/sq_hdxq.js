@@ -1,9 +1,11 @@
 import http from '../../../../utils/api'
 import util from '../../../../utils/util'
 import verif from '../../../../utils/verification'
+var app = getApp();
 Page({
   data: {
          // tab 切换
+         imgUrl: app.globalData.imgUrl,
          tabArr: {
           curHdIndex: 0,
           curBdIndex: 0
@@ -93,37 +95,42 @@ Page({
     })
   },
   baoming(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
-    http.bmDetailsApi({
-      data:{
-        constructionsActivityId:this.data.rowsList.constructionsActivityId,
-        time:util.formatTime(new Date()),
-        userId:11111
-      },
-      success:res=>{
-       //console.log(res)
-       wx.hideLoading({
-        success: (res) => {
-          this.selectComponent("#haveTrue").falseClick()
-        },
+    if(this.data.rowsList.activeEndTime < util.formatTime1(new Date())){
+      verif.tips("活动时间已结束")
+    }else{
+      wx.showLoading({
+        title: '拼命加载中',
       })
-       if(res.code == 200){
-        verif.success('报名成功')
-       }else if(res.code == 201){
-        verif.tips('报名成功,请勿重复操作')
-       }
-      },
-      fail:err=>{
-        wx.hideLoading({
+      http.bmDetailsApi({
+        data:{
+          constructionsActivityId:this.data.rowsList.constructionsActivityId,
+          time:util.formatTime(new Date()),
+          userId:wx.getStorageSync('wxUser').id
+        },
+        success:res=>{
+         //console.log(res)
+         wx.hideLoading({
           success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
+            this.selectComponent("#haveTrue").falseClick()
           },
         })
-        console.log(err)
-      }
-    })
+         if(res.code == 200){
+          verif.success('报名成功') 
+         }else if(res.code == 201){
+          verif.tips('报名成功,请勿重复操作')
+         }
+        },
+        fail:err=>{
+          wx.hideLoading({
+            success: (res) => {
+              this.selectComponent("#haveTrue").trueClick()
+            },
+          })
+          console.log(err)
+        }
+      })
+    }
+    
   },
   // towerSwiper
   // 初始化towerSwiper
