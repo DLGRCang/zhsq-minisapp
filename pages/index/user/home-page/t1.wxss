@@ -546,7 +546,7 @@ margin: 5rpx 0 8rpx;
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 9999999;
+  z-index: 99999999999999999 !important;
   padding-top: 100rpx;
 }
 .sosViewTop{

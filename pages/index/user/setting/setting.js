@@ -9,7 +9,8 @@ Page({
    */
   data: {
     imgUrl: app.globalData.imgUrl,
-    myList:[]
+    myList:[],
+    roleList:[]
   },
    //收货地址-跳转
    addressClick:function(){
@@ -40,9 +41,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   // console.log(wx.getStorageSync('xzvillage').houseList[0])
+
     this.setData({
-      myList:wx.getStorageSync('xzvillage').houseList[0]
+      myList:wx.getStorageSync('xzvillage').houseList[0],
+      roleList:wx.getStorageSync('xzvillage').roleList
     })
 
   },

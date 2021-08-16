@@ -34,7 +34,12 @@ border-radius: 0 0 15rpx 15rpx;
 .pban_box>.box>.box_top{height:45rpx;line-height: 45rpx;}
 .pban_box>.box>.box_top>.bor_fl>image{width:45rpx;height: 45rpx;border-radius: 50%;margin-right: 15rpx;} 
 /* 大头像样式 */
-
+.bor_right{
+  display: flex;
+  align-items: center;
+  font-size: 20rpx;
+  padding-top: 35rpx;
+}
 .dbox_top>.bor_fl{  display:block;height: 130rpx; width: 80%;float: left;} 
 .wxgr{font-size: 24rpx;    margin-top: -30rpx;}
 .dbox_top{height:85rpx;line-height: 85rpx;    margin-bottom: 35rpx;color: #fff;font-size: 32rpx;font-weight: bold;}

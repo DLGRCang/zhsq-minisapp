@@ -460,7 +460,7 @@ Page({
         if(verif.checkLogin()){
           console.log(verif.village)
           if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
-            verif.tips('您不是小区人员')
+            verif.tips('您不是小区人员，请联系您所在小区物业')
           }else{
 
             if(e.currentTarget.dataset.cur == 't3'){
@@ -757,7 +757,7 @@ Page({
     this.setData({
       wyUser:wx.getStorageSync('wyUser')
     })
-    console.log(this.data.wyUser)
+   // console.log(this.data.wyUser)
     //console.log(wx.getStorageSync('wxUser'))
     http.tabbarApi({
       success:res=>{
@@ -826,7 +826,7 @@ Page({
                   success: resb => {
                     //console.log(resb)
                     wx.request({
-                      url: 'http://172.16.20.74:8002/usercenter/app/sign/checkCodeZHSQrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
+                      url: 'https://www.yjhlcity.com/usercenter/app/sign/checkCodeZHSQrelease', // 就是拼接上前缀,此接口域名是开放接口，可访问
                       method: 'POST', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
                       data:{
                         code:resb.code,
@@ -855,7 +855,7 @@ Page({
                                 userId:userId
                               },
                               success:res=>{
-                                console.log(res)
+                                //console.log(res)
                                 if(res[0].code == "400"){
                                     wx.setStorageSync('village', false)
                                     wx.setStorageSync('xzvillage', false)
@@ -1038,7 +1038,7 @@ Page({
 
   //监听页面显示
   onShow:function(){
-    console.log(wx.getStorageSync('wxUser'))
+   // console.log(wx.getStorageSync('wxUser'))
     this.messageList()
     var that = this
     var query = wx.createSelectorQuery()
@@ -1067,14 +1067,18 @@ Page({
       }).exec();
     }
 
-    http.loginOutApi({
-      data:{
-        userName:wx.getStorageSync('xyuserName')
-      },
-      success:res=>{
-        
-      }
-    })
+
+    if(wx.getStorageSync('xyuserName') != ""){
+      http.loginOutApi({
+        data:{
+          userName:wx.getStorageSync('xyuserName')
+        },
+        success:res=>{
+          
+        }
+      })
+    }
+    
     
     wx.getStorage({
       key: 'llqfb',

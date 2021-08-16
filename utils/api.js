@@ -240,13 +240,28 @@ function listArrangeDataApi(params){
 //   http('zhsq/app/release/api/propertypatrollingplan/listpropertypatrollingplan/'+params.data.curDate,'get',params)
 // }
 //安防巡更查询打卡记录
-function listpropertypatrollingplanApi(params){
-  http('zhsq/app/release/api/propertypatrollingplan/listpropertypatrollingplan/'+params.data.curDate,'get',params)
-}
+// function listpropertypatrollingplanApi(params){
+//   http('zhsq/app/release/api/propertypatrollingplan/listpropertypatrollingplan/'+params.data.curDate,'get',params)
+// }
 
 //根据巡更id查询计划
 function compareRecordApi(params){
   http('zhsq/app/release/api/propertypatrollingrecord/getCompareRecords/'+params.data.propertyPatrollingPlanId,'get',params)
+}
+
+//物业管理员查询巡更记录
+function listpropertypatrollingplanApi(params){
+  http('zhsq/app/release/api/propertypatrollingplan/listpropertypatrollingplan/'+params.data.curDate,'get',params)
+}
+
+//物业安保人员查询巡更记录
+function selfPlanApi(params){
+  http('zhsq/app/release/api/propertypatrollingplan/selfPlan/'+params.data.unifiedUserId+"/"+params.data.curDate,'get',params)
+}
+
+//物业安保人员扫码打卡
+function updateStateApi(params){
+  http('zhsq/app/release/api/propertypatrollingplan/updateState/'+params.data.propertyPatrollingPlanId+"/"+params.data.scanCodeTime,'put',params)
 }
 
 //获取物业维修人员列表
@@ -562,5 +577,7 @@ export default { // 暴露接口
   listpropertyApi,
   updaterepairApi,
   schedulingApi,
-  confirmEndApi
+  confirmEndApi,
+  selfPlanApi,
+  updateStateApi
 }

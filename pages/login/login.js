@@ -36,7 +36,7 @@ Page({
        // console.log(e)
         wx.login({
           success: resa => {
-            //console.log(resa)
+           // console.log(resa)
             http.loginApi({
               data:{
                 code:resa.code,
@@ -44,7 +44,7 @@ Page({
                 iv:e.detail.iv
               },
               success(data) {
-                console.log(data)
+                //console.log(data)
                 if(data.code == 200){
                   var userInfo = data.result.data.userInfo;
                   userInfo.avatarUrl = e.detail.userInfo.avatarUrl

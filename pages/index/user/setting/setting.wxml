@@ -113,11 +113,10 @@
   </view> -->
   </view>
       <!-- 第四栏 -->
-      <view class="my-b-from">
+  <view class="my-b-from" wx:if="{{roleList.length > 1}}">
     <view class="my-p-from">
       <view class="bot-border" bindtap="qhjiaose">
         <text>切换角色</text>
-
       </view>
     </view>
   </view>

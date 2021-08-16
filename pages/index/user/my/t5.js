@@ -7,7 +7,7 @@ Component({
    */
   properties: {
     t5If:String,
-    CustomBar:String
+    CustomBar:String 
   },
  
   /**
@@ -32,56 +32,41 @@ Component({
    */
   methods: {
 
-    //我的党支部
-    dzbuClick(){
-      wx.navigateTo({
-        url: "/pages/index/user/partyBranch/partyBranch"
-      })
-    },
+   
     // 我的点赞/评论/收藏跳转
     my_dzClick:function(e){
-      console.log(e.currentTarget.dataset.tabid)
+      if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
+        verif.tips('您不是小区人员，请联系您所在小区物业')
+      }else{
+   
       wx.navigateTo({
         url: "/pages/index/user/zscpl/zscpl?tabId="+e.currentTarget.dataset.tabid
       })
+    }
     },  
-    // 我的预约 跳转
-    My_appointmentClick:function(){
-      wx.navigateTo({
-        url: "/pages/index/user/My_appointment/My_appointment"
-      })
-    }, 
+    myClick(e){
+      if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
+        verif.tips('您不是小区人员，请联系您所在小区物业')
+      }else{
+        wx.navigateTo({
+          url: e.currentTarget.dataset.url
+        })
+      }
+    },
+   
        // 我的投票 跳转
        My_toupiaoClick:function(){
         wx.navigateTo({
           url: "/pages/index/user/Home_mytoupiao/Home_mytoupiao"
         })
       },  
-
-      wxkfClick(){
-        wx.navigateTo({
-          url: "/pages/index/user/airClass/airClass?video=1"
-        })
-      },
   //积分记录-跳转
   Credits_LogClick:function(){
     wx.navigateTo({
       url: "/pages/index/user/Credits_Log/Credits_Log"
     })
   },  
-        //缴费记录-跳转
-  jfjlClick:function(){
-    wx.navigateTo({
-      url: '/pages/index/user/Home_jfjl/Home_jfjl'
-    })
-  },
-//维修记录-跳转
-   wxjlClick:function(){
-        wx.navigateTo({
-          url: "/pages/index/user/maintenance-records/wxjl",
-        })
-      },
-    //帮助反馈-跳转
+ 
   feedbackClick:function(){
     wx.navigateTo({
       url: '/pages/index/user/feedback/feedback'
@@ -95,16 +80,25 @@ Component({
   },
        //设置-跳转
    settingClick:function(){
-    wx.navigateTo({
-      url: '/pages/index/user/setting/setting'
-    })
+    if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
+      verif.tips('您不是小区人员，请联系您所在小区物业')
+    }else{
+      wx.navigateTo({
+        url: '/pages/index/user/setting/setting'
+      })
+    }
+   
   },
 
   orderClick(e){
     let url = e.currentTarget.dataset.url;
-    wx.navigateTo({
-      url: url
-    })
+    if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
+      verif.tips('您不是小区人员，请联系您所在小区物业')
+    }else{
+      wx.navigateTo({
+        url: url
+      })
+    }
   },
 
   //清楚缓存
@@ -128,7 +122,7 @@ Component({
         ifLogin:true
       })
     }else{
-      console.log(wx.getStorageSync('wxUser'))
+     // console.log(wx.getStorageSync('wxUser'))
       if(JSON.stringify(wx.getStorageSync('village')) == '{}'){
         var village=false
       }else{

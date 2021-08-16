@@ -22,7 +22,8 @@ Component({
     page:1,
     rows:[],
     botTrue:true,
-    isLoad:false
+    isLoad:false,
+    roleList:[]
   },
 
   /**
@@ -143,19 +144,17 @@ Component({
     },
     //在组件在视图层布局完成后执行
     ready() {
-      this.setData({
-        wxUser:wx.getStorageSync('wxUser')
-      })
+
       // console.log(wx.getStorageSync('wyUser'))
       // console.log(wx.getStorageSync('wxUser'))
-      this.setData({
-        user : wx.getStorageSync('wyUser')
-      })
 
        //console.log(util.formatTime1(new Date).split(' ')[0])
       this.setData({
         dateT:util.formatTime1(new Date).split(' ')[0],
-        time:util.formatTime1(new Date).split(' ')[1]
+        time:util.formatTime1(new Date).split(' ')[1],
+        roleList:wx.getStorageSync('xzvillage').roleList,
+        user : wx.getStorageSync('wyUser'),
+        wxUser:wx.getStorageSync('wxUser')
       })
       this.pbArr()
     },

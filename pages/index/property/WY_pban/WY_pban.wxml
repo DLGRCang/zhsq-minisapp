@@ -13,7 +13,7 @@
             <view >{{wxUser.name}}</view>
             <view class="wxgr">职位：{{user.roleName}}</view>
           </view>
-        <text class="cuIcon-right fr lg"></text>
+        <view class="bor_right" wx:if="{{roleList.length > 1}}">切换角色<text class="cuIcon-right fr lg"></text></view>
     </view>
 
   <view class="datetop">

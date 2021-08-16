@@ -58,14 +58,14 @@
   </view>
   <!-- 第一栏 -->
   <view class="my-b-from">
-    <view class="my-p-from" bindtap="My_appointmentClick">
+    <view class="my-p-from" bindtap="myClick" data-url="/pages/index/user/My_appointment/My_appointment">
       <view class="bot-border">
         <text>我的预约</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
 
-    <view class="my-p-from" bindtap="dzbuClick">
+    <view class="my-p-from" bindtap="myClick" data-url="/pages/index/user/partyBranch/partyBranch">
       <view class="bot-border">
         <text>我的党支部</text>
         <image class="fromImg" src="{{rightHui}}"></image>
@@ -105,20 +105,20 @@
   </view>
 
   <view class="my-b-from">
-    <view class="my-p-from" bindtap="jfjlClick">
+    <view class="my-p-from" bindtap="myClick" data-url="/pages/index/user/Home_jfjl/Home_jfjl">
       <view class="bot-border">
         <text>缴费记录</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
   <view class="my-p-from" >
-    <view class="bot-border" bindtap="wxjlClick">
+    <view class="bot-border" bindtap="myClick" data-url="/pages/index/user/maintenance-records/wxjl">
         <text>维修记录</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
   <view class="my-p-from" >
-    <view class="bot-border" bindtap="wxkfClick">
+    <view class="bot-border" bindtap="myClick" data-url="/pages/index/user/airClass/airClass?video=1">
         <text>维修客服</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>

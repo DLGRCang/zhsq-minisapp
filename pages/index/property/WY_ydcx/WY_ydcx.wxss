@@ -33,7 +33,7 @@ border-radius: 0 0 15rpx 15rpx;
 .view_tab-4 .tab_bar .tab_barnei{height:45rpx;font-weight:bold;height: 45rpx;float: left;margin-right: 45rpx;text-align: center;}
 
 /* 内容样式 */
-.pban_box{margin:0 auto;padding:35rpx;}
+.pban_box{margin:0 auto;padding:50rpx 35rpx 35rpx;}
 .pban_box .pickers{font-weight: bold;color: #fff;}
 .pban_box .box{border-radius: 15rpx;background: #fff;padding:35rpx;clear: both;overflow: hidden;
   font-size: 26rpx;margin-top:35rpx;}
@@ -43,12 +43,13 @@ border-radius: 0 0 15rpx 15rpx;
 
 .pban_box .box .bor_fr{float: right;width: 40%;color: #999;} 
 .pban_box .box .box_title{display: inline-block;margin-left:55rpx;line-height:2;padding-top: 15rpx;}
-.pban_box .box .box_title .tit1{color: #999;padding-right: 35rpx;}
+.pban_box .box .box_title .tit1{color: #999;padding-right: 35rpx;width: 100%;}
 .pban_box .box .box_title .tit1 .texta{padding-left: 35rpx;color: #000;}
-.title_textarea{width: 55%; display: block;
+.title_textarea{width: 70%; display: block;
   float:right;
-  margin-left: 108rpx;color: #999;
-  margin-top: -50rpx;}
+  color: #999;
+  text-align: left;
+}
 .zt{padding-bottom: 25rpx;}
 .pban_box .box .box_title .tit1 .shipin{ display: block;width: 80%;height: 300rpx;
   margin-left: 140rpx;

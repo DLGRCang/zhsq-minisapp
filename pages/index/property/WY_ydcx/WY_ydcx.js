@@ -1,6 +1,7 @@
 // pages/index/WY_ydcx/WY_ydcx.js
 import util from '../../../../utils/util'
 import http from '../../../../utils/api'
+import verif from '../../../../utils/verification'
 Component({
   /**
    * 组件的属性列表
@@ -33,6 +34,37 @@ Component({
         url: '/pages/index/property/MY_ydxcCreate/MY_ydxcCreate'
       })
     },
+    xuncha(e){
+      var that = this
+      wx.scanCode({
+        onlyFromCamera: true,
+        success (res) {
+          
+          http.updateStateApi({
+            data:{
+              propertyPatrollingPlanId:e.currentTarget.dataset.id,
+              scanCodeTime:util.formatTime(new Date),
+              scanCodeContent:res.result
+            },
+            success:res=>{
+              console.log(res)
+              if(res.code == 200){
+                verif.tips("打卡成功")
+                setTimeout(()=>{
+                  that.xgArr()
+                },800)
+               
+              }else{
+                verif.tips(res.message)
+              }
+            },
+            fail:err=>{
+              console.log(err)
+            }
+          })
+        }
+      })
+    },
      // tab切换
      tab: function (e) {
        //var dataId = e.currentTarget.dataset.id;
@@ -51,50 +83,44 @@ Component({
        })
        this.xgArr()
       },
-      DateChange1(e) {
-        this.setData({
-          date: e.detail.value
-        })
-        this.xgArr()
-      },
       xgArr(){
-        http.listpropertypatrollingplanApi({
-          data:{
-            curDate:this.data.date
-          },
-          success:res=>{
-            //propertyPatrollingPlanId
-            var res = res
-            for(var i in res){
-              //res[i].time = res[i].startTime.split('')[0]
-              this.xgdArr(res[i])
+        wx.showLoading({
+          title: '拼命加载中',
+        })
+        if(wx.getStorageSync('wyUser').roleId == "c9239296-0f3f-4b19-803c-f8050eabe863"){
+          http.listpropertypatrollingplanApi({
+            data:{
+              curDate:this.data.date
+            },
+            success:res=>{
+              this.setData({
+                xgList:res
+              })
+              wx.hideLoading({
+                success: (res) => {},
+              })
             }
-            // this.setData({
-            //   xgList:res
-            // })
-          }
-        })
+          })
+        }else if(wx.getStorageSync('wyUser').roleId == "c54edb4e-9668-49c9-82ef-a417604d2b29"){
+          http.selfPlanApi({
+            data:{
+              unifiedUserId:wx.getStorageSync('wxUser').id,
+              curDate:this.data.date
+            },
+            success:res=>{
+               console.log(res)
+              this.setData({
+                xgList:res.data.planList
+              })
+              wx.hideLoading({
+                success: (res) => {},
+              })
+            }
+          })
+        }
+        
       },
-      xgdArr(item){
-        var xgList = this.data.xgList
-        var item = item
-        http.compareRecordApi({
-          data:{
-           propertyPatrollingPlanId:item.propertyPatrollingPlanId
-          },
-          success:res=>{
-            item.spotList = res
-            xgList.push(item)
-            this.setData({
-              xgList:xgList
-            })
-            console.log(this.data.xgList)
-          },
-          fail:err=>{
-            console.log(err)
-          }
-        })
-      }
+     
   },
  
   /*组件生命周期*/ 
@@ -115,10 +141,10 @@ Component({
       this.setData({
         wyUser:wx.getStorageSync('wyUser')
       })
-      console.log(wx.getStorageSync('wyUser'))
+      //console.log(wx.getStorageSync('wxUser'))
       if(wx.getStorageSync('wyUser').roleId == "c9239296-0f3f-4b19-803c-f8050eabe863"){
         this.setData({
-          date:"2020-12"//util.formatTimeyue(new Date)
+          date:util.formatTime1(new Date).split(' ')[0]
         })
       }else if(wx.getStorageSync('wyUser').roleId == "c54edb4e-9668-49c9-82ef-a417604d2b29"){
         this.setData({
