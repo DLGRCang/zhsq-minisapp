@@ -56,11 +56,9 @@
   position: fixed;
   left: 0;
   z-index: 10;
-  
   overflow: hidden;
-  
 }
-.dhnr{
+/* .dhnr{
   width: 100%;
   text-align: center;
   margin: 20rpx 0;
@@ -72,7 +70,7 @@
 }
 .dhnr view:last-child{
   font-size: 20rpx;
-}
+} */
 
 /* 头部样式 */
 .head_c{
@@ -546,7 +544,7 @@ margin: 5rpx 0 8rpx;
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 99999999999999999 !important;
+  z-index: 9999;
   padding-top: 100rpx;
 }
 .sosViewTop{
@@ -562,6 +560,10 @@ margin: 5rpx 0 8rpx;
   align-items: center;
   justify-content: space-around;
   background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
 }
 .sosViewBot view{
   width: 200rpx;

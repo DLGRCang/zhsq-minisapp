@@ -121,10 +121,13 @@
     </view>
   </view>
   <!-- 第五栏 -->
-<!-- <view> 
+<view> 
   <view class="my-p-out">
-    <button class="cu-btn block bg-blue margin-tb-sm lg" disabled type="">退出登录</button>
+    <navigator class="cu-btn block bg-blue margin-tb-sm lg" open-type="exit" target="miniProgram">
+      退出登录
+    </navigator>
+    
   </view>
-</view> -->
+</view>
   
 </view>

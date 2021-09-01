@@ -41,12 +41,12 @@ Page({
  // 可选执行，设置是否进行内部事件的console和写入logger文件中，用于分析问题使用
  // 默认都不开启，设置为true开启
  this.xylinkRoom.setDebug(true, true);
- this.xyToken(options.video)
+ this.xyToken(options)
 
   },
 
-  xyToken(video){
-    
+  xyToken(options){
+   // console.log(options)
     http.videocommunicationApi({
       success:res=>{
         //console.log(JSON.parse(res.data))
@@ -66,8 +66,8 @@ Page({
               duration: 2000,
               mask: true,
             });
-            if(video == 0){
-              xylink.makeCall(9081048468, '', wx.getStorageSync('wxUser').name, this.onGetCallStatus);
+            if(options.video == 0){
+              xylink.makeCall(options.mettingno, options.password, wx.getStorageSync('wxUser').name, this.onGetCallStatus);
             }else{
               xylink.makeCall(9081083950, '', wx.getStorageSync('wxUser').name, this.onGetCallStatus);
             }
@@ -78,6 +78,7 @@ Page({
   },
 
   onGetCallStatus(response) {
+    console.log(response)
 		// 响应makeCall状态，如果为200， 可以进行隐藏呼叫loading页面，执行start方法通知组件内部进行一系列操作
 		// 比如连接socket，开启内部room事件向外发送
 		const { code, message } = response;

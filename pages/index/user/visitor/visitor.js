@@ -115,20 +115,30 @@ Page({
     }else{
       orglndexCodes = "80d9e82b-0c42-4395-999c-539fd8d8ebd3"
     }
-    http.queryPersonnelListV2Api({
-      data:{
-        personName:this.data.yezhuText,
-        orglndexCodes:orglndexCodes,
-        pageNo:1,
-        pageSize:1000
-      },
-      success:res=>{
-        console.log(res)
-        this.setData({
-          topSSnrFor:res.data.list
-        })
-      }
-    })
+    if(this.data.yezhuText == ""){
+      verif.tips("请输入关键字在搜索")
+    }else{
+      http.queryPersonnelListV2Api({
+        data:{
+          personName:this.data.yezhuText,
+          orglndexCodes:orglndexCodes,
+          pageNo:1,
+          pageSize:1000
+        },
+        success:res=>{
+          console.log(res)
+          if(res == ""){
+            verif.tips("无此人")
+          }else{
+            this.setData({
+              topSSnrFor:res.data.list
+            })
+          }
+          
+        }
+      })
+    }
+    
   },
 
   nrClick(e){
@@ -173,7 +183,7 @@ Page({
       this.setData({
         index: e.detail.value
       })
-      console.log(this.data.index);
+     // console.log(this.data.index);
     },
 
     xzYz(){

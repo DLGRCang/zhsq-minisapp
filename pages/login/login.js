@@ -29,6 +29,7 @@ Page({
     })
   },
   bindGetUserInfo(e) {
+    var that = this
    // console.log(e)
     wx.showLoading({
       title: '授权中...',
@@ -51,6 +52,7 @@ Page({
                   wx.setStorageSync('wxUser',userInfo)
                   wx.setStorageSync('token',data.result.data.token)
                   wx.setStorageSync('loginSi', true)
+                  that.saven()
                   wx.hideLoading({
                     success: (res) => {
                       // http.messageApi({
@@ -74,15 +76,19 @@ Page({
                       //   }
                       // })
                       verif.tips('授权成功')
-                      var pages = getCurrentPages(); // 当前页面
-                                var beforePage = pages[pages.length - 2]; // 前一个页面
-                                // console.log("beforePage");
-                                // console.log(beforePage);
-                                wx.navigateBack({
-                                    success: function() {
-                                        beforePage.messageList(); // 执行前一个页面的messageList方法
-                                    }
-                                });
+                      setTimeout(()=>{
+                        var pages = getCurrentPages(); // 当前页面
+                        var beforePage = pages[pages.length - 2]; // 前一个页面
+                        // console.log("beforePage");
+                        // console.log(beforePage);
+                        wx.navigateBack({
+                            success: function() {
+                                beforePage.messageList(); // 执行前一个页面的messageList方法
+                                beforePage.onLoad(); // 执行前一个页面的messageList方法
+                            }
+                        });
+                      },800)
+                      
                       // setTimeout(()=>{
                       //   wx.navigateBack({
                       //     delta: 1
@@ -109,6 +115,24 @@ Page({
            // console.log(res)
           }
         })
+  },
+
+  saven(){
+    http.listintegralmanagementApi({
+      success:res=>{
+         console.log(res)
+        http.saveusersintegralApi({
+          data:{
+            userUsername:wx.getStorageSync('wxUser').id,
+            userIntegral:res[0].integralManagementId,
+            userAvatar:1
+          },
+          success:resa=>{
+            console.log(resa)
+          }
+        })
+      }
+    })
   },
     /**
    * 生命周期函数--监听页面显示

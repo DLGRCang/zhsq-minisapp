@@ -1,6 +1,6 @@
 /* pages/index/feedback/feedback.wxss */
 @import "../../../index/user/about/about.wxss";
-.about>textarea{
+/* .about>textarea{
   width: 100%;
 height: 190px;padding:25rpx;
 background: #F7F8FA;
@@ -43,4 +43,33 @@ border-radius: 12rpx;
   line-height: 87rpx;color: #fff;
   background: linear-gradient(60deg, #66B7F9, #3A91F7);
   border-radius: 44rpx;
+} */
+/* pages/index/Credits_Log/Credits_Log.wxss */
+.fr{float: right;}
+.fl{float: left;}
+/* 頭部背景樣式 */
+.box-body{ width: 100%;height: 100%;position: relative;overflow-x: hidden;color:#333;overflow-y: auto;}
+.beijing{
+  width: 100%;
+  height: 290rpx;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: -1;
 }
+/* 内容样式 */
+.credits_box{width:93%;padding:35rpx;background: #fff;margin:15rpx auto;
+clear: both;overflow: hidden;border-radius: 15rpx;}
+  .cu_credits_box {margin-top:25rpx;
+    width: 100%;height: 100rpx;   border-bottom: 1rpx solid #F9F9F9;
+}
+.zjf{font-size: 40rpx;padding:35rpx;font-weight: bold;color: #fff;}
+.box01{width: 90%;float: left; }
+.text_01{
+  font-family: Microsoft YaHei;
+  font-weight: bold;font-size: 28rpx;
+  color: #333333;
+  line-height: 30rpx;}
+.text_02{padding-top: 20rpx;}
+.box_btn{float: right;width: 10%;    margin-top: 25rpx;}
+.box_btn>image{width: 40rpx;height: 40rpx;margin-top:25rpx;}

@@ -54,8 +54,8 @@
     <view class="kmAbslot" wx:if="{{zziconTrue}}">
       <view wx:if="{{djewmTrue}}" style="text-align: center;">
         <view class="ewmTop" id="ewmHeight" style="height:{{ewmHeight}}px">
-          <image src="https://www.yjhlcity.com/zhsqminiapp/EWM.jpg" style="{{ewmtubiao}}" wx:if="{{ewmtupianqh}}"></image>
-          <image src="https://www.yjhlcity.com/zhsqminiapp/ewm2.png" style="{{ewmtubiao}}" wx:if="{{!ewmtupianqh}}"></image>
+          <image src="https://www.yjhlcity.com/zhsqminiapp/EWM.jpg" :style="{{ewmtubiao}}" wx:if="{{ewmtupianqh}}"></image>
+          <image src="https://www.yjhlcity.com/zhsqminiapp/ewm2.png" :style="{{ewmtubiao}}" wx:if="{{!ewmtupianqh}}"></image>
         </view>
         <view class="cxscEwm" style="background:{{EwmCss}}" bindtouchstart="chsClick" bindtouchend="endClick">点击重新加载</view>
       </view>
@@ -108,20 +108,20 @@
     </view>
   </view>
 <view class="cu-bar tabbar bg-white foot" id="footer1">
-    <!-- <view class="action text-green" wx:for="{{tabbar}}" wx:key="index" bindtap="NavChange" data-cur="{{item.cur}}" wx:if="{{item.isTrue}}">
+    <view class="action text-green" wx:for="{{tabbar}}" wx:key="index" bindtap="NavChange" data-cur="{{item.cur}}" wx:if="{{item.isTrue}}">
       <view>
         <image src="{{item.imgs}}" class="tabimg" wx:if="{{PageCur1!=item.cur}}"></image>
         <image src="{{item.imgt}}" class="tabimg" wx:if="{{PageCur1==item.cur}}"></image>
       </view>
       <view class="{{PageCur==item.cur?'text-ttt':'text-nnn'}}">{{item.name}}</view>
-    </view> -->
-    <view class="action text-gray" bindtap="NavChange" data-cur="t2">
+    </view>
+    <!-- <view class="action text-gray" bindtap="NavChange" data-cur="t2">
       <view>
         <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/2.png" class="tabimg" wx:if="{{PageCur1!='t2'}}"></image>
         <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/2j.png" class="tabimg" wx:if="{{PageCur1=='t2'}}"></image>
       </view>
       <view class="{{PageCur=='t2'?'text-ttt':'text-nnn'}}">生活</view>
-    </view>
+    </view> -->
 <!-- <view class="action text-gray add-action yjkmen" bindtap="NavChange" data-cur="t3">
       <view class="ewmkaimen" style="{{ewmkm}}" catchtap="ewmClick">
         <text class="cuIcon-scan" style="{{smcuicon}};top:5rpx;color:#fff"></text>
@@ -138,7 +138,7 @@
       </view>
       <view class="{{PageCur=='t3'?'text-ttt':'text-nnn'}}">一键开门</view>
     </view> -->
-    <view class="action text-gray" bindtap="NavChange" data-cur="t4">
+    <!-- <view class="action text-gray" bindtap="NavChange" data-cur="t4">
       <view>
         <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/4.png" class="tabimg" wx:if="{{PageCur1!='t4'}}"></image>
         <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/4j.png" class="tabimg" wx:if="{{PageCur1=='t4'}}"></image>
@@ -151,7 +151,7 @@
         <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/5j.png" class="tabimg" wx:if="{{PageCur1=='t5'}}"></image>
       </view>
       <view class="{{PageCur=='t5'?'text-ttt':'text-nnn'}}">我的</view>
-    </view>
+    </view> -->
   </view>
 </view>
 

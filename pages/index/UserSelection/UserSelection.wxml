@@ -4,8 +4,8 @@
 <view class="sele">
   <view class="sf">请选择您的身份</view>
   <view class="sfx">您好！欢迎使用伊智家！</view>
-  <view class="sfxz" wx:for="{{sfUset}}" wx:key="index" bindtap="szsfClick" data-item="{{item}}" style="{{sxId == item.roleId ? 'background: linear-gradient(60deg, #66B7F9, #3A91F7)':'background:#fff'}}">
-    <text style="{{sxId == item.roleId ? 'color: #fff;':'color: #001F42'}}">{{item.roleName}}</text>
+  <view class="sfxz" wx:for="{{sfUset}}" wx:key="index" bindtap="szsfClick" data-item="{{item}}" :style="{{sxId == item.roleId ? 'background: linear-gradient(60deg, #66B7F9, #3A91F7)':'background:#fff'}}">
+    <text :style="{{sxId == item.roleId ? 'color: #fff;':'color: #001F42'}}">{{item.roleName}}</text>
     <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/yhsz.png" wx:if="{{sxId == item.roleId}}"></image>
     <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/yhwx.png" wx:if="{{sxId != item.roleId}}"></image>
   </view>

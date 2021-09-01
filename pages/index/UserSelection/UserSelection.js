@@ -32,7 +32,7 @@ Page({
     })
   },
   xybClick(){
-    console.log(this.data.sxId)
+    //console.log(this.data.sxId)
     if(this.data.sxId == "38b30fb9-8589-4019-a466-e5175fde8978"){
       wx.setStorageSync('indexId', 1)
     }else if(this.data.sxId == "14f29566-0214-4a63-8630-e65e778c8d95"){

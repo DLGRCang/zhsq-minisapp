@@ -207,6 +207,19 @@
         {
           "name": "pages/index/user/My_appointment/My_appointment",
           "pathName": "pages/index/user/My_appointment/My_appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/parrtyMap/parrtyMap",
+          "pathName": "pages/index/user/parrtyMap/parrtyMap",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/user/videoList/videoList",
+          "pathName": "pages/index/user/videoList/videoList",
+          "query": "",
           "scene": null
         }
       ]

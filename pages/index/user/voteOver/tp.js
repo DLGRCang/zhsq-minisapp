@@ -83,21 +83,21 @@ Page({
   dxClick(e){
     var x = ''
     if(e.currentTarget.dataset.indexa == 0){
-      x='a'
+      x='A'
     }else if(e.currentTarget.dataset.indexa == 1){
-      x='b'
+      x='B'
     }else if(e.currentTarget.dataset.indexa == 2){
-      x='c'
+      x='C'
     }else if(e.currentTarget.dataset.indexa == 3){
-      x='d'
+      x='D'
     }else if(e.currentTarget.dataset.indexa == 4){
-      x='e'
+      x='E'
     }else if(e.currentTarget.dataset.indexa == 5){
-      x='f'
+      x='F'
     }else if(e.currentTarget.dataset.indexa == 6){
-      x='g'
+      x='G'
     }else if(e.currentTarget.dataset.indexa == 7){
-      x='h'
+      x='H'
     }
 
     this.setData({
@@ -106,7 +106,6 @@ Page({
   },
   tpClick(e){
     var time = util.formatTime(new Date)
-    
         if(this.data.rowsdx == null){
           verif.tips('请选择投票内容')
         }else{
@@ -116,18 +115,29 @@ Page({
           http.tpanApi({
             data:{
               voteId:e.currentTarget.dataset.id,
-              votePeopleId:'aaa',
+              votePeopleId:wx.getStorageSync('wxUser').id,
               voteTime:time,
               voteOption:this.data.rowsdx,
-              votePeopleName:'德力'
+              votePeopleName:wx.getStorageSync('wxUser').name
             },
             success:res=>{
-              wx.hideLoading({
-                success: (res) => {
-                  this.selectComponent("#haveTrue").falseClick()
-                  verif.tips('投票成功')
-                },
-              })
+              console.log(res)
+              if(res.code == "200"){
+                wx.hideLoading({
+                  success: (res) => {
+                    this.selectComponent("#haveTrue").falseClick()
+                    verif.tips('投票成功')
+                  },
+                })
+              }else{
+                wx.hideLoading({
+                  success: (res) => {
+                    this.selectComponent("#haveTrue").falseClick()
+                    verif.tips('请勿重复投票')
+                  },
+                })
+              }
+              
             },
             fail:err=>{
               wx.hideLoading({

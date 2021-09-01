@@ -1,13 +1,44 @@
 <!--pages/index/feedback/feedback.wxml-->
+<!--pages/index/Credits_Log/Credits_Log.wxml-->
 <cu-custom bgColor="bg-bluejb" isBack="{{true}}">
-    <view slot="content">帮助反馈</view>
+    <view slot="content">反馈内容</view>
   </cu-custom>
-
-  <view style="height:91%;overflow: hidden">
+  <view style="height:{{windowHeight}}px;">
     <view class="box-body">
-      <image src="../https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+      <defect topPadding="{{360}}" wx:if="{{list.length == 0}}">
+        <view slot="content">暂无投诉</view>
+      </defect>
+    <view class="credits_box" wx:if="{{list.length != 0}}">
+      <!-- 第一栏 -->
+    <view class="cu_credits_box" wx:for="{{list}}" wx:key="index">
+      <view class="box01">
+        <view class="text-black" style="margin-bottom: 6px;">
+          <text class="text_01">投诉内容：</text>
+          <text>{{item.content}}</text>
+        </view>
+        <view class="text-gray text-sm flex">
+        <text class="text_01">反馈：</text>
+          <text wx:if="{{item.feedBack != null}}">{{item.feedBack}}</text>
+          <text wx:if="{{item.feedBack == null}}">未解决</text>
+        </view>
+      </view>
+  
+    </view>
 
-    <!-- 内容 -->
+
+  </view>
+
+  </view>
+ </view>
+
+
+
+  <!-- <view style="height:91%;overflow: hidden">
+    <view class="box-body">
+      <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
+
+
     <view class="about">
       <view class="wx_timebox">
         <text class="wx_title">请输入要反馈的内容：</text>
@@ -17,4 +48,4 @@
     </view>
 
   </view>
- </view>
+ </view> -->

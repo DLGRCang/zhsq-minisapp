@@ -243,9 +243,14 @@ Component({
     // 发布
     fabu:function(){
       if(verif.checkLogin()){
+        if(wx.getStorageSync('xzvillage').houseList.length == 0){
+          verif.tips("您不是小区业主不可发布内容")
+        }else{
           wx.navigateTo({
             url: '/pages/index/user/Llq_pub/Llq_pub'
           })
+        }
+          
       }
     },
 

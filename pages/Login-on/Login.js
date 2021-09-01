@@ -155,7 +155,7 @@ Page({
                                 }
                               })
                               verif.tips('登录成功')
-              
+                              that.saven()
                               setTimeout(()=>{
                                 wx.navigateBack({
                                   delta: 2
@@ -281,6 +281,24 @@ Page({
     // wx.navigateTo({
     //   url: '/pages/index/user/Register/Register'
     // })
+  },
+
+  saven(){
+    http.listintegralmanagementApi({
+      success:res=>{
+        //console.log(res)
+        http.saveusersintegralApi({
+          data:{
+            userUsername:wx.getStorageSync('wxUser').id,
+            userIntegral:res[0].integralManagementId,
+            userAvatar:1
+          },
+          success:resa=>{
+            console.log(resa)
+          }
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

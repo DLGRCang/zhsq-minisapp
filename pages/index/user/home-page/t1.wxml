@@ -135,7 +135,7 @@
 </view> -->
 
 <!-- 第四部分 -->
-<!-- <view class="xqtp_box">
+ <view class="xqtp_box" wx:if="{{toupiaoTrue}}">
 <text class="sqhd_title">小区投票</text>
 <view class="body-ase" bindtap="xqvode">
       <view class="abc"></view>
@@ -171,8 +171,8 @@
 
 <!-- 第六部分 -->
 <view class="xqtp_box">
-<!-- <text class="sqhd_title" wx:if="{{rowsWJ.length != 0}}">问卷调查</text> -->
-<view class="body-ase" wx:for="{{rowsWJ}}" bindtap="xqvode" data-id="{{item.questionnaireId}}">
+<text class="sqhd_title" wx:if="{{rowsWJ.length != 0}}">问卷调查</text>
+<view class="body-ase" wx:for="{{rowsWJ}}" wx:key="index" bindtap="xqvode" data-id="{{item.questionnaireId}}">
       <view class="abc"></view>
       <view class="ase-box">
         <view class="ase-left">
@@ -194,11 +194,11 @@
 
 <view class="xinwen" wx:for="{{xwrows}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
-        <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
+        <view class="seven_left" :style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
             <text>{{item.publicTime}}</text>  
         </view>
-          <view class="seven_right" style="{{item.head == ''?'width:0':'width:25%'}}">
+          <view class="seven_right" :style="{{item.head == ''?'width:0':'width:25%'}}">
             <image src="https://www.yjhlcity.com:9000/fileService/downloadFTP/public/{{item.head}}"></image>
           </view>
         </view>
@@ -261,8 +261,9 @@
 
   
   </view>
-  <view class="sosViewBot">
+
+</view>
+<view class="sosViewBot" wx:if="{{sosPhone}}" style="position: fixed;">
     <view bindtap="ifTrueClick">添加联系人</view>
     <view bindtap="gbifTrueClick" style="background:rgb(119, 116, 116)">关闭</view>
   </view>
-</view>

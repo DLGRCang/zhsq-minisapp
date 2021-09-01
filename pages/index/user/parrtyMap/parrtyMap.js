@@ -1,4 +1,4 @@
-// pages/index/feedback/feedback.js
+// pages/index/user/parrtyMap/parrtyMap.js
 const app = getApp()
 import http from '../../../../utils/api'
 Page({
@@ -8,6 +8,10 @@ Page({
    */
   data: {
     windowHeight:app.globalData.windowHeight,
+    latitude:null,
+    longitude:null,
+    markers:[],
+    markersList:[],
     list:[]
   },
 
@@ -15,19 +19,49 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      http.listcomplaintApi({
-        data:{
-          peopleId:wx.getStorageSync('wxUser').id
-        },
+
+      var markers = this.data.markers
+      http.listpartymapApi({
         success:res=>{
-          console.log(res)
+          for(var i in res){
+            var item = {
+              latitude:res[i].dimension,
+              longitude:res[i].longitude,
+              id:parseInt(i),
+              callout:{
+                content:res[i].partyBranchName,
+                fontSize:15,
+                padding:6
+              }
+            }
+      
+            markers.push(item)
+          }
+          //console.log(res)
           this.setData({
-            list:res
+            latitude:res[0].dimension,
+            longitude:res[0].longitude,
+            markersList:res,
+            markers:markers
+            
           })
         }
       })
   },
 
+  bindmarkertapClick(e){
+    //console.log(e)
+    this.setData({
+      modalName: "bottomModal",
+      list:this.data.markersList[e.detail.markerId]
+    })
+    //console.log(this.data.list)
+  },
+  hideModal(){
+    this.setData({
+      modalName: ""
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

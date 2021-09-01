@@ -1,0 +1,46 @@
+/* pages/index/user/videoList/videoList.wxss */
+.box{
+  width: 100%;
+  overflow: hidden;
+}
+.box_top{
+  width: 100%;
+  height: 7%;
+
+}
+.scroll{
+  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+  padding-bottom: 5px;
+}
+.box_bot{
+  width: 100%;
+  height: 93%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.box_for{
+  padding: 20px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+
+}
+.box_for view:first-child{
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.box_for view:last-child{
+  width: 20%;
+  background: linear-gradient(60deg, #0586F8, #1BB1FD);
+  height: 30px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}

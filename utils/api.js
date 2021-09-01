@@ -483,6 +483,41 @@ function tabbarApi(params){
   http('zhsqminiapp/tabbar.json','get',params)
 }
 
+//党建地图
+function listpartymapApi(params){
+  http('zhsq/app/partymap/listpartymap','get',params)
+}
+
+
+//我的民情直达
+function listcomplaintApi(params){
+  http('zhsq/app/release/api/complaint/listcomplaint?peopleId='+params.data.peopleId,'get',params)
+}
+
+//积分1
+function listintegralmanagementApi(params){
+  http('zhsq/app/integralmanagement/listintegralmanagement','get',params)
+}
+
+//积分2
+function saveusersintegralApi(params){
+  http('zhsq/app/usersintegral/saveusersintegral','post',params)
+}
+
+//视频类别
+function codelistofGetApi(params){
+  http('zhsq/app/release/api/dictionaries/codelistofGet/00010007','get',params)
+}
+
+//视频会议列表
+function listvideomeetingApi(params){
+  http('zhsq/app/videomeeting/listvideomeeting?mettingTheme='+params.data.mettingTheme,'get',params)
+}
+
+//新闻浏览
+function listassessmentmanageApi(params){
+  http('zhsq/app/assessmentmanage/listassessmentmanage','get',params)
+}
 export default { // 暴露接口
   xinwenApi,
   llqfbApi,
@@ -579,5 +614,12 @@ export default { // 暴露接口
   schedulingApi,
   confirmEndApi,
   selfPlanApi,
-  updateStateApi
+  updateStateApi,
+  listpartymapApi,
+  listcomplaintApi,
+  listintegralmanagementApi,
+  saveusersintegralApi,
+  codelistofGetApi,
+  listvideomeetingApi,
+  listassessmentmanageApi
 }

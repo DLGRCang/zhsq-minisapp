@@ -32,7 +32,7 @@ Page({
         imgId1=imgId1+','+this.data.imgId[i]
       }
     }
-    //console.log(wx.getStorageSync('xzvillage')[0])
+    //console.log(wx.getStorageSync('xzvillage'))
     if(this.data.textArea == ''){
       verif.tips('请输入发布内容')
     }else{
@@ -52,8 +52,8 @@ Page({
           status:0
         },
         success:res=>{
-          console.log(res)
-  
+          //console.log(res)
+            this.saven()
             wx.hideLoading({
               success: (res) => {
                 this.selectComponent("#haveTrue").falseClick()
@@ -98,7 +98,23 @@ Page({
     })
    // console.log(this.data.imgList)
   },
-
+  saven(){
+    http.listintegralmanagementApi({
+      success:res=>{
+        //console.log(res)
+        http.saveusersintegralApi({
+          data:{
+            userUsername:wx.getStorageSync('wxUser').id,
+            userIntegral:res[1].integralManagementId,
+            userAvatar:1
+          },
+          success:resa=>{
+            console.log(resa)
+          }
+        })
+      }
+    })
+  },
   ViewImage(e) {
     wx.previewImage({
       urls: this.data.imgList,

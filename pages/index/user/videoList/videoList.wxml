@@ -1,0 +1,38 @@
+<cu-custom bgColor="bg-bluejb" isBack="{{true}}">
+    <view slot="content">反馈内容</view>
+  </cu-custom>
+  <view style="height:{{windowHeight}}px;" class="box">
+  <view class="box_top">
+    <scroll-view scroll-x class="bg-white nav scroll" scroll-with-animation scroll-left="{{scrollLeft}}">
+      <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{tabList}}" wx:key bindtap="tabSelect" data-index="{{index}}" data-id="{{item.dictionariesId}}"> 
+        {{item.dictionariesName}}
+      </view>
+    </scroll-view>
+  </view>
+  <view class="box_bot">
+    <defect topPadding="{{350}}" wx:if="{{videoList.length == 0}}"><view slot="content">暂无会议室</view></defect>
+    <view class="box_for" wx:for="{{videoList}}" wx:key>
+      <view>
+        <text>会议室名：</text>
+        {{item.mettingName}}
+      </view>
+      <view bindtap="ClickVideo" data-mettingNo="{{item.mettingNo}}" data-password="{{item.password}}">进入</view>
+    </view>
+  </view>
+  <view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">密码</view>
+    </view>
+    <view style="text-align: left;height: 60px;">
+      <input type="text" placeholder="请输入会议室密码" bindinput="inputClick" style="width: 100%;height: 100%;padding: 0 20px;"/>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="vClick">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+  </view>

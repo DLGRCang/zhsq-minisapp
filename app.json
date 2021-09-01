@@ -2,6 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/index/webView/webView",
+    "pages/index/user/parrtyMap/parrtyMap",
+    "pages/index/user/videoList/videoList",
     "pages/index/user/home-page/t1",
     "pages/index/user/share/share",
     "pages/index/user/sharePage/sharePage",
@@ -87,7 +89,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "ColorUI",
+    "navigationBarTitleText": "伊智家",
     "navigationStyle": "custom",
     "navigationBarTextStyle": "white"
   },

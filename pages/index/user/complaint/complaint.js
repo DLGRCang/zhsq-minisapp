@@ -92,7 +92,7 @@ Page({
       data:{
         villageId:wx.getStorageSync('xzvillage').village.villageId,
         peopleId:wx.getStorageSync('wxUser').id,
-        peopleName:'bbb',
+        peopleName:wx.getStorageSync('wxUser').name,
         time:time,
         content:this.data.content,
         file:imgId1,

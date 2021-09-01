@@ -1,0 +1,32 @@
+<view class="parttyMap">
+  <cu-custom bgColor="bg-gray-re" isBack="{{true}}">
+    <view slot="content">党建地图</view>
+  </cu-custom> 
+  <view class="map" style="height:{{windowHeight}}px;">
+    <map style="width: 100%;height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}" scale="14" markers="{{markers}}" bindmarkertap="bindmarkertapClick">
+
+    </map>
+
+    <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" bindtap="hideModal">
+      <view class="cu-dialog">
+        <view class="cu-bar bg-white">
+          <view class="content">详情信息</view>
+        </view>
+        <view class="padding-xl" style="text-align: left;">
+          <view>
+            <text>党支部名称：</text>{{list.partyBranchName}}
+          </view>
+          <view>
+            <text>面积：</text>{{list.area}}
+          </view>
+          <view>
+            <text>党员情况：</text>{{list.partyIntroduce}}
+          </view>
+          <view>
+            <text>简介：</text>{{list.introduce}}
+          </view>
+        </view>
+      </view>
+</view>
+  </view>
+</view>

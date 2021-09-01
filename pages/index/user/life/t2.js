@@ -108,7 +108,7 @@ Component({
         number:0
       },
       success:res=>{
-        console.log(res)
+        //console.log(res)
         this.setData({
           rows:res.rows
         })

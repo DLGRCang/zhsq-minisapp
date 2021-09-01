@@ -420,7 +420,7 @@ Page({
     this.setData({
       xzvillage:e.currentTarget.dataset.item
     })
-    console.log(this.data.xzvillage)
+   // console.log(this.data.xzvillage)
   },
   qrxzxqClick(){
     wx.setStorageSync('xzvillage', this.data.xzvillage)
@@ -439,7 +439,7 @@ Page({
     })
   },
   xunzexq(){
-    console.log(this.data.village)
+    //console.log(this.data.village)
     if(this.data.village.length > 1){
       this.setData({
         xuanzexiaoqu:true
@@ -458,7 +458,7 @@ Page({
     wx.setStorageSync('clackTabBar', e.currentTarget.dataset.cur)
     if(e.currentTarget.dataset.cur == 't2'||e.currentTarget.dataset.cur == 't3'||e.currentTarget.dataset.cur == 't4'){
         if(verif.checkLogin()){
-          console.log(verif.village)
+          //console.log(verif.village)
           if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
             verif.tips('您不是小区人员，请联系您所在小区物业')
           }else{
@@ -750,9 +750,10 @@ Page({
     }
   },
 
- 
+
 
   onLoad: function () {
+    this.messageList()
     //console.log(wx.getStorageSync('wyUser'))
     this.setData({
       wyUser:wx.getStorageSync('wyUser')
@@ -808,10 +809,11 @@ Page({
       })
     }
     this.appid()
+    
   },
 
   messageList(){
-    
+  // console.log(wx.getStorageSync('wxUser'))
     var that = this
     if(wx.getStorageSync('wxUser') != ''){
       wx.getSetting({
@@ -862,13 +864,16 @@ Page({
                                 }else{
                                   
                                   if(res.length == 1){
+                                   
                                     wx.setStorageSync('village', res[0])
                                     wx.setStorageSync('xzvillage', res[0])
+                                    //console.log(res[0])
                                     that.setData({
                                       village:res[0],
                                       xzvillage:res[0]
                                     })
                                   }else{
+                                   
                                     wx.setStorageSync('village', res)
                                     if(wx.getStorageSync('xzvillage') != ""){
                                       for(var i in res){
@@ -887,7 +892,7 @@ Page({
                                     })
                                   }
                                 }
-                                
+                                that.selectComponent("#dlFalse").readyClick()
                                // console.log(res)
                                 // if(res.status == 500){
                                   
@@ -1039,7 +1044,7 @@ Page({
   //监听页面显示
   onShow:function(){
    // console.log(wx.getStorageSync('wxUser'))
-    this.messageList()
+    
     var that = this
     var query = wx.createSelectorQuery()
     var  indexId = wx.getStorageSync('indexId')

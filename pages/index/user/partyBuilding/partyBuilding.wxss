@@ -111,10 +111,9 @@ color: #666666;
   height: 180rpx;
   background: #fff;
   margin-top: 30rpx;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  white-space:nowrap;
   border-radius: 12rpx;
+  overflow-x: auto;
 }
 .fuwu .fuwunei{
   width: 20%;
@@ -124,6 +123,8 @@ color: #666666;
   align-content: center;
   text-align: center;
   font-size: 22rpx;
+  display: inline-block;
+  padding-top: 18px;
 }
 .fuwu image{
   width: 72rpx;

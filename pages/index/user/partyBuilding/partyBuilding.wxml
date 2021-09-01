@@ -61,6 +61,10 @@
         <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/sqdzb.png"></image>
         <view style="width:100%">社区党支部</view>
       </view>
+      <view class="fuwunei" bindtap="djdt">
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/sqdzb.png"></image>
+        <view style="width:100%">党建地图</view>
+      </view>
     </view>
     <view class="top-tab">
       <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">

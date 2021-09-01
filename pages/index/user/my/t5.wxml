@@ -139,22 +139,22 @@
   </view> -->
   </view>
 
-  <!-- <view class="my-b-from">
+  <view class="my-b-from">
     <view class="my-p-from" bindtap="feedbackClick">
       <view class="bot-border">
-        <text>帮助反馈</text>
+        <text>我的投诉</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view>
-  <view class="my-p-from" bindtap="aboutMe">
+  <!-- <view class="my-p-from" bindtap="aboutMe">
     <view class="bot-border">
         <text>关于我们</text>
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
-  </view>
+  </view> -->
   <view class="my-from" bindtap="qcClick">
         <text>清除缓存</text>
         <image class="fromImg" src="{{rightHui}}"></image>
   </view>
-  </view> -->
+  </view>
 </view>

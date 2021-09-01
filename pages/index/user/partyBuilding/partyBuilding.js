@@ -42,6 +42,25 @@ Page({
 
     //this.partyArr()
     this.next()
+    this.saven()
+  },
+
+  saven(){
+    http.listassessmentmanageApi({
+      success:res=>{
+        console.log(res)
+        http.saveusersintegralApi({
+          data:{
+            userUsername:wx.getStorageSync('wxUser').id,
+            userIdcard:res[0].assessmentManageId,
+            userAvatar:2
+          },
+          success:resa=>{
+            console.log(resa)
+          }
+        })
+      }
+    })
   },
   getAddInfo(){
     this.onLoad()
@@ -126,7 +145,7 @@ Page({
         cur:cur
       },
       success:res=>{
-       console.log(res)
+       //console.log(res)
         wx.hideLoading({
           success: (res) => {
             that.selectComponent("#haveTrue").falseClick()
@@ -491,6 +510,11 @@ Page({
   dangqunfw(){
     wx.navigateTo({
       url: '/pages/index/user/partyMasses/dqfw'
+    })
+  },
+  djdt(){
+    wx.navigateTo({
+      url: '/pages/index/user/parrtyMap/parrtyMap'
     })
   },
   /**

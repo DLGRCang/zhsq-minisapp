@@ -51,7 +51,7 @@ const imgClick = function (){
 
         //https://www.yjhlcity.com
         wx.uploadFile({
-          url: 'http://172.16.20.74:8083/zhsq/app/file/uploadimage',
+          url: 'https://www.yjhlcity.com/zhsq/app/file/uploadimage',
           filePath: tempFilePaths,
           name: 'image',
           header: {

@@ -73,7 +73,7 @@
         <text bindtap="sousuoClick">搜索</text>
       </view>
       <view class="topSSnr">
-        <view wx:for="{{topSSnrFor}}" wx:key="index" style="{{index == 0 ? 'border-top: none;':''}}" bindtap="nrClick" data-item="{{item}}">{{item.personName}}</view>
+        <view wx:for="{{topSSnrFor}}" wx:key="index" :style="{{index == 0 ? 'border-top: none;':''}}" bindtap="nrClick" data-item="{{item}}">{{item.personName}}</view>
       </view>
     </view>
     <view class="sousuobot">

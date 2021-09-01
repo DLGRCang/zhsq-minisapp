@@ -45,7 +45,8 @@ Component({
       {id:4,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts4a.png',text:"生活缴费"},//,url:'/pages/index/living_payment/shjf'
       {id:5,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts5a.png',text:"SOS求助",url:''},
       {id:6,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts6a.png',text:"房屋出租",url:'/pages/index/user/houseRental/fwcz'},
-      {id:7,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:'/pages/index/user/airClass/airClass?video=0'},
+      //{id:7,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts7a.png',text:"空中课堂",url:'/pages/index/user/airClass/airClass?video=0'},
+      {id:7,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts7a.png',text:"统一视讯",url:'/pages/index/user/videoList/videoList'},
       // {id:8,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts8a.png',text:"视频直播",url:'/pages/index/user/liveBroadcast/liveBroadcast'},
       //{id:9,image:'../../../images/t1/ts9.png',text:"党支部",url:'/pages/index/partyBranch/partyBranch'},
       {id:10,image:'https://www.yjhlcity.com/zhsq/assets/images/applets/ts10a.png',text:"社区党建",url:'/pages/index/user/partyBuilding/partyBuilding'},
@@ -81,7 +82,8 @@ Component({
     qrtjInputData:[],
     qrtjInputData1:[],
     sosPhone:false,
-    shopping:false
+    shopping:false,
+    toupiaoTrue:true
   },
  
   /**
@@ -535,9 +537,9 @@ Component({
         }
       })
   },
+
  
   listpageshoplisArr(){
-    //console.log(wx.getStorageSync('xzvillage'))
     if(wx.getStorageSync('xzvillage') != ''){
       http.listpageshoplisApi({
         data:{
@@ -546,7 +548,7 @@ Component({
           number:2
         },
         success:res=>{
-          //console.log(res)
+         // console.log(res)
           this.setData({
             shopRows:res.rows
           })
@@ -558,6 +560,23 @@ Component({
     }
     
   },
+
+  readyClick(){
+    this.tabbar()
+    this.listpageshoplisArr()
+  },
+
+  tabbar(){
+    
+    http.tabbarApi({
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          shopping:res.shopping
+        })
+      }
+    })
+  }
   
   },
  
@@ -572,18 +591,18 @@ Component({
     attached() { 
       
     },
+
     //在组件在视图层布局完成后执行
     ready() {
-      http.tabbarApi({
-        success:res=>{
-          //console.log(res)
-          this.setData({
-            shopping:res.shopping
-          })
-        }
-      })
+      if(wx.getStorageSync('xzvillage') == ""){
+        this.setData({
+          toupiaoTrue:false
+        })
+      }
+      
+      
      // console.log(wx.getStorageSync('wxUser').id)
-     //console.log('aaa')
+    // console.log(this.data.shopping)
       
       //this.sqhdList()
       if(wx.getStorageSync('qrtjInputData') != ""){
@@ -593,7 +612,7 @@ Component({
       })
       }
       
-      console.log(wx.getStorageSync('qrtjInputData'))
+      //console.log(wx.getStorageSync('qrtjInputData'))
       
       
       var dataItem = this.data.dataItem
@@ -654,7 +673,6 @@ Component({
       this.wenjuan()
       this.timeList()
       this.xinwenList()
-      this.listpageshoplisArr()
     },
  
     //在组件实例被移动到节点树另一个位置时执行

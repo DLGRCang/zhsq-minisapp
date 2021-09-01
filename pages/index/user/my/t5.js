@@ -109,9 +109,12 @@ Component({
       ifLogin:true,
       wxUser:[]
     })
-    wx.navigateTo({
-      url: '/pages/index/index'
-    })
+    setTimeout(()=>{
+      wx.navigateTo({
+        url: '/pages/index/index'
+      })
+    },1000)
+    
   },
 
   //父组件调用子组件方法
