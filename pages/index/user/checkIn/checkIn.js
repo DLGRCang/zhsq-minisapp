@@ -95,7 +95,7 @@ Page({
     this.times()
   },
   getAddInfo(){
-    this.selectComponent("#haveTrue").falseClick()
+    
   },
 //姓名
 inputName(e){
@@ -261,9 +261,7 @@ quedingsc(){
           if(wx.getStorageSync('wxUser').phone == this.data.sjh){
             verif.tips('请勿录入当前登录人')
           }else{
-            wx.showLoading({
-            title: '拼命加载中',
-          })
+
             wx.request({
               url: 'https://www.yjhlcity.com/usercenter/app/sign/saveZhsqUserInfo', // 就是拼接上前缀,此接口域名是开放接口，可访问
               method: 'post', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
@@ -306,11 +304,9 @@ quedingsc(){
                     success:res=>{
                       console.log(res)
                       if(res.status == 500){
-                        wx.hideLoading()
                         verif.tips('提交失败')
                       }else{
-                        wx.hideLoading({
-                          success: (resm) => {
+         
                             if(res.code == 40102){
                               verif.tips(res.msg)
                             }else{
@@ -321,28 +317,23 @@ quedingsc(){
                                 })
                               },800)
                             }
-                          },
-                        })
+                         
                       }
   
                     },
                     fail:err=>{
         
-                      wx.hideLoading({
-                        success: (res) => {
+      
                           that.selectComponent("#haveTrue").trueClick()
-                        },
-                      })
+                  
                       console.log(err)
                     }
                   })
               },
               fail(err) {
-                wx.hideLoading({
-                  success: (res) => {
+  
                     that.selectComponent("#haveTrue").trueClick()
-                  },
-                })
+              
                 console.log(err)
               }
             })

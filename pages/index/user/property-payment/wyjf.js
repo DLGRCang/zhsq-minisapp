@@ -27,9 +27,7 @@ Page({
   },
   
   jfArr(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.myjfApi({
       data:{
         unifiedUserId:wx.getStorageSync('wxUser').id
@@ -37,22 +35,14 @@ Page({
       success:res=>{
         console.log(res)
         if(res.code == 200){
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
+
           this.setData({
             jfList:res.data.housePayDTOList
           })
         }
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+  
         console.log(err)
       }
     })

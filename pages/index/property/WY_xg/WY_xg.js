@@ -19,28 +19,19 @@ Component({
    */
   methods: {
     xgArr(){
-      wx.showLoading({
-        title: '拼命加载中',
-      })
       console.log(wx.getStorageSync('user').userId)
       http.selfPlanApi({
         data:{
           unifiedUserId:wx.getStorageSync('user').userId
         },
         success:res=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
+
+              
           console.log(res)
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+
+              
           console.log(err)
         }
       })

@@ -84,10 +84,6 @@ Page({
     
   },
   tpArr(){
-    
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     http.tpApi({
       data:{
         votePeopleId:'aaa'
@@ -108,28 +104,19 @@ Page({
           rows:res.rows
           //rowsdx:rowsdx
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
+            
+
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
         console.log(err)
       }
     })
   },
 
   wjArr(id){
-   
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     http.wjdcApi({
       data:{
         questionnaireId:id
@@ -139,18 +126,10 @@ Page({
         this.setData({
           rows:res.rows
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
         console.log(err)
       }
     })
@@ -195,9 +174,7 @@ Page({
         if(rowsdx[i] == null){
           verif.tips('请选择投票内容')
         }else{
-          wx.showLoading({
-            title: '拼命加载中',
-          })
+
           http.tpanApi({
             data:{
               voteId:e.currentTarget.dataset.voteid,
@@ -207,11 +184,9 @@ Page({
               votePeopleName:'德力'
             },
             success:res=>{
-              wx.hideLoading({
-                success: (res) => {
+
                   verif.tips('投票成功')
-                },
-              })
+ 
             },
             fail:err=>{
 

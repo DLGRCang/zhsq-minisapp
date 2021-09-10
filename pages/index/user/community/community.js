@@ -61,9 +61,6 @@ xiangqing(e){
     this.onLoad()
   },
   commList(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     http.commApi({
       
       success:res=>{
@@ -81,19 +78,13 @@ xiangqing(e){
         this.setData({
           rowsList:res.rows
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
+            
+
       },
       fail:err=>{
-        
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
         console.log(err)
       }
     })
@@ -101,9 +92,6 @@ xiangqing(e){
 
   commList1(){
     if(this.data.rowsList1.length == 0){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     http.commrmApi({
       
       success:res=>{
@@ -121,18 +109,14 @@ xiangqing(e){
         this.setData({
           rowsList1:res.rows
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
+            
+ 
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
+  
         console.log(err)
       }
     })
@@ -141,13 +125,11 @@ xiangqing(e){
 
   commList2(){
     if(this.data.rowsList2.length == 0){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.commpfApi({
       
       success:res=>{
-        console.log(res)
+       // console.log(res)
         var rowsList = res.rows
         
         for(var i in rowsList){
@@ -161,18 +143,14 @@ xiangqing(e){
         this.setData({
           rowsList2:res.rows
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
+            
+ 
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+ 
+            
+
         console.log(err)
       }
     })

@@ -84,9 +84,6 @@ Component({
        this.xgArr()
       },
       xgArr(){
-        wx.showLoading({
-          title: '拼命加载中',
-        })
         if(wx.getStorageSync('wyUser').roleId == "c9239296-0f3f-4b19-803c-f8050eabe863"){
           http.listpropertypatrollingplanApi({
             data:{
@@ -95,9 +92,6 @@ Component({
             success:res=>{
               this.setData({
                 xgList:res
-              })
-              wx.hideLoading({
-                success: (res) => {},
               })
             }
           })
@@ -111,9 +105,6 @@ Component({
                console.log(res)
               this.setData({
                 xgList:res.data.planList
-              })
-              wx.hideLoading({
-                success: (res) => {},
               })
             }
           })

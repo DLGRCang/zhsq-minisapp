@@ -1,52 +1,31 @@
-// pages/my/my.js
-import http from '../../../../utils/api'
+// pages/haveContent/haveContent.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tzggList:[]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.xinwenList()
+
   },
-
-  xinwenList(){
-
-    http.newsApi({
-      data:{
-        code:'wytzfbgl',
-        cur:'1'
-      },
-      success:res=>{
-
-        console.log(res)
-        this.setData({
-          tzggList:res.rows
-        })
-
-
-        
-      },
-      fail:err=>{
- 
-        console.log(err)
-      }
-    })
+  shuaxin(){
+    var pages = getCurrentPages(); // 当前页面
+    var beforePage = pages[pages.length - 2]; // 前一个页面
+    // console.log("beforePage");
+    // console.log(beforePage);
+    wx.navigateBack({
+        success: function() {
+            beforePage.onLoad();
+            beforePage.onShow();
+        }
+    });
   },
-  xwDetails(e){
-    //console.log(e.currentTarget.dataset.item)
-    var item = encodeURIComponent(JSON.stringify(e.currentTarget.dataset.item))
-    wx.navigateTo({
-      url: '/pages/index/user/notice-details/notice-details?item='+item
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -60,11 +39,7 @@ Page({
   onShow: function () {
 
   },
-  xiangqing(){
-    wx.navigateTo({
-      url: '/pages/index/user/notice-details/notice-details'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

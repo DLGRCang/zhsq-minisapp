@@ -53,9 +53,6 @@ Component({
       this.pbArr()
     },
     pbArr(){
-      wx.showLoading({
-        title: '拼命加载中',
-      })
      // console.log(this.data.dateT)
       http.listArrangeDataApi({
         data:{
@@ -91,22 +88,18 @@ Component({
               rows.push(data[i])
             }
           }
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
+
+              
+   
           //console.log(rows)
           this.setData({
             rows:rows
           })
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+
+              
+
         }
       })
  

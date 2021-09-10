@@ -31,7 +31,7 @@ Page({
   onLoad: function (options) {
     http.codelistofGetApi({
       success:res=>{
-        //console.log(res)
+        console.log(res)
         this.setData({
           tabList:res
         })
@@ -49,7 +49,7 @@ Page({
         this.setData({
           videoList:res
         })
-       // console.log(res)
+        console.log(res)
       }
     })
   },
@@ -63,7 +63,7 @@ Page({
         this.setData({
           videoList:res
         })
-       // console.log(res)
+        console.log(res)
       }
     })
   },

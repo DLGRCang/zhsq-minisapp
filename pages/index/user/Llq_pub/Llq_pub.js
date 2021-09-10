@@ -36,9 +36,7 @@ Page({
     if(this.data.textArea == ''){
       verif.tips('请输入发布内容')
     }else{
-      wx.showLoading({
-        title: '拼命加载中',
-      })
+
       http.llqfbApi({
         data:{
           villageId:wx.getStorageSync('xzvillage').village.villageId,
@@ -54,9 +52,8 @@ Page({
         success:res=>{
           //console.log(res)
             this.saven()
-            wx.hideLoading({
-              success: (res) => {
-                this.selectComponent("#haveTrue").falseClick()
+      
+                
                 verif.tips('发布成功')
                 this.setData({
                   imgList: [],
@@ -69,18 +66,15 @@ Page({
                     delta: 1
                   })
                 },800)
-              },
-            })
+          
           
           
         },
         fail:err=>{
           console.log(err)
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+   
+              
+          
         }
       })
     }
@@ -197,9 +191,7 @@ Page({
   },
   llqbqArr1(id){
     //console.log(id)
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.llqbqApi1({
       data:{
         code:id
@@ -210,29 +202,23 @@ Page({
         for(var i in bqList1){
           bqList1[i].yangshi = 'wys'
         }
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
+            
+  
         this.setData({
           bqList1:bqList1
         })
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+     
+            
+       
         console.log(err)
       }
     })
   },
   llqbqArr(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.llqbqApi({
       success:res=>{
         //console.log(res)
@@ -240,21 +226,17 @@ Page({
         for(var i in bqList){
           bqList[i].yangshi = 'wys'
         }
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+ 
+            
+     
         this.setData({
           bqList:bqList
         })
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+  
+            
+   
         console.log(err)
       }
     })

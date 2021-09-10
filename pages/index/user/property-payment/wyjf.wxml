@@ -14,7 +14,7 @@
   <defect topPadding="{{350}}" wx:if="{{jfList.length == 0}}"><view slot="content">暂无数据</view></defect>
 <!-- 内容第一块 -->
 
-<view class="cu-list menu-avatar wxjl_content" wx:for="{{jfList}}" wx:key="index" :style="{{index == 0 ? 'margin-top:115rpx':''}}">
+<view class="cu-list menu-avatar wxjl_content" wx:for="{{jfList}}" wx:key="index" style="{{index == 0 ? 'margin-top:115rpx':''}}">
   
     <view class="cu-item">
       <view class="cu-avatar lg wxjl_image">

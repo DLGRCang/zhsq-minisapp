@@ -329,9 +329,7 @@ http.saveconstructionsinfoApi({
         //console.log(trueIn)
     //console.log(id)
     
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     
     http.cdDetailsApi({
       data:{
@@ -371,7 +369,7 @@ http.saveconstructionsinfoApi({
           pickers:pickersM,
           //pickerx:res.openTime.split(' 至 ')[1],
         })
-        wx.hideLoading()
+     
       },
       fail:err=>{
         console.log(err)

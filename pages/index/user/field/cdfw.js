@@ -54,44 +54,33 @@ xiangqing(e){
     this.onLoad()
   },
   cdArr(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.cdApi({
       success:res=>{
-        console.log(res)
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+        //console.log(res)
+   
+            
+        
         this.setData({
           rowsList:res.rows
         })
 
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
+       
         console.log(err)
       }
     })
   },
   cdArr1(){
     if(this.data.rowsList1.length == 0){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     http.cdrmApi({
       success:res=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+ 
+            
+     
         //console.log(res)
         this.setData({
           rowsList1:res.rows
@@ -99,11 +88,9 @@ xiangqing(e){
 
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
+   
         console.log(err)
       }
     })
@@ -111,27 +98,21 @@ xiangqing(e){
   },
   cdArr2(){
     if(this.data.rowsList2.length == 0){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.cdpfApi({
       success:res=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
-        console.log(res)
+
+            
+
+       // console.log(res)
         this.setData({
           rowsList2:res.rows
         })
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
+  
         console.log(err)
       }
     })

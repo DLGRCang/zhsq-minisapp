@@ -37,9 +37,7 @@ Page({
   },
   partyArr(){
     var that = this
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.listpagepartybranchApi({
       success:res=>{
         //console.log(res)
@@ -68,7 +66,7 @@ Page({
               data2:data2
             })
             //console.log(that.data.rowsList)
-            wx.hideLoading()
+
           },
           fail:err=>{
             console.log(err)
@@ -118,14 +116,14 @@ Page({
     //         //console.log(that.data.rowsList)
     //         wx.hideLoading({
     //           success: (res) => {
-    //             this.selectComponent("#haveTrue").falseClick()
+    //             
     //           },
     //         })
     //       },
     //       fail(err) {
     //         wx.hideLoading({
     //           success: (res) => {
-    //             this.selectComponent("#haveTrue").trueClick()
+    //             
     //           },
     //         })
     //         console.log(err)
@@ -135,7 +133,7 @@ Page({
     //   fail(err) {
     //     wx.hideLoading({
     //       success: (res) => {
-    //         this.selectComponent("#haveTrue").trueClick()
+    //         
     //       },
     //     })
     //     console.log(err)

@@ -27,9 +27,9 @@
     <view class="gClass" style="border:2rpx solid {{borderSe}}">
       <text class="cuIcon-roundcheck gouClick" style="color:#ccc;font-size:40rpx" wx:if="{{!yhxyIndex||!yszcIndex}}" bindtap="ygou"></text>
       <text class="cuIcon-roundcheckfill gouClick" style="color:#188BFF;font-size:40rpx" wx:if="{{yhxyIndex&&yszcIndex}}" bindtap="ngou"></text>
-      <text style="font-size:32rpx;cursor:pointer; {{!yhxyIndex ? 'color:#ccc':'color:#00c;'}}" bindtap="yhxyClick">用户协议</text>
-      <text style="font-size:50rpx;margin:0 7rpx; {{!yhxyIndex||!yszcIndex ? 'color:#ccc':'color:#00c;'}}">,</text>
-      <text style="font-size:32rpx;cursor:pointer; {{!yszcIndex ? 'color:#ccc':'color:#00c;'}}" bindtap="yszcClick">隐私政策</text>
+      <text :style="font-size:32rpx;cursor:pointer; {{!yhxyIndex ? 'color:#ccc':'color:#00c;'}}" bindtap="yhxyClick">用户协议</text>
+      <text :style="font-size:50rpx;margin:0 7rpx; {{!yhxyIndex||!yszcIndex ? 'color:#ccc':'color:#00c;'}}">,</text>
+      <text :style="font-size:32rpx;cursor:pointer; {{!yszcIndex ? 'color:#ccc':'color:#00c;'}}" bindtap="yszcClick">隐私政策</text>
     </view>
     <!-- <view>
       <text class="tubiao cuIcon-mail lg text-gray"></text>

@@ -51,9 +51,7 @@ Page({
     this.onLoad()
   },
   fwLiist(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.fwczApi({
       success:res=>{
         //console.log(res)
@@ -74,19 +72,15 @@ Page({
           rows2:rows2
         })
         //console.log(rows2)
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
+            
+
         //console.log(res)
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
+    
       }
     })
   },

@@ -779,9 +779,6 @@ Page({
     
     
     //console.log(this.data.xzvillage)
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -854,9 +851,10 @@ Page({
                             }
                             http.messageApi({
                               data:{
-                                userId:userId
+                                userId:userId 
                               },
                               success:res=>{
+                                //that.successClick()
                                 //console.log(res)
                                 if(res[0].code == "400"){
                                     wx.setStorageSync('village', false)
@@ -946,11 +944,13 @@ Page({
                                 // }
                               },
                               fail:err=>{
+                                
                                 console.log(err)
                               }
                             })
                       },
                       fail(err) {
+                       // that.failClick()
                         console.log(err)
                       }
                     })
@@ -983,6 +983,14 @@ Page({
     }
     
 },
+
+//网络丢失
+// successClick(){
+//   this.selectComponent("#haveTrue").falseClick()
+// },
+// failClick(){
+//   this.selectComponent("#haveTrue").trueClick()
+// },
   sxLogin(){
     this.selectComponent("#dlFalse").loginClick()
   },

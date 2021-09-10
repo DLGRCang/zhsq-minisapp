@@ -1,0 +1,3 @@
+<view class="haveContent">
+<button bindtap="shuaxin">刷新</button>
+</view>

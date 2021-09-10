@@ -70,7 +70,7 @@ Page({
     })
   },
   getAddInfo(){
-    this.selectComponent("#haveTrue").falseClick()
+    
   },
   tsjyList(){
     //console.log(wx.getStorageSync('xzvillage')[0].villageId)
@@ -85,9 +85,7 @@ Page({
         imgId1=imgId1+','+this.data.imgId[i]
       }
     }
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.tsjyApi({
       data:{
         villageId:wx.getStorageSync('xzvillage').village.villageId,
@@ -101,11 +99,9 @@ Page({
       },
       success:res=>{
        // console.log(res)
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+     
+            
+     
         if(res.code == 200){
           verif.tips('提交成功')
           setTimeout(()=>{
@@ -119,11 +115,9 @@ Page({
         
       },
       fali:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+      
+            
+      
         console.log(err)
       }
     })

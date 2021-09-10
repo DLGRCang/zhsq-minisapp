@@ -55,30 +55,24 @@ Page({
     this.onLoad()
   },
   hdDetailsArr(id){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.hdDetailsApi({
       data:{
         constructionsActivityId:id
       },
       success:res=>{
-       console.log(res)
+       //console.log(res)
        this.setData({
          rowsList:res
        })
-       wx.hideLoading({
-        success: (res) => {
-          this.selectComponent("#haveTrue").falseClick()
-        },
-      })
+
+          
+ 
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+       
+            
+    
         console.log(err)
       }
     })
@@ -98,9 +92,7 @@ Page({
     if(this.data.rowsList.activeEndTime < util.formatTime1(new Date())){
       verif.tips("活动时间已结束")
     }else{
-      wx.showLoading({
-        title: '拼命加载中',
-      })
+
       http.bmDetailsApi({
         data:{
           constructionsActivityId:this.data.rowsList.constructionsActivityId,
@@ -109,11 +101,9 @@ Page({
         },
         success:res=>{
          //console.log(res)
-         wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+   
+            
+       
          if(res.code == 200){
           verif.success('报名成功') 
          }else if(res.code == 201){
@@ -121,11 +111,9 @@ Page({
          }
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+       
+              
+           
           console.log(err)
         }
       })

@@ -194,11 +194,11 @@
 
 <view class="xinwen" wx:for="{{xwrows}}" wx:key="index" bindtap="xwDetails" data-item="{{item}}">
       <view class="seven_box">
-        <view class="seven_left" :style="{{item.head == ''?'width:100%':'width:75%'}}">
+        <view class="seven_left" style="{{item.head == ''?'width:100%':'width:75%'}}">
             <text>{{item.title}}</text>   
             <text>{{item.publicTime}}</text>  
         </view>
-          <view class="seven_right" :style="{{item.head == ''?'width:0':'width:25%'}}">
+          <view class="seven_right" style="{{item.head == ''?'width:0':'width:25%'}}">
             <image src="https://www.yjhlcity.com:9000/fileService/downloadFTP/public/{{item.head}}"></image>
           </view>
         </view>
@@ -246,7 +246,7 @@
     
     <view class="inputView" wx:for="{{qrtjInputData1}}" wx:key="index">
       <view class="lxren">
-        <view>联系人姓名:</view>
+        <view>联系人姓名:</view> 
         <view>{{item.name}}</view>
       </view>
       <view class="lxren">

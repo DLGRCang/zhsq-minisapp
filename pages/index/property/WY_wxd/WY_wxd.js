@@ -120,9 +120,6 @@ Component({
     this.xgArr()
   },
   wxdArr(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
    // console.log(this.data.date0)
     if(wx.getStorageSync('wyUser').roleId == "c9239296-0f3f-4b19-803c-f8050eabe863"){
       http.listpagerepairApi({
@@ -130,11 +127,8 @@ Component({
           stateTime:this.data.date0
         },
         success:res=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
+
+              
           this.setData({ 
             rows0:res
           })
@@ -178,11 +172,8 @@ Component({
           }
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+
+              
         }
       })
     }else{
@@ -193,11 +184,9 @@ Component({
         },
         success:res=>{
           //console.log(res)
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
+
+              
+
           this.setData({ 
             rows7:res.data.repairList
           })
@@ -235,11 +224,8 @@ Component({
           }
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+
+              
         }
       })
     }

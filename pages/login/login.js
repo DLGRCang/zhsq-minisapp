@@ -31,9 +31,7 @@ Page({
   bindGetUserInfo(e) {
     var that = this
    // console.log(e)
-    wx.showLoading({
-      title: '授权中...',
-    })
+
        // console.log(e)
         wx.login({
           success: resa => {
@@ -53,8 +51,7 @@ Page({
                   wx.setStorageSync('token',data.result.data.token)
                   wx.setStorageSync('loginSi', true)
                   that.saven()
-                  wx.hideLoading({
-                    success: (res) => {
+
                       // http.messageApi({
                       //   data:{
                       //     userId:wx.getStorageSync('wxUser').id
@@ -94,8 +91,7 @@ Page({
                       //     delta: 1
                       //   })
                       // },500)
-                    },
-                  })
+                 
                 }else{
                     wx.navigateTo({
                         url: '/pages/Login-on/Login'

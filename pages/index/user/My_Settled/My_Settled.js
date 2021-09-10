@@ -75,9 +75,7 @@ Page({
   },
 
   hzList(id){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.wdrzhzApi({
       data:{
         unifiedUserIds:id
@@ -86,28 +84,16 @@ Page({
         this.setData({
           rows:res.rows
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
         //console.log(res)
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
       }
     })
   },
 
   nohzList(id){
-
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     http.wdrzApi({
       data:{
         unifiedUserId:wx.getStorageSync('wxUser').id,
@@ -117,19 +103,10 @@ Page({
         this.setData({
           rows:res.rows
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
         console.log(res)
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
       }
     })
   },

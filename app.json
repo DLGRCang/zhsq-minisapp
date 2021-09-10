@@ -4,6 +4,7 @@
     "pages/index/webView/webView",
     "pages/index/user/parrtyMap/parrtyMap",
     "pages/index/user/videoList/videoList",
+    "pages/haveContent/haveContent",
     "pages/index/user/home-page/t1",
     "pages/index/user/share/share",
     "pages/index/user/sharePage/sharePage",

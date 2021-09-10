@@ -96,12 +96,8 @@ Page({
         
         if(verif.checkIdCard(this.data.file)){
           if(verif.checkPhone(this.data.phone)){
-            
             if(that.data.yhxyIndex==true&&that.data.yszcIndex==true){
-              wx.showLoading({
-                title: '登陆中请稍后',
-              })
-  
+
               // 登录
               wx.getUserInfo({
                 success: res => {
@@ -132,8 +128,7 @@ Page({
                           wx.setStorageSync('wxUser',userInfo)
                           wx.setStorageSync('token',data.result.data.token)
                           wx.setStorageSync('loginSi', true)
-                          wx.hideLoading({
-                            success: (res) => {
+                    
                               //console.log(res)
                               http.messageApi({
                                 data:{
@@ -162,8 +157,7 @@ Page({
                                 })
                                 
                               },500)
-                            },
-                          })
+                      
                         }
                         },
                         fail(err) {

@@ -66,9 +66,7 @@ Page({
     this.onLoad()
   },
   partyArr(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.partyApi({
       success:res=>{
         //console.log(res)
@@ -76,18 +74,10 @@ Page({
           rowsList:res.rows[0]
         })
         //console.log(this.data.rowsList)
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
         console.log(err)
       }
     })
@@ -136,9 +126,7 @@ Page({
       }
     }
     //console.log(code)
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.newsApi({
       data:{
         code:code,
@@ -146,11 +134,7 @@ Page({
       },
       success:res=>{
        //console.log(res)
-        wx.hideLoading({
-          success: (res) => {
-            that.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
       if(v){
         setTimeout(()=>{
           if(that.data.TabCur == 0){
@@ -414,11 +398,7 @@ Page({
       }
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            that.selectComponent("#haveTrue").trueClick()
-          },
-        })
+ 
         console.log(err)
       }
     })
@@ -444,17 +424,13 @@ Page({
   },
 
   xuexiList(){
-   wx.showLoading({
-     title: '拼命加载中',
-   })
+
     http.xxzlApi({
       success:res=>{
         this.setData({
           rows4:res
         })
-        wx.hideLoading({
-          success: (res) => {},
-        })
+
         console.log(res)
       }
     })

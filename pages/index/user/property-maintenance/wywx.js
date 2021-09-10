@@ -135,9 +135,7 @@ DelImg(e) {
     }else if(imgId1 == ''){
       verif.tips('请您上传需维修相关图片')
     }else{
-      wx.showLoading({
-        title: '拼命加载中',
-      })
+
       http.saverepairApi({
         data:{
           type:this.data.picker[this.data.index],
@@ -153,11 +151,7 @@ DelImg(e) {
         success:res=>{
           //console.log(res)
           if(res.code == 200){
-            wx.hideLoading({
-              success: (res) => {
-                this.selectComponent("#haveTrue").falseClick()
-              },
-            })
+
             verif.tips('提交成功')
             setTimeout(()=>{
               wx.navigateBack({//返回
@@ -167,11 +161,7 @@ DelImg(e) {
           }
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+ 
           console.log(err)
         }
       })

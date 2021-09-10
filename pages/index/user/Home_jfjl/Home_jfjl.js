@@ -35,32 +35,24 @@ Page({
   },
 
   jfArr(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.myjfApi({
       data:{
         unifiedUserId:wx.getStorageSync('wxUser').id
       },
       success:res=>{
-        console.log(res)
+        //console.log(res)
         if(res.code == 200){
-          wx.hideLoading({
-            success: (res) => {
-            
-            },
-          })
+
           this.setData({
             jfList:res.data.housePayDTOList
           })
         }
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
+
         console.log(err)
       }
     })

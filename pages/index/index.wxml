@@ -1,4 +1,4 @@
-
+<have-content id="haveTrue" bind:addInfo="getAddInfo"></have-content>
 <view class="box" wx:if="{{login == 1}}">
   <view class="xuanzexiaoqu" style="top:{{CustomBar}}px;height:{{windowHeight - tab1Height}}px;" bindtap="gbtchaung" wx:if="{{xuanzexiaoqu}}">
     <view class="xzxq">
@@ -54,8 +54,8 @@
     <view class="kmAbslot" wx:if="{{zziconTrue}}">
       <view wx:if="{{djewmTrue}}" style="text-align: center;">
         <view class="ewmTop" id="ewmHeight" style="height:{{ewmHeight}}px">
-          <image src="https://www.yjhlcity.com/zhsqminiapp/EWM.jpg" :style="{{ewmtubiao}}" wx:if="{{ewmtupianqh}}"></image>
-          <image src="https://www.yjhlcity.com/zhsqminiapp/ewm2.png" :style="{{ewmtubiao}}" wx:if="{{!ewmtupianqh}}"></image>
+          <image src="https://www.yjhlcity.com/zhsqminiapp/EWM.jpg" style="{{ewmtubiao}}" wx:if="{{ewmtupianqh}}"></image>
+          <image src="https://www.yjhlcity.com/zhsqminiapp/ewm2.png" style="{{ewmtubiao}}" wx:if="{{!ewmtupianqh}}"></image>
         </view>
         <view class="cxscEwm" style="background:{{EwmCss}}" bindtouchstart="chsClick" bindtouchend="endClick">点击重新加载</view>
       </view>

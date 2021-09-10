@@ -1,4 +1,4 @@
-<view style="height:{{windowHeight}}px;top:{{CustomBar}}px" class="fudong" wx:if="{{false}}">
+<view style="height:{{windowHeight}}px;top:{{CustomBar}}px" class="fudong" wx:if="{{fudong}}">
   <!-- fudong -->
 <view class="have-top">
   <text class="cuIcon-subscription lg text-gray"></text>

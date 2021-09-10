@@ -96,9 +96,6 @@ hideModal(e) {
   })
 },
 delete(){
-  wx.showLoading({
-    title: '拼命加载中',
-  })
   if(this.data.desNumber == 1){
     http.removecommentApi({
       data:{
@@ -106,7 +103,7 @@ delete(){
       },
       success:res=>{
         //console.log(res)
-        wx.hideLoading()
+
         var rows = this.data.rows
         if (Object.keys(res).length === 0) {
           rows.splice(this.data.removeIdIndex,1)
@@ -130,11 +127,6 @@ delete(){
       },
       success:res=>{
         //console.log(res)
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
         if(res.code == 200){
           verif.tips('关闭成功')
           this.setData({
@@ -144,11 +136,6 @@ delete(){
         }
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
         console.log(err)
       }
     })
@@ -233,9 +220,6 @@ squanwen(e){
     })
   },
   llqList(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     http.wdfbLlqApi({
       data:{
         createPeopleId:wx.getStorageSync('wxUser').id
@@ -263,18 +247,10 @@ squanwen(e){
         this.setData({
           rows:rows
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+ 
         console.log(err)
       }
     })
@@ -283,9 +259,7 @@ squanwen(e){
   },
 
   fwList(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.wdfbfwApi({
       data:{
         residentsId:wx.getStorageSync('wxUser').id
@@ -301,19 +275,11 @@ squanwen(e){
         this.setData({
           rows1:rows
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
         
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
         console.log(err)
       }
     })

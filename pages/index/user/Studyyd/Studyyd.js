@@ -38,9 +38,7 @@ Page({
     this.onLoad()
   },
   partyArr(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.partyApi({
       success:res=>{
         console.log(res)
@@ -48,7 +46,7 @@ Page({
           rowsList:res.rows[0]
         })
         //console.log(this.data.rowsList)
-        wx.hideLoading()
+
       },
       fail:err=>{
         console.log(err)
@@ -112,9 +110,7 @@ Page({
       }
     }
     //console.log(code)
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
       wx.request({
         url: 'https://www.yjhlcity.com/zhsq/api/news/pubListNews/' +code+'/'+cur, // 就是拼接上前缀,此接口域名是开放接口，可访问
         method: 'get', // 判断请求类型，除了值等于'post'外，其余值均视作get 其他的请求类型也可以自己加上的
@@ -275,18 +271,10 @@ Page({
             })
           }
         }
-        wx.hideLoading({
-          success: (res) => {
-            that.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
         },
         fail(err) {
-          wx.hideLoading({
-            success: (res) => {
-              that.selectComponent("#haveTrue").trueClick()
-            },
-          })
+    
           console.log(err)
         }
       })

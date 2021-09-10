@@ -20,9 +20,12 @@ Component({
     shuaxin:false
   },
 
+  //success之手使用
+//this.selectComponent("#haveTrue").falseClick()
+//fill使用
+//this.selectComponent("#haveTrue").trueClick()
   methods: {
     trueClick(){
-     // console.log('aaa')
      setTimeout(()=>{
       this.setData({
         shuaxin:false

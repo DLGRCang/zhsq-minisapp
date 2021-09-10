@@ -191,9 +191,7 @@ Component({
 
   },
   llqbqArr1(code){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.llqbqApi1({
       data:{
         code:code
@@ -205,12 +203,7 @@ Component({
           bqList1.push(res[i])
         }
        //console.log(bqList1)
-        
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
         this.setData({
           bqList1:bqList1,
           bqId:res[0].dictionariesId,
@@ -219,11 +212,7 @@ Component({
         this.llqList()
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+ 
         console.log(err)
       }
     })
@@ -439,10 +428,6 @@ Component({
       console.log('sssss')
     },
     llqList(){
-
-      wx.showLoading({
-        title: '拼命加载中',
-      })
       http.xinwenApi({
         data:{
           userId:wx.getStorageSync('wxUser').id,
@@ -492,26 +477,16 @@ Component({
               rows:rows1
             })
           }
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
+
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+
           console.log(err)
         }
       })
     },
     llqbqArr(){
-      wx.showLoading({
-        title: '拼命加载中',
-      })
+
       http.llqbqApi({
         success:res=>{
           //console.log(res)
@@ -520,21 +495,13 @@ Component({
             bqList.push(res[i])
           }
           //console.log(bqList)
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
+
           this.setData({
             bqList:bqList
           })
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+
           console.log(err)
         }
       })

@@ -127,9 +127,10 @@ Component({
             qrtjInputData=[];
           }
           qrtjInputData.push(data)
+
           wx.setStorageSync('qrtjInputData',qrtjInputData)
          this.setData({
-          qrtjInputData1: qrtjInputData.reverse(),
+          qrtjInputData1: qrtjInputData,
           ifInput:false
          })
         }
@@ -329,16 +330,11 @@ Component({
     })
   },
   wenjuan(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
     http.wjApi({
       success:res=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
+            
+
         
         //console.log(res)
         this.setData({
@@ -346,11 +342,9 @@ Component({
         })
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
+
         console.log(err)
       }
     })
@@ -370,17 +364,13 @@ Component({
   },
   sqhdList(){
     if(this.data.rowsSQHD.length == 0){
-      wx.showLoading({
-        title: '拼命加载中',
-      })
+
       http.commrmApi({
         
         success:res=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").falseClick()
-            },
-          })
+
+              
+ 
           //console.log(res)
           var rowsList = res.rows
           
@@ -399,11 +389,9 @@ Component({
 
         },
         fail:err=>{
-          wx.hideLoading({
-            success: (res) => {
-              this.selectComponent("#haveTrue").trueClick()
-            },
-          })
+
+              
+
           console.log(err)
         }
       })
@@ -420,20 +408,16 @@ Component({
   
 
   xinwenList(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.newsApi({
       data:{
         code:'wytzfbgl',
         cur:'1'
       },
       success:res=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
+            
+
         //console.log(res)
         for(var i in res.rows){
           if(res.rows[i].isTop == '置顶'){
@@ -451,11 +435,8 @@ Component({
         
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
+            
         console.log(err)
       }
     })
@@ -465,22 +446,14 @@ Component({
         cur:'1'
       },
       success:res=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
         this.setData({
           xwrows:res.rows
         })
         //console.log(res)
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
         console.log(err)
       }
     })

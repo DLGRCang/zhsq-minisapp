@@ -55,9 +55,7 @@ xiangqing(e){
     this.dqfwArr()
   },
   dqfwArr(){
-    wx.showLoading({
-      title: '拼命加载中',
-    })
+
     http.dqfwApi({
       success:res=>{
       console.log(res)
@@ -73,18 +71,10 @@ xiangqing(e){
         this.setData({
           rowsList:rowsList
         })
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").falseClick()
-          },
-        })
+
       },
       fail:err=>{
-        wx.hideLoading({
-          success: (res) => {
-            this.selectComponent("#haveTrue").trueClick()
-          },
-        })
+
         console.log(err)
       }
     })
@@ -95,9 +85,7 @@ xiangqing(e){
   dqfw1Arr(){
     
     if(this.data.rowsList1.length == 0){
-      wx.showLoading({
-        title: '拼命加载中',
-      })
+
       http.dqfwrmApi({
         success:res=>{
         console.log(res)
@@ -113,7 +101,7 @@ xiangqing(e){
           this.setData({
             rowsList1:rowsList
           })
-          wx.hideLoading()
+  
         },
         fail:err=>{
           console.log(err)
@@ -124,9 +112,7 @@ xiangqing(e){
 
   dqfw2Arr(){
     if(this.data.rowsList2.length == 0){
-      wx.showLoading({
-        title: '拼命加载中',
-      })
+
       http.dqfwpfApi({
         success:res=>{
         console.log(res)
@@ -142,7 +128,7 @@ xiangqing(e){
           this.setData({
             rowsList2:rowsList
           })
-          wx.hideLoading()
+
         },
         fail:err=>{
           console.log(err)

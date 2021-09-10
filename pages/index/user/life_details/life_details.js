@@ -371,10 +371,6 @@ shopClickFalse(){
     //this.getTypefindParentIdArr(item.lable[0].id,1,item.shopListId,arrtrue)
    
    
-    wx.showLoading({
-      title: '加载中...',
-      mask: true
-    });
     // let list = [{}];
     // for (let i = 0; i < 6; i++) {
     //   list[i] = {};
@@ -530,7 +526,7 @@ shopClickFalse(){
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.hideLoading()
+
   },
   tabSelect(e) {
     console.log(e)
