@@ -30,7 +30,7 @@ Page({
   },
   bindGetUserInfo(e) {
     var that = this
-   // console.log(e)
+    //console.log(e)
 
        // console.log(e)
         wx.login({

@@ -1,5 +1,5 @@
 // pages/index/user/videoList/videoList.js
-const app = getApp()
+const app = getApp() 
 import http from '../../../../utils/api'
 import verif from '../../../../utils/verification'
 Page({

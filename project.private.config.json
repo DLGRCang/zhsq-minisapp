@@ -221,6 +221,12 @@
           "pathName": "pages/index/user/videoList/videoList",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/index/user/about/about",
+          "pathName": "pages/index/user/about/about",
+          "query": "",
+          "scene": null
         }
       ]
     }

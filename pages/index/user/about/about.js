@@ -1,4 +1,6 @@
 // pages/index/about/about.js
+//const wxCharts = require('../../../../utils/dist_wxcharts-min.js')
+const app = getApp()
 Page({
 
   /**
@@ -12,7 +14,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //  wx.setNavigationBarColor({
+    //         frontColor: '#000000',
+    //         backgroundColor:'linear-gradient(60deg, #0586F8, #1BB1FD)',
+    //       })
+  //   new wxCharts({
+  //     canvasId: 'columnCanvas',
+  //     type: 'column',
+  //     categories: ['1','2','3','4','5'],
+  //     animation: true,
+  //     series: [
+  //       {
+  //         name: '成交量',
+  //         data: ['1','2','3','4','5']
+  //       }
+  //   ],
+  //   yAxis: {
+  //     format: function (val) {
+  //         return val + '万';
+  //     },
+  //     min: 0
+  //     },
+  //     xAxis: {
+  //         disableGrid: false,
+  //         type: 'calibration'
+  //     },
+  //     extra: {
+  //         column: {
+  //             width: 15
+  //         }
+  //     },
+  //     width: 200,
+  //     height: 200,
+  // });
   },
 
   /**

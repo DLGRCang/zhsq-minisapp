@@ -84,15 +84,16 @@
     "pages/index/property/WY_ydcx/WY_ydcx",
     "pages/index/property/WY_wxd/WY_wxd",
     "pages/index/property/WY_tzfb/WY_tzfb",
-    "pages/index/property/MY_ydxcCreate/MY_ydxcCreate"
+    "pages/index/property/MY_ydxcCreate/MY_ydxcCreate",
+    "pages/index/property/WY_lngh/WY_lngh"
     
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "伊智家",
+    "navigationBarTitleText": "健康统计",
     "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom",

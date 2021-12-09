@@ -1,15 +1,3 @@
 /* pages/index/about/about.wxss */
 /* 頭部背景樣式 */
-.box-body{ width: 100%;height: 100%;position: relative;overflow-x: hidden;overflow-y: auto;
-  /* padding: 0 30rpx; */color:#333;
-}
-.beijing{
-  width: 100%;
-  height: 290rpx;
-  left: 0;
-  top: 0;
-  position: absolute;
-  z-index: -1;
-}
-.about{width: 90%;height: auto;background: #fff;padding:35rpx;margin:35rpx auto;border-radius: 15rpx;
-   font-size: 28rpx;text-indent: 45rpx;padding-bottom: 45rpx;}
+@import "../../../../colorui/main.wxss";

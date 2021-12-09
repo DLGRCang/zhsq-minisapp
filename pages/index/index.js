@@ -276,7 +276,7 @@ Page({
     })
   },
   bindGetUserInfo(e) {
-    // console.log(e)
+     //console.log(e)
      var that = this
      wx.showLoading({
        title: '授权中...'
@@ -454,8 +454,12 @@ Page({
     })
   },
   NavChange(e) {
-
-    wx.setStorageSync('clackTabBar', e.currentTarget.dataset.cur)
+    if(e.currentTarget.dataset.cur == 't14'){
+      wx.navigateTo({
+        url: '/pages/index/user/about/about'
+      })
+    }else{
+      wx.setStorageSync('clackTabBar', e.currentTarget.dataset.cur)
     if(e.currentTarget.dataset.cur == 't2'||e.currentTarget.dataset.cur == 't3'||e.currentTarget.dataset.cur == 't4'){
         if(verif.checkLogin()){
           //console.log(verif.village)
@@ -598,6 +602,8 @@ Page({
         },200)
       }
     }
+    }
+    
     // if(e.currentTarget.dataset.cur == 't3'){
     //   this.setData({
     //     PageCur1: e.currentTarget.dataset.cur

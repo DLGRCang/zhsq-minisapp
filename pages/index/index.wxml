@@ -241,6 +241,13 @@
       </view>
       <view class="{{PageCur=='t13'?'text-ttt':'text-nnn'}}">移动巡查</view>
     </view>
+    <view class="action text-gray" bindtap="NavChange" data-cur="t14" wx:if="{{wyUser.roleId == 'c9239296-0f3f-4b19-803c-f8050eabe863'||wyUser.roleId == 'c54edb4e-9668-49c9-82ef-a417604d2b29'}}">
+      <view>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/wy21.png" class="tabimg3" wx:if="{{PageCur!='t14'}}"></image>
+        <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/wy22.png" class="tabimg3" wx:if="{{PageCur=='t14'}}"></image>
+      </view>
+      <view class="{{PageCur=='t14'?'text-ttt':'text-nnn'}}">老年关怀</view>
+    </view>
   </view>
 </view>
 
