@@ -113,13 +113,17 @@ function tpanApi(params){
 
 //问卷调查
 function wjApi(params){
-  http('zhsq/app/release/api/questionnaire/listpagequestionnaire','get',params)
+  http('zhsq/app/release/api/questionnaire/listpagequestionnaire?isRelease=1&type='+params.type,'get',params)
 }
 
 //问卷调查详情
+// function wjdcApi(params){
+//   //console.log(params)
+//   http('zhsq/app/release/api/vote/questionnaireList/'+params.data.questionnaireId,'get',params)
+// }
 function wjdcApi(params){
   //console.log(params)
-  http('zhsq/app/release/api/vote/questionnaireList/'+params.data.questionnaireId,'get',params)
+  http('zhsq/app/release/api/vote/listpagevoteFront/'+params.data.type+'/'+params.data.questionnaireId,'get',params)
 }
 
 //投票详情列表
@@ -436,11 +440,20 @@ function goPayApi(params){
   http('zhsq/app/wxPay/palceOrder','post',params)
 }
 
+//商城微信支付
+function mallPayApi(params){
+  http('zhsq/app/wxPay/mallPay','post',params)
+}
+
 //微信支付成功后
 function payOrderStateApi(params){
   http('zhsq/app/wxPay/payOrderState','post',params)
 }
 
+//商城微信支付成功后
+function mallPayOrderStateApi(params){
+  http('zhsq/app/wxPay/mallPayOrderState','post',params)
+}
 
 //小鱼token
 function videocommunicationApi(params){
@@ -466,6 +479,11 @@ function appointmentApi(params){
 //根据token查询预约情况
 function getVisitinfoByUSerApi(params){
   http('zhsqhik/app/release/hikApi/getVisitinfoByUSer','get',params)
+}
+
+//个人场地预约
+function listconstructionsinfoApi(params){
+  http('zhsq/app/release/api/constructionsinfo/listconstructionsinfo?status=&userId='+params.data.userId,'get',params)
 }
 
 //访客预约生成二维码
@@ -519,6 +537,8 @@ function listassessmentmanageApi(params){
   http('zhsq/app/assessmentmanage/listassessmentmanage','get',params)
 }
 export default { // 暴露接口
+  mallPayOrderStateApi,
+  mallPayApi, 
   xinwenApi,
   llqfbApi,
   partyApi,
@@ -621,5 +641,6 @@ export default { // 暴露接口
   saveusersintegralApi,
   codelistofGetApi,
   listvideomeetingApi,
-  listassessmentmanageApi
+  listassessmentmanageApi,
+  listconstructionsinfoApi
 }

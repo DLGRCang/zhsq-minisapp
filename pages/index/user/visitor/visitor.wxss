@@ -1,5 +1,41 @@
 /* pages/visitor/visitor.wxss */
-
+.popup_view{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0,0, 0, 0.6);
+  z-index: 10;
+  padding:0 60px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.popup_view1{
+  width: 100%;
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+}
+.popup_view1 view:first-child{
+  width: 100%;
+  text-align: center;
+}
+.popup_view2{
+  margin: 30rpx auto;
+  width: 50%;
+  height: 67rpx;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+  border-radius: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #FFFFFF;
+}
 .visitor-box{
   width: 100%;
   padding-bottom: 125rpx;

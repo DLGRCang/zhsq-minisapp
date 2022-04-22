@@ -5,24 +5,24 @@
 <view style="width:100%;height:{{windowHeight}}px" class="boxXq">
   <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
   <view class="ditails_box" id="ditails_box">
-    <view class="sousuo">
+    <!-- <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
       <input type="text" placeholder="搜索店内商品"/>
       <view bindtap="Search">搜索</view>
-    </view>
+    </view> -->
     <view class="box_one">
-     <view class="fl">
+     <view class="fl" style="height: 200rpx;">
             <view class="one_title">{{forBox.shopName}}</view>
             <view class="one_img"><image src="https://www.yjhlcity.com/zhsq/assets/images/applets/sh_star.png"></image><text>{{forBox.starLevel}}分</text></view>
             <view class="one_img"><image src="https://www.yjhlcity.com/zhsq/assets/images/applets/sh_ysl.png"></image><text>月售{{forBox.salesVolume}}</text></view>
             <view class="one_tabimg">
+              <!-- <view class="cu-tag bg-blue light">满30减5</view>
               <view class="cu-tag bg-blue light">满30减5</view>
-              <view class="cu-tag bg-blue light">满30减5</view>
-              <view class="cu-tag bg-blue light">满30减5</view>
+              <view class="cu-tag bg-blue light">满30减5</view> -->
             </view>
           </view>
           <view class="fr">
-            <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3236757554,2055665845&fm=26&gp=0.jpg"></image>
+            <!-- <image src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3236757554,2055665845&fm=26&gp=0.jpg"></image> -->
           </view>
     </view>
     
@@ -69,7 +69,9 @@
             </scroll-view>
             <!-- <view class="scrollRight"><text class="cuIcon-unfold"></text></view> -->
           </view>
+          
           <view class="tabRightBot" style="{{forBox3.length == 0 ? 'height: 100%;':'height: 91%;'}}">
+            <view wx:if="{{weChatList.length == 0}}" style="width: 100%;display: flex;justify-content: center;padding-top: 60rpx;">暂无商品</view>
             <view class="shopFor" wx:for="{{weChatList}}" wx:for-item="itemIn" wx:key="index">
               <view class="shopForLeft" id="shopimg">
                 <image src="{{imgUrl+itemIn.picture}}"></image>

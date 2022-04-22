@@ -123,9 +123,10 @@
   <!-- 第五栏 -->
 <view> 
   <view class="my-p-out">
-    <navigator class="cu-btn block bg-blue margin-tb-sm lg" open-type="exit" target="miniProgram">
+    <!-- <navigator class="cu-btn block bg-blue margin-tb-sm lg" open-type="exit" target="miniProgram">
       退出登录
-    </navigator>
+    </navigator> -->
+    <view class="cu-btn block bg-blue margin-tb-sm lg" bindtap="tcClick">退出登录</view>
     
   </view>
 </view>

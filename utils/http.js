@@ -25,8 +25,9 @@ module.exports = {
       token = wx.getStorageSync('token')
     }
 
-    let yixing = "http://172.16.20.92:8083/"
-    let login = "http://172.16.20.92:8002/"
+    let yixing = "http://172.16.20.202:8083/"
+    let login = "http://172.16.20.202:8002/"
+    let menglei = "http://172.16.20.59:8003/zhsq/"
     let prod = "https://www.yjhlcity.com/"
      wx.showLoading({
        title: '拼命加载中',
@@ -55,9 +56,9 @@ module.exports = {
       },
       fail(err) {
         wx.hideLoading()
-        wx.navigateTo({
-          url: '/pages/haveContent/haveContent'
-        })
+        // wx.navigateTo({
+        //   url: '/pages/haveContent/haveContent'
+        // })
         params.fail && params.fail(err)
       },
       complete(lete) {

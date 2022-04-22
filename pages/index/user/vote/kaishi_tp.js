@@ -76,53 +76,56 @@ Page({
       timeL:times
     })
     //console.log(options.id)
-    if(options.id == 'undefined'){
-      this.tpArr()
-    }else{
-      this.wjArr(options.id)
-    }
-    
+    // if(options.id == 'undefined'){
+    //   this.tpArr()
+    // }else{
+    //   this.wjArr(options.id)
+    // }
+   // console.log(options)
+    this.wjArr(options)
   },
-  tpArr(){
-    http.tpApi({
-      data:{
-        votePeopleId:'aaa'
-      },
-      success:res=>{
+  // tpArr(){
+  //   http.tpApi({
+  //     data:{
+  //       votePeopleId:'aaa'
+  //     },
+  //     success:res=>{
         
-        //console.log(res)
-        //var rows = res.rows
-        // var rowsdx = {}
-        // for(var i in rows){
-        //   var voteOption1 = []
-        //   voteOption1.push(rows[i].voteOption.split(';'))
-        //   rows[i].voteOption1 = voteOption1
-        //   rowsdx[i] = null
-        // }
-        ///console.log(rowsdx)
-        this.setData({
-          rows:res.rows
-          //rowsdx:rowsdx
-        })
+  //       //console.log(res)
+  //       //var rows = res.rows
+  //       // var rowsdx = {}
+  //       // for(var i in rows){
+  //       //   var voteOption1 = []
+  //       //   voteOption1.push(rows[i].voteOption.split(';'))
+  //       //   rows[i].voteOption1 = voteOption1
+  //       //   rowsdx[i] = null
+  //       // }
+  //       ///console.log(rowsdx)
+  //       this.setData({
+  //         rows:res.rows
+  //         //rowsdx:rowsdx
+  //       })
 
             
 
-      },
-      fail:err=>{
+  //     },
+  //     fail:err=>{
 
             
-        console.log(err)
-      }
-    })
-  },
+  //       console.log(err)
+  //     }
+  //   }) 
+  // },
 
-  wjArr(id){
+  wjArr(options){
+    //console.log(options)
     http.wjdcApi({
       data:{
-        questionnaireId:id
+        questionnaireId:options.id,
+        type:options.type
       },
       success:res=>{
-        console.log(res)
+        //console.log(res)
         this.setData({
           rows:res.rows
         })
@@ -184,9 +187,8 @@ Page({
               votePeopleName:'德力'
             },
             success:res=>{
-
                   verif.tips('投票成功')
- 
+
             },
             fail:err=>{
 

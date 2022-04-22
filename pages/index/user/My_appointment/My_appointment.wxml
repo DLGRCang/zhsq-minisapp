@@ -8,7 +8,7 @@
 <view class="view_tab">
 <view class="tab_bar" > 
   <view class="{{tabArr.curHdIndex=='0'? 'active' : ''}}" id="0"  data-id="0" bindtap="tab">访客预约</view> 
-  <!-- <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">场地预约</view>  -->
+  <view class="{{tabArr.curHdIndex=='1'? 'active' : ''}}" id="1"  data-id="1" bindtap="tab">场地预约</view> 
 </view> 
  
 <view class="box_content"> 
@@ -16,7 +16,7 @@
   <view class="right-item {{tabArr.curBdIndex=='0'? 'active' : ''}}">
     <defect topPadding="{{350}}" wx:if="{{listData.length == 0}}">
       <view slot="content">暂无数据</view>
-    </defect>
+    </defect> 
     <view class="tab_box" wx:for="{{listData}}" wx:key="index">
       <view class="ewm-1">{{item.visitorName}}临时通行码
         <text class="ewm-1 fr text-gray" wx:if="{{item.isTime == 0}}">未开始</text>
@@ -41,21 +41,33 @@
 
   <!-- 第二栏目 -->
   <view class="right-item {{tabArr.curBdIndex=='1'? 'active' : ''}}">
-      <view class="tab_box" bindtap="xiangqing">
-      <view class="box_left">
-        <view class="cu-tag bg-lvse light xtb">进行中</view>
-        <image src="http://www.tattoojd.com/wp-content/uploads/2019/12/a92.jpg"></image>
+      <view class="tab_box_1" wx:for="{{cdList}}" wx:key="index">
+      <view>预约场地：{{item.place}}</view>
+      <view>预约时间：{{item.data}} {{item.bmTime}}</view>
+          <view>预约状态：
+          <text style="color: rgb(253, 143, 131);" wx:if="{{item.status === '0'}}">预约未审核</text>
+          <text style="color: green;" wx:if="{{item.status === '1'}}">审核通过</text>
+          <text style="color: red;" wx:if="{{item.status === '2'}}">审核未通过</text>
+          </view>
+      <!-- <view class="box_left">
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status === '0'}}">预约未审核</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status === '1'}}">审核通过</view>
+        <view class="cu-tag bg-lvse light xtb" wx:if="{{item.status === '2'}}">审核未通过</view>
+        <image src="{{imgUrl+item.constructionsinfoId}}"></image>
       </view>
       <view class="box_right">
         <view class="right1">
-          <text>职业技能培训</text>
-          内蒙古呼和浩特XXX党支部开展“不忘初心、牢记使命...主题教育活...
+          {{item.place}}
         </view>
         <view class="right2">
-          <view><text class="cuIcon-locationfill" style="color:#F35854"></text> <text class="padd_lf">内蒙古自治区XXXX市XXXX区刺勒川大alsncansoc</text></view>
-          <view><text class="cuIcon-friendfill " style="color:#F35854"></text> <text class="padd_lf">100人</text></view>
+          <view>预约时间：<text class="padd_lf">{{item.data}} {{item.bmTime}}</text></view>
+          <view>预约状态：
+          <text class="padd_lf" wx:if="{{item.status === '0'}}">预约未审核</text>
+          <text class="padd_lf" wx:if="{{item.status === '1'}}">审核通过</text>
+          <text class="padd_lf" wx:if="{{item.status === '2'}}">审核未通过</text>
+          </view>
         </view>
-      </view>
+      </view> -->
     </view>
   </view> 
 </view>

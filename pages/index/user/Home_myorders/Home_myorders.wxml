@@ -78,23 +78,20 @@
        <!-- 订单信息 -->
        <view>
         <view class="actiondd">订单信息</view>
-        <view class="bzf"><text class="fl">订单号</text><text class="fr">{{item.orderId}}</text></view>
+        <view class="bzf"><text class="fl">订单号</text><text class="fr">{{item.orderFormId}}</text></view>
         <view class="psf"><text class="fl">下单时间</text><text class="fr">{{item.placeTime}}</text></view>
        </view>
    
-    
-
-    <!-- 以优惠，合计 -->
-    <view class="fr">
-       <!-- <view class="youhui">已优惠 <text class="text-blue">￥8.5</text> </view> -->
-       <view class="youhui">合计：<text class="text-bold">￥{{item.payMoney}}</text></view>
+  
+    <view class="zhifuView">
+      <view class="youhui">合计：<text class="text-bold">￥{{item.payMoney}}</text></view>
+      <!-- <view class="zhifuBtn" wx:if="{{item.orderState == 0}}" bindtap="tjOrder">支付</view> -->
     </view>
-    
     
   </view>
     </view>
 
- 
+  
 
 
 

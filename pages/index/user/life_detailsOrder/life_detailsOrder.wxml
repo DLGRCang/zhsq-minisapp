@@ -35,9 +35,9 @@
               {{title}}
             </view>
       </view>
-
+ 
     <view class="cu-item " wx:for="{{dataList}}" wx:key="index" wx:if="{{index < coll}}">
-      <view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+      <view class="cu-avatar radius lg" style="background-image:url({{imgUrl+item.picture}});"></view>
       <view class="content">
         <view class="content_title">
           {{item.name}}
@@ -87,7 +87,7 @@
     </view>  
     
      <view class="button_lr">
-       <button bindtap="tjOrder">提交订单</button>
+       <button bindtap="tjOrder">支付</button>
      </view>
 </view>
 

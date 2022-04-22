@@ -227,6 +227,30 @@
           "pathName": "pages/index/user/about/about",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/user/My_appointment/My_appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/user/visitor/visitor",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/user/Home_myorders/Home_myorders",
+          "query": "",
+          "scene": null
         }
       ]
     }

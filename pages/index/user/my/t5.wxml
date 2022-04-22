@@ -58,7 +58,7 @@
   </view>
   <!-- 第一栏 -->
   <view class="my-b-from">
-    <view class="my-p-from" bindtap="myClick" data-url="/pages/index/user/My_appointment/My_appointment">
+    <view class="my-p-from" bindtap="MyAppointmentClick" data-url="/pages/index/user/My_appointment/My_appointment">
       <view class="bot-border">
         <text>我的预约</text>
         <image class="fromImg" src="{{rightHui}}"></image>
@@ -152,9 +152,9 @@
         <image class="fromImg" src="{{rightHui}}"></image>
       </view>
   </view> -->
-  <view class="my-from" bindtap="qcClick">
+  <!-- <view class="my-from" bindtap="qcClick">
         <text>清除缓存</text>
         <image class="fromImg" src="{{rightHui}}"></image>
-  </view>
+  </view> -->
   </view>
 </view>

@@ -1,10 +1,10 @@
 <view class="life">
   <view class="life-top">
-    <view class="sousuo">
+    <!-- <view class="sousuo">
       <text class="cuIcon-search" style="color:#1082FF;font-size:35rpx"></text>
       <input type="text" placeholder="请输入搜索内容"/>
       <view bindtap="Search">搜索</view>
-    </view>
+    </view> -->
     <view class="tab">
       <scroll-view scroll-x class="nav" style="color:#eee" scroll-with-animation scroll-left="{{scrollLeft}}">
         <view class="cu-item {{index==TabCur?'text-bai cur':''}}" wx:for="{{dataTab}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}" data-ids="{{item.value}}">
@@ -30,7 +30,7 @@
               <text class="cuIcon-favorfill" style="font-size:24rpx;color:#F55E5A;margin-right:10rpx" wx:if="{{item.starLevel != null || item.starLevel != ''}}">{{item.starLevel}}</text>
               <text wx:if="{{item.starLevel != null || item.starLevel != ''}}">月销 {{item.salesVolume}}</text>
             </view>
-            <view class="n2-1">距离您1.5km</view>
+            <!-- <view class="n2-1">距离您1.5km</view> -->
           </view>
           
         </view>

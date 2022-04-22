@@ -35,7 +35,7 @@
       <view class="" style="padding:0;margin-bottom:30rpx">
         <view style="font-size:30rpx;margin-bottom:20rpx">人像照片</view>
         <view class="grid col-4 grid-square flex-sub" style="padding:0">
-          <view class="bg-img" wx:for="{{imgList}}" style="width:100%;height:{{imgHeigth}}px;margin:0;padding:0" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+          <view class="bg-img" wx:for="{{imgList}}" style="width:100%;height:{{imgHeigth}}px;margin:0;padding:0" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
             <image src='{{imgList[index]}}' style="width:100%;height:{{imgHeigth}}px;margin:0;padding:0" mode='aspectFill'></image>
  
           </view>

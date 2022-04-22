@@ -90,7 +90,7 @@ Page({
     }else{
    
       if(that.data.trueClick){
-        that.setData({
+        that.setData({ 
           trueClick:false
         })
         
@@ -114,7 +114,7 @@ Page({
                           phone:that.data.phone
                         },
                         success(data) {  
-                        // console.log(data)
+                         console.log(data)
                          if(data.code == "REGIST_ERROR"){
                             verif.tips("登录失败，请稍后重试")
                             setTimeout(()=>{

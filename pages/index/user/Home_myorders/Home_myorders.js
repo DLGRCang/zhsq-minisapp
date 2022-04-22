@@ -53,10 +53,57 @@ Page({
         buy_peop_id:wx.getStorageSync('wxUser').id
       },
       success:res=>{
+        //console.log(res)
         this.setData({
           orderData:res.rows
         })
         console.log(res)
+      }
+    })
+  },
+
+  tjOrder(){
+    var that = this
+    http.mallPayApi({
+      data:{
+        orderId:res.msg,
+        openid:wx.getStorageSync('wxUser').openId,
+        shopListId:shopListId,
+        need_money:that.data.price
+      },
+      success:resa=>{
+        console.log(resa)
+        wx.requestPayment({
+          timeStamp: resa.timeStamp,
+          nonceStr: resa.nonceStr,
+          package: resa.package,
+          signType: resa.signType,
+          paySign: resa.paySign,
+          success(resb) {
+            console.log(resb)
+            http.mallPayOrderStateApi({
+              data:{
+                actual_money:that.data.price,
+                state:'1',
+                mode:0,
+                orderId:res.msg
+              },
+              success:resm=>{
+                verif.tips("支付成功")
+                setTimeout(()=>{
+                  wx.navigateBack({
+                    delta: 2  // 返回上一级页面。
+                  })
+                },800)
+                console.log(resm)
+              }
+            })
+          },
+          fail(err) {
+            console.log(err)
+            
+          }
+        })
       }
     })
   },

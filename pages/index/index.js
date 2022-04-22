@@ -881,13 +881,15 @@ Page({
                                     wx.setStorageSync('village', res)
                                     if(wx.getStorageSync('xzvillage') != ""){
                                       for(var i in res){
-                                        //console.log(res[i].village.villageId)
-                                        if(res[i].village.villageId == wx.getStorageSync('xzvillage').village.villageId){
-                                          wx.setStorageSync('xzvillage', res[i])
-                                          that.setData({
-                                            xzvillage:res[i]
-                                          })
+                                        if(res[i].village != null){
+                                          if(res[i].village.villageId == wx.getStorageSync('xzvillage').village.villageId){
+                                            wx.setStorageSync('xzvillage', res[i])
+                                            that.setData({
+                                              xzvillage:res[i]
+                                            })
+                                          }
                                         }
+                                        
                                       }
                                       
                                     }

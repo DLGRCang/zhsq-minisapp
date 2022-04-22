@@ -37,7 +37,7 @@
       <text class="text-blue yzm">验证码</text>
     </view> -->
     
-    <button class="btn" bindtap="register">进入</button>
+    <button class="btn" bindtap="register">注册</button>
     <!-- <view class="center" bindtap="register">已有账号，去登录</view> -->
 </view>
 

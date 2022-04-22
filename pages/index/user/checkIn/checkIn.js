@@ -237,7 +237,7 @@ quedingsc(){
     })
   },
   tjshClick(){
-    console.log(this.data.fangyuannr)
+   // console.log(this.data.fangyuannr)
     var that = this
     if(this.data.fangyuannr.length == 1){
       var user = this.data.fangyuannr[0]
@@ -274,7 +274,7 @@ quedingsc(){
                 'content-type': 'application/json',
                 'token':wx.getStorageSync('token')
               },
-              success(resm) {
+              success(resm) { 
                 //console.log(resm)
                   http.rzxqApi({
                     data:{
@@ -324,7 +324,7 @@ quedingsc(){
                     fail:err=>{
         
       
-                          that.selectComponent("#haveTrue").trueClick()
+                          //that.selectComponent("#haveTrue").trueClick()
                   
                       console.log(err)
                     }
@@ -332,7 +332,7 @@ quedingsc(){
               },
               fail(err) {
   
-                    that.selectComponent("#haveTrue").trueClick()
+                    //that.selectComponent("#haveTrue").trueClick()
               
                 console.log(err)
               }

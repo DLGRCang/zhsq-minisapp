@@ -15,6 +15,23 @@
   position: absolute;
   z-index: -1;
 }
+.zhifuView{
+  width: 100%;
+  padding:30rpx 30rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.zhifuBtn{
+  width: 100rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#fff;font-size: 32rpx;
+  background: linear-gradient(60deg, #66B7F9, #3A91F7);
+  border-radius: 30rpx;
+}
 /* 内容样式 */
 .order_box{width:100%;margin:0 auto;padding:35rpx;}
 .order_box>.box_one{width: 100%;padding:35rpx;background: #fff;overflow: hidden;clear: both;
@@ -47,7 +64,7 @@
 .zk{text-align: center;padding: 35rpx 0;color: #999999;}  
 .bzf,.psf{line-height: 1.8;    display: flow-root;padding:0 35rpx;}
 .psf{border-bottom: 1rpx solid #eee;padding-bottom: 15rpx;}
-.youhui{padding-right: 35rpx;line-height: 1.8;padding-top: 25rpx;display: inline-block;}
+.youhui{display: inline-block;}
 .text-bold{font-size: 36rpx;font-weight: 400;}
 
 /* 结算样式 */

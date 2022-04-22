@@ -44,6 +44,7 @@
     "pages/index/user/living_payment/shjf",
     "pages/index/user/life_details/life_details",
     "pages/index/user/life_detailsOrder/life_detailsOrder",
+    "pages/index/user/life_detailsOrder/life_detailsOrder_wxpay/life_detailsOrder_wxpay",
     "pages/index/user/setting/setting",
     "pages/index/user/setting_address/setting_address",
     "pages/index/user/news_address/news_address",

@@ -249,6 +249,7 @@ hideModal(e) {
 },
 
 quedingyy(){
+  console.log(wx.getStorageSync('xzvillage'))
   if(this.data.msDate == undefined||this.data.psDate == undefined){
     verif.tips("请选择预约时间段")
   }
@@ -256,7 +257,7 @@ quedingyy(){
   var pmTime = this.data.psDate+"-"+this.data.pxDate
 http.saveconstructionsinfoApi({
   data:{
-    userId:wx.getStorageSync('xzvillage').name,
+    userId:wx.getStorageSync('xzvillage').houseList[0].name,
     data:util.formatTime1(new Date).split(' ')[0],
     bmTime:bmTime,
     pmTime:pmTime,
@@ -266,7 +267,7 @@ http.saveconstructionsinfoApi({
   },
   success:res=>{
     verif.tips("预约成功")
-    console.log(res)
+    //console.log(res)
     this.hideModal()
   }
 })

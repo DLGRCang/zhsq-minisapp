@@ -37,7 +37,8 @@ Page({
     yzItem:{personName:"请选择业主"},
     imgList: [],
     imgId:[],
-    imgBase:null
+    imgBase:null,
+    popupIf:false
   },
 
   yezhuInput(e){
@@ -87,9 +88,9 @@ Page({
   DelImg(e) {
     wx.showModal({
       title: '删除',
-      content: '确定要删除此图片吗',
-      cancelText: '再看看',
-      confirmText: '再见',
+      content: '确定要删除此照片吗',
+      cancelText: '取消',
+      confirmText: '确定',
       success: res => {
         if (res.confirm) {
           this.data.imgList.splice(e.currentTarget.dataset.index, 1);
@@ -117,6 +118,8 @@ Page({
     }
     if(this.data.yezhuText == ""){
       verif.tips("请输入关键字在搜索")
+    }else if(this.data.yezhuText.split('').length === 1){
+      verif.tips("请输入全名搜索")
     }else{
       http.queryPersonnelListV2Api({
         data:{
@@ -201,8 +204,18 @@ Page({
       })
     },
 
+    qdClick(){
+      this.setData({
+        popupIf:false
+      })
+        wx.navigateBack({//返回
+                      delta: 1
+                    })
+    },
+
     tjClick(){
-      console.log(this.data.endTime)
+     
+
       // console.log(this.data.textText)
       // console.log(this.data.dateTime+":00")
       // console.log(this.data.endTime+":00")
@@ -218,9 +231,11 @@ Page({
         verif.tips("请选择来访时间")
       }else if(this.data.endTime == "预计离开时间"){
         verif.tips("请选择离开时间")
-      }else if(this.data.imgBase == null){
-        verif.tips("请上传人脸照片")
-      }else{
+      }
+      // else if(this.data.imgBase == null){
+      //   verif.tips("请上传人脸照片")
+      // }
+      else{
         if(verif.checkPhone(this.data.phoneText)){
           if(verif.checkIdCard(this.data.cardText)){
             var visitorInfoList = [{
@@ -242,12 +257,15 @@ Page({
               success:res=>{
                 console.log(res)
                 if(res.code == "0"){
-                  verif.tips("提交成功")
-                  setTimeout(()=>{
-                    wx.navigateBack({//返回
-                      delta: 1
-                    })
-                  },800)
+                  this.setData({
+                    popupIf:true
+                  })
+                  // verif.tips("提交成功，请到 我的>我的预约>访客预约 查看预约信息")
+                  // setTimeout(()=>{
+                  //   wx.navigateBack({//返回
+                  //     delta: 1
+                  //   })
+                  // },4000)
                 }else if(res.code == "0x0531f002"){
                   verif.tips("预计离开时间必须晚于当前时间")
                 }else if(res.code == "0x0531f003"){

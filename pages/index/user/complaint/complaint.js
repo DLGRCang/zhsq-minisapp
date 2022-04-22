@@ -26,8 +26,8 @@ Page({
     var imgs=verif.imgClick()
     imgs.then(res=>{
        this.setData({
-        imgId:this.data.imgId.concat(res),
-        imgList:this.data.imgList.concat(this.data.imgUrl+res),
+        imgId:this.data.imgId.concat(res.imgs),
+        imgList:this.data.imgList.concat(this.data.imgUrl+res.imgs),
       })
     })
    // console.log(this.data.imgList)

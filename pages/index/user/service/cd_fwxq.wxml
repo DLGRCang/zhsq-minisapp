@@ -74,7 +74,7 @@
       <view class="action text-green" bindtap="quedingyy">确定</view>
       
     </view>
-    <view class="padding-xl">
+    <view class="padding-xl" style="height: 500rpx;overflow-y: auto;">
       <view class="times">
         <view class="times-s">上午</view>
         <view class="times-f">

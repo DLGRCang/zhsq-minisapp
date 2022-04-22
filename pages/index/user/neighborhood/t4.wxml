@@ -13,7 +13,7 @@
         </view>
       </scroll-view>
     </view>
-<view class="t4" style="{{rows.length != 0 ? 'padding-top:170rpx':''}};">
+<view class="t4" style="{{rows.length != 0 ? 'padding-top:170rpx':''}}">
   
 <view class="head_content">
 <view class="cu-card dynamic {{isCard?'no-card':''}}" style="min-height:100%;padding: 0 30rpx 100rpx;">

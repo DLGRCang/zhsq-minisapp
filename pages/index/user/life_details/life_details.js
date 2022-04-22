@@ -19,8 +19,8 @@ Page({
     imgUrl: app.globalData.imgUrl,
     tabBox:[
       {name:'全部商品'},
-      {name:'评价'},
-      {name:'商家'}
+      // {name:'评价'},
+      // {name:'商家'}
     ],
     TabCur: 0,
     MainCur: 0,
@@ -135,6 +135,7 @@ Page({
         page:this.data.page
       },
       success:res=>{
+        //console.log(res)
         var weChatList1 = this.data.weChatList1
 
         var rows = res.rows
@@ -153,9 +154,11 @@ Page({
         var query = wx.createSelectorQuery()
         query.select('#shopimg').boundingClientRect(function (res) { 
           //console.log(res)
-          that.setData({
-            shopWidth:res.height+20
-          })
+          if(res != null){
+            that.setData({
+              shopWidth:res.height+20
+            })
+          }
           }).exec();
       },
       fail:err=>{
@@ -408,9 +411,13 @@ shopClickFalse(){
         var that = this
         var query = wx.createSelectorQuery()
         query.select('#shopimg').boundingClientRect(function (res) { 
-          that.setData({
-            shopWidth:res.height+20
-          })
+          //console.log(res)
+          if(res != null){
+            that.setData({
+              shopWidth:res.height+20
+            })
+          }
+         
           }).exec();
       },
       fail:err=>{

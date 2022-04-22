@@ -32,10 +32,10 @@ Page({
     var that = this
     //console.log(e)
 
-       // console.log(e)
+       console.log(e)
         wx.login({
           success: resa => {
-           // console.log(resa)
+            //console.log(resa)
             http.loginApi({
               data:{
                 code:resa.code,

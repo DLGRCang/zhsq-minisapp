@@ -10,7 +10,7 @@
     获得您的公开信息（昵称，头像等）
   </view>
   <view class="aut3">
-    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">确认授权</button>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">确认授权/注册</button>
   </view>
   <view class="aut4">
     <view bindtap="notTemporarily">暂不授权</view>

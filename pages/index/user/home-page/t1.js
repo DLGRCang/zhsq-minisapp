@@ -70,6 +70,7 @@ Component({
     time:'',
     timeL:0,
     rowsWJ:[],
+    rowsTP:[],
     //rowsSQHD:[],
     
     xwrows:[],
@@ -196,7 +197,8 @@ Component({
   },
 
   contentClick(e){
-   // console.log(wx.getStorageSync('xzvillage'))
+    console.log(wx.getStorageSync('xzvillage'))
+    console.log(wx.getStorageSync('wxUser'))
     //console.log(e.currentTarget.dataset.id)
     var id = e.currentTarget.dataset.id
    
@@ -298,7 +300,7 @@ Component({
   },
   xqvode(e){
     wx.navigateTo({
-      url:'/pages/index/user/vote/kaishi_tp?id='+e.currentTarget.dataset.id
+      url:'/pages/index/user/vote/kaishi_tp?id='+e.currentTarget.dataset.id+'&type='+e.currentTarget.dataset.type
     })
   },
   xqvodetwo(){
@@ -331,20 +333,28 @@ Component({
   },
   wenjuan(){
     http.wjApi({
+      type:1,
       success:res=>{
-
-            
-
-        
         //console.log(res)
         this.setData({
           rowsWJ:res.rows
         })
       },
       fail:err=>{
-
-            
-
+        console.log(err)
+      }
+    })
+  },
+  diaocha(){
+    http.wjApi({
+      type:0,
+      success:res=>{
+        //console.log(res)
+        this.setData({
+          rowsTP:res.rows
+        })
+      },
+      fail:err=>{
         console.log(err)
       }
     })
@@ -364,13 +374,8 @@ Component({
   },
   sqhdList(){
     if(this.data.rowsSQHD.length == 0){
-
       http.commrmApi({
-        
         success:res=>{
-
-              
- 
           //console.log(res)
           var rowsList = res.rows
           
@@ -389,9 +394,6 @@ Component({
 
         },
         fail:err=>{
-
-              
-
           console.log(err)
         }
       })
@@ -408,16 +410,12 @@ Component({
   
 
   xinwenList(){
-
     http.newsApi({
       data:{
         code:'wytzfbgl',
         cur:'1'
       },
       success:res=>{
-
-            
-
         //console.log(res)
         for(var i in res.rows){
           if(res.rows[i].isTop == '置顶'){
@@ -462,6 +460,7 @@ Component({
   
   getAddInfo(){
     this.wenjuan()
+    this.diaocha()
   },
   renlian(){
    // console.log('aa')
@@ -557,7 +556,7 @@ Component({
   lifetimes: {
     //在组件实例刚刚被创建时执行
     created() {
-      
+      //6666console.log(wx.getStorageSync('xzvillage'))
     },
     
     //在组件实例进入页面节点树时执行
@@ -574,7 +573,7 @@ Component({
       }
       
       
-     // console.log(wx.getStorageSync('wxUser').id)
+     //console.log(wx.getStorageSync('wxUser'))
     // console.log(this.data.shopping)
       
       //this.sqhdList()
@@ -644,6 +643,7 @@ Component({
         })
       }
       this.wenjuan()
+      this.diaocha()
       this.timeList()
       this.xinwenList()
     },

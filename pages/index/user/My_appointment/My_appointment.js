@@ -2,12 +2,14 @@
 import verif from '../../../../utils/verification'
 import drawQrcode from '../../../../utils/weapp.qrcode.js'
 import http from '../../../../utils/api'
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    imgUrl:app.globalData.imgUrl,
     pullup:'#1BB1FD',
     Length:7,    //输入框个数 
     isFocus:true,  //聚焦 
@@ -19,6 +21,7 @@ Page({
       curBdIndex: 0
     }, 
     listData:[],
+    cdList:[],
     qsTrue:true,
     ewmTrue:false,
     img:null
@@ -37,9 +40,11 @@ Page({
 },  
 
 // 场地预约 跳转详情
-xiangqing(){
+xiangqing(e){
+  //console.log(e)
+  var id = e.currentTarget.dataset.id
   wx.navigateTo({
-    url: '/pages/index/user/service/cd_fwxq'
+    url: '/pages/index/user/service/cd_fwxq?id='+id
   })
 },
 
@@ -63,6 +68,7 @@ xiangqing(){
       }
     }, 700);
     this.kmyuyue()
+    this.cdyuyue()
     // if(Object.keys(this.data.listData).length == 0){
     //   this.setData({
     //     qsTrue:false
@@ -70,22 +76,29 @@ xiangqing(){
     // }
   },
   scewmClick(e){
+    console.log()
     var that = this
-    wx.request({
-      url: "https://www.yjhlcity.com/zhsqhik/app/release/hikApi/creatQRcode?str="+e.currentTarget.dataset.item.QRCode, //获取图片的URL
-      method:"get",
-      responseType: 'arraybuffer',    //ArrayBuffer涉及面比较广，我的理解是ArrayBuffer代表内存之中的一段二进制数据，一旦生成不能再改。可以通过视图（TypedArray和DataView）进行操作。
-      success (res) {
-        let url ='data:image/png;base64,'+wx.arrayBufferToBase64(res.data)
+    let url ='data:image/png;base64,'+e.currentTarget.dataset.item.QRCode
+    console.log(url)
         that.setData({
           img:url,
           ewmTrue:true
         })
-      },
-      fail(res){
-        Toast.clear();
-      }
-    })
+    // wx.request({
+    //   url: "https://www.yjhlcity.com/zhsqhik/app/release/hikApi/creatQRcode?str="+e.currentTarget.dataset.item.QRCode, //获取图片的URL
+    //   method:"get",
+    //   responseType: 'arraybuffer',    //ArrayBuffer涉及面比较广，我的理解是ArrayBuffer代表内存之中的一段二进制数据，一旦生成不能再改。可以通过视图（TypedArray和DataView）进行操作。
+    //   success (res) {
+    //     let url ='data:image/png;base64,'+wx.arrayBufferToBase64(res.data)
+    //     that.setData({
+    //       img:url,
+    //       ewmTrue:true
+    //     })
+    //   },
+    //   fail(res){
+    //     Toast.clear();
+    //   }
+    // })
     // http.creatQRcodeApi({
     //   data:{
     //     str:e.currentTarget.dataset.item.QRCode
@@ -123,10 +136,23 @@ xiangqing(){
             res.data[i].isTime = 2
           }
         }
-        console.log(res)
+        //console.log(res)
         this.setData({
           listData:res.data
         })
+      }
+    })
+  },
+
+  cdyuyue(){
+    //console.log(wx.getStorageSync('xzvillage'))
+    http.listconstructionsinfoApi({
+      data:{
+        userId:wx.getStorageSync('xzvillage').houseList[0].unifiedUserId
+      },
+      success:res=>{
+        this.setData({cdList:res})
+        console.log(res)
       }
     })
   },

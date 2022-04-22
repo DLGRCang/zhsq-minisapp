@@ -2,12 +2,14 @@
 import util from '../../../../utils/util'
 import http from '../../../../utils/api'
 import verif from '../../../../utils/verification'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    imgUrl: app.globalData.imgUrl,
     isCollect: true, // 默认下箭头
     time: '12:01',
     isShow: false,
@@ -65,7 +67,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(JSON.parse(options.item))
     var time = util.formatTime(new Date)
     var time1 = time.split(" ")[0]
     var time2 = time.split(" ")[1]
@@ -88,7 +89,7 @@ Page({
       )
     }
 
-    console.log(orderMessage)
+    console.log(item)
 
 
     this.setData({
@@ -103,11 +104,21 @@ Page({
 
 
   tjOrder(){
+    var that = this
     //console.log(wx.getStorageSync('xzvillage').houseList[0].unifiedUserId)
+    //console.log(that.data.dataList)
+    let shopListId = ""
+    for(let i in that.data.dataList){
+      if(Number(i) === (that.data.dataList.length-1)){
+        shopListId = shopListId+that.data.dataList[i].shopListId
+      }else{
+        shopListId = shopListId+that.data.dataList[i].shopListId+','
+      }
+    }
+    //console.log(shopListId)
     if(this.data.addresid == null){
       verif.tips("请选择您的收获地址")
     }else{
-      
       http.saveorderApi({
         data:{
           address:this.data.province+this.data.city+this.data.county+this.data.detail,
@@ -120,14 +131,58 @@ Page({
           receiptPhone:this.data.phone,
           orderMessage:this.data.orderMessage,
         },
-        success:res=>{
-          verif.tips("提交成功")
-          console.log(res)
-          setTimeout(()=>{
-            wx.navigateBack({
-              delta: 2  // 返回上一级页面。
+        success:res=>{ 
+          //verif.tips("提交成功")
+          //console.log(res)
+          if(res.code === 200){
+            http.mallPayApi({
+              data:{
+                orderId:res.msg,
+                openid:wx.getStorageSync('wxUser').openId,
+                shopListId:shopListId,
+                need_money:that.data.price
+              },
+              success:resa=>{
+                console.log(resa)
+                wx.requestPayment({
+                  timeStamp: resa.timeStamp,
+                  nonceStr: resa.nonceStr,
+                  package: resa.package,
+                  signType: resa.signType,
+                  paySign: resa.paySign,
+                  success(resb) {
+                    console.log(resb)
+                    http.mallPayOrderStateApi({
+                      data:{
+                        actual_money:that.data.price,
+                        state:'1',
+                        mode:0,
+                        orderId:res.msg
+                      },
+                      success:resm=>{
+                        verif.tips("支付成功")
+                        setTimeout(()=>{
+                          wx.navigateBack({
+                            delta: 2  // 返回上一级页面。
+                          })
+                        },800)
+                        console.log(resm)
+                      }
+                    })
+                  },
+                  fail(err) {
+                    console.log(err)
+                    
+                  }
+                })
+              }
             })
-          },800)
+          }
+          // setTimeout(()=>{
+          //   wx.navigateBack({
+          //     delta: 2  // 返回上一级页面。
+          //   })
+          // },800)
           
         }
       })

@@ -72,6 +72,15 @@ Page({
     })
 },
 
+tcClick(){
+  wx.clearStorage()
+    setTimeout(()=>{
+      wx.navigateTo({
+        url: '/pages/index/index'
+      })
+    },300)
+},
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -44,6 +44,11 @@ Component({
       })
     }
     },  
+    MyAppointmentClick(e){
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
+      })
+    },
     myClick(e){
       if(!wx.getStorageSync('village')||JSON.stringify(wx.getStorageSync('village')) == '{}'){
         verif.tips('您不是小区人员，请联系您所在小区物业')
@@ -131,6 +136,8 @@ Component({
       }else{
         var village=wx.getStorageSync('village')
       }
+      // console.log(wx.getStorageSync('wxUser'))
+      // console.log(wx.getStorageSync('xzvillage'))
       this.setData({
         ifLogin:false,
         wxUser:wx.getStorageSync('wxUser'),

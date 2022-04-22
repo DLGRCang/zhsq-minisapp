@@ -18,7 +18,13 @@
 .view_tab>.tab_bar>view{font-weight:bold;height:55rpx;line-height: 55rpx;float: left;margin-right: 45rpx;text-align: center;}
 
 .tab_box{ overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;border-radius: 20rpx;}
-
+.tab_box_1{
+  overflow: hidden;clear: both;width:93%;margin:25rpx auto;  background: #FFFFFF;border-radius: 20rpx;
+  padding: 20rpx;
+}
+.tab_box_1 view{
+  padding: 5rpx 0;
+}
 
     /*密码  */
 .ewm-1{padding: 30rpx 30rpx 0;font-size:28rpx;font-family:Microsoft YaHei;font-weight:600;color:#333}

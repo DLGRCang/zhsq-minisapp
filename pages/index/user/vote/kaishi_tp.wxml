@@ -10,7 +10,7 @@
   </view>
   <view class="box-body">
     <image src="https://www.yjhlcity.com/zhsq/assets/images/applets/back.png" class="beijing"></image>
-    <view class="body-ase" wx:for="{{rows}}" bindtap="tp_click" data-id="{{item.voteId}}">
+    <view class="body-ase" wx:for="{{rows}}" bindtap="tp_click" data-id="{{item.voteId}}" wx:key="index">
       <view class="abc"></view>
       <view class="ase-box">
         <view class="ase-left">

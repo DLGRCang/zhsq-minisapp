@@ -18,7 +18,8 @@ Page({
   console.log(wx.getStorageSync('xzvillage'))
   
     this.setData({
-      xqText:wx.getStorageSync('xzvillage').houseList[0].villageName
+      //xqText:wx.getStorageSync('xzvillage').houseList[0].villageName
+      xqText:wx.getStorageSync('xzvillage').village.propertyName
     })
     this.jfArr()
   },
@@ -58,14 +59,15 @@ Page({
         need_money:e.currentTarget.dataset.price
       },
       success:res=>{
+        console.log(res)
         wx.requestPayment({
           timeStamp: res.timeStamp,
           nonceStr: res.nonceStr,
           package: res.package,
-          signType: 'MD5',
+          signType: res.signType,
           paySign: res.paySign,
-          success(res) {
-     
+          success(resa) {
+            console.log(resa)
             http.payOrderStateApi({
               data:{
                 actual_money:e.currentTarget.dataset.price,
@@ -73,23 +75,25 @@ Page({
                 mode:0,
                 house_pay_id:e.currentTarget.dataset.id
               },
-              success:res=>{
+              success:resm=>{
                 verif.tips("缴费成功")
                 var jfList = that.data.jfList
                 jfList[e.currentTarget.dataset.i].state = 1
                 that.setData({
                   jfList:jfList
                 })
-                console.log(res)
+                console.log(resm)
               }
             })
 
           },
-          fail(res) {
-            console.log(res)
+          fail(err) {
+            console.log(err)
             
           }
         })
+      },fail(err){
+        console.log(err)
       }
     })
   },

@@ -6,7 +6,7 @@
 		<view class="title">所在小区</view>
 		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
 			<view class="picker">
-				{{index?picker[index]:'请选择小区'}}
+				{{index?picker[index]:'请选择小区'}} 
 			</view>
 		</picker>
   </view>
@@ -53,7 +53,7 @@
   <view class="margin-top textarea">
         <view class="title" style="padding-bottom:16rpx">人脸照片</view>
         <view class="grid col-4 grid-square flex-sub">
-          <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+          <view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
             <image src='{{imgList[index]}}' mode='aspectFill'></image>
             <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
               <text class="cuIcon-close"></text>
@@ -98,6 +98,15 @@
           <button catchtap="quedingsc">确定</button>
         </view>
     </view>
+  </view>
+  <view class="popup_view" wx:if="{{popupIf}}">
+    <view class="popup_view1">
+      <view>提交成功</view>
+      <view>请到：</view>
+      <view>我的 ➡ 我的预约 ➡ 访客预约</view>
+      <view>查看预约信息。</view>
+    </view>
+    <view class="popup_view2" bindtap="qdClick">确定</view>
   </view>
 <view class="btn">
   <view bindtap="tjClick">提交</view>

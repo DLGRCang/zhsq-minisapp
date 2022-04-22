@@ -136,21 +136,29 @@
 
 <!-- 第四部分 -->
  <view class="xqtp_box" wx:if="{{toupiaoTrue}}">
-<text class="sqhd_title">小区投票</text>
-<view class="body-ase" bindtap="xqvode">
+  <text class="sqhd_title" wx:if="{{rowsTP.length != 0}}">小区投票</text>
+<view class="body-ase" wx:for="{{rowsTP}}" wx:key="index" bindtap="xqvode" data-id="{{item.questionnaireId}}" data-type="0">
       <view class="abc"></view>
       <view class="ase-box">
         <view class="ase-left">
-          <view>汇通社区居委会举办家庭亲子活动</view>
-
+          <view>{{item.questionnaireName}}</view>
           <view>{{timeL}}</view>
         </view>
         <view class="ase-right">
           <view class="btn">投票</view>
         </view>
       </view>
+
+
 </view>
 </view>
+<!-- <view class="xqtp_box" wx:if="{{toupiaoTrue&&rowsWJ.length != 0}}">
+  <text class="sqhd_title">投票</text>
+  <view style="width: 100%;height: 100rpx;display: flex;align-items: center;justify-content: space-between;font-size: 35rpx;">
+    <view style="width: 49%;height: 100%;background: #188BFF;display: flex;align-items: center;justify-content: center;color: #fff;border-radius: 15rpx;">小区投票</view>
+    <view style="width: 49%;height: 100%;display: flex;align-items: center;justify-content: center;color: #fff;border-radius: 15rpx;background: #CD2424;">问卷调查</view>
+  </view>
+</view> -->
 <!-- 第五部分 -->
 <!-- <view class="xqtp_box">
 <text class="sqhd_title">小区公示</text>
@@ -172,7 +180,7 @@
 <!-- 第六部分 -->
 <view class="xqtp_box">
 <text class="sqhd_title" wx:if="{{rowsWJ.length != 0}}">问卷调查</text>
-<view class="body-ase" wx:for="{{rowsWJ}}" wx:key="index" bindtap="xqvode" data-id="{{item.questionnaireId}}">
+<view class="body-ase" wx:for="{{rowsWJ}}" wx:key="index" bindtap="xqvode" data-id="{{item.questionnaireId}}" data-type="1">
       <view class="abc"></view>
       <view class="ase-box">
         <view class="ase-left">
