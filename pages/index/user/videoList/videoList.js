@@ -70,6 +70,7 @@ Page({
 
   ClickVideo(e){
     this.setData({
+      password:"",
       mettingno:e.currentTarget.dataset.mettingno,
       pass:e.currentTarget.dataset.password
     })
@@ -100,6 +101,7 @@ Page({
       verif.tips("请输入入会密码")
     }else{
       if(this.data.password == this.data.pass){
+        this.hideModal()
           wx.navigateTo({
             url: '/pages/index/user/airClass/airClass?video=0'+"&mettingno="+this.data.mettingno+"&password="+this.data.password
           })
@@ -119,7 +121,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
