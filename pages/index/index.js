@@ -926,7 +926,6 @@ Page({
                                 //       }
                                       
                                 //     }
-                      
                                 //     if(village.length == 1){
                                 //       var xzvillage = []
                                 //       for(var m in village[0]){

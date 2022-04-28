@@ -89,7 +89,7 @@ Page({
       )
     }
 
-    console.log(item)
+    //console.log(item)
 
 
     this.setData({
@@ -134,16 +134,16 @@ Page({
         success:res=>{ 
           //verif.tips("提交成功")
           //console.log(res)
-          if(res.code === 200){
+
             http.mallPayApi({
               data:{
-                orderId:res.msg,
+                orderId:res.data,
                 openid:wx.getStorageSync('wxUser').openId,
                 shopListId:shopListId,
                 need_money:that.data.price
               },
               success:resa=>{
-                console.log(resa)
+                //console.log(resa)
                 wx.requestPayment({
                   timeStamp: resa.timeStamp,
                   nonceStr: resa.nonceStr,
@@ -151,13 +151,13 @@ Page({
                   signType: resa.signType,
                   paySign: resa.paySign,
                   success(resb) {
-                    console.log(resb)
+                    //console.log(resb)
                     http.mallPayOrderStateApi({
                       data:{
                         actual_money:that.data.price,
                         state:'1',
                         mode:0,
-                        orderId:res.msg
+                        orderId:res.data
                       },
                       success:resm=>{
                         verif.tips("支付成功")
@@ -175,9 +175,12 @@ Page({
                     
                   }
                 })
+              },
+              fail(err){
+                console.log(err)
               }
             })
-          }
+          
           // setTimeout(()=>{
           //   wx.navigateBack({
           //     delta: 2  // 返回上一级页面。

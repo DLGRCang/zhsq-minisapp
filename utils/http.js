@@ -55,6 +55,7 @@ module.exports = {
         
       },
       fail(err) {
+        //console.log(err)
         wx.hideLoading()
         // wx.navigateTo({
         //   url: '/pages/haveContent/haveContent'

@@ -76,43 +76,41 @@ xiangqing(e){
     // }
   },
   scewmClick(e){
-    console.log()
     var that = this
-    let url ='data:image/png;base64,'+e.currentTarget.dataset.item.QRCode
-    console.log(url)
-        that.setData({
-          img:url,
-          ewmTrue:true
-        })
-    // wx.request({
-    //   url: "https://www.yjhlcity.com/zhsqhik/app/release/hikApi/creatQRcode?str="+e.currentTarget.dataset.item.QRCode, //获取图片的URL
-    //   method:"get",
-    //   responseType: 'arraybuffer',    //ArrayBuffer涉及面比较广，我的理解是ArrayBuffer代表内存之中的一段二进制数据，一旦生成不能再改。可以通过视图（TypedArray和DataView）进行操作。
-    //   success (res) {
-    //     let url ='data:image/png;base64,'+wx.arrayBufferToBase64(res.data)
+    // let url ='data:image/png;base64,'+wx.arrayBufferToBase64(e.currentTarget.dataset.item.QRCode)
     //     that.setData({
     //       img:url,
     //       ewmTrue:true
     //     })
-    //   },
-    //   fail(res){
-    //     Toast.clear();
-    //   }
-    // })
-    // http.creatQRcodeApi({
-    //   data:{
-    //     str:e.currentTarget.dataset.item.QRCode
-    //   },
-    //   success:res=>{
-    //     console.log(res)
-    //     let url =wx.arrayBufferToBase64(res)
-    //     console.log(url)
-    //     this.setData({
-    //       img:res,
-    //       ewmTrue:true
-    //     })
-    //   }
-    // })
+    wx.request({
+      url: "https://www.yjhlcity.com/zhsqhik/app/release/hikApi/creatQRcode?str="+e.currentTarget.dataset.item.QRCode, //获取图片的URL
+      method:"get",
+      responseType: 'arraybuffer',    //ArrayBuffer涉及面比较广，我的理解是ArrayBuffer代表内存之中的一段二进制数据，一旦生成不能再改。可以通过视图（TypedArray和DataView）进行操作。
+      success (res) {
+        let url ='data:image/png;base64,'+wx.arrayBufferToBase64(res.data)
+        that.setData({
+          img:url,
+          ewmTrue:true
+        })
+      },
+      fail(res){
+        Toast.clear();
+      }
+    })
+    http.creatQRcodeApi({
+      data:{
+        str:e.currentTarget.dataset.item.QRCode
+      },
+      success:res=>{
+        //console.log(res)
+        let url =wx.arrayBufferToBase64(res)
+        console.log(url)
+        this.setData({
+          img:res,
+          ewmTrue:true
+        })
+      }
+    })
   },
   ewmgbClick(){
     this.setData({
@@ -152,7 +150,7 @@ xiangqing(e){
       },
       success:res=>{
         this.setData({cdList:res})
-        console.log(res)
+        //console.log(res)
       }
     })
   },
